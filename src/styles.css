@@ -4,3 +4,7 @@ body{
     padding: 0px;
     box-sizing: border-box;
 }
+
+nav a.active{
+    color: #039be5;
+}

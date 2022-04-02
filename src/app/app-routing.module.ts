@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './home/home.component';
-import { CrearEquiposComponent } from './crear-equipos/crear-equipos.component';
-import { ConsultarEquiposComponent } from './consultar-equipos/consultar-equipos.component';
-import { Evaluacion360Component } from './evaluacion360/evaluacion360.component';
+import { HomeComponent } from '../home/home.component';
+import { CrearEquiposComponent } from '../crear-equipos/crear-equipos.component';
+import { ConsultarEquiposComponent } from '../consultar-equipos/consultar-equipos.component';
+import { Evaluacion360Component } from '../evaluacion360/evaluacion360.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MsalguardGuard } from './msalguard.guard';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
   {path: 'crearEquipos', component: CrearEquiposComponent},
   {path: 'consultarEquipos', component: ConsultarEquiposComponent},
   {path: 'evaluacion360', component: Evaluacion360Component}

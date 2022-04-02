@@ -1,0 +1,17 @@
+<section class="home">
+    <div class="homecontent">
+        <nav>
+            <a routerLink="/consultarEquipos" routerLinkActive="active">Consultar Equipos</a>
+            <a routerLink="/crearEquipos" routerLinkActive="active">Crear Equipos</a>
+            <a routerLink="/evaluacion360" routerLinkActive="active">Evaluacion 360</a>
+            <button (click)="logout()" *ngIf="isLoggedIn()">Cerrar Sesión</button>
+        </nav>
+        <div *ngIf="isLoggedIn()">
+            <h3>You are logged in</h3>
+        </div>
+        <h1>IPS Central</h1>
+    </div>
+</section>
+
+<!-- Router View goes here-->
+<router-outlet></router-outlet>

@@ -4,10 +4,13 @@
         <img class="logo" src="../assets/logo.png"/>
         <h1>IPS Central</h1>
         <!--a href="#" class="btn btn-lg btn-light">Comienza Ahora</a-->
-        <button (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Comienza Ahora</button>
-        <script>
-            // script para sign in :p
-        </script>
+        <button routerLink="/home" (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Comienza Ahora</button>
+        <div *ngIf="isLoggedIn()">
+            <h3>You are logged in</h3>
+        </div>
+        <div *ngIf="!isLoggedIn()">
+            <h3>You are NOT logged in</h3>
+        </div>
     </div>
 </section>
 
