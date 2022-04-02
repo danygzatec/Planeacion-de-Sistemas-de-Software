@@ -30,10 +30,10 @@ export class AppComponent implements OnInit {
 
   login(){
     //redirect a microsoft login
-    this.msalService.loginRedirect();
-    /*this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>{
+    //this.msalService.loginRedirect();
+    this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>{
       this.msalService.instance.setActiveAccount(response.account)
-    }); */
+    }); 
   }
 
   logout(){

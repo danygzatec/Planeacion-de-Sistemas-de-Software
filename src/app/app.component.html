@@ -7,6 +7,7 @@
         <button routerLink="/home" (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Comienza Ahora</button>
         <div *ngIf="isLoggedIn()">
             <h3>You are logged in</h3>
+            <button (click)="logout()" *ngIf="isLoggedIn()" class="boton_inicio">Cerrar Sesión</button>
         </div>
         <div *ngIf="!isLoggedIn()">
             <h3>You are NOT logged in</h3>
