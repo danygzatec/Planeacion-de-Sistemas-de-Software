@@ -1,26 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { CrearEquiposComponent } from './crear-equipos/crear-equipos.component';
-import { ConsultarEquiposComponent } from './consultar-equipos/consultar-equipos.component';
-import { Evaluacion360Component } from './evaluacion360/evaluacion360.component';
+import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
+
+import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+
+export function MSALInstanceFactory() : IPublicClientApplication{
+  return new PublicClientApplication({
+    auth : {
+      clientId: '37cbc692-0a3c-4fa1-9125-bc6745aa6156',
+      redirectUri: 'http://localhost:4200'
+    }
+  })
+}
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
-    HomeComponent,
-    CrearEquiposComponent,
-    ConsultarEquiposComponent,
-    Evaluacion360Component
+    routingComponents
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MsalModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+    MsalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

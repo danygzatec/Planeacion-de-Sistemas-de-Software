@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { CrearEquiposComponent } from './crear-equipos/crear-equipos.component';
+import { ConsultarEquiposComponent } from './consultar-equipos/consultar-equipos.component';
+import { Evaluacion360Component } from './evaluacion360/evaluacion360.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'crearEquipos', component: CrearEquiposComponent},
+  {path: 'consultarEquipos', component: ConsultarEquiposComponent},
+  {path: 'evaluacion360', component: Evaluacion360Component}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component]
