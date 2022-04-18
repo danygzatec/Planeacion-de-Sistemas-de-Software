@@ -2,9 +2,8 @@
     <img src="../assets/homeBG.png">
     <div class="homecontent">
         <img class="logo" src="../assets/logo.png"/>
-        <h1>IPS Central</h1>
         <!--a href="#" class="btn btn-lg btn-light">Comienza Ahora</a-->
-        <a routerLink="/home"><button (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Comienza Ahora</button></a>
+        <a routerLink="/home"><button (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Sign in with Microsoft</button></a>
         <div *ngIf="isLoggedIn()">
             <h3>You are logged in</h3>
             <button (click)="logout()" *ngIf="isLoggedIn()" class="boton_inicio">Cerrar Sesión</button>
