@@ -3,7 +3,7 @@
     <div class="homecontent">
         <img class="logo" src="../assets/logo.png"/>
         <!--a href="#" class="btn btn-lg btn-light">Comienza Ahora</a-->
-        <a routerLink="/home"><button (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Sign in with Microsoft</button></a>
+        <button (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio">Sign in with Microsoft</button>
         <div *ngIf="isLoggedIn()">
             <h3>You are logged in</h3>
             <button (click)="logout()" *ngIf="isLoggedIn()" class="boton_inicio">Cerrar Sesión</button>
@@ -12,6 +12,7 @@
             <h3>You are NOT logged in</h3>
         </div>
     </div>
+    
 </section>
 
 <!-- Router View goes here-->
