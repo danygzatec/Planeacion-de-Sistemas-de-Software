@@ -6,20 +6,24 @@
     object-position: center;
     object-fit: cover;
 }
+.img{
+    max-width: 200% !important;
+    max-height: 200% !important;
+}
 
 .homecontent{
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 32%;
+    display: flex;
 }
 
 .logo{
     position: absolute;
-    float: left;
-    max-width: 50% !important;
-    max-height: 190%;
-    margin-left: -55%;
-    top: -55%;
+    display: flex;
+    max-width: 2500% !important;
+    max-height: 2500% !important;
+    margin-top: -27em;
 }
 
 h1{
