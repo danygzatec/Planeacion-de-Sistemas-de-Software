@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
-import { CrearEquiposComponent } from '../crear-equipos/crear-equipos.component';
-import { ConsultarEquiposComponent } from '../consultar-equipos/consultar-equipos.component';
-import { Evaluacion360Component } from '../evaluacion360/evaluacion360.component';
+import { CrearEquiposComponent } from '../app/components/crear-equipos/crear-equipos.component';
+import { ConsultarEquiposComponent } from '../app/components/consultar-equipos/consultar-equipos.component';
+import { Evaluacion360Component } from '../app/components/evaluacion360/evaluacion360.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MsalguardGuard } from './msalguard.guard';
 
