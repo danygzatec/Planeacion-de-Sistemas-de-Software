@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
   {path: 'crearEquipos', component: CrearEquiposComponent},
   {path: 'consultarEquipos', component: ConsultarEquiposComponent},
-  {path: 'evaluacion360', component: Evaluacion360Component}
+  {path: 'evaluacion360', component: Evaluacion360Component},
+  {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 @NgModule({
