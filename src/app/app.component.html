@@ -1,11 +1,21 @@
 <section class="home">
     <img src="../assets/homeBG.png">
+    
     <div class="homecontent">
+        <div class="navbar">
+            <table>
+                <tr>
+                    <td>
+                        <a routerLink="home" *ngIf="isLoggedIn()">Home</a>
+                        <a routerLink="crear-equipos" *ngIf="isLoggedIn()"> Crear Equipos</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <img class="logo" src="../assets/logo.png"/>
         <!--a href="#" class="btn btn-lg btn-light">Comienza Ahora</a-->
         <div class="microsoft"></div><button (click)="login()" *ngIf="!isLoggedIn()" class="boton_inicio"><object type="image/svg+xml" data="https://s3-eu-west-1.amazonaws.com/cdn-testing.web.bas.ac.uk/scratch/bas-style-kit/ms-pictogram/ms-pictogram.svg" class="x-icon"></object> Sign in with Microsoft</button>
         <div *ngIf="isLoggedIn()">
-            
             <h3>You are logged in {{ getNameAccount() }} with email {{ getEmailAccount() }}</h3>
             <button (click)="logout()" *ngIf="isLoggedIn()" class="boton_inicio">Cerrar Sesión</button>
         </div>

@@ -5,12 +5,13 @@ import { ConsultarEquiposComponent } from '../app/components/consultar-equipos/c
 import { Evaluacion360Component } from '../app/components/evaluacion360/evaluacion360.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MsalguardGuard } from './msalguard.guard';
+import { MsalGuard } from '@azure/msal-angular';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
-  {path: 'crearEquipos', component: CrearEquiposComponent},
-  {path: 'consultarEquipos', component: ConsultarEquiposComponent},
-  {path: 'evaluacion360', component: Evaluacion360Component},
+  {path: 'crear-equipos', component: CrearEquiposComponent, canActivate: [MsalguardGuard]},
+  {path: 'consultar-equipos', component: ConsultarEquiposComponent, canActivate: [MsalguardGuard]},
+  {path: 'evaluacion360', component: Evaluacion360Component, canActivate: [MsalguardGuard]},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

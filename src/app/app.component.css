@@ -66,6 +66,16 @@ h1{
     top: .125em;
     position: relative;
 }
+table{
+    margin-top: -50em;
+    list-style-type: none;
+}
+
+ul{
+    list-style-type: none;
+    margin:0;
+    padding: 2px;
+}  
 
 @media screen and (max-width: 600px){
     .homecontent h1{
