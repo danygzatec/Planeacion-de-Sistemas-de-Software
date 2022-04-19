@@ -33,11 +33,21 @@ export class AppComponent implements OnInit {
     //this.msalService.loginRedirect();
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>{
       this.msalService.instance.setActiveAccount(response.account)
+      // console.log("hola", response.account?.name)
+      // console.log("hola", response.account?.username)
     }); 
   }
 
   logout(){
     this.msalService.logout();
+  }
+
+  getNameAccount(): any{
+    return this.msalService.instance.getActiveAccount()?.name;
+  }
+
+  getEmailAccount(): any{
+    return this.msalService.instance.getActiveAccount()?.username;
   }
 
 }
