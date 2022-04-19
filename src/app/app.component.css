@@ -52,7 +52,20 @@ h1{
    font-family: 'Roboto Condensed', sans-serif;
 }
 
+.bsk-container {
+    margin-top: 15px;
+  }
 
+.x-alt {
+    color: #777;
+}
+
+.x-icon {
+    height: 1em;
+    width: 1em;
+    top: .125em;
+    position: relative;
+}
 
 @media screen and (max-width: 600px){
     .homecontent h1{
