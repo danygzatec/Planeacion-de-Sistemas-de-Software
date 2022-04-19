@@ -11,11 +11,20 @@
     max-height: 200% !important;
 }
 
+/*bring to front */
+.microsoft{
+    max-width: 20% !important;
+    max-height: 20% !important;
+    background-image: url(../assets/microsoft.png);
+    display: flex;
+}
+
 .homecontent{
     position: absolute;
     top: 60%;
     left: 32%;
     display: flex;
+    flex-wrap: wrap;
     max-width: 100%;
     max-height: 100%;
 }
@@ -23,9 +32,9 @@
 .logo{
     position: absolute;
     display: flex;
-    max-width: 2500% !important;
-    max-height: 2500% !important;
-    margin-top: -130%;
+    max-width: 180% !important;
+    max-height: 180% !important;
+    margin-top: -30%;
 }
 
 h1{
@@ -35,9 +44,9 @@ h1{
 }
 
 .btn-light{
-   background-color: #73DC4E !important;
+   background-color: #fff !important;
    border-color: #73DC4E !important;
-   color: #fff !important;
+   color: #000 !important;
    position: absolute;
    left: 25%;
    font-family: 'Roboto Condensed', sans-serif;
@@ -79,9 +88,9 @@ h1{
 }
 
 .boton_inicio {
-    background-color: #41af45; /* Green */
+    background-color: #fff; /* Green */
     border: none;
-    color: white;
+    color: #000;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
