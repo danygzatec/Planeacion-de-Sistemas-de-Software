@@ -30,11 +30,12 @@
 }
 
 .logo{
-    position: absolute;
+    position: fixed;
     display: flex;
-    max-width: 180% !important;
-    max-height: 180% !important;
-    margin-top: -30%;
+    max-width: 50% !important;
+    max-height: 20% !important;
+    margin-top: -15%;
+    
 }
 
 h1{
