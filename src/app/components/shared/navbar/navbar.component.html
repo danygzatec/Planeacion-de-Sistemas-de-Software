@@ -1,13 +1,23 @@
-<p>navbar works!</p>
-
-<div class="navbar">
-    <table>
-        <tr>
-            <td>
-                <a routerLink="home">Home</a>
-                <a routerLink="crear-equipos"> Crear Equipos</a>
-                <a routerLink="evaluacion360"> Evaluacion360</a>
-            </td>
-        </tr>
-    </table>
-</div>
+<nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a  class="navbar-brand"><img src="../assets/logo.png"  height="50" alt=""></a>
+    <div class="navbar-collapse collapse" id="navbarCustom">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="crear-equipos">Create teams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Consult teams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            
+        </ul>
+        <div class="boton">
+            <button class="boton_inicio">Log Out</button>
+        </div>         
+    </div>
+</nav>
