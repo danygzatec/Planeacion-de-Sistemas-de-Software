@@ -8,6 +8,8 @@
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr 2fr;
     gap: .7rem;
+    margin-left: 3%;
+    margin-top: 1%;
 }
 
 label {
@@ -27,6 +29,7 @@ input[type='reset'] {
     grid-row: 2;
     background-color: rgb(177, 20, 20);
     color: white;
+    margin-right: 2%;
 }
 
 input[type='submit'] {
@@ -34,4 +37,5 @@ input[type='submit'] {
     grid-row: 3;
     color: white;
     background-color: rgb(46, 222, 46);
+    margin-right: 2%;
 }

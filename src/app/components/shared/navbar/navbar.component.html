@@ -16,8 +16,11 @@
             </li>
             
         </ul>
-        <div class="boton">
-            <button class="boton_inicio">Log Out</button>
+        <div class="username">
+            <h6 >Hello, {{ getName() }}</h6>
+        </div>
+        <div>
+            <button (click)="logout()" class="boton_inicio">Log Out</button>
         </div>         
     </div>
 </nav>
