@@ -1,7 +1,7 @@
 export interface Employee {
-    name : string,
-    emailAddress : string,
-    isHR : boolean,
-    isAssigned : boolean,
-    idEmployee : number
+    is_assigned : boolean,
+    email : string,
+    employee_name : string,
+    is_HR : boolean,
+    id_employee : number
 }

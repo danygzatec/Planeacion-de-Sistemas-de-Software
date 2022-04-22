@@ -1,10 +1,12 @@
 import { Employee } from "./employee";
 
 export interface Request {
-    idRequest : number,
     motive : string,
-    status : number,
+    id_emp_mod : number,
     type : number,
-    requestedBy : Employee,
-    employeeModified : Employee,
+    id_emp_req : number,
+    status : number,
+    id_request : number,
+    requestedBy? : Employee,
+    employeeModified? : Employee,
 }

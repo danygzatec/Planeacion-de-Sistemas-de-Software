@@ -1,6 +1,6 @@
 export interface EvaluationPeriod {
-    idPeriod : number,
     semester : string,
-    year : number,
-    hoursToComplete : number
+    evaluation_year : number,
+    hours_to_complete : number
+    id_period : number,
 }
