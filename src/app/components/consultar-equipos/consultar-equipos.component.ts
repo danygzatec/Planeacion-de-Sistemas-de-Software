@@ -28,7 +28,9 @@ export class ConsultarEquiposComponent implements OnInit {
   constructor(public accountInfo : AppComponent ) {
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createObjects();
+  }
 
   getName() : string {
     return this.accountInfo.getNameAccount();
@@ -45,12 +47,12 @@ export class ConsultarEquiposComponent implements OnInit {
       // 1 team solo es de 1 period
       team!.period = this.evaluationPeriods.find(element => element.id_period === teamPeriod); 
 
-      /* Project */
-      var pjct = this.projects.find(element => element.id_employee_leader === employee.id_employee);
-      pjct!.leader = employee; // el project solo tiene 1 lider
+      // /* Project ESTA FALLANDO*/ 
+      // var pjct = this.projects.find(element => element.id_employee_leader === employee.id_employee);
+      // pjct!.leader = employee; // el project solo tiene 1 lider
 
-      var projectPeriod = this.evaluationPeriods.find(element => element.id_period === pjct?.id_period);
-      pjct!.period = projectPeriod; // 1 project sucede en 1 period
+      // var projectPeriod = this.evaluationPeriods.find(element => element.id_period === pjct?.id_period);
+      // pjct!.period = projectPeriod; // 1 project sucede en 1 period
 
       /* EmployeeProject */
       var empOfP = this.empProjects.find(element => element.id_employee === employee.id_employee);
@@ -92,6 +94,21 @@ export class ConsultarEquiposComponent implements OnInit {
     });
 
     return memNames;
+  }
+
+  getTeams() {
+
+    // var teamString : string[] = [];
+    
+    // this.teams.forEach(team => {
+    //   var teamEmp = this.employees.find(element => element.id_employee == team.id_employee);
+    //   teamString.push(teamEmp!.employee_name);
+    // })
+    this.teams.forEach(element => {
+      console.log(element.employee?.employee_name);
+    });
+
+    return this.teams;
   }
 
 }
