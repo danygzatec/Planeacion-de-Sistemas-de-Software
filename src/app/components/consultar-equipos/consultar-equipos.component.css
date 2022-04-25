@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 /* change the background color */
 .navbar-custom {
     background-color: #ffffff;
 }
+/* change font*/
+.font{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
@@ -29,6 +36,7 @@
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
     color: rgba(255,255,255,.8);
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 /* change the link color */
@@ -45,6 +53,7 @@
 
 .boton {
     margin-right: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .boton_lupa { 
