@@ -9,12 +9,17 @@
                 <a class="nav-link" routerLink="crear-equipos">Create teams</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="consultar-equipos">Consult teams</a>
+                <a class="nav-link" routerLink="consultar-equipos">Consult teams</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
+                <a class="nav-link" routerLink="dashboard">Dashboard</a>
             </li>
-            
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span class="notify-badge">1</span>
+                    <span><img src="../assets/envelope.png"  height="40" alt=""></span>
+                </a>
+              </li>
         </ul>
         <div class="username">
             <h6 >Hello, {{ getName() }}</h6>
@@ -24,3 +29,15 @@
         </div>         
     </div>
 </nav>
+
+
+<!-- no funciona :( -->
+<script>
+    $('.navbar-nav .nav-item').click(function(){
+    $('.navbar-nav .nav-item').removeClass('active');
+    $(this).addClass('active');
+    $console.log("hola");
+})
+</script>
+
+ 
