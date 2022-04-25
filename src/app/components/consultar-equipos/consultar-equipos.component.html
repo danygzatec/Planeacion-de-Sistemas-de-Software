@@ -1,4 +1,3 @@
-
 <!-- <h1 class="font">{{ getName() }}'s Team</h1>
 
 
@@ -33,12 +32,21 @@
     </div>
 </nav>
 
-<table class="font">
-    <tr>
-        <th> HR </th>
-        <th> Emp</th>
-    </tr>
-    <tr *ngFor="let team of getTeams()">
+<div class="approved-rectangle">
+    <div class="approved-by-small font"> approved by:</div>
+    <table class="font">
+        <tr>
+            <th class="space-hr-emp"> HR </th>
+            <th> Emp</th>
+        </tr>
+    </table>
+</div>
+
+<div class="linea-gris"></div>
+
+<table class="table-style">
+    <!-- <tr class="approved-by-small">approved by: </tr> -->
+    <tr class="employee-name-row" *ngFor="let team of getTeams()">
         <td *ngIf="team.approved_HR"> 
             <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
         </td>
@@ -47,9 +55,9 @@
             <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
         </td>
         <td *ngIf="!team.approved_Emp">    </td>
-        <td>{{ team.employee?.employee_name }} </td>
+        <td class="employee-name">{{ team.employee?.employee_name }}</td>
         <td>
             <a class="nav-link" routerLink="">view team</a>
         </td>
-    </tr> 
+    </tr>
 </table>
