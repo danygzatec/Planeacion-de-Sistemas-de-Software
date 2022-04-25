@@ -1,10 +1,17 @@
-<form>
-    <div class="controls">
-        <label for="id">To start, select the desired IPS Excel file </label>
-        <br>
-        <input #takeInput type="file" multiple="false" accept=".xlsx, .xls, .csv" name="id" id="id"/>
-        <input type="reset" value="Reset">
-        <input type="submit" value="Upload">
+<div style="background-color: #E4E3E3;" class="row-full" >
+    <div style="background-color: white;" class="crear">
+        <form>
+            <div class="controls">
+                <label for="id" class="to-start">To start, select the desired IPS Excel file </label>
+                <br>
+                <div class="upload">
+                    <input #takeInput type="file" multiple="false" accept=".xlsx, .xls, .csv" name="id" id="id"/>
+                    <input type="reset" value="Reset">
+                    <input type="submit" value="Upload">
+                </div>
+            </div>
+        </form>
     </div>
-</form>
+    
+</div>
 
