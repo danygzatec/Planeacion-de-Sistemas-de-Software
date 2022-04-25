@@ -86,3 +86,12 @@
     padding:5px 12px;
     font-size:10px;
 }
+
+.boton-perfil{
+    position: absolute;
+    padding: 0px;
+    margin-left: 27%;
+    margin-top: -1.25%;
+    border-color: transparent;
+    background: transparent;
+}

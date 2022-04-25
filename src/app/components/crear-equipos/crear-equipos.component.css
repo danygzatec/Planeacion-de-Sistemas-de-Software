@@ -4,6 +4,11 @@
     font: 1rem 'Fira Sans', sans-serif;
 }
 
+/* change font*/
+.font{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 .controls {
     padding-top: 1rem;
     display: grid;
@@ -24,6 +29,8 @@ input[type='reset'],
 input[type='submit'] {
     width: 5rem;
     justify-self: end;
+    border: none;
+    border-radius: 30px;
 }
 
 input[type='reset'] {
@@ -48,9 +55,9 @@ input[type='submit'] {
     margin-left: -50vw;
     height: 800px;
     left: 50%;
-   }
+}
 
-   .crear{
+.crear{
     position: absolute;
     width: 1365px;
     height: 564px;
@@ -59,9 +66,9 @@ input[type='submit'] {
     
     background: #FFFFFF;
     border-radius: 15px;
-   }
+}
 
-   .to-start{
+.to-start{
     position: absolute;
     width: 604px;
     height: 185px;
@@ -69,16 +76,15 @@ input[type='submit'] {
     top: 60px;
     background: #8DD2EF;
     border-radius: 15px;
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
     line-height: 33px;
     text-align: center;
     color: #000000;
-   }
+}
 
-   .upload{
+.upload{
     position: absolute;
     width: 604px;
     height: 125px;
@@ -87,4 +93,17 @@ input[type='submit'] {
     
     background: #E4E3E3;
     border-radius: 15px;
-   }
+}
+
+/* botones de reset, upload y elegir archivo estan centrados */
+.top{
+    margin-top: 2.5em !important;
+    margin-left: 2.5em;
+}
+
+/*to-start text en medio del cuadrito :p */
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
