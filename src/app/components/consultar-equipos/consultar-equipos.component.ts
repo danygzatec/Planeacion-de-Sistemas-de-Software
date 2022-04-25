@@ -34,6 +34,37 @@ export class ConsultarEquiposComponent implements OnInit {
     return this.accountInfo.getNameAccount();
   }
 
+  createObjects() {
+    // por cada empleado, llenar equipos.
+    this.employees.forEach( employee => {
+      /* Team */
+      var team = this.teams.find(element => element.id_employee === employee.id_employee);
+      team!.employee = employee; // 1 team pertenece solo a 1 employee.
+
+      var teamPeriod = team?.id_period;
+      // 1 team solo es de 1 period
+      team!.period = this.evaluationPeriods.find(element => element.id_period === teamPeriod); 
+
+      /* Project */
+      var pjct = this.projects.find(element => element.id_employee_leader === employee.id_employee);
+      pjct!.leader = employee; // el project solo tiene 1 lider
+
+      var projectPeriod = this.evaluationPeriods.find(element => element.id_period === pjct?.id_period);
+      pjct!.period = projectPeriod; // 1 project sucede en 1 period
+
+      /* EmployeeProject */
+      var empOfP = this.empProjects.find(element => element.id_employee === employee.id_employee);
+      empOfP!.employee = employee;
+
+      var projectsOfEmployee = this.empProjects.find(element => element.id_employee === employee.id_employee);
+    })
+  }
+
+  createObjectsInProject() {
+
+
+  }
+
   getMembers() {
 
     var members : any = [];
