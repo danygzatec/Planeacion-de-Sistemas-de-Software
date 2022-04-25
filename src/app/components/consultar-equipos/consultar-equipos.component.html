@@ -1,9 +1,4 @@
-<h1>{{ getName() }}'s Team</h1>
-
-
-<tr *ngFor="let memb of getMembers()">
-    <td>{{ memb.employee_name }} as peer </td>
-</tr> 
+<div class="linea-gris"></div>
 
 <nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
@@ -15,7 +10,7 @@
                 <a class="nav-link" routerLink="">Teams</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="">Unassiagned</a>
+                <a class="nav-link" routerLink="">Unassigned</a>
             </li>
             
         </ul>     
@@ -28,5 +23,25 @@
             </div>
         </form>
     </div>
-    
 </nav>
+
+<table>
+    <tr>
+        <th> HR </th>
+        <th> Emp</th>
+    </tr>
+    <tr *ngFor="let team of getTeams()">
+        <td *ngIf="team.approved_HR"> 
+            <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
+        </td>
+        <td *ngIf="!team.approved_HR">    </td>
+        <td *ngIf="team.approved_Emp"> 
+            <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
+        </td>
+        <td *ngIf="!team.approved_Emp">    </td>
+        <td>{{ team.employee?.employee_name }} </td>
+        <td>
+            <a class="nav-link" routerLink="">view team</a>
+        </td>
+    </tr> 
+</table>

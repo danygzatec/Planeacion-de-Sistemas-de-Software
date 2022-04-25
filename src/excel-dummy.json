@@ -61,13 +61,13 @@
             "id_employee" : 1,
             "id_period" : 1,
             "approved_HR" : false,
-            "approved_Emp" : false,
+            "approved_Emp" : true,
             "id_team" : 1    
         },
         {
             "id_employee" : 2,
             "id_period" : 1,
-            "approved_HR" : false,
+            "approved_HR" : true,
             "approved_Emp" : false,
             "id_team" : 2    
         },
