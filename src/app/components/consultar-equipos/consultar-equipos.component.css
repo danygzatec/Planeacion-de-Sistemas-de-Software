@@ -100,3 +100,11 @@
     padding-left: 40px;
     padding-right: 800px;
 }
+
+/* boton de view team*/
+.view-team{
+    background-color: #27A0D4;
+    color: white;
+    border-radius: 30px;
+    margin: 0.30em;
+}
