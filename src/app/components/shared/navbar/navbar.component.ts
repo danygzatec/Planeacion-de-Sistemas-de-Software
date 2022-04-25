@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   constructor(public accountInfo: AppComponent) { }
 
   ngOnInit(): void {
+    
   }
 
   getName() : any {
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
     if (fullName !== null) {
       var firstSpace = fullName.indexOf(" ");
       name = fullName.substring(0, firstSpace);
-      console.log(name);
+      //console.log(name);
       return name;
     }
   }

@@ -7,6 +7,7 @@
 .navbar-custom .navbar-text {
     color: #F827F6;
     padding: 0.8rem 1rem;
+    
 }
 /* change the link color and add padding for height */
 .navbar-custom .navbar-nav .nav-link {
@@ -18,7 +19,10 @@
 .navbar-custom .nav-item:hover .nav-link {
     color: #ffffff;
     background-color: #8DD2EF; /* add background-color to active links */
-}.navbar-custom {
+    border-bottom: 3px solid white;
+}
+
+.navbar-custom {
     background-color: #8DD2EF;
 }
 
@@ -26,6 +30,7 @@
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
     color: rgba(255,255,255,.8);
+    
 }
 
 /* change the link color */
@@ -59,7 +64,18 @@
 
 .username {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-left: 30%;
+    margin-left: 10%;
     margin-right: 2%;
     color:#ffffff;
+}
+
+.notify-badge{
+    position: absolute;
+    top:10px;
+    background:red;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 12px;
+    font-size:10px;
 }
