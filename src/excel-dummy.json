@@ -133,35 +133,35 @@
     ],
     "employee_project" : [
         {
-            "completed_hours" : true,
+            "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 1,
             "id_employee_project" : 1
         },
         {
-            "completed_hours" : true,
+            "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 1,
             "id_employee_project" : 2
         },
         {
-            "completed_hours" : true,
+            "did_complete" : true,
             "project_role" : 0,
             "id_employee" : 3,
             "id_project" : 1,
             "id_employee_project" : 3
         },
         {
-            "completed_hours" : true,
+            "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 4,
             "id_project" : 1,
             "id_employee_project" : 4
         },
         {
-            "completed_hours" : true,
+            "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 5,
             "id_project" : 1,
