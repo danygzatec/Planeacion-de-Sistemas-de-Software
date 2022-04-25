@@ -73,9 +73,7 @@ export class ConsultarEquiposComponent implements OnInit {
     
     // buscamos al employee al que le pertenezca la cuenta en sesion
     var emp = this.employees.find(element => element.employee_name === this.getName());
-    console.log(emp);
     var teamOfEmp = this.teams.find(element => element.id_employee === emp?.id_employee);
-    console.log(teamOfEmp);
 
     for (let i = 0; i < this.teams.length; i++) {
       if (this.empTeams[i].id_team == teamOfEmp?.id_team) {
@@ -97,17 +95,7 @@ export class ConsultarEquiposComponent implements OnInit {
   }
 
   getTeams() {
-
-    // var teamString : string[] = [];
     
-    // this.teams.forEach(team => {
-    //   var teamEmp = this.employees.find(element => element.id_employee == team.id_employee);
-    //   teamString.push(teamEmp!.employee_name);
-    // })
-    this.teams.forEach(element => {
-      console.log(element.employee?.employee_name);
-    });
-
     return this.teams;
   }
 
