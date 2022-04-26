@@ -21,7 +21,6 @@ export class EquipoIndividualComponent implements OnInit {
   constructor(
     public teamsInfo : ConsultarEquiposComponent,
     private route: ActivatedRoute,
-
     private  dialogRef : MatDialog
 
     ){
@@ -45,10 +44,18 @@ export class EquipoIndividualComponent implements OnInit {
 
     var members : any = [];
     this.teamsInfo.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id_team) {
+      if (element.role_member === 0) {
+        element.role_member_string = "leader";
+      } else if (element.role_member === 1) {
+        element.role_member_string = "peer";
+      } else {
+        element.role_member_string = "team"
+      }
+
+      if (element.id_team == this.team!.id_team) {
         members.push(element);
       }
-    });
+    })
 
     return members;
   }

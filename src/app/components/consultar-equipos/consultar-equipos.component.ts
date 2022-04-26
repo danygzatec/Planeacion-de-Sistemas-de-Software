@@ -16,29 +16,45 @@ import { AppComponent } from 'src/app/app.component';
 })
 
 export class ConsultarEquiposComponent implements OnInit {
-
-  public employees : Employee[] = ExcelData.employee;
-  public evaluationPeriods : EvaluationPeriod[] = ExcelData.evaluation_period;
-  public teams : Team[] = ExcelData.team;
-  public projects : Project[] = ExcelData.project;
-  public requests : Request[] = ExcelData.request;
-  public empProjects : EmployeeProject[] = ExcelData.employee_project;
-  public empTeams : EmployeeTeam[] = ExcelData.employee_team;
-  
+  public employees : Employee[];
+  public evaluationPeriods : EvaluationPeriod[];
+  public teams : Team[];
+  public projects : Project[];
+  public requests : Request[];
+  public empProjects : EmployeeProject[];
+  public empTeams : EmployeeTeam[];
 
   constructor(public accountInfo : AppComponent ) {
+    this.employees = ExcelData.employee;
+    this.evaluationPeriods = ExcelData.evaluation_period;
+    this.teams = ExcelData.team;
+    this.projects= ExcelData.project;
+    this.requests = ExcelData.request;
+    this.empProjects = ExcelData.employee_project;
+    this.empTeams = ExcelData.employee_team;
    }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.initializeObjects();
     this.createObjects();
+    await this.setRoles();
   }
 
   getName() : string {
     return this.accountInfo.getNameAccount();
   }
 
+  async initializeObjects() {
+    this.employees = ExcelData.employee;
+    this.evaluationPeriods = ExcelData.evaluation_period;
+    this.teams = ExcelData.team;
+    this.projects= ExcelData.project;
+    this.requests = ExcelData.request;
+    this.empProjects = ExcelData.employee_project;
+    this.empTeams = ExcelData.employee_team;
+  }
 
-  public createObjects() {
+  createObjects() {
     // por cada empleado, llenar equipos.
     this.employees.forEach( employee => {
       /* Team */
@@ -69,22 +85,9 @@ export class ConsultarEquiposComponent implements OnInit {
         }
       });
     });
-
-    this.empTeams.forEach(element => {
-      if (element.role_member === 0) {
-        element.role_member_string = "leader";
-      } else if (element.role_member === 1) {
-        element.role_member_string = "peer";
-      } else {
-        element.role_member_string = "team";
-      }
-    })
   }
 
-  createObjectsInProject() {
-
-
-  }
+  //createObjectsInProject() {}
 
   getMembers() {
 
@@ -122,6 +125,18 @@ export class ConsultarEquiposComponent implements OnInit {
     e.preventDefault();
     console.log('problema en equipo individual');
     return false;
+  }
+
+  async setRoles() {
+    this.empTeams.forEach(element => {
+      if (element.role_member === 0) {
+        element.role_member_string = "leader";
+      } else if (element.role_member === 1) {
+        element.role_member_string = "peer";
+      } else {
+        element.role_member_string = "team";
+      }
+    })
   }
 
 }
