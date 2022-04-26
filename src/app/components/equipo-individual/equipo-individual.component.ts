@@ -5,7 +5,7 @@ import { ConsultarEquiposComponent } from 'src/app/components/consultar-equipos/
 import { Employee } from 'src/app/models/employee';
 
 import { MatDialog } from  '@angular/material/dialog';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
 
 @Component({
   selector: 'app-equipo-individual',
@@ -54,7 +54,7 @@ export class EquipoIndividualComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialogRef.open(DashboardComponent);
+    this.dialogRef.open(PopupDeleteComponent);
   }
 
 }

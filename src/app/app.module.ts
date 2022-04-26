@@ -12,6 +12,7 @@ import { ConsultarEquiposComponent } from './components/consultar-equipos/consul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { PopupDeleteComponent } from './components/popup-delete/popup-delete.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -26,7 +27,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
   declarations: [ 
     AppComponent,
     routingComponents,
-    NavbarComponent
+    NavbarComponent,
+    PopupDeleteComponent
   ],
   imports: [
     BrowserModule,
