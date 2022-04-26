@@ -1,5 +1,13 @@
-<h1>equipo equipo-individual works!</h1>
+<div class="space"></div>
+<div class="rectangle-top">
+    <h1 class="employee-name">{{ getEmpName() }}</h1>
+</div>
 
-<!-- <div *ngIf="team">
-    <h3>{{ team.employee?.employee_name }}</h3>
-</div> -->
+<div class="space"></div>
+
+<table class="table-style">
+    <tr *ngFor="let member of getMembers()">
+        <td> {{ member.employee_name }}</td>
+    </tr>
+</table>
+

@@ -7,3 +7,32 @@ table tr:nth-child(even){
     background-color: #D6E0FF;
     color: rgb(0, 0, 0);
 }
+
+.employee-name {
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #ffffff;
+    text-align: center;
+    width: 920px;
+    height: 103px;
+    font-size: 60px;
+    line-height: 112px;
+}
+
+.rectangle-top {
+    width: 1440px;
+    height: 112px;
+    left: 0px;
+    top: 129px;
+    background-color: #282C38;
+}
+
+.space {
+    width: 1440px;
+    height: 30px;
+    background-color: #F6F6F6;
+}
+
+.table-style {
+    align-self: center;
+}

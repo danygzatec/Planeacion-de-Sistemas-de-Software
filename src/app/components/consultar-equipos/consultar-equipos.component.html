@@ -58,7 +58,7 @@
         <td class="employee-name">{{ team.employee?.employee_name }}</td>
 
         <td>
-            <a class="nav-link view-team" [routerLink]="['/equipo-individual',team.id_employee]">view team</a>
+            <a class="nav-link view-team" [routerLink]="['/equipo-individual',team.id_employee]" (click)="fireEvent($event)" >view team</a>
         </td>
     </tr>
 </table>

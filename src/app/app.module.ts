@@ -8,6 +8,7 @@ import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
+import { ConsultarEquiposComponent } from './components/consultar-equipos/consultar-equipos.component';
 
 
 export function MSALInstanceFactory() : IPublicClientApplication{
@@ -23,8 +24,7 @@ export function MSALInstanceFactory() : IPublicClientApplication{
   declarations: [ 
     AppComponent,
     routingComponents,
-    NavbarComponent,
-    EquipoIndividualComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +36,9 @@ export function MSALInstanceFactory() : IPublicClientApplication{
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory
     },
-    MsalService
+    MsalService,
+    ConsultarEquiposComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

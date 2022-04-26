@@ -17,13 +17,13 @@ import { AppComponent } from 'src/app/app.component';
 
 export class ConsultarEquiposComponent implements OnInit {
 
-  employees : Employee[] = ExcelData.employee;
-  evaluationPeriods : EvaluationPeriod[] = ExcelData.evaluation_period;
-  teams : Team[] = ExcelData.team;
-  projects : Project[] = ExcelData.project;
-  requests : Request[] = ExcelData.request;
-  empProjects : EmployeeProject[] = ExcelData.employee_project;
-  empTeams : EmployeeTeam[] = ExcelData.employee_team;
+  public employees : Employee[] = ExcelData.employee;
+  public evaluationPeriods : EvaluationPeriod[] = ExcelData.evaluation_period;
+  public teams : Team[] = ExcelData.team;
+  public projects : Project[] = ExcelData.project;
+  public requests : Request[] = ExcelData.request;
+  public empProjects : EmployeeProject[] = ExcelData.employee_project;
+  public empTeams : EmployeeTeam[] = ExcelData.employee_team;
   
 
   constructor(public accountInfo : AppComponent ) {
@@ -98,6 +98,12 @@ export class ConsultarEquiposComponent implements OnInit {
   getTeams() {
 
     return this.teams;
+  }
+
+  fireEvent(e : any) {
+    e.preventDefault();
+    console.log('problema en equipo individual');
+    return false;
   }
 
 }

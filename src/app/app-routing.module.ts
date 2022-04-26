@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'consultar-equipos', component: ConsultarEquiposComponent, canActivate: [MsalguardGuard]},
   {path: 'evaluacion360', component: Evaluacion360Component, canActivate: [MsalguardGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [MsalguardGuard]},
-  {path: 'equipo-individual/:id_employee', component: EquipoIndividualComponent},
+  {path: 'equipo-individual/:id_employee', component: EquipoIndividualComponent, canActivate: [MsalguardGuard]},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
