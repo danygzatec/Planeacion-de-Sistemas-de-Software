@@ -88,9 +88,8 @@
 }
 
 .boton-perfil{
-    position: relative;
     padding: 0px;
-    margin-left: 500px;
+    margin-left: 20px;
     margin-top: -10%;
     border-color: transparent;
     background: transparent;
@@ -99,4 +98,14 @@
 .logout{
     border-color: transparent;
     background: transparent;
+    position: center;
+}
+
+.menu{
+    text-align:right;
+    margin: 5px;
+}
+
+.inbox{
+    margin-left: 500px;
 }

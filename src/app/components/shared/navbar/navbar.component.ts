@@ -26,6 +26,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  getEmail() : any {
+    return this.accountInfo.getEmailAccount();
+  }
+
   logout() {
     this.accountInfo.logout();
   }
