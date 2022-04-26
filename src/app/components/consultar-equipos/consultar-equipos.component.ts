@@ -14,6 +14,7 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './consultar-equipos.component.html',
   styleUrls: ['./consultar-equipos.component.css']
 })
+
 export class ConsultarEquiposComponent implements OnInit {
 
   employees : Employee[] = ExcelData.employee;
@@ -95,7 +96,7 @@ export class ConsultarEquiposComponent implements OnInit {
   }
 
   getTeams() {
-    
+
     return this.teams;
   }
 
