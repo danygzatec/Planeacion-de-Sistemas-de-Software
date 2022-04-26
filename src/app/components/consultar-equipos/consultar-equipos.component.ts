@@ -37,6 +37,7 @@ export class ConsultarEquiposComponent implements OnInit {
     return this.accountInfo.getNameAccount();
   }
 
+
   createObjects() {
     // por cada empleado, llenar equipos.
     this.employees.forEach( employee => {

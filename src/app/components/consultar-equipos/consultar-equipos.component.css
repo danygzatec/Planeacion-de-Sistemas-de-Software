@@ -117,3 +117,7 @@
     margin: 0.30em;
     text-decoration: underline;
 }
+.linea {
+    padding-bottom: 1%;
+    background-color: #F6F6F6;
+}
