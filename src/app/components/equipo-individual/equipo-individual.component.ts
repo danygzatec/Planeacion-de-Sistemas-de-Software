@@ -8,6 +8,7 @@ import { MatDialog } from  '@angular/material/dialog';
 import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
 import ExcelData from 'src/excel-dummy.json';
 import { EmployeeTeam } from 'src/app/models/employee-team';
+import { AddButtonComponent } from '../add-button/add-button.component';
 
 @Component({
   selector: 'app-equipo-individual',
@@ -94,5 +95,7 @@ export class EquipoIndividualComponent implements OnInit {
   openDialog(){
     this.dialogRef.open(PopupDeleteComponent);
   }
-
+  openDialogAdd(){
+    this.dialogRef.open(AddButtonComponent);
+  }
 }
