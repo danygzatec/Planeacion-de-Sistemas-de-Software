@@ -10,7 +10,10 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
 import { ConsultarEquiposComponent } from './components/consultar-equipos/consultar-equipos.component';
 import { UnassignedComponent } from './components/unassigned/unassigned.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopupDeleteComponent } from './components/popup-delete/popup-delete.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -26,12 +29,15 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     AppComponent,
     routingComponents,
     NavbarComponent,
-    UnassignedComponent
+    UnassignedComponent,
+    PopupDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MsalModule
+    MsalModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     {

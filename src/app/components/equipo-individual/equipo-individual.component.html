@@ -15,7 +15,7 @@
                 <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                 <td class="role-spaced-out">As {{ member.role_member_string}}</td>
                 <td>
-                    <img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person.">
+                    <button  class="trashcan"  (click)="openDialog()"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>
             </tr>
         </table>

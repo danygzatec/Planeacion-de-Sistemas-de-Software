@@ -50,10 +50,10 @@ input[type='submit'] {
 }
 
 .row-full{
-    width: 100vw;
+    width: 99vw;
     position: relative;
     margin-left: -50vw;
-    height: 800px;
+    height: 100vh;
     left: 50%;
 }
 
@@ -63,7 +63,6 @@ input[type='submit'] {
     height: 564px;
     left: 40px;
     top: 50px;
-    
     background: #FFFFFF;
     border-radius: 15px;
 }
@@ -90,7 +89,6 @@ input[type='submit'] {
     height: 125px;
     left: 433px;
     top: 272px;
-    
     background: #E4E3E3;
     border-radius: 15px;
 }

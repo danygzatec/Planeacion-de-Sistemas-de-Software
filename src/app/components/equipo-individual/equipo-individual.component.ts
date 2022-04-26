@@ -4,6 +4,9 @@ import { Team } from 'src/app/models/team';
 import { ConsultarEquiposComponent } from 'src/app/components/consultar-equipos/consultar-equipos.component'
 import { Employee } from 'src/app/models/employee';
 
+import { MatDialog } from  '@angular/material/dialog';
+import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
+
 @Component({
   selector: 'app-equipo-individual',
   templateUrl: './equipo-individual.component.html',
@@ -14,9 +17,13 @@ export class EquipoIndividualComponent implements OnInit {
   team: Team | undefined ;
   id : number;
 
+
   constructor(
     public teamsInfo : ConsultarEquiposComponent,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
+    private  dialogRef : MatDialog
+
     ){
     
     const routeParams = this.route.snapshot.paramMap;
@@ -44,6 +51,10 @@ export class EquipoIndividualComponent implements OnInit {
     });
 
     return members;
+  }
+
+  openDialog(){
+    this.dialogRef.open(PopupDeleteComponent);
   }
 
 }
