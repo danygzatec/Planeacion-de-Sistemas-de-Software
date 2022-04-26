@@ -5,12 +5,14 @@
         <!-- aqui tenemos que poner los nombres de los que se va a borrar -->
         <h2 class="poptext font"> You are about to remove Jessica Treviño from Melissa Martínez evaluation and vice versa </h2>   
         <h2 class="poptext2 font">Are you sure you want to do this?</h2>
-        <button  class="btn btn-primary font cancel">
+        <button  class="btn btn-primary font cancel" (click)="closeMe()">
           cancel
         </button>
+        <mat-dialog-actions>
         <button  class="btn btn-primary font remove">
             remove
           </button>
+        </mat-dialog-actions>
     </div>
     
 </div>
