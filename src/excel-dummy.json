@@ -88,8 +88,8 @@
         {
             "id_employee" : 5,
             "id_period" : 1,
-            "approved_HR" : false,
-            "approved_Emp" : false,
+            "approved_HR" : true,
+            "approved_Emp" : true,
             "id_team" : 5    
         }
     ],

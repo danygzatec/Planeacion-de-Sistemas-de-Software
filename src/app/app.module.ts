@@ -9,7 +9,9 @@ import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-b
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
 import { ConsultarEquiposComponent } from './components/consultar-equipos/consultar-equipos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatDialogModule } from '@angular/material/dialog';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -29,7 +31,9 @@ export function MSALInstanceFactory() : IPublicClientApplication{
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MsalModule
+    MsalModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     {
