@@ -75,24 +75,6 @@
     overflow: hidden;
 }
 
-.approved-rectangle {
-    height: 52px;
-    left: 0px;
-    top: 164px;
-    background: #27A0D4;
-    color:#ffffff;
-    display: flex;
-}
-
-/* .space-hr-emp {
-    padding-left: 20px;
-} */
-
-.approved-by-small {
-    font-size: 10px;
-    padding-left: 10px;
-}
-
 .employee-name-row {
     background:  #282C38;
     color: #ffffff;
@@ -101,6 +83,12 @@
 .employee-name {
     padding-left: 40px;
     padding-right: 800px;
+}
+
+.table-container {
+    align-content: center;
+    justify-content: center;
+    display: flex;
 }
 
 /* boton de view team*/
@@ -120,27 +108,6 @@
     border-radius: 30px;
     margin: 0.30em;
     text-decoration: underline;
-}
-
-.linea {
-    padding-bottom: 1%;
-    background-color: #F6F6F6;
-}
-
-.grey-page {
-    height:auto;
-    background-color: #F6F6F6;
-    padding-bottom: 0%;
-}
-
-.table-container {
-    align-content: center;
-    justify-content: center;
-    display: flex;
-}
-
-.first-check {
-    padding-left: 20px;
 }
 
 .linea-gris-delgadita {

@@ -38,7 +38,7 @@ export class ConsultarEquiposComponent implements OnInit {
   }
 
 
-  createObjects() {
+  public createObjects() {
     // por cada empleado, llenar equipos.
     this.employees.forEach( employee => {
       /* Team */

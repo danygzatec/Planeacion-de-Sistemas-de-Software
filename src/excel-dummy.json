@@ -34,6 +34,13 @@
             "employee_name" : "Daniela Garza González",
             "is_HR" : false,
             "id_employee" : 5
+        },
+        {
+            "is_assigned" : false,
+            "email" : "a00829234@tec.mx",
+            "employee_name" : "Gabriela Gonzalez Molina",
+            "is_HR" : false,
+            "id_employee" : 6
         }
     ],
     "evaluation_period" : [

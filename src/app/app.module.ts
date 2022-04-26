@@ -9,6 +9,7 @@ import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-b
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
 import { ConsultarEquiposComponent } from './components/consultar-equipos/consultar-equipos.component';
+import { UnassignedComponent } from './components/unassigned/unassigned.component';
 
 
 export function MSALInstanceFactory() : IPublicClientApplication{
@@ -24,7 +25,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
   declarations: [ 
     AppComponent,
     routingComponents,
-    NavbarComponent
+    NavbarComponent,
+    UnassignedComponent
   ],
   imports: [
     BrowserModule,
