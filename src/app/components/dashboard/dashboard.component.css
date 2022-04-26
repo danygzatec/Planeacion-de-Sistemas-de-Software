@@ -1,0 +1,58 @@
+.row-full{
+    width: 99vw;
+    position: relative;
+    margin-left: -50vw;
+    height: 100vh;
+    left: 50%;
+}
+
+.approved-rectangle {
+    height: 65px;
+    left: 0px;
+    top: 164px;
+    background: #000;
+    color:#ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.linea {
+    padding-bottom: 1%;
+    background-color: #F6F6F6;
+}
+
+
+.font{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.first-check {
+    padding-left: 10px;
+}
+
+h1{
+    font-size:425%;
+}
+
+.linea-azul{
+    padding-bottom: 2%;
+    background-color: #27A0D4;
+}
+
+.graph{
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    left:2.5%;
+    top: 20%;
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
