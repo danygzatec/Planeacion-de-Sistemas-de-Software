@@ -68,9 +68,12 @@ table tr:nth-child(even){
 
 .back-arrow {
     background-color: #8DD2EF;
-    width: 40px;
-    height: 40px;
-    margin-top: 2%;
+    width: 25px;
+    height: 20px;
+    margin-top: 1.5%;
+    position:absolute;
+    margin-left: -225px;
+    border-radius: 5px;
 }
 
 .anchor-back {
