@@ -24,9 +24,28 @@
         <div class="username">
             <h6 class="font">Hello, {{ getName() }}</h6>
         </div>
-        <div>
+        <style>
+            .mydropdowncss:hover .dropdown-menu {
+                display: block;
+                margin-top: 0px;
+                background-color:lightgray; 
+                margin-left: 375px;
+                position: absolute;
+             }
+             
+            </style>
+            <div class="dropdown mydropdowncss">
+                <a href="#" class="boton-perfil" data-toggle="dropdown"><img src="../assets/profile-icon.png"  height="40" width="40"><span class="caret"></span></a> 
+                <ul class="dropdown-menu">
+                    <li>{{ getName() }}</li>
+                    <!-- <li> Mail </li> -->
+                    <li><a href="#">Profile</a></li>
+                    <li><a><button (click)="logout()" class="logout">Log Out</button></a></li>
+                </ul>
+            </div>
+        <!--<div>
             <button (click)="logout()" class="boton-perfil"><img src="../assets/profile-icon.png"  height="40" width="40"></button>
-        </div>         
+        </div> -->       
     </div>
 </nav>
 

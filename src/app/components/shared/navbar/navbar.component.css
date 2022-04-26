@@ -88,10 +88,15 @@
 }
 
 .boton-perfil{
-    position: absolute;
+    position: relative;
     padding: 0px;
-    margin-left: 27%;
-    margin-top: -1.25%;
+    margin-left: 500px;
+    margin-top: -10%;
+    border-color: transparent;
+    background: transparent;
+}
+
+.logout{
     border-color: transparent;
     background: transparent;
 }
