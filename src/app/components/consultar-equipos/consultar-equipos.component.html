@@ -4,7 +4,6 @@
 <tr *ngFor="let memb of getMembers()">
     <td class="font">{{ memb.employee_name }} as peer </td>
 </tr> --->
-
 <div class="linea-gris"></div> 
 
 <nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
@@ -33,34 +32,38 @@
     
 </nav>
 
+<div class="linea-gris"></div> 
+
 <div class="approved-rectangle">
     <div class="linea"></div> 
     <div class="approved-by-small font"> approved by:</div>
     <table class="font">
         <tr>
             <th class="space-hr-emp"> HR </th>
-            <th> Emp</th>
+            <th class="first-check"> Emp</th>
         </tr>
     </table>
 </div>
 
 <div class="linea-gris"></div>
 
-<table class="table-style">
-    <!-- <tr class="approved-by-small">approved by: </tr> -->
-    <tr class="employee-name-row" *ngFor="let team of getTeams()">
-        <td *ngIf="team.approved_HR"> 
-            <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
-        </td>
-        <td *ngIf="!team.approved_HR">    </td>
-        <td *ngIf="team.approved_Emp"> 
-            <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
-        </td>
-        <td *ngIf="!team.approved_Emp">    </td>
-        <td class="employee-name">{{ team.employee?.employee_name }}</td>
-
-        <td>
-            <a class="nav-link view-team" [routerLink]="['/equipo-individual',team.id_employee]" (click)="fireEvent($event)" >view team</a>
-        </td>
-    </tr>
-</table>
+<div class="table-container">
+    <table class="table-style">
+        <!-- <tr class="approved-by-small">approved by: </tr> -->
+        <tr class="employee-name-row" *ngFor="let team of getTeams()">
+            <td class="first-check" *ngIf="team.approved_HR"> 
+                <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
+            </td>
+            <td *ngIf="!team.approved_HR">    </td>
+            <td class="first-check" *ngIf="team.approved_Emp"> 
+                <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
+            </td>
+            <td  *ngIf="!team.approved_Emp">    </td>
+            <td class="employee-name">{{ team.employee?.employee_name }}</td>
+    
+            <td>
+                <a class="nav-link view-team" [routerLink]="['/equipo-individual',team.id_employee]" (click)="fireEvent($event)" >view team</a>
+            </td>
+        </tr>
+    </table>
+</div>

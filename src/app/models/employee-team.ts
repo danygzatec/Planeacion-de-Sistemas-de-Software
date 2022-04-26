@@ -9,4 +9,5 @@ export interface EmployeeTeam {
     id_employee_team : number;
     employee? : Employee,
     team? : Team,
+    role_member_string? : string;
 }

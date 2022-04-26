@@ -1,13 +1,26 @@
-<div class="space"></div>
-<div class="rectangle-top">
-    <h1 class="employee-name">{{ getEmpName() }}</h1>
+<div class="grey-page">
+    <div class="grey-space"></div>
+    <div class="rectangle-top">
+        <a class="anchor-back" href="consultar-equipos">
+            <img class="back-arrow" src="assets/back-arrow.png" alt="arrow to return to consult teams">
+        </a>
+        <h1 class="employee-name">{{ getEmpName() }}</h1>
+    </div>
+
+    <div class="grey-space"></div>
+
+    <div class="team-approval">
+        <table class="table-style">
+            <tr *ngFor="let member of getMembers()">
+                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+                <td>
+                    <img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person.">
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
-<div class="space"></div>
 
-<table class="table-style">
-    <tr *ngFor="let member of getMembers()">
-        <td> {{ member.employee_name }}</td>
-    </tr>
-</table>
 

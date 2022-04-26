@@ -39,7 +39,7 @@ export class EquipoIndividualComponent implements OnInit {
     var members : any = [];
     this.teamsInfo.empTeams.forEach(element => {
       if (element.id_team == this.team!.id_team) {
-        members.push(this.teamsInfo.employees.find(el => el.id_employee === element.id_employee));
+        members.push(element);
       }
     });
 

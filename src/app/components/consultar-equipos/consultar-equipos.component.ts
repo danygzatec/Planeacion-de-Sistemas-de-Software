@@ -60,7 +60,24 @@ export class ConsultarEquiposComponent implements OnInit {
       var empOfP = this.empProjects.find(element => element.id_employee === employee.id_employee);
       empOfP!.employee = employee;
 
-      var projectsOfEmployee = this.empProjects.find(element => element.id_employee === employee.id_employee);
+      //var projectsOfEmployee = this.empProjects.find(element => element.id_employee === employee.id_employee);
+
+      /* EmployeeTeam*/
+      this.empTeams.forEach(element => {
+        if (element.id_employee === employee.id_employee) {
+          element.employee = employee;
+        }
+      });
+    });
+
+    this.empTeams.forEach(element => {
+      if (element.role_member === 0) {
+        element.role_member_string = "leader";
+      } else if (element.role_member === 1) {
+        element.role_member_string = "peer";
+      } else {
+        element.role_member_string = "team";
+      }
     })
   }
 
