@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MsalguardGuard } from './msalguard.guard';
 import { MsalGuard } from '@azure/msal-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
@@ -14,12 +15,14 @@ const routes: Routes = [
   {path: 'consultar-equipos', component: ConsultarEquiposComponent, canActivate: [MsalguardGuard]},
   {path: 'evaluacion360', component: Evaluacion360Component, canActivate: [MsalguardGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [MsalguardGuard]},
+  {path: 'equipo-individual/:id_employee', component: EquipoIndividualComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component, DashboardComponent]
+export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component, DashboardComponent, EquipoIndividualComponent]

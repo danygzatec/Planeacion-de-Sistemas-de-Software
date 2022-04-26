@@ -1,7 +1,5 @@
-<h1>{{ getName() }}'s Team</h1>
+<h2>Product Details</h2>
 
-<table>
-    <tr *ngFor="let memb of getMembers()">
-        <td>{{ memb.employee_name }} as peer </td>
-    </tr> 
-</table>
+<div *ngIf="team">
+  <h3>{{ team.employee?.employee_name }}</h3>
+</div>

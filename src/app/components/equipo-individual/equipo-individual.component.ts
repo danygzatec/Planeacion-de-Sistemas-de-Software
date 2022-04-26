@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Team } from 'src/app/models/team';
 import { ConsultarEquiposComponent } from '../consultar-equipos/consultar-equipos.component';
 
 @Component({
@@ -8,13 +10,20 @@ import { ConsultarEquiposComponent } from '../consultar-equipos/consultar-equipo
 })
 export class EquipoIndividualComponent implements OnInit {
 
-  constructor(public consultTeam : ConsultarEquiposComponent) { }
+  team : Team | undefined;
+
+  constructor(
+    private route: ActivatedRoute,
+    public consultTeam : ConsultarEquiposComponent
+    ){
+    
+    const routeParams = this.route.snapshot.paramMap;
+    const empIdFromRoute = Number(routeParams.get('id_employee'));
+
+    this.team = consultTeam.teams.find(element => element.id_employee === empIdFromRoute);
+   }
 
   ngOnInit(): void {
-  }
-
-  getName() {
-    this.consultTeam.getName();
   }
 
   getMembers() : any {
