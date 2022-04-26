@@ -90,6 +90,7 @@
 
 .approved-by-small {
     font-size: 10px;
+    padding-left: 10px;
 }
 
 .employee-name-row {
@@ -139,5 +140,5 @@
 }
 
 .first-check {
-    padding-left: 10px;
+    padding-left: 20px;
 }
