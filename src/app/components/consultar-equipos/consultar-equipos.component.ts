@@ -8,6 +8,7 @@ import { Request } from 'src/app/models/request';
 import { Project } from 'src/app/models/project';
 import ExcelData from 'src/excel-dummy.json';
 import { AppComponent } from 'src/app/app.component';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-consultar-equipos',
@@ -40,10 +41,6 @@ export class ConsultarEquiposComponent implements OnInit {
     await this.setRoles();
   }
 
-  getName() : string {
-    return this.accountInfo.getNameAccount();
-  }
-
   async initializeObjects() {
     this.employees = ExcelData.employee;
     this.evaluationPeriods = ExcelData.evaluation_period;
@@ -54,16 +51,25 @@ export class ConsultarEquiposComponent implements OnInit {
     this.empTeams = ExcelData.employee_team;
   }
 
-  createObjects() {
+
+  getName() : string {
+    return this.accountInfo.getNameAccount();
+  }
+
+  async createObjects() {
+
+    // esperamos a que se inicialicen los objetos
+    await this.initializeObjects();
+
     // por cada empleado, llenar equipos.
     this.employees.forEach( employee => {
       /* Team */
       var team = this.teams.find(element => element.id_employee === employee.id_employee);
-      team!.employee = employee; // 1 team pertenece solo a 1 employee.
-
-      var teamPeriod = team?.id_period;
-      // 1 team solo es de 1 period
-      team!.period = this.evaluationPeriods.find(element => element.id_period === teamPeriod); 
+      if (team != undefined) {
+        team.employee = employee; // 1 team solo pertenece a 1 employee.
+        var teamPeriod = team.id_period;
+        team.period = this.evaluationPeriods.find(element => element.id_period === teamPeriod); // 1 team es de solo 1 period
+      }
 
       // /* Project ESTA FALLANDO*/ 
       // var pjct = this.projects.find(element => element.id_employee_leader === employee.id_employee);
@@ -74,7 +80,9 @@ export class ConsultarEquiposComponent implements OnInit {
 
       /* EmployeeProject */
       var empOfP = this.empProjects.find(element => element.id_employee === employee.id_employee);
-      empOfP!.employee = employee;
+      if (empOfP != undefined) {
+        empOfP.employee = employee;
+      }
 
       //var projectsOfEmployee = this.empProjects.find(element => element.id_employee === employee.id_employee);
 
