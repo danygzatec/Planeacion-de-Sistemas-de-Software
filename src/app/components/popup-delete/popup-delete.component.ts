@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MatDialog, MatDialogRef } from  '@angular/material/dialog';
+
 @Component({
   selector: 'app-popup-delete',
   templateUrl: './popup-delete.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupDeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private  dialogRef:  MatDialogRef<PopupDeleteComponent>) { }
 
   ngOnInit(): void {
   }
+
+  public  closeMe() {
+    this.dialogRef.close();
+    console.log("hola");
+}
 
 }
