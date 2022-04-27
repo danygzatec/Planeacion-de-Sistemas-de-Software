@@ -3,7 +3,7 @@ import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
 
 
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedIn() : boolean {
+    // this.router.navigate(['home']);
     return this.msalService.instance.getActiveAccount() != null
   }
 

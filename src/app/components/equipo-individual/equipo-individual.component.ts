@@ -124,8 +124,13 @@ export class EquipoIndividualComponent implements OnInit {
     return this.evaluators;
   }
 
-  openDialog(){
-    this.dialogRef.open(PopupDeleteComponent);
+  openDialog(member: any, employee: any){
+    this.dialogRef.open(PopupDeleteComponent,{
+      data : {
+        m : member,
+        e: employee
+      }
+    });
   }
   openDialogAdd(){
     this.dialogRef.open(AddButtonComponent);
