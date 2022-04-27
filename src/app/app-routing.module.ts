@@ -9,6 +9,7 @@ import { MsalGuard } from '@azure/msal-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
 import { UnassignedComponent } from './components/unassigned/unassigned.component';
+import { AddButtonComponent } from './components/add-button/add-button.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
@@ -28,4 +29,4 @@ const routes: Routes = [
   
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component, DashboardComponent, EquipoIndividualComponent, UnassignedComponent]
+export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component, DashboardComponent, EquipoIndividualComponent, UnassignedComponent, AddButtonComponent]

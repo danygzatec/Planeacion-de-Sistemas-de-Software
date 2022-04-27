@@ -8,6 +8,7 @@ import { Request } from 'src/app/models/request';
 import { Project } from 'src/app/models/project';
 import ExcelData from 'src/excel-dummy.json';
 import { AppComponent } from 'src/app/app.component';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-consultar-equipos',
@@ -16,38 +17,59 @@ import { AppComponent } from 'src/app/app.component';
 })
 
 export class ConsultarEquiposComponent implements OnInit {
-
-  public employees : Employee[] = ExcelData.employee;
-  public evaluationPeriods : EvaluationPeriod[] = ExcelData.evaluation_period;
-  public teams : Team[] = ExcelData.team;
-  public projects : Project[] = ExcelData.project;
-  public requests : Request[] = ExcelData.request;
-  public empProjects : EmployeeProject[] = ExcelData.employee_project;
-  public empTeams : EmployeeTeam[] = ExcelData.employee_team;
-  
+  public employees : Employee[];
+  public evaluationPeriods : EvaluationPeriod[];
+  public teams : Team[];
+  public projects : Project[];
+  public requests : Request[];
+  public empProjects : EmployeeProject[];
+  public empTeams : EmployeeTeam[];
 
   constructor(public accountInfo : AppComponent ) {
+    this.employees = ExcelData.employee;
+    this.evaluationPeriods = ExcelData.evaluation_period;
+    this.teams = ExcelData.team;
+    this.projects= ExcelData.project;
+    this.requests = ExcelData.request;
+    this.empProjects = ExcelData.employee_project;
+    this.empTeams = ExcelData.employee_team;
    }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.initializeObjects();
     this.createObjects();
+    await this.setRoles();
   }
+
+  async initializeObjects() {
+    this.employees = ExcelData.employee;
+    this.evaluationPeriods = ExcelData.evaluation_period;
+    this.teams = ExcelData.team;
+    this.projects= ExcelData.project;
+    this.requests = ExcelData.request;
+    this.empProjects = ExcelData.employee_project;
+    this.empTeams = ExcelData.employee_team;
+  }
+
 
   getName() : string {
     return this.accountInfo.getNameAccount();
   }
 
+  async createObjects() {
 
-  public createObjects() {
+    // esperamos a que se inicialicen los objetos
+    await this.initializeObjects();
+
     // por cada empleado, llenar equipos.
     this.employees.forEach( employee => {
       /* Team */
       var team = this.teams.find(element => element.id_employee === employee.id_employee);
-      team!.employee = employee; // 1 team pertenece solo a 1 employee.
-
-      var teamPeriod = team?.id_period;
-      // 1 team solo es de 1 period
-      team!.period = this.evaluationPeriods.find(element => element.id_period === teamPeriod); 
+      if (team != undefined) {
+        team.employee = employee; // 1 team solo pertenece a 1 employee.
+        var teamPeriod = team.id_period;
+        team.period = this.evaluationPeriods.find(element => element.id_period === teamPeriod); // 1 team es de solo 1 period
+      }
 
       // /* Project ESTA FALLANDO*/ 
       // var pjct = this.projects.find(element => element.id_employee_leader === employee.id_employee);
@@ -58,7 +80,9 @@ export class ConsultarEquiposComponent implements OnInit {
 
       /* EmployeeProject */
       var empOfP = this.empProjects.find(element => element.id_employee === employee.id_employee);
-      empOfP!.employee = employee;
+      if (empOfP != undefined) {
+        empOfP.employee = employee;
+      }
 
       //var projectsOfEmployee = this.empProjects.find(element => element.id_employee === employee.id_employee);
 
@@ -69,22 +93,9 @@ export class ConsultarEquiposComponent implements OnInit {
         }
       });
     });
-
-    this.empTeams.forEach(element => {
-      if (element.role_member === 0) {
-        element.role_member_string = "leader";
-      } else if (element.role_member === 1) {
-        element.role_member_string = "peer";
-      } else {
-        element.role_member_string = "team";
-      }
-    })
   }
 
-  createObjectsInProject() {
-
-
-  }
+  //createObjectsInProject() {}
 
   getMembers() {
 
@@ -122,6 +133,18 @@ export class ConsultarEquiposComponent implements OnInit {
     e.preventDefault();
     console.log('problema en equipo individual');
     return false;
+  }
+
+  async setRoles() {
+    this.empTeams.forEach(element => {
+      if (element.role_member === 0) {
+        element.role_member_string = "leader";
+      } else if (element.role_member === 1) {
+        element.role_member_string = "peer";
+      } else {
+        element.role_member_string = "team";
+      }
+    })
   }
 
 }

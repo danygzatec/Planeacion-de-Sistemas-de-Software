@@ -117,8 +117,6 @@
 .view-team:hover{
     background-color: #2083ae;
     color: white;
-    border-radius: 30px;
-    margin: 0.30em;
     text-decoration: underline;
 }
 

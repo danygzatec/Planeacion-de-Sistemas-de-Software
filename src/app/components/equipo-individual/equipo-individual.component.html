@@ -6,11 +6,40 @@
         </a>
         <h1 class="employee-name">{{ getEmpName() }}</h1>
     </div>
+    <nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarCustom">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link font">Evaluatees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font" (click)="setEvaluatorBool()">Evaluators</a>
+                    <div *ngIf="getEvaluatorBool()">
+                        <!-- script para set active evaluators en el navbar -->
+                    </div>
+                </li>
+                <td>
+                    <button  class="add"  (click)="openDialogAdd()">Add +</button>
+                </td>
+            </ul>     
+        </div>
+        <div class="boton">
+            <form class="d-flex">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="">
+                  <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt=""></button>
+              </div>
+          </form>
+      </div>
+    </nav>
 
     <div class="grey-space"></div>
 
     <div class="team-approval">
-        <table class="table-style">
+        <table class="table-style" *ngIf="getEvaluatorBool() == false">
             <tr *ngFor="let member of getMembers()">
                 <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                 <td class="role-spaced-out">As {{ member.role_member_string}}</td>
@@ -19,6 +48,16 @@
                 </td>
             </tr>
         </table>
+        <table class="table-style" *ngIf="getEvaluatorBool()">
+            <tr *ngFor="let member of getEvaluatorRoles()">
+                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
+                <td>
+                    <button  class="trashcan"  (click)="openDialog()"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                </td>
+            </tr>
+        </table>
+        <button  class="approve"> approve </button>
     </div>
 </div>
 

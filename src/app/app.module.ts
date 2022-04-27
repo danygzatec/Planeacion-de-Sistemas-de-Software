@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopupDeleteComponent } from './components/popup-delete/popup-delete.component';
+import { AddButtonComponent } from './components/add-button/add-button.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -30,7 +31,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     routingComponents,
     NavbarComponent,
     UnassignedComponent,
-    PopupDeleteComponent
+    PopupDeleteComponent,
+    AddButtonComponent
   ],
   imports: [
     BrowserModule,
