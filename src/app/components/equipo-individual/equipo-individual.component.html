@@ -16,7 +16,10 @@
                     <a class="nav-link font">Evaluatees</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font" routerLink="./unassigned">Evaluators</a>
+                    <a class="nav-link font" (click)="setEvaluatorBool()">Evaluators</a>
+                    <div *ngIf="getEvaluatorBool()">
+                        <!-- script para set active evaluators en el navbar -->
+                    </div>
                 </li>
                 <td>
                     <button  class="add"  (click)="openDialogAdd()">Add +</button>
@@ -36,10 +39,19 @@
     <div class="grey-space"></div>
 
     <div class="team-approval">
-        <table class="table-style">
+        <table class="table-style" *ngIf="getEvaluatorBool() == false">
             <tr *ngFor="let member of getMembers()">
                 <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                 <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+                <td>
+                    <button  class="trashcan"  (click)="openDialog()"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                </td>
+            </tr>
+        </table>
+        <table class="table-style" *ngIf="getEvaluatorBool()">
+            <tr *ngFor="let member of getEvaluatorRoles()">
+                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
                 <td>
                     <button  class="trashcan"  (click)="openDialog()"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>

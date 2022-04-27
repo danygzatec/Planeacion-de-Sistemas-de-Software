@@ -22,6 +22,7 @@ export class EquipoIndividualComponent implements OnInit {
   teams : Team[];
   team: Team | undefined ;
   id : number;
+  evaluators : boolean;
 
 
   constructor(
@@ -37,6 +38,7 @@ export class EquipoIndividualComponent implements OnInit {
     this.empTeams = ExcelData.employee_team
     this.team = this.teams.find(element => element.id_employee === empIdFromRoute);
     this.id = empIdFromRoute;
+    this.evaluators = false;
 
    }
 
@@ -90,6 +92,36 @@ export class EquipoIndividualComponent implements OnInit {
     });
     
     return members;
+  }
+
+  getEvaluatorRoles() {
+
+    var members : any = [];
+    this.empTeams.forEach(element => {
+      if (element.id_team == this.team!.id_team) {
+        element.employee = this.employees.find(emp => emp.id_employee === element.id_employee);
+        
+        if (element.role_member === 0) {
+          element.role_member_string = "team";
+        } else if (element.role_member === 1) {
+          element.role_member_string = "peer";
+        } else {
+          element.role_member_string = "leader"
+        }
+
+        members.push(element);
+      }
+    });
+    
+    return members;
+  }
+  
+  setEvaluatorBool() {
+    this.evaluators = !this.evaluators
+  }
+
+  getEvaluatorBool() {
+    return this.evaluators;
   }
 
   openDialog(){
