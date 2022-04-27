@@ -16,7 +16,6 @@ export class PopupDeleteComponent implements OnInit {
 
   closeMe() {
     this.dialogRef.close();
-    console.log("hola no se quiere cerrar");
 }
 
 }
