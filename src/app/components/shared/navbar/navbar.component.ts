@@ -8,6 +8,12 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class NavbarComponent implements OnInit {
 
+  public createTeams = true;
+
+   public consultTeams = false;
+
+   public dashboard  = false;
+
   constructor(public accountInfo: AppComponent) { }
 
   ngOnInit(): void {
@@ -32,6 +38,37 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.accountInfo.logout();
+  }
+
+  navigate(page: any){
+
+    console.log(page);
+
+    if(page === '/crear-equipos'){
+
+      this.createTeams = true;
+
+      this.consultTeams = false;
+
+      this.dashboard  = false;
+
+   }else if(page === '/consultar-equipos'){
+
+     this.createTeams = false;
+
+     this.consultTeams = true;
+
+     this.dashboard  = false;
+
+   }else if(page === '/dashboard'){
+
+     this.createTeams = false;
+
+     this.consultTeams = false;
+
+     this.dashboard  = true;
+
+   }
   }
 
 
