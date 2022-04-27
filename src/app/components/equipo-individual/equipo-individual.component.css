@@ -171,3 +171,15 @@ table tr:nth-child(even){
 .boton_lupa { 
     background-color: #fff; 
 }
+
+.approve {
+    position: absolute;
+    width: 355px;
+    height: 39px;
+    left: 542px;
+    bottom: 40px;
+
+    background: #8DD2EF;
+    border-radius: 10px;
+    border-color: transparent;
+}
