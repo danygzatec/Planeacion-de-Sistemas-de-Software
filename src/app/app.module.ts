@@ -19,6 +19,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InboxComponent } from './components/inbox/inbox.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -36,7 +37,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     NavbarComponent,
     UnassignedComponent,
     PopupDeleteComponent,
-    AddButtonComponent
+    AddButtonComponent,
+    InboxComponent
   ],
   imports: [
     BrowserModule,
