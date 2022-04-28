@@ -15,6 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopupDeleteComponent } from './components/popup-delete/popup-delete.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -39,7 +43,10 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     AppRoutingModule,
     MsalModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
@@ -47,7 +54,9 @@ export function MSALInstanceFactory() : IPublicClientApplication{
       useFactory: MSALInstanceFactory
     },
     MsalService,
-    ConsultarEquiposComponent
+    ConsultarEquiposComponent,
+    HttpClient,
+    FormBuilder
   ],
   bootstrap: [AppComponent],
 })

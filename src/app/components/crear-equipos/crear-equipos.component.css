@@ -105,3 +105,11 @@ input[type='submit'] {
     align-items: center;
     justify-content: center;
 }
+
+.submit-button {
+    grid-column: 2;
+    grid-row: 3;
+    color: white;
+    background-color: rgb(46, 222, 46);
+    margin-right: 2%;
+}
