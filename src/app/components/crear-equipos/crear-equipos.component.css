@@ -50,7 +50,7 @@ input[type='submit'] {
 }
 
 .row-full{
-    width: 99vw;
+    width:100vw;
     position: relative;
     margin-left: -50vw;
     height: 100vh;
