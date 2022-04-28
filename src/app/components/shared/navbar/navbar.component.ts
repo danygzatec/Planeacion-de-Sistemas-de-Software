@@ -8,7 +8,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class NavbarComponent implements OnInit {
 
-  public createTeams = true;
+  public createTeams = false;
 
    public consultTeams = false;
 
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
 
   navigate(page: any){
 
-    console.log(page);
+    console.log("NavBarComponent", page);
 
     if(page === '/crear-equipos'){
 
@@ -53,6 +53,7 @@ export class NavbarComponent implements OnInit {
       this.dashboard  = false;
 
    }else if(page === '/consultar-equipos'){
+    console.log("if");
 
      this.createTeams = false;
 

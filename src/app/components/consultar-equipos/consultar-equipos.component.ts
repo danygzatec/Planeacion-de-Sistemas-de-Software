@@ -131,7 +131,7 @@ export class ConsultarEquiposComponent implements OnInit {
 
   fireEvent(e : any) {
     e.preventDefault();
-    console.log('problema en equipo individual');
+    //console.log('problema en equipo individual');
     return false;
   }
 

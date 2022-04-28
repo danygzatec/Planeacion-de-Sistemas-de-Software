@@ -1,5 +1,5 @@
 .row-full{
-    width: 99vw;
+    width: 100vw;
     position: relative;
     margin-left: -50vw;
     height: 100vh;
@@ -7,10 +7,10 @@
 }
 
 .approved-rectangle {
-    height: 65px;
+    height: 112px;
     left: 0px;
     top: 164px;
-    background: #000;
+    background: #282C38;
     color:#ffffff;
     display: flex;
     align-items: center;
@@ -46,7 +46,7 @@ h1{
     width: 95%;
     height: 95%;
     left:2.5%;
-    top: 20%;
+    top: 25%;
     background: #FFFFFF;
     border-radius: 15px;
 }

@@ -9,6 +9,7 @@ import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
 import ExcelData from 'src/excel-dummy.json';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { AddButtonComponent } from '../add-button/add-button.component';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-equipo-individual',
@@ -27,7 +28,8 @@ export class EquipoIndividualComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private  dialogRef : MatDialog
+    private  dialogRef : MatDialog,
+    public navbarActive: NavbarComponent
     ){
     
     const routeParams = this.route.snapshot.paramMap;
@@ -134,5 +136,10 @@ export class EquipoIndividualComponent implements OnInit {
   }
   openDialogAdd(){
     this.dialogRef.open(AddButtonComponent);
+  }
+
+  navigateBack(page: any){
+    console.log(page);
+    this.navbarActive.navigate(page);
   }
 }

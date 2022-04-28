@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'equipo-individual/:id_employee', component: EquipoIndividualComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned', component: UnassignedComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned/consultar-equipos', redirectTo: 'consultar-equipos'},
+  {path: 'equipo-individual/:id_employee/consultar-equipos', redirectTo: 'consultar-equipos'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

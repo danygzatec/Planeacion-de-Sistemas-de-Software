@@ -56,7 +56,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     MsalService,
     ConsultarEquiposComponent,
     HttpClient,
-    FormBuilder
+    FormBuilder,
+    NavbarComponent
   ],
   bootstrap: [AppComponent],
 })
