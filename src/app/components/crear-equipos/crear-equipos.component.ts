@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import * as _ from 'lodash';
 import { UploadButtonComponent } from '../upload-button/upload-button.component';
@@ -22,7 +21,6 @@ export class CrearEquiposComponent implements OnInit {
   formData : FormData = new FormData();
 
   constructor(
-    private http : HttpClient, 
     private formBuilder : FormBuilder, 
     private  dialogRef : MatDialog) {}
 
@@ -31,7 +29,6 @@ export class CrearEquiposComponent implements OnInit {
       myfile: ['']
     });
   }
- 
 
   onFileChange(evt: any) {
 
@@ -47,71 +44,24 @@ export class CrearEquiposComponent implements OnInit {
         console.log(file);
       }
     }
-    // this.target = <DataTransfer>(evt.target.files);
-    // console.log(this.target);
-    // this.form.append("excel", this.target.files)
-    // this.onSubmit();
   }
 
-  // onSubmit() : any {
-  //   // if (this.target.files !== undefined) {
-  //   //   this.http.post("http://localhost:8080/api/upload", this.form).subscribe(resp => {
-  //   //     console.log("posted excel file to backend via API :)" + resp);
-  //   //   })
-  //   // }
-  //   if (!this.fileUploadForm.get('myfile')!.value) {
-  //     alert('Please fill valid details!');
-  //     return false;
-  //   }
+  resetFile() : void {
+    this.fileInputLabel = undefined;
+    console.log('file reset!');
+  }
 
-  //   const formData = new FormData();
-  //   formData.append('excel', this.fileUploadForm.get('myfile')!.value);
+  openDialog(fileUploadForm : any) : any {
 
-  //   this.http
-  //     .post<any>('http://localhost:8080/api/upload', formData).subscribe(response => {
-  //       console.log(response);
-  //       if (response.statusCode === 200) {
-  //         // Reset the file input
-  //         this.uploadFileInput.nativeElement.value = "";
-  //         this.fileInputLabel = undefined;
-  //       }
-  //     }, error => {
-  //       console.log(error);
-  //     });
-  // }
-
-  getFormData() : any {
-
-    if (!this.fileUploadForm.get('myfile')!.value) {
-      alert('Please fill valid details!');
+    if (this.fileInputLabel == null || this.fileInputLabel == undefined) {
+      console.log('please upload a file!');
+      alert('Please upload a file!');
       return false;
     }
 
-    const formData = new FormData();
-    formData.append('excel', this.fileUploadForm.get('myfile')!.value);
-    
-    this.http
-      .post<any>('http://localhost:8080/api/upload', formData).subscribe(response => {
-        console.log(response);
-        if (response.statusCode === 200) {
-          // Reset the file input
-          this.uploadFileInput.nativeElement.value = "";
-          this.fileInputLabel = undefined;
-        }
-      }, error => {
-        console.log(error);
-      });
-    console.log(this.formData);
-
-    this.formData.append('excel', this.fileUploadForm.get('myfile')!.value);
-
-    return this.formData;
-  }
-
-  openDialog(formData : FormData) : any {
     this.dialogRef.open(UploadButtonComponent,{
       data : {
-        formData : FormData
+        fileUploadForm : fileUploadForm
       }
     });
   }
