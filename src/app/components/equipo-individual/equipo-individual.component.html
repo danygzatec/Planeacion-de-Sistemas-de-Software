@@ -1,9 +1,13 @@
 <div class="grey-page">
     <div class="grey-space"></div>
     <div class="rectangle-top">
-        <a class="anchor-back" href="consultar-equipos">
-            <img class="back-arrow" src="assets/back-arrow.png" alt="arrow to return to consult teams">
-        </a>
+        <button class="boton_flecha" (click)="navigateBack('/consultar-equipos')" routerLink="consultar-equipos">
+            <img src="assets/back-arrow.png" height="20"></button>
+            <!-- <a class="anchor-back" routerLink="consultar-equipos" (click)="navigateBack('/consultar-equipos')">
+                <img class="back-arrow" src="assets/back-arrow.png" alt="arrow to return to consult teams">
+            </a> -->
+            
+        
         <h1 class="employee-name">{{ getEmpName() }}</h1>
     </div>
     <nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">

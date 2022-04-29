@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
 import { UnassignedComponent } from './components/unassigned/unassigned.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
+import { InboxComponent } from './components/inbox/inbox.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
@@ -17,9 +18,11 @@ const routes: Routes = [
   {path: 'consultar-equipos', component: ConsultarEquiposComponent, canActivate: [MsalguardGuard]},
   {path: 'evaluacion360', component: Evaluacion360Component, canActivate: [MsalguardGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [MsalguardGuard]},
+  {path: 'inbox', component: InboxComponent, canActivate: [MsalguardGuard]},
   {path: 'equipo-individual/:id_employee', component: EquipoIndividualComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned', component: UnassignedComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned/consultar-equipos', redirectTo: 'consultar-equipos'},
+  {path: 'equipo-individual/:id_employee/consultar-equipos', redirectTo: 'consultar-equipos'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
@@ -29,4 +32,4 @@ const routes: Routes = [
   
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component, DashboardComponent, EquipoIndividualComponent, UnassignedComponent, AddButtonComponent]
+export const routingComponents = [HomeComponent, CrearEquiposComponent, ConsultarEquiposComponent, Evaluacion360Component, DashboardComponent, InboxComponent, EquipoIndividualComponent, UnassignedComponent, AddButtonComponent]
