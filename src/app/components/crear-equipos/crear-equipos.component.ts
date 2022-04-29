@@ -69,10 +69,8 @@ export class CrearEquiposComponent implements OnInit {
     const formData = new FormData();
     formData.append('excel', this.fileUploadForm.get('myfile')!.value);
     
-
-
     this.http
-      .post<any>('http://localhost:8080/api/upload#excel', formData).subscribe(response => {
+      .post<any>('http://localhost:8080/api/upload', formData).subscribe(response => {
         console.log(response);
         if (response.statusCode === 200) {
           // Reset the file input
