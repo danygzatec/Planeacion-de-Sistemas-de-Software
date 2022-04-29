@@ -1,0 +1,34 @@
+.boton {
+    margin-right: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.boton_lupa { 
+    background: #FFFFFF;
+    border-color: gray;
+    border-radius: 10px;
+}
+
+.inb{
+    position: absolute;
+    width: 1407px;
+    height: 816px;
+    left: 17px;
+    top: 182px;
+
+    background: #282C38;
+    border-radius: 10px;
+}
+
+.search{
+    position: absolute;
+    width: 355px;
+    height: 39px;
+    left: 1069px;
+    top: 121px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 150%;
+}

@@ -19,6 +19,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InboxComponent } from './components/inbox/inbox.component';
+import { UploadButtonComponent } from './components/upload-button/upload-button.component';
+import { CrearEquiposComponent } from './components/crear-equipos/crear-equipos.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -36,7 +39,9 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     NavbarComponent,
     UnassignedComponent,
     PopupDeleteComponent,
-    AddButtonComponent
+    AddButtonComponent,
+    InboxComponent,
+    UploadButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     ConsultarEquiposComponent,
     HttpClient,
     FormBuilder,
-    NavbarComponent
+    NavbarComponent,
+    CrearEquiposComponent
   ],
   bootstrap: [AppComponent],
 })
