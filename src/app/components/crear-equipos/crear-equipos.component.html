@@ -1,6 +1,7 @@
 <div style="background-color: #E4E3E3;" class="row-full" >
     <div style="background-color: white;" class="crear">
-        <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()">
+        <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
+        <form [formGroup]="fileUploadForm">
             <div class="controls">
                 <label for="id" class="to-start font text">To start, select the desired IPS Excel file </label>
                 <br>
@@ -8,7 +9,8 @@
                     <input type="file" multiple="false" accept=".xlsx, .xls, .csv" name="myFile" id="customFile" class="top" 
                     (change)="onFileChange($event)" #UploadFileInput>
                     <input class="top" type="reset" value="Reset">
-                    <input class="top submit-button" type="submit" value="Upload">
+                    <button class="top submit-button submit" (click)="openDialog(getFormData())">Upload
+                    </button>
                 </div>
             </div>
         </form>
