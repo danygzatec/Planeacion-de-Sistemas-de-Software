@@ -87,13 +87,18 @@
     display: flex;
 }
 
-/* .space-hr-emp {
-    padding-left: 20px;
-} */
+.space-hr-emp {
+    padding-left: 10px;
+}
+
+.space-emp {
+    padding-left: 45px;
+}
 
 .approved-by-small {
-    font-size: 10px;
-    padding-left: 10px;
+    font-size: 20px;
+    padding-left: 65px;
+    padding-top: 10px;
 }
 
 .employee-name-row {
@@ -147,4 +152,12 @@
 .linea-gris-delgadita {
     padding-top: 0.5%;
     background-color: #F6F6F6;
+}
+
+.HR {
+    margin-left: 18px;
+}
+
+.EMP {
+    margin-left: 10px;
 }

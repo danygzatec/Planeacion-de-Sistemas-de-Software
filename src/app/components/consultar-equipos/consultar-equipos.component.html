@@ -30,13 +30,21 @@
 
 <div class="approved-rectangle">
     <div class="linea"></div> 
-    <div class="approved-by-small font"> approved by:</div>
-    <table class="font">
+    <div class="approved-by-small font"> approved by</div>
+    <!-- <table class="font">
         <tr>
             <th class="space-hr-emp"> HR </th>
-            <th class="first-check"> Emp</th>
+            <th class="space-emp"> Emp</th>
         </tr>
-    </table>
+        <tr>
+            <th>
+                <img src="assets/star.png" alt="" width="20" height="20">
+            </th>
+            <th>
+                <img src="assets/circle.png" alt="" width="20" height="20">
+            </th>
+        </tr> -->
+    <!-- </table> -->
 </div>
 
 <div class="linea-gris-delgadita"></div> 
@@ -46,13 +54,17 @@
         <!-- <tr class="approved-by-small">approved by: </tr> -->
         <tr class="employee-name-row" *ngFor="let team of getTeams()">
             <td class="first-check" *ngIf="team.approved_HR"> 
-                <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
+                <img src="assets/palomita-consultar-equipos.png" alt="" width="35" height="30"> 
             </td>
-            <td *ngIf="!team.approved_HR">    </td>
+            <td class="HR" *ngIf="!team.approved_HR">
+                <img src="assets/HR.png" class="HR" alt="" width="50" height="50">
+            </td>
             <td class="first-check" *ngIf="team.approved_Emp"> 
-                <img src="assets/palomita-consultar-equipos.png" alt="" width="20" height="20"> 
+                <img src="assets/palomita-consultar-equipos.png" alt="" width= "35" height="30"> 
             </td>
-            <td  *ngIf="!team.approved_Emp">    </td>
+            <td class="EMP" *ngIf="!team.approved_Emp">
+                <img src="assets/EMP.png" class="EMP" alt="" width="50" height="50">
+            </td>
             <td class="employee-name">{{ team.employee?.employee_name }}</td>
     
             <td>

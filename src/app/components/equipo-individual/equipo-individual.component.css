@@ -129,8 +129,8 @@ table tr:nth-child(even){
 .back-arrow {
     background-color: #8DD2EF;
     width: 25px;
-    height: 20px;
-    margin-top: 1.5%;
+    height: 22px;
+    margin-top: 1%;
     position:absolute;
     margin-left: -225px;
     border-radius: 5px;
@@ -189,10 +189,10 @@ table tr:nth-child(even){
 .boton_flecha{
     position: absolute;
     background-color: #8DD2EF;
-    width: 40px;
-    height: 35px;
+    width: 50px;
+    height: 45px;
     top: 20%;
-    left: 3%;
+    left: 12%;
 
     padding-top: -10px;
 
