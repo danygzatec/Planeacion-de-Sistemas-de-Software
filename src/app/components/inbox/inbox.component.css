@@ -32,3 +32,37 @@
     border-color: black;
     border-width: 150%;
 }
+
+.mensaje{
+    position: absolute;
+    height: 300px;
+    width: 1300px;
+    left: 40px;
+    right: 40px;
+    top: 50px;
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+
+table tr:nth-child(odd){
+    background-color: #D6E0FF;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+table tr:nth-child(even){
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+.table-style {
+    width: 95%;
+    justify-self: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    border-radius: 10%;
+    overflow: hidden;
+    background-color: #282C38;
+}
