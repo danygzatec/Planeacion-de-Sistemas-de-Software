@@ -191,8 +191,9 @@ table tr:nth-child(even){
     background-color: #8DD2EF;
     width: 100px;
     height: 45px;
-    top: 21.5%;
+    top: 20%;
     left: 3%;
+    border-color: transparent;
 
     padding-top: -10px;
 
