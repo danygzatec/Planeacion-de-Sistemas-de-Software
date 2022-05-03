@@ -91,3 +91,9 @@
     color: #282C38;
 
 }
+
+.prompt {
+    padding-top: 10px;
+    font-family: 'Roboto';
+    text-align: center;
+}
