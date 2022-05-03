@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { UploadButtonComponent } from './components/upload-button/upload-button.component';
 import { CrearEquiposComponent } from './components/crear-equipos/crear-equipos.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -41,7 +42,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     PopupDeleteComponent,
     AddButtonComponent,
     InboxComponent,
-    UploadButtonComponent
+    UploadButtonComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,
