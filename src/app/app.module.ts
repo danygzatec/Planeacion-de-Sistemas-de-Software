@@ -24,6 +24,8 @@ import { UploadButtonComponent } from './components/upload-button/upload-button.
 import { CrearEquiposComponent } from './components/crear-equipos/crear-equipos.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
+import { LOCALE_ID } from '@angular/core';
+
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
     auth : {
