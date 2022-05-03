@@ -39,7 +39,7 @@
     width: 1300px;
     left: 40px;
     right: 40px;
-    top: 50px;
+    top: 20px;
     background: #FFFFFF;
     border-radius: 15px;
 }
@@ -65,4 +65,40 @@ table tr:nth-child(even){
     border-radius: 10%;
     overflow: hidden;
     background-color: #282C38;
+}
+
+.botonInboxApprove{
+    position: absolute;
+    width: 144px;
+    height: 40px;
+    right: 5%;
+
+    background: #17C03C;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+}
+
+.botonInboxDecline{
+    position: absolute;
+    width: 144px;
+    height: 40px;
+    right: 5%;
+
+    background: #C90808;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+}
+
+.texto{
+    position: absolute;
+    left: 2%;
+    font-size: 6mm;
+}
+
+.textoMotivo{
+    position: absolute;
+    left: 2%;
+    color: #656565;
 }
