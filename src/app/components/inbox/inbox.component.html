@@ -12,9 +12,12 @@
 <div class="inb">
     <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
     <table class="mensaje font table-style texto">
-        <tr *ngFor="let r of getTitle()">
+        <tr *ngFor="let r of request">
             <th>
-                {{r}} 
+                {{r.motive}}
+            </th>
+            <th>
+                {{getTitle(r.id_request)}} 
             </th>
         </tr>
     </table>

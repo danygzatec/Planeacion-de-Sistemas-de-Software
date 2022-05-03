@@ -30,29 +30,27 @@ export class InboxComponent implements OnInit {
     return this.request;
   }
 
-  getTitle() : string[] {
-    var title: string[] = [];
+  getTitle(requestID : number) : string {
+
     var currString : string = "";
 
-    this.request.forEach(req => {
-      var e = this.employee.find(emp => emp.id_employee == req.id_emp_req);
-      currString.concat(e!.employee_name);
-      currString.concat("wants to ");
-      if(req.type == 0){
-        currString.concat( " add ");
-      } else if(req.type == 1){
-        currString.concat( " remove ");
-      }
+    var r = this.request.find(req => req.id_request === requestID);
+    var e = this.employee.find(emp => emp.id_employee === r!.id_emp_req);
+    currString += e!.employee_name;
+    currString += " wants to ";
+    if(r!.type == 0){
+      currString += " add ";
+    } else if(r!.type == 1){
+      currString += " remove ";
+    }
 
-      e = this.employee.find(emp => emp.id_employee == req.id_emp_mod);
+    e = this.employee.find(emp => emp.id_employee == r!.id_emp_mod);
 
-      currString.concat(e!.employee_name);
-      console.log(currString.toString());
-      title.push(currString);
-      currString = "";
+    currString += e!.employee_name;
+    console.log(currString);
+    console.log("hola");
+
+    return currString;
       
-    });
-
-    return title;
   }
 }
