@@ -9,22 +9,18 @@
     </div>
 </div>
 
-<div class="inb">
-    <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
-    <table class="mensaje font table-style">
-        <tr *ngFor="let r of request">
-            <th>
-                <div class="texto"> {{getTitle(r.id_request)}} </div>
-                <button class="botonInboxApprove">Approve</button>
-                <br>
-                <div class="textoMotivo">{{r.motive}}</div>
-                <br>
-                <button class="botonInboxDecline">Decline</button>
-                <!-- <tr>
-                    {{r.motive}}
+<div class="inbox-container">
+    <div class="inb">
+        <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
+        <table class="mensaje font table-style">
+            <tr *ngFor="let r of request">
+                <th>
+                    <div class="texto"> {{getTitle(r.id_request)}} </div>
+                    <button class="botonInboxApprove">Approve</button>
+                    <div class="textoMotivo">{{r.motive}}</div>
                     <button class="botonInboxDecline">Decline</button>
-                </tr> -->
-            </th>
-        </tr>
-    </table>
+                </th>
+            </tr>
+        </table>
+    </div>
 </div>

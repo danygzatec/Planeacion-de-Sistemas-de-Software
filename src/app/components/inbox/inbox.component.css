@@ -13,11 +13,16 @@
     position: absolute;
     width: 1407px;
     height: 816px;
-    left: 17px;
     top: 182px;
 
     background: #282C38;
     border-radius: 10px;
+}
+
+.inbox-container{
+    align-content: center;
+    justify-content: center;
+    display: flex;
 }
 
 .search{
@@ -34,12 +39,12 @@
 }
 
 .mensaje{
-    position: absolute;
+    position: relative;
     height: 300px;
     width: 1300px;
     left: 40px;
     right: 40px;
-    top: 20px;
+    top: 10px;
     background: #FFFFFF;
     border-radius: 15px;
 }
@@ -68,10 +73,10 @@ table tr:nth-child(even){
 }
 
 .botonInboxApprove{
-    position: absolute;
+    position: relative;
     width: 144px;
     height: 40px;
-    right: 5%;
+    right: -84%;
 
     background: #17C03C;
     border-radius: 10px;
@@ -80,10 +85,10 @@ table tr:nth-child(even){
 }
 
 .botonInboxDecline{
-    position: absolute;
+    position: relative;
     width: 144px;
     height: 40px;
-    right: 5%;
+    right: -84%;
 
     background: #C90808;
     border-radius: 10px;
@@ -92,13 +97,15 @@ table tr:nth-child(even){
 }
 
 .texto{
-    position: absolute;
+    position: relative;
     left: 2%;
     font-size: 6mm;
+    top: 10px;
 }
 
 .textoMotivo{
-    position: absolute;
+    position: relative;
     left: 2%;
     color: #656565;
+    font-size: 4.5mm;
 }
