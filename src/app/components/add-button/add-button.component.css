@@ -97,3 +97,20 @@
     font-family: 'Roboto';
     text-align: center;
 }
+
+table tr:nth-child(odd){
+    background-color: #D6E0FF;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+table tr:nth-child(even){
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+.center-table {
+    display: flex;
+    justify-content: center;
+}
