@@ -1,6 +1,12 @@
 <div class="pop">
     <div class="up">
-        <h4>Please select the employees you want to add to the team.</h4>
+        <h4 class="prompt">Please select the employees you want to add to the team.</h4>
+        <div *ngFor="let m of members">
+            <input type="checkbox">
+            <label for="">
+                {{m.employee_name}}
+            </label>
+        </div>
         <button class="btn btn-primary add font">
             add
         </button>

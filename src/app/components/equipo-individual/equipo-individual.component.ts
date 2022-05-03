@@ -10,6 +10,9 @@ import ExcelData from 'src/excel-dummy.json';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { ThrottlingUtils } from '@azure/msal-common';
+import { EmployeeProject } from 'src/app/models/employee-project';
+import { Project } from 'src/app/models/project';
 
 @Component({
   selector: 'app-equipo-individual',
@@ -20,7 +23,9 @@ export class EquipoIndividualComponent implements OnInit {
 
   employees : Employee[];
   empTeams : EmployeeTeam[];
+  empProjects : EmployeeProject[];
   teams : Team[];
+  projects : Project[];
   team: Team | undefined ;
   id : number;
   evaluators : boolean;
@@ -38,6 +43,9 @@ export class EquipoIndividualComponent implements OnInit {
     this.teams = ExcelData.team;
     this.employees = ExcelData.employee;
     this.empTeams = ExcelData.employee_team
+    this.empProjects = ExcelData.employee_project;
+    this.projects = ExcelData.project;
+
     this.team = this.teams.find(element => element.id_employee === empIdFromRoute);
     this.id = empIdFromRoute;
     this.evaluators = false;
@@ -45,7 +53,7 @@ export class EquipoIndividualComponent implements OnInit {
    }
 
   async ngOnInit(): Promise<void> {
-    await this.initializeObjects();
+    await this.createObjects();
 
   }
 
@@ -53,11 +61,16 @@ export class EquipoIndividualComponent implements OnInit {
     this.teams = ExcelData.team;
     this.employees = ExcelData.employee;
     this.empTeams = ExcelData.employee_team;
-
+    this.empProjects = ExcelData.employee_project;
+    this.projects = ExcelData.project;
   }
 
   async createObjects() {
     await this.initializeObjects();
+
+    this.empProjects.forEach(element => {
+      element.employee = this.employees.find(emp => emp.id_employee === element.id_employee);
+    })
 
     this.empTeams.forEach(element => {
       if (element.role_member === 0) {
@@ -69,6 +82,10 @@ export class EquipoIndividualComponent implements OnInit {
       }
     })
     
+  }
+
+  getEmp() {
+    return this.employees.find(element => element.id_employee === this.id);
   }
 
   getEmpName() {
@@ -126,6 +143,36 @@ export class EquipoIndividualComponent implements OnInit {
     return this.evaluators;
   }
 
+  getUnassignedEmployeesInProjects() : any {
+    //en esta funcion quiero obtener todos los miembros que no cumplieron las horas
+    //en los proyectos del empleado en cuestion.
+    var members : any[] = [];
+
+    // lista de id_project en los que trabajó el usuaro en cuestion
+    var projectList : any[] = [];
+
+    this.empProjects.forEach(element => {
+      if (element.id_employee == this.getEmp()!.id_employee) {
+        projectList.push(element.id_project);
+      }
+    });
+
+    // did_complete sea falso y id_project esté en projectList
+    this.empProjects.forEach(element => {
+      console.log("fuera del if");
+      if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
+        console.log("dentro del if");
+        members.push(element.employee);
+        console.log(element.employee?.employee_name);
+      }
+    })
+
+    console.log(members);
+
+    return members;
+
+  }
+
   openDialog(member: any, employee: any){
     this.dialogRef.open(PopupDeleteComponent,{
       data : {
@@ -134,8 +181,12 @@ export class EquipoIndividualComponent implements OnInit {
       }
     });
   }
-  openDialogAdd(){
-    this.dialogRef.open(AddButtonComponent);
+  openDialogAdd(members: any){
+    this.dialogRef.open(AddButtonComponent, {
+      data : {
+        m : members
+      }
+    });
   }
 
   navigateBack(page: any){
