@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
-import { CrearEquiposComponent } from '../app/components/crear-equipos/crear-equipos.component';
-import { ConsultarEquiposComponent } from '../app/components/consultar-equipos/consultar-equipos.component';
-import { Evaluacion360Component } from '../app/components/evaluacion360/evaluacion360.component';
+import { CrearEquiposComponent } from './components/HR/crear-equipos/crear-equipos.component';
+import { ConsultarEquiposComponent } from './components/HR/consultar-equipos/consultar-equipos.component';
+import { Evaluacion360Component } from './components/HR/evaluacion360/evaluacion360.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MsalguardGuard } from './msalguard.guard';
 import { MsalGuard } from '@azure/msal-angular';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
-import { UnassignedComponent } from './components/unassigned/unassigned.component';
-import { AddButtonComponent } from './components/add-button/add-button.component';
-import { InboxComponent } from './components/inbox/inbox.component';
+import { DashboardComponent } from './components/HR/dashboard/dashboard.component';
+import { EquipoIndividualComponent } from './components/HR/equipo-individual/equipo-individual.component';
+import { UnassignedComponent } from './components/HR/unassigned/unassigned.component';
+import { AddButtonComponent } from './components/HR/add-button/add-button.component';
+import { InboxComponent } from './components/HR/inbox/inbox.component';
 import { UploadButtonComponent } from './components/upload-button/upload-button.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 

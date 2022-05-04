@@ -7,29 +7,29 @@ import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { EquipoIndividualComponent } from './components/equipo-individual/equipo-individual.component';
-import { ConsultarEquiposComponent } from './components/consultar-equipos/consultar-equipos.component';
-import { UnassignedComponent } from './components/unassigned/unassigned.component';
+import { EquipoIndividualComponent } from './components/HR/equipo-individual/equipo-individual.component';
+import { ConsultarEquiposComponent } from './components/HR/consultar-equipos/consultar-equipos.component';
+import { UnassignedComponent } from './components/HR/unassigned/unassigned.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { PopupDeleteComponent } from './components/popup-delete/popup-delete.component';
-import { AddButtonComponent } from './components/add-button/add-button.component';
+import { PopupDeleteComponent } from './components/HR/popup-delete/popup-delete.component';
+import { AddButtonComponent } from './components/HR/add-button/add-button.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InboxComponent } from './components/inbox/inbox.component';
+import { InboxComponent } from './components/HR/inbox/inbox.component';
 import { UploadButtonComponent } from './components/upload-button/upload-button.component';
-import { CrearEquiposComponent } from './components/crear-equipos/crear-equipos.component';
+import { CrearEquiposComponent } from './components/HR/crear-equipos/crear-equipos.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 import { LOCALE_ID } from '@angular/core';
 import { NavbarEmployeeComponent } from './components/shared/navbar-employee/navbar-employee.component';
-import { MyprojectsComponent } from './components/myprojects/myprojects.component';
+import { MyprojectsComponent } from './components/Emp/myprojects/myprojects.component';
 import { MyteamComponent } from './myteam/myteam.component';
 import { PartialApprovalComponent } from './partial-approval/partial-approval.component';
-import { ApprovalSuccessfulComponent } from './components/approval-successful/approval-successful.component';
+import { ApprovalSuccessfulComponent } from './components/Emp/approval-successful/approval-successful.component';
 import { ApprovalUnsuccessfulComponent } from './components/approval-unsuccessful/approval-unsuccessful.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{

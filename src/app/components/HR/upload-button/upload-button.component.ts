@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from  '@angular/material/dialog';
-import { CrearEquiposComponent } from '../crear-equipos/crear-equipos.component';
+import { CrearEquiposComponent } from '../HR/crear-equipos/crear-equipos.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
