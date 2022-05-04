@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
+import ExcelData from 'src/excel-dummy.json'
 
 
 import {Router} from '@angular/router';
+import { Employee } from './models/employee';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,10 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'IPSCentral';
+  employees : Employee[];
 
-  constructor(private msalService: MsalService){
-
+  constructor(private msalService: MsalService, public router: Router){
+    this.employees = ExcelData.employee;
 
   }
   ngOnInit(): void {
@@ -25,14 +28,17 @@ export class AppComponent implements OnInit {
         }
       }
     )
+    this.employees = ExcelData.employee;
+    //this.isLoggedIn();
+
   }
 
   isLoggedIn() : boolean {
-    // this.router.navigate(['home']);
+    // this.router.navigate(['/home']);
     return this.msalService.instance.getActiveAccount() != null
   }
 
-  login(){
+  async login(){
     //redirect a microsoft login
     //this.msalService.loginRedirect();
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>{
@@ -40,6 +46,7 @@ export class AppComponent implements OnInit {
       // console.log("hola", response.account?.name)
       // console.log("hola", response.account?.username)
     }); 
+    await this.rerouteHR();
   }
 
   logout(){
@@ -52,6 +59,24 @@ export class AppComponent implements OnInit {
 
   getEmailAccount(): any{
     return this.msalService.instance.getActiveAccount()?.username;
+  }
+
+  // isHR() : boolean {
+  //   var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
+  //   if (user!.is_HR) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  rerouteHR() {
+    var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
+    if (user!.is_HR) {
+      this.router.navigate(['crear-equipos']);
+    } else {
+      this.router.navigate(['myprojects']);
+    }
   }
 
 }

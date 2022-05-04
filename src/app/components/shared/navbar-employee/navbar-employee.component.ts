@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-navbar-employee',
+  templateUrl: './navbar-employee.component.html',
+  styleUrls: ['./navbar-employee.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarEmployeeComponent implements OnInit {
 
   public createTeams = false;
 
@@ -15,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
    public dashboard  = false;
 
-  constructor(public accountInfo: AppComponent) { }
+  constructor(private accountInfo: AppComponent) { }
 
   ngOnInit(): void {
     
@@ -80,6 +79,5 @@ export class NavbarComponent implements OnInit {
 
      this.dashboard  = false;
   }
-
 
 }
