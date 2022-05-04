@@ -13,11 +13,16 @@
     position: absolute;
     width: 1407px;
     height: 816px;
-    left: 17px;
     top: 182px;
 
     background: #282C38;
     border-radius: 10px;
+}
+
+.inbox-container{
+    align-content: center;
+    justify-content: center;
+    display: flex;
 }
 
 .search{
@@ -31,4 +36,76 @@
     border-radius: 10px;
     border-color: black;
     border-width: 150%;
+}
+
+.mensaje{
+    position: relative;
+    height: 300px;
+    width: 1300px;
+    left: 40px;
+    right: 40px;
+    top: 10px;
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+
+table tr:nth-child(odd){
+    background-color: #D6E0FF;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+table tr:nth-child(even){
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    align-self: center;
+}
+
+.table-style {
+    width: 95%;
+    justify-self: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    border-radius: 10%;
+    overflow: hidden;
+    background-color: #282C38;
+}
+
+.botonInboxApprove{
+    position: relative;
+    width: 144px;
+    height: 40px;
+    right: -84%;
+
+    background: #17C03C;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+}
+
+.botonInboxDecline{
+    position: relative;
+    width: 144px;
+    height: 40px;
+    right: -84%;
+
+    background: #C90808;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+}
+
+.texto{
+    position: relative;
+    left: 2%;
+    font-size: 6mm;
+    top: 10px;
+}
+
+.textoMotivo{
+    position: relative;
+    left: 2%;
+    color: #656565;
+    font-size: 4.5mm;
 }
