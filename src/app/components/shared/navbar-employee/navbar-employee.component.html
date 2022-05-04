@@ -12,28 +12,22 @@
                 <a class="nav-link font" routerLink="myteam">My team</a>
             </li>
         </ul>
-        <div class="username">
-            <h6 class="font">{{ getName() }}</h6>
-        </div>
-        <style>
-            .mydropdowncss:hover .dropdown-menu {
-                display: block;
-                margin-top: 30px;
-                background-color:lightgray; 
-                margin-left: 650px;
-                position: absolute;
-                left: 10px;
-             }     
-        </style>
-            <div class="dropdown mydropdowncss font">
-                <a href="#" class="boton-perfil" data-toggle="dropdown"><img src="../assets/profile-icon.png"  height="60" width="60"><span class="caret"></span></a> 
-                <ul class="dropdown-menu">
-                    <li class="menu">{{ getName() }}</li>
-                    <li class="menu"> {{ getEmail() }} </li>
-                    <!-- <li class="menu"><a href="#">View profile</a></li> -->
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a><button (click)="logout()" class="logout"><img src="../assets/log-out.png"  height="20" width="20">   Log Out</button></a></li>
-                </ul>
-            </div>     
+        <div class="align-user">
+                <div class="dropdown mydropdowncss font">
+                    <a href="#" class="boton-perfil" data-toggle="dropdown">
+                        <div class="username">
+                            <h6 class="font">Hello, {{ getName() }}</h6>
+                        </div>
+                        <img src="../assets/profile-icon.png"  height="60" width="60"><span class="caret"></span>
+                    </a> 
+                    <ul class="dropdown-menu">
+                        <li class="menu">{{ getName() }}</li>
+                        <li class="menu"> {{ getEmail() }} </li>
+                        <!-- <li class="menu"><a href="#">View profile</a></li> -->
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a><button (click)="logout()" class="logout"><img src="../assets/log-out.png"  height="20" width="20">   Log Out</button></a></li>
+                    </ul>
+                </div> 
+        </div>         
     </div>
 </nav>

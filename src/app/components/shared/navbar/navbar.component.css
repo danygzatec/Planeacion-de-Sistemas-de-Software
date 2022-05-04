@@ -100,7 +100,6 @@ nav {
 
 .boton-perfil{
     padding: 0px;
-    margin-left: 10px;
     margin-top: -10%;
     border-color: transparent;
     background: transparent;
@@ -123,5 +122,5 @@ nav {
 
 .center-buttons {
     display: flex;
-    
+
 }
