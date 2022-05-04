@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+/* change the background color */
+.navbar-custom {
+    background-color: #ffffff;
+}
+/* change font*/
+.font{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #F827F6;
+    padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+    padding: 0.5rem 0.5rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link {
+    color: #ffffff;
+    background-color: #8DD2EF; /* add background-color to active links */
+    border-bottom: 3px solid white;
+}
+
+.navbar-custom {
+    background-color: #8DD2EF;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+    padding: 0.1rem 2rem;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+.navbar-custom .nav-item:hover .nav-link {
+    border-bottom: 3px solid white;
+}
+
+.boton {
+    margin-right: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.boton_lupa { 
+    background-color: #fff; 
+}
+
+.linea-gris {
+    padding-top: 1%;
+    background-color: #F6F6F6;
+}
+
+.table-style {
+    width: 95%;
+    justify-self: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.approved-rectangle {
+    height: 52px;
+    left: 0px;
+    top: 164px;
+    background: #27A0D4;
+    color:#ffffff;
+    display: flex;
+}
+
+.space-hr-emp {
+    padding-left: 10px;
+}
+
+.space-emp {
+    padding-left: 45px;
+}
+
+.approved-by-small {
+    font-size: 20px;
+    padding-left: 65px;
+    padding-top: 10px;
+}
+
+.employee-name-row {
+    background:  #282C38;
+    color: #ffffff;
+}
+
+.employee-name {
+    padding-left: 40px;
+    padding-right: 800px;
+}
+
+/* boton de view team*/
+.view-team{
+    background-color: #27A0D4;
+    color: white;
+    border-radius: 30px;
+    margin: 0.30em;
+    justify-content: center;
+    display: flex;
+    margin-right: 10px;
+}
+
+.view-team:hover{
+    background-color: #2083ae;
+    color: white;
+    text-decoration: underline;
+}
+
+.linea {
+    padding-bottom: 1%;
+    background-color: #F6F6F6;
+}
+
+.grey-page {
+    height:auto;
+    background-color: #F6F6F6;
+    padding-bottom: 0%;
+}
+
+.table-container {
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.first-check {
+    padding-left: 20px;
+}
+
+.linea-gris-delgadita {
+    padding-top: 0.5%;
+    background-color: #F6F6F6;
+}
+
+.HR {
+    margin-left: 18px;
+}
+
+.EMP {
+    margin-left: 10px;
+}
