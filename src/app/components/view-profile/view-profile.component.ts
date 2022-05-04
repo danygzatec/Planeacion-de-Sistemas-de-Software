@@ -12,6 +12,16 @@ export class ViewProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  url="https://img.icons8.com/pastel-glyph/2x/person-male--v3.png"
+  onSelect(event : any){
+    if(event.target.files[0]){
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event:any) =>{
+        this.url = event.target.result;
+      }
+    }
+  }
 
   getName() : any {
     let fullName = this.accountInfo.getNameAccount();
