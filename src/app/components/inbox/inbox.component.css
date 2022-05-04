@@ -12,8 +12,9 @@
 .inb{
     position: absolute;
     width: 1407px;
-    height: 816px;
     top: 182px;
+    height: max-content;
+    padding-bottom: 15px;
 
     background: #282C38;
     border-radius: 10px;
