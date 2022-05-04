@@ -13,6 +13,11 @@ import { AddButtonComponent } from './components/HR/add-button/add-button.compon
 import { InboxComponent } from './components/HR/inbox/inbox.component';
 import { UploadButtonComponent } from './components/HR/upload-button/upload-button.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+import { MyprojectsComponent } from './components/Emp/myprojects/myprojects.component';
+import { MyteamComponent } from './components/Emp/myteam/myteam.component';
+import { ApprovalSuccessfulComponent } from './components/Emp/approval-successful/approval-successful.component';
+import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
+import { PartialApprovalComponent } from './components/Emp/partial-approval/partial-approval.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
@@ -26,6 +31,11 @@ const routes: Routes = [
   {path: 'view-profile', component: ViewProfileComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned/consultar-equipos', redirectTo: 'consultar-equipos'},
   {path: 'equipo-individual/:id_employee/consultar-equipos', redirectTo: 'consultar-equipos'},
+  {path: 'myprojects', component: MyprojectsComponent, canActivate: [MsalguardGuard]},
+  {path: 'myteam', component: MyteamComponent, canActivate: [MsalguardGuard]},
+  {path: 'approval-successful', component: ApprovalSuccessfulComponent, canActivate: [MsalguardGuard]},
+  {path: 'approval-unsuccessful', component: ApprovalUnsuccessfulComponent, canActivate: [MsalguardGuard]},
+  {path: 'partial-approval', component: PartialApprovalComponent, canActivate: [MsalguardGuard]},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
-// import ExcelData from 'src/excel-dummy.json'
+import ExcelData from 'src/excel-dummy.json'
 
 
 import {Router} from '@angular/router';
-// import { Employee } from './models/employee';
+import { Employee } from './models/employee';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +14,10 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'IPSCentral';
-  // employees : Employee[];
+  employees : Employee[];
 
   constructor(private msalService: MsalService, public router: Router){
-    // this.employees = ExcelData.employee;
+    this.employees = ExcelData.employee;
 
   }
   ngOnInit(): void {
@@ -28,8 +28,9 @@ export class AppComponent implements OnInit {
         }
       }
     )
-    // this.employees = ExcelData.employee;
+    this.employees = ExcelData.employee;
     //this.isLoggedIn();
+
   }
 
   isLoggedIn() : boolean {
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
     return this.msalService.instance.getActiveAccount() != null
   }
 
-  login(){
+  async login(){
     //redirect a microsoft login
     //this.msalService.loginRedirect();
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>{
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
       // console.log("hola", response.account?.name)
       // console.log("hola", response.account?.username)
     }); 
-    this.router.navigate(['/home']);
+    await this.rerouteHR();
   }
 
   logout(){
@@ -68,5 +69,14 @@ export class AppComponent implements OnInit {
   //     return false;
   //   }
   // }
+
+  rerouteHR() {
+    var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
+    if (user!.is_HR) {
+      this.router.navigate(['crear-equipos']);
+    } else {
+      this.router.navigate(['myprojects']);
+    }
+  }
 
 }

@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit{
     this.employees = ExcelData.employee;
    }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
       this.employees = ExcelData.employee;
-      this.rerouteHR();
+      await this.rerouteHR();
   }
 
   isLoggedIn() : boolean{
@@ -40,7 +40,8 @@ export class HomeComponent implements OnInit{
       console.log("user is HR");
     } else {
       console.log("User is not HR")
-      this.router.navigate(['equipo-individual/' + user!.id_employee]);
+      // this.router.navigate(['myprojects/' + user!.id_employee]);
+      this.router.navigate(['myprojects/']);
     }
   }
 
