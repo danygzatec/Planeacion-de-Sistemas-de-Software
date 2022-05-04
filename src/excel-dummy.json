@@ -159,6 +159,22 @@
             "id_emp_req" : 3,
             "status" : 1,
             "id_request" : 4
+        },
+        {
+            "motive" : "trabaja decente",
+            "id_emp_mod" : 2,
+            "type" : 0,
+            "id_emp_req" : 4,
+            "status" : 1,
+            "id_request" : 5
+        },
+        {
+            "motive" : "LA AMO DEMASIADO",
+            "id_emp_mod" : 4,
+            "type" : 0,
+            "id_emp_req" : 1,
+            "status" : 1,
+            "id_request" : 6
         }
     ],
     "employee_project" : [
