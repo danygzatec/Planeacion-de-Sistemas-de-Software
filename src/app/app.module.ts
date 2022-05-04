@@ -12,7 +12,7 @@ import { ConsultarEquiposComponent } from './components/consultar-equipos/consul
 import { UnassignedComponent } from './components/unassigned/unassigned.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { PopupDeleteComponent } from './components/popup-delete/popup-delete.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';

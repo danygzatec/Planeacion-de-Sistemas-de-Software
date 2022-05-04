@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class UploadButtonComponent implements OnInit {
 
   public fileUploadForm: HTMLFormElement;
+  public hasUpload: boolean = false;
 
   constructor(
     private dialogRef:  MatDialogRef<UploadButtonComponent>, 
@@ -42,6 +43,7 @@ export class UploadButtonComponent implements OnInit {
       }
     );
     this.closeMe();
+    this.hasUpload = true;
   }
 
 }

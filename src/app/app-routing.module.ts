@@ -11,6 +11,7 @@ import { EquipoIndividualComponent } from './components/equipo-individual/equipo
 import { UnassignedComponent } from './components/unassigned/unassigned.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { InboxComponent } from './components/inbox/inbox.component';
+import { UploadButtonComponent } from './components/upload-button/upload-button.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
+import { UploadButtonComponent } from '../../upload-button/upload-button.component';
 
 @Component({
   selector: 'app-navbar',
@@ -70,6 +71,14 @@ export class NavbarComponent implements OnInit {
      this.dashboard  = true;
 
    }
+  }
+
+  cleanNavbar(){
+    this.createTeams = false;
+
+     this.consultTeams = false;
+
+     this.dashboard  = false;
   }
 
 

@@ -26,7 +26,7 @@
         </div> -->
         <div class="inbox">
             <span class="notify-badge">1</span>
-            <a routerLink="inbox"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
+            <a routerLink="inbox" (click)="cleanNavbar()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
         </div>
         
         <style>
@@ -44,7 +44,7 @@
                 <ul class="dropdown-menu">
                     <li class="menu">{{ getName() }}</li>
                     <li class="menu"> {{ getEmail() }} </li>
-                    <li class="menu"><a href="#">View profile</a></li>
+                    <!-- <li class="menu"><a href="#">View profile</a></li> -->
                     <li><hr class="dropdown-divider" /></li>
                     <li><a><button (click)="logout()" class="logout"><img src="../assets/log-out.png"  height="20" width="20">   Log Out</button></a></li>
                 </ul>
