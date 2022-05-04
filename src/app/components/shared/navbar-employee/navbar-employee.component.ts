@@ -8,11 +8,9 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class NavbarEmployeeComponent implements OnInit {
 
-  public createTeams = false;
+  public myProjects = false;
 
-   public consultTeams = false;
-
-   public dashboard  = false;
+   public myTeam = false;
 
   constructor(private accountInfo: AppComponent) { }
 
@@ -42,42 +40,28 @@ export class NavbarEmployeeComponent implements OnInit {
 
   navigate(page: any){
 
-    console.log("NavBarComponent", page);
+    console.log("NavBarEmpComponent", page);
 
-    if(page === '/crear-equipos'){
+    if(page === '/myprojects'){
 
-      this.createTeams = true;
+      this.myProjects = true;
 
-      this.consultTeams = false;
+      this.myTeam = false;
 
-      this.dashboard  = false;
-
-   }else if(page === '/consultar-equipos'){
+   }else if(page === '/myTeam'){
     console.log("if");
 
-     this.createTeams = false;
+    this.myProjects = false;
 
-     this.consultTeams = true;
-
-     this.dashboard  = false;
-
-   }else if(page === '/dashboard'){
-
-     this.createTeams = false;
-
-     this.consultTeams = false;
-
-     this.dashboard  = true;
+    this.myTeam = true;
 
    }
   }
 
   cleanNavbar(){
-    this.createTeams = false;
+    this.myProjects = false;
 
-     this.consultTeams = false;
-
-     this.dashboard  = false;
+      this.myTeam = false;
   }
 
 }

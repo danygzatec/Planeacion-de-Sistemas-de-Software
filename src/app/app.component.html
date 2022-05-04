@@ -1,6 +1,12 @@
 <!-- si esta logged in, que se muestre el navbar  -->
 <div *ngIf="isLoggedIn()">
-    <app-navbar></app-navbar>
+    <div *ngIf="isHR()">
+        <app-navbar></app-navbar>
+    </div>
+    <div *ngIf="!isHR()">
+        <app-navbar-employee></app-navbar-employee>
+    </div>
+    
     <!-- <div *ngIf="isHR()">
         <app-navbar></app-navbar> 
     </div>

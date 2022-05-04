@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
     return this.msalService.instance.getActiveAccount() != null
   }
 
-  async login(){
+  login(){
     //redirect a microsoft login
     //this.msalService.loginRedirect();
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>{
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
       // console.log("hola", response.account?.name)
       // console.log("hola", response.account?.username)
     }); 
-    await this.rerouteHR();
+    this.rerouteHR();
   }
 
   logout(){
@@ -61,14 +61,14 @@ export class AppComponent implements OnInit {
     return this.msalService.instance.getActiveAccount()?.username;
   }
 
-  // isHR() : boolean {
-  //   var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
-  //   if (user!.is_HR) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  isHR() : boolean {
+    var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
+    if (user!.is_HR) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   rerouteHR() {
     var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
