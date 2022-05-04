@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+.name-email{
+    text-align: center;
+    background-color: #97d0e8;
+    margin-top: 1.5%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.teams{
+    background-color: #97d0e8;
+    margin-left: 1.5%;
+    margin-right: 50%;
+    margin-top: 3%;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.evaluate{
+    background-color: #97d0e8;
+    margin-right: 1.5%;
+    margin-left: 52%;
+    margin-top: -10.8%;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
