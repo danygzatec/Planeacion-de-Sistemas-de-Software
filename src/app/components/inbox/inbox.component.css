@@ -67,7 +67,7 @@ table tr:nth-child(even){
     font-family: 'Roboto Condensed', sans-serif;
     border-collapse: separate;
     border-spacing: 0 20px;
-    border-radius: 10%;
+    border-radius: 5%;
     overflow: hidden;
     background-color: #282C38;
 }
@@ -76,7 +76,7 @@ table tr:nth-child(even){
     position: relative;
     width: 144px;
     height: 40px;
-    right: -84%;
+    right: -88%;
     top: -4mm;
 
     background: #17C03C;
@@ -89,7 +89,7 @@ table tr:nth-child(even){
     position: relative;
     width: 144px;
     height: 40px;
-    right: -84%;
+    right: -88%;
     top: -6mm;
 
     background: #C90808;

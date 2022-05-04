@@ -143,6 +143,22 @@
             "id_emp_req" : 2,
             "status" : 1,
             "id_request" : 2
+        },
+        {
+            "motive" : "me cae decente",
+            "id_emp_mod" : 4,
+            "type" : 0,
+            "id_emp_req" : 2,
+            "status" : 2,
+            "id_request" : 3
+        },
+        {
+            "motive" : "no la conozco",
+            "id_emp_mod" : 5,
+            "type" : 1,
+            "id_emp_req" : 3,
+            "status" : 1,
+            "id_request" : 4
         }
     ],
     "employee_project" : [
