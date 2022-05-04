@@ -11,7 +11,7 @@ import { EquipoIndividualComponent } from './components/HR/equipo-individual/equ
 import { UnassignedComponent } from './components/HR/unassigned/unassigned.component';
 import { AddButtonComponent } from './components/HR/add-button/add-button.component';
 import { InboxComponent } from './components/HR/inbox/inbox.component';
-import { UploadButtonComponent } from './components/upload-button/upload-button.component';
+import { UploadButtonComponent } from './components/HR/upload-button/upload-button.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 const routes: Routes = [

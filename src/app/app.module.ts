@@ -20,17 +20,17 @@ import { FormBuilder } from '@angular/forms';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InboxComponent } from './components/HR/inbox/inbox.component';
-import { UploadButtonComponent } from './components/upload-button/upload-button.component';
+import { UploadButtonComponent } from './components/HR/upload-button/upload-button.component';
 import { CrearEquiposComponent } from './components/HR/crear-equipos/crear-equipos.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 import { LOCALE_ID } from '@angular/core';
 import { NavbarEmployeeComponent } from './components/shared/navbar-employee/navbar-employee.component';
 import { MyprojectsComponent } from './components/Emp/myprojects/myprojects.component';
-import { MyteamComponent } from './myteam/myteam.component';
-import { PartialApprovalComponent } from './partial-approval/partial-approval.component';
+import { MyteamComponent } from './components/Emp/myteam/myteam.component';
+import { PartialApprovalComponent } from './components/Emp/partial-approval/partial-approval.component';
 import { ApprovalSuccessfulComponent } from './components/Emp/approval-successful/approval-successful.component';
-import { ApprovalUnsuccessfulComponent } from './components/approval-unsuccessful/approval-unsuccessful.component';
+import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -50,14 +50,14 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     PopupDeleteComponent,
     AddButtonComponent,
     InboxComponent,
-    UploadButtonComponent,
     ViewProfileComponent,
     NavbarEmployeeComponent,
     MyprojectsComponent,
     MyteamComponent,
     PartialApprovalComponent,
     ApprovalSuccessfulComponent,
-    ApprovalUnsuccessfulComponent
+    ApprovalUnsuccessfulComponent,
+    UploadButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -44,6 +44,9 @@ export class EquipoIndividualComponent implements OnInit {
     this.empProjects = ExcelData.employee_project;
     this.projects = ExcelData.project;
 
+    const routeParams = this.route.snapshot.paramMap;
+    const empIdFromRoute = Number(routeParams.get('id_employee'));
+
     this.team = this.teams.find(element => element.id_employee === empIdFromRoute);
     this.id = empIdFromRoute;
     this.evaluators = false;
