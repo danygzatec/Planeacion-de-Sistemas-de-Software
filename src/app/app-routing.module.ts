@@ -12,6 +12,7 @@ import { UnassignedComponent } from './components/unassigned/unassigned.componen
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { UploadButtonComponent } from './components/upload-button/upload-button.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'inbox', component: InboxComponent, canActivate: [MsalguardGuard]},
   {path: 'equipo-individual/:id_employee', component: EquipoIndividualComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned', component: UnassignedComponent, canActivate: [MsalguardGuard]},
+  {path: 'view-profile', component: ViewProfileComponent, canActivate: [MsalguardGuard]},
   {path: 'consultar-equipos/unassigned/consultar-equipos', redirectTo: 'consultar-equipos'},
   {path: 'equipo-individual/:id_employee/consultar-equipos', redirectTo: 'consultar-equipos'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
