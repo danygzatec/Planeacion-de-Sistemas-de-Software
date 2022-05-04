@@ -37,8 +37,6 @@ export class EquipoIndividualComponent implements OnInit {
     public navbarActive: NavbarComponent
     ){
     
-    const routeParams = this.route.snapshot.paramMap;
-    const empIdFromRoute = Number(routeParams.get('id_employee'));
 
     this.teams = ExcelData.team;
     this.employees = ExcelData.employee;

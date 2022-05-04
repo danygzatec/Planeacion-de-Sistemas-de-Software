@@ -25,6 +25,12 @@ import { CrearEquiposComponent } from './components/crear-equipos/crear-equipos.
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 import { LOCALE_ID } from '@angular/core';
+import { NavbarEmployeeComponent } from './components/shared/navbar-employee/navbar-employee.component';
+import { MyprojectsComponent } from './components/myprojects/myprojects.component';
+import { MyteamComponent } from './myteam/myteam.component';
+import { PartialApprovalComponent } from './partial-approval/partial-approval.component';
+import { ApprovalSuccessfulComponent } from './components/approval-successful/approval-successful.component';
+import { ApprovalUnsuccessfulComponent } from './components/approval-unsuccessful/approval-unsuccessful.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -45,7 +51,13 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     AddButtonComponent,
     InboxComponent,
     UploadButtonComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    NavbarEmployeeComponent,
+    MyprojectsComponent,
+    MyteamComponent,
+    PartialApprovalComponent,
+    ApprovalSuccessfulComponent,
+    ApprovalUnsuccessfulComponent
   ],
   imports: [
     BrowserModule,
