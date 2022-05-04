@@ -14,7 +14,7 @@
         <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
         <table class="mensaje font table-style">
             <tr *ngFor="let r of request">
-                <th>
+                <th class= "pos">
                     <div class="texto"> {{getTitle(r.id_request)}} </div>
                     <button class="botonInboxApprove">Approve</button>
                     <div class="textoMotivo">{{r.motive}}</div>
