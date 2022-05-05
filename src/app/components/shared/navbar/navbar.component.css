@@ -128,6 +128,30 @@ nav {
 .disable{
     opacity: 30%;
 }
+
+@media screen and (max-width: 1920px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -5em;
+    }
+}
+
 @media screen and (max-width: 1300px){
     .boton-perfil{
         left: 600px;
