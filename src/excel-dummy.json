@@ -226,6 +226,20 @@
             "id_employee" : 7,
             "id_project" : 1,
             "id_employee_project" : 7
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 1,
+            "id_project" : 2,
+            "id_employee_project" : 8
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 1,
+            "id_project" : 3,
+            "id_employee_project" : 9
         }
     ],
     "employee_team" : [

@@ -43,11 +43,12 @@ export class MyprojectsComponent implements OnInit {
   }
 
   getProjects() {
-    var userProjects : any;
+    var userProjects : any[] = [];
     var e = this.employee.find(emp => emp.employee_name === this.accountInfo.getNameAccount());
     this.empProject.forEach(element => {
       if (element.did_complete && element.id_employee === e!.id_employee) {
-        userProjects = element.project;
+        var id = element.id_project;
+        userProjects.push(this.projects.find(pjct => pjct.id_project === id));
       }
     })
 
