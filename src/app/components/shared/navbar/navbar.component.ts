@@ -89,7 +89,7 @@ export class NavbarComponent implements OnInit {
   // }
 
   getHasUploadApp(): boolean{
-    console.log("navbar", this.accountInfo.hasUpload);
+    console.log("navbar", this.accountInfo.evaluationPeriod[0].has_uploaded);
     return this.accountInfo.getHasUpload();
   }
 

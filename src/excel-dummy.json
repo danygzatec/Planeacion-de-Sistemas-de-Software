@@ -4,7 +4,7 @@
             "is_assigned" : true,
             "email" : "a00827044@tec.mx",
             "employee_name" : "Jessica Marcela Treviño Caballero",
-            "is_HR" : false,
+            "is_HR" : true,
             "id_employee" : 1
         },
         {
@@ -55,19 +55,22 @@
             "semester" : "FebJun",
             "evaluation_year" : 2022,
             "hours_to_complete" : 40,
-            "id_period" : 1
+            "id_period" : 1,
+            "has_uploaded": false
         },
         {
             "semester" : "AgoDic",
             "evaluation_year" : 2021,
             "hours_to_complete" : 30,
-            "id_period" : 2
+            "id_period" : 2,
+            "has_uploaded": false
         },
         {
             "semester" : "FebJun",
             "evaluation_year" : 2021,
             "hours_to_complete" : 50,
-            "id_period" : 3
+            "id_period" : 3,
+            "has_uploaded": false
         }
     ],
     "team" : [
