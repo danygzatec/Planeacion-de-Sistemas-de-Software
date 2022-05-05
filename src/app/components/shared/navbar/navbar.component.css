@@ -128,3 +128,163 @@ nav {
 .disable{
     opacity: 30%;
 }
+@media screen and (max-width: 1300px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -7em;
+    }
+}
+
+@media screen and (max-width: 1279px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -10em;
+    }
+}
+
+@media screen and (max-width: 1247px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -10em;
+    }
+}
+
+@media screen and (max-width: 1205px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -14em;
+    }
+}
+
+@media screen and (max-width: 1141px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -20em;
+    }
+}
+
+@media screen and (max-width: 1041px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -27em;
+    }
+}
+
+@media screen and (max-width: 928px){
+    .boton-perfil{
+        left: 600px;
+        top:-25px;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 35px;
+        background-color:lightgray; 
+        margin-left: 500px;
+        position: absolute;
+        left: 10px;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -35em;
+    }
+}
