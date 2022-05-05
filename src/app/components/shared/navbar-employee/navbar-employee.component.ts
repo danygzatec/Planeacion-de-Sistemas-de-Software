@@ -48,7 +48,7 @@ export class NavbarEmployeeComponent implements OnInit {
 
       this.myTeam = false;
 
-   }else if(page === '/myTeam'){
+   }else if(page === '/myteam'){
     console.log("if");
 
     this.myProjects = false;
@@ -61,7 +61,7 @@ export class NavbarEmployeeComponent implements OnInit {
   cleanNavbar(){
     this.myProjects = false;
 
-      this.myTeam = false;
+    this.myTeam = false;
   }
 
 }
