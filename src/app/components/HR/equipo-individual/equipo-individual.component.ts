@@ -167,8 +167,6 @@ export class EquipoIndividualComponent implements OnInit {
       }
     })
 
-    console.log(members);
-
     return members;
 
   }

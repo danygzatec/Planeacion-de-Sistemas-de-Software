@@ -1,6 +1,6 @@
 import { Component,  } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
-import { AuthenticationResult, RedirectClient } from '@azure/msal-browser';
+import { AuthenticationResult,  } from '@azure/msal-browser';
 import { OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import ExcelData from 'src/excel-dummy.json'

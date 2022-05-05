@@ -1,1 +1,20 @@
-<p>add-button-emp works!</p>
+<div class="pop">
+    <div class="up">
+        <h4 class="prompt">Please select the employees you want to add to the team.</h4>
+        <div class="center-table">
+            <table>
+                <tr *ngFor="let m of members">
+                    <input type="checkbox">
+                    <label for="">
+                        {{m.employee_name}}
+                    </label>
+                </tr>
+            </table>
+        </div>
+        <h5 class="prompt">You are about to add:</h5>
+
+        <button class="btn btn-primary add font">
+            add
+        </button>
+    </div>
+</div>
