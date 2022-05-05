@@ -124,3 +124,7 @@ nav {
     display: flex;
 
 }
+
+.disable{
+    opacity: 30%;
+}
