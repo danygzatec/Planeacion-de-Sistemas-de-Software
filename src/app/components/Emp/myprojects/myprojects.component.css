@@ -1,0 +1,40 @@
+.font {
+    color: black;
+    font-family: 'Roboto';
+    font-size: large;
+    font-weight: 900;
+}
+
+table tr:nth-child(odd){
+    background-color: #EEF2FF;
+    color: rgb(0, 0, 0);
+}
+
+table tr:nth-child(even){
+    background-color: #D6E0FF;
+    color: rgb(0, 0, 0);
+}
+
+tr {
+    width: 100%;
+}
+
+.project-container {
+    margin-top: 10px;
+    width: 96%;
+    height: max-content;
+    background-color: #282C38;
+    align-self: center;
+    /* justify-self: center; */
+    /* display: flex; */
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.table-container {
+    padding-top: 10px;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 10px;
+}

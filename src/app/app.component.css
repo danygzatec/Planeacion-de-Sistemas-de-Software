@@ -124,3 +124,9 @@ ul{
     /* Esto mueve el boton */
     margin-left: 14.5em;
 }
+
+.center-login {
+    justify-content: center; 
+    align-self: center;
+    display: flex;
+}

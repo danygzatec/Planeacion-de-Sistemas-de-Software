@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { UploadButtonComponent } from '../../upload-button/upload-button.component';
+import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
 
 @Component({
   selector: 'app-navbar',

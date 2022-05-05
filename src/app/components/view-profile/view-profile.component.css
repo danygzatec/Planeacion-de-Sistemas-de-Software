@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+body{
+    background-color: #97d0e8 !important;
+}
+.name-email{
+    text-align: center;
+    justify-content: center !important;
+    background-color: #97d0e8;
+    margin-top: 1.5%;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.upload{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label{
+    background-color: rgb(255,255,255);
+    border: solid 4px #27A0D4;
+    border-radius: 10px;
+    color: #27A0D4;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 6px 7px;
+    cursor: pointer;
+    width:10em;
+    height: 3em;
+}

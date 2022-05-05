@@ -143,6 +143,38 @@
             "id_emp_req" : 2,
             "status" : 1,
             "id_request" : 2
+        },
+        {
+            "motive" : "me cae decente",
+            "id_emp_mod" : 4,
+            "type" : 0,
+            "id_emp_req" : 2,
+            "status" : 2,
+            "id_request" : 3
+        },
+        {
+            "motive" : "no la conozco",
+            "id_emp_mod" : 5,
+            "type" : 1,
+            "id_emp_req" : 3,
+            "status" : 1,
+            "id_request" : 4
+        },
+        {
+            "motive" : "trabaja decente",
+            "id_emp_mod" : 2,
+            "type" : 0,
+            "id_emp_req" : 4,
+            "status" : 1,
+            "id_request" : 5
+        },
+        {
+            "motive" : "LA AMO DEMASIADO",
+            "id_emp_mod" : 4,
+            "type" : 0,
+            "id_emp_req" : 1,
+            "status" : 1,
+            "id_request" : 6
         }
     ],
     "employee_project" : [
@@ -194,6 +226,20 @@
             "id_employee" : 7,
             "id_project" : 1,
             "id_employee_project" : 7
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 1,
+            "id_project" : 2,
+            "id_employee_project" : 8
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 1,
+            "id_project" : 3,
+            "id_employee_project" : 9
         }
     ],
     "employee_team" : [

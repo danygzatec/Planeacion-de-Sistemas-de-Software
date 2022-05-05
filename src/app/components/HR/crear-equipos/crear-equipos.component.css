@@ -61,21 +61,24 @@ input[type='reset']:hover {
 }
 
 .row-full{
-    width: 99vw;
+    width: 100%;
     position: relative;
-    margin-left: -50vw;
+    /* margin-left: -50vw; */
     height: 100vh;
-    left: 50%;
+    /* left: 50%; */
+    align-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .crear{
     position: absolute;
     width: 1365px;
     height: 564px;
-    left: 40px;
     top: 50px;
     background: #FFFFFF;
     border-radius: 15px;
+    align-self: center;
 }
 
 .to-start{

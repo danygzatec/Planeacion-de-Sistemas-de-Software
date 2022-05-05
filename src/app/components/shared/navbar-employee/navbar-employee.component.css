@@ -85,24 +85,19 @@ nav {
     margin-left: 10%;
     margin-right: 2%;
     color:#ffffff;
-}
-
-.notify-badge{
     position: absolute;
-    top:10px;
-    background:red;
-    text-align: center;
-    border-radius: 30px 30px 30px 30px;
-    color:white;
-    padding:5px 12px;
-    font-size:10px;
+    right: 8%;
+    top: 20px;
 }
 
 .boton-perfil{
-    padding: 0px;
-    margin-top: -10%;
+    padding-left: 780px;
+    top:-25px;
     border-color: transparent;
     background: transparent;
+    position: absolute;
+    margin-right: 0;
+    display: flex;
 }
 
 .logout{
@@ -116,11 +111,17 @@ nav {
     margin: 5px;
 }
 
-.inbox{
-    margin-left: 500px;
-}
+.mydropdowncss:hover .dropdown-menu {
+    display: block;
+    margin-top: 30px;
+    background-color:lightgray; 
+    margin-left: 660px;
+    position: absolute;
+    left: 10px;
+ }
 
-.center-buttons {
+ .align-user {
     display: flex;
-
-}
+    position:relative;
+    margin-right: 0;
+ }

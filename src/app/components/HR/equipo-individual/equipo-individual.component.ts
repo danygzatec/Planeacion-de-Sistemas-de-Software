@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Team } from 'src/app/models/team';
-import { ConsultarEquiposComponent } from 'src/app/components/consultar-equipos/consultar-equipos.component'
+import { ConsultarEquiposComponent } from 'src/app/components/HR/consultar-equipos/consultar-equipos.component'
 import { Employee } from 'src/app/models/employee';
 
 import { MatDialog } from  '@angular/material/dialog';
@@ -9,7 +9,7 @@ import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
 import ExcelData from 'src/excel-dummy.json';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { AddButtonComponent } from '../add-button/add-button.component';
-import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { ThrottlingUtils } from '@azure/msal-common';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { Project } from 'src/app/models/project';
@@ -37,14 +37,15 @@ export class EquipoIndividualComponent implements OnInit {
     public navbarActive: NavbarComponent
     ){
     
-    const routeParams = this.route.snapshot.paramMap;
-    const empIdFromRoute = Number(routeParams.get('id_employee'));
 
     this.teams = ExcelData.team;
     this.employees = ExcelData.employee;
     this.empTeams = ExcelData.employee_team
     this.empProjects = ExcelData.employee_project;
     this.projects = ExcelData.project;
+
+    const routeParams = this.route.snapshot.paramMap;
+    const empIdFromRoute = Number(routeParams.get('id_employee'));
 
     this.team = this.teams.find(element => element.id_employee === empIdFromRoute);
     this.id = empIdFromRoute;

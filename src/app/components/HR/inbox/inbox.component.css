@@ -12,8 +12,9 @@
 .inb{
     position: absolute;
     width: 1407px;
-    height: 816px;
     top: 182px;
+    height: max-content;
+    padding-bottom: 15px;
 
     background: #282C38;
     border-radius: 10px;
@@ -67,7 +68,7 @@ table tr:nth-child(even){
     font-family: 'Roboto Condensed', sans-serif;
     border-collapse: separate;
     border-spacing: 0 20px;
-    border-radius: 10%;
+    border-radius: 5%;
     overflow: hidden;
     background-color: #282C38;
 }
@@ -76,7 +77,8 @@ table tr:nth-child(even){
     position: relative;
     width: 144px;
     height: 40px;
-    right: -84%;
+    right: -88%;
+    top: -4mm;
 
     background: #17C03C;
     border-radius: 10px;
@@ -88,7 +90,8 @@ table tr:nth-child(even){
     position: relative;
     width: 144px;
     height: 40px;
-    right: -84%;
+    right: -88%;
+    top: -6mm;
 
     background: #C90808;
     border-radius: 10px;
@@ -106,6 +109,7 @@ table tr:nth-child(even){
 .textoMotivo{
     position: relative;
     left: 2%;
+    top: -7mm;
     color: #656565;
     font-size: 4.5mm;
 }

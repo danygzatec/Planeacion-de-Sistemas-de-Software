@@ -3,7 +3,7 @@ import { ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import * as _ from 'lodash';
-import { UploadButtonComponent } from '../upload-button/upload-button.component';
+import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
 
 @ViewChild('takeInput', {static: false})
 

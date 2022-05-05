@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from  '@angular/material/dialog';
-import { CrearEquiposComponent } from '../crear-equipos/crear-equipos.component';
+import { CrearEquiposComponent } from 'src/app/components/HR/crear-equipos/crear-equipos.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { AppComponent } from 'src/app/app.component';
@@ -11,6 +11,8 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './upload-button.component.html',
   styleUrls: ['./upload-button.component.css']
 })
+
+
 export class UploadButtonComponent implements OnInit {
 
   public fileUploadForm: HTMLFormElement;

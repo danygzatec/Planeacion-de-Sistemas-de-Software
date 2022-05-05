@@ -1,6 +1,19 @@
 <!-- si esta logged in, que se muestre el navbar  -->
 <div *ngIf="isLoggedIn()">
-    <app-navbar></app-navbar>   
+    <div *ngIf="isHR()">
+        <app-navbar></app-navbar>
+    </div>
+    <div *ngIf="!isHR()">
+        <app-navbar-employee></app-navbar-employee>
+    </div>
+    
+    <!-- <div *ngIf="isHR()">
+        <app-navbar></app-navbar> 
+    </div>
+    <div *ngIf="!isHR()">
+        <app-navbar-employee></app-navbar-employee>
+    </div> -->
+      
 </div>
 
 <!-- si no esta logged in, que muestre la pagina de ips central sign in -->
@@ -8,7 +21,7 @@
     <img src="../assets/homeBG.png">
     <div class="homecontent">
         <img class="logo" src="../assets/logo.png"/>
-        <div justify-content="center">
+        <div class="center-login">
             <button (click)="login()" class="boton_inicio"><object type="image/svg+xml" data="https://s3-eu-west-1.amazonaws.com/cdn-testing.web.bas.ac.uk/scratch/bas-style-kit/ms-pictogram/ms-pictogram.svg" class="x-icon"></object> Sign in with Microsoft</button>
         </div>
     </div>
