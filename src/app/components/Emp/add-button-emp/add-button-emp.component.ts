@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-add-button-emp',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddButtonEmpComponent implements OnInit {
 
-  constructor() { }
+  public members : Employee[];
+
+  constructor(private dialogRef: MatDialogRef<AddButtonEmpComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,) {
+      this.members = data.m;
+     }
 
   ngOnInit(): void {
+  }
+
+  public closeMe() {
+    this.dialogRef.close();
   }
 
 }
