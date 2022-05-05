@@ -53,11 +53,13 @@ tr {
 }
 
 .search-container{
-    height: 42px;
+    height: 46px;
     background: #27A0D4;
-    justify-content: center;
+    justify-content: right;
     display: flex;
-    vertical-align: center;
+    vertical-align: right;
+    padding-right: 10px;
+    padding-top: 3.25px;
 }
 
 .project-title {
