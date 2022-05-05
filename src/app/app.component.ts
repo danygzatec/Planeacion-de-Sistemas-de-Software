@@ -13,8 +13,10 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'IPSCentral';
 
-  constructor(private msalService: MsalService){
+  hasUpload!: boolean;
+  public test = 0;
 
+  constructor(private msalService: MsalService){
 
   }
   ngOnInit(): void {
@@ -52,6 +54,18 @@ export class AppComponent implements OnInit {
 
   getEmailAccount(): any{
     return this.msalService.instance.getActiveAccount()?.username;
+  }
+
+  setHasUpload(){
+    this.hasUpload = true;
+    console.log("excel app", this.hasUpload);
+  }
+
+  getHasUpload() : boolean{
+    console.log("navbar app", this.hasUpload);
+    this.test++;
+    console.log(this.test);
+    return this.hasUpload;
   }
 
 }

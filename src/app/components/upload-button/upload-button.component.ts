@@ -3,6 +3,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from  '@angular/material/dialog';
 import { CrearEquiposComponent } from '../crear-equipos/crear-equipos.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-upload-button',
@@ -12,16 +14,18 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class UploadButtonComponent implements OnInit {
 
   public fileUploadForm: HTMLFormElement;
-  public hasUpload: boolean = false;
+  //public hasUpload: boolean = false;
 
   constructor(
     private dialogRef:  MatDialogRef<UploadButtonComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http: HttpClient,
+    private uploadFileInfo : AppComponent,
     private fileInfo : CrearEquiposComponent) 
     {
       this.fileUploadForm = data.fileUploadForm;
    }
+   
 
   ngOnInit(): void {
   }
@@ -43,7 +47,8 @@ export class UploadButtonComponent implements OnInit {
       }
     );
     this.closeMe();
-    this.hasUpload = true;
+    //this.hasUpload = true;
+    this.uploadFileInfo.setHasUpload();
   }
 
 }

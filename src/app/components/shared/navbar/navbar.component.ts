@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
 
    public dashboard  = false;
 
+   //public hasUpload = false;
+
   constructor(public accountInfo: AppComponent) { }
 
   ngOnInit(): void {
@@ -79,6 +81,16 @@ export class NavbarComponent implements OnInit {
      this.consultTeams = false;
 
      this.dashboard  = false;
+  }
+
+  // setHasUpload(){
+  //   this.hasUpload = true;
+  //   console.log("excel", this.hasUpload);
+  // }
+
+  getHasUploadApp(): boolean{
+    console.log("navbar", this.accountInfo.hasUpload);
+    return this.accountInfo.getHasUpload();
   }
 
 

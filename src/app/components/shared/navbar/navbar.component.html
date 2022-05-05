@@ -5,9 +5,12 @@
     <a  class="navbar-brand"><img src="../assets/logo.png"  height="50" alt=""></a>
     <div class="navbar-collapse collapse" id="navbarCustom">
         <ul class="navbar-nav">
-            <li class="nav-item" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''">
-                <a class="nav-link font" routerLink="crear-equipos">Create teams</a>
+            <li class="" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''"  [ngClass]="getHasUploadApp() ?'nav-item':''">
+                <a class="nav-link font" routerLink="crear-equipos" [ngClass]="getHasUploadApp() ?'':'disabled'">Create teams</a>
             </li>
+            <!-- <li class="nav-item" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''">
+                <a class="nav-link font" routerLink="crear-equipos">Create teams</a>
+            </li> -->
             <li class="nav-item" (click)="navigate('/consultar-equipos')" [ngClass]="consultTeams ?'active':''">
                 <a class="nav-link font" routerLink="consultar-equipos">Consult teams</a>
             </li>
