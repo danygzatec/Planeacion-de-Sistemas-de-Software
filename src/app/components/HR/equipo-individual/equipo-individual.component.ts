@@ -10,7 +10,6 @@ import ExcelData from 'src/excel-dummy.json';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { ThrottlingUtils } from '@azure/msal-common';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { Project } from 'src/app/models/project';
 
@@ -182,6 +181,7 @@ export class EquipoIndividualComponent implements OnInit {
       }
     });
   }
+
   openDialogAdd(members: any){
     this.dialogRef.open(AddButtonComponent, {
       data : {

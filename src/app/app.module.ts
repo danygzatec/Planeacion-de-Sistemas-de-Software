@@ -31,6 +31,8 @@ import { MyteamComponent } from './components/Emp/myteam/myteam.component';
 import { PartialApprovalComponent } from './components/Emp/partial-approval/partial-approval.component';
 import { ApprovalSuccessfulComponent } from './components/Emp/approval-successful/approval-successful.component';
 import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
+import { AddButtonEmpComponent } from './components/Emp/add-button-emp/add-button-emp.component';
+import { PopupDeleteEmpComponent } from './components/Emp/popup-delete-emp/popup-delete-emp.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -57,7 +59,9 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     PartialApprovalComponent,
     ApprovalSuccessfulComponent,
     ApprovalUnsuccessfulComponent,
-    UploadButtonComponent
+    UploadButtonComponent,
+    AddButtonEmpComponent,
+    PopupDeleteEmpComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +84,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     FormBuilder,
     NavbarComponent,
     CrearEquiposComponent,
-    AppComponent
+    AppComponent,
+    InboxComponent
   ],
   bootstrap: [AppComponent],
 })
