@@ -275,3 +275,25 @@ table tr:nth-child(even){
     background-color: #D6E0FF;
     color: rgb(0, 0, 0);
 }
+
+.add{
+    position: absolute;
+    width: 90px;
+    height: 38px;
+    right: 310px;
+    top: 8.25px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #282C38;
+    background: #B3EDA5;
+    border-radius: 5px;
+    border-color: transparent;
+}
