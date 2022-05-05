@@ -18,7 +18,7 @@
             "is_assigned" : true,
             "email" : "a008270970@tec.mx",
             "employee_name" : "Emma Fernanda Gómez Guerra",
-            "is_HR" : true,
+            "is_HR" : false,
             "id_employee" : 3
         },
         {
