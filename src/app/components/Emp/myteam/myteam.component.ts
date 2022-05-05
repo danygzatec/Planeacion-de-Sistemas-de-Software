@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { Team } from 'src/app/models/team';
 import ExcelData from 'src/excel-dummy.json'
+import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.component';
 
 @Component({
   selector: 'app-myteam',
@@ -19,7 +21,7 @@ export class MyteamComponent implements OnInit {
   private team : any;
   evaluators : boolean;
 
-  constructor(private accountInfo : AppComponent) { 
+  constructor(private accountInfo : AppComponent, private  dialogRef : MatDialog) { 
     this.employees = ExcelData.employee;
     this.empTeams = ExcelData.employee_team;
     this.teams = ExcelData.team;
@@ -94,6 +96,20 @@ export class MyteamComponent implements OnInit {
 
   getEvaluatorBool() {
     return this.evaluators;
+  }
+
+  getEmpName() {
+    return this.accountInfo.getNameAccount();
+  }
+
+  openDialog(member: any, employee: any){
+    this.dialogRef.open(PopupDeleteEmpComponent,{
+      data : {
+        m : member,
+        e: employee
+      }
+    });
+    console.log("Hola estoy en open Dialog!");
   }
 
 }

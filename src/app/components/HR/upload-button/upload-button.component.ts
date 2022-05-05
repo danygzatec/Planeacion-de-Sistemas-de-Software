@@ -22,7 +22,8 @@ export class UploadButtonComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http: HttpClient,
     private uploadFileInfo : AppComponent,
-    private fileInfo : CrearEquiposComponent) 
+    private fileInfo : CrearEquiposComponent,
+    private fileRedirect: NavbarComponent) 
     {
       this.fileUploadForm = data.fileUploadForm;
    }
@@ -50,6 +51,13 @@ export class UploadButtonComponent implements OnInit {
     this.closeMe();
     //this.hasUpload = true;
     this.uploadFileInfo.setHasUpload();
+    //this.fileRedirect.navbarFileUpload();
+    //this.fileRedirect.cleanNavbar();
+    //this.fileRedirect.setFirstFile();
+    this.fileRedirect.navigate('/consultar-equipos');
+    console.log("onSubmit() consultTeams",this.fileRedirect.getConsultTeams());
+    
+    
   }
 
 }
