@@ -33,7 +33,7 @@
         <!-- <div *ngIf="consultTeams"> Hola Crayola</div>
         <div *ngIf="!consultTeams"> Falso</div> -->
         <div class="inbox" >
-            <span class="notify-badge" *ngIf="getHasUploadApp()">4</span>
+            <span class="notify-badge" *ngIf="getHasUploadApp() && getCountRequests()!=0">{{ getCountRequests() }}</span>
             <a routerLink="inbox" (click)="cleanNavbar()" *ngIf="getHasUploadApp()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
         </div>
         

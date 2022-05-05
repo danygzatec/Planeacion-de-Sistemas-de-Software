@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
+import { InboxComponent } from '../../HR/inbox/inbox.component';
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +16,8 @@ export class NavbarComponent implements OnInit {
 
    public dashboard  = false;
 
-   public firstFile = false;
 
-  constructor(public accountInfo: AppComponent) { }
+  constructor(public accountInfo: AppComponent, private requestInfo: InboxComponent) { }
 
   ngOnInit(): void {
     
@@ -109,12 +109,12 @@ export class NavbarComponent implements OnInit {
     return this.accountInfo.evaluationPeriod[0].has_uploaded;
   }
 
-  setFirstFile(){
-    this.firstFile = true;
-  }
-
   getConsultTeams(){
     return this.consultTeams;
+  }
+
+  getCountRequests(): number {
+    return this.requestInfo.countRequests();
   }
 
 

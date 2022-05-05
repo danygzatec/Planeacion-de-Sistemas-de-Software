@@ -84,7 +84,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     FormBuilder,
     NavbarComponent,
     CrearEquiposComponent,
-    AppComponent
+    AppComponent,
+    InboxComponent
   ],
   bootstrap: [AppComponent],
 })
