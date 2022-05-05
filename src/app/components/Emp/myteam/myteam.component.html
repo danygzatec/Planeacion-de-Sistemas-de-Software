@@ -6,15 +6,19 @@
     </button>
     <div class="navbar-collapse collapse" id="navbarCustom">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link font">Evaluators</a>
+            <li class="nav-item" [ngClass]="getEvaluatorBool() ?'':'active'">
+                <a class="nav-link font" (click)="setEvaluatorBool()">Evaluatees</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link font" routerLink="./unassigned">Evaluatees</a>
+            <li class="nav-item" [ngClass]="getEvaluatorBool() ?'active':''">
+                <a class="nav-link font" (click)="setEvaluatorBool()">Evaluators</a>
             </li>
             
         </ul>     
     </div>
+    <!--  ESTO VA ABAJO (click)="openDialogAdd(getUnassignedEmployeesInProjects())" -->
+    <td>
+        <button  class="add">Add +</button>
+    </td>
     <div class="boton">
           <form class="d-flex">
             <div class="input-group">
@@ -28,9 +32,26 @@
 
 <div class="linea-gris"></div> 
 
-<div class="table-container">
-    <table class="table-style">
-        <!-- lol -->
+<div class="team-approval">
+    <table class="table-style" *ngIf="getEvaluatorBool() == false">
+        <tr *ngFor="let member of getMembers()">
+            <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+            <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+            <td>
+                <button  class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+            </td>
+        </tr>
     </table>
+    <table class="table-style" *ngIf="getEvaluatorBool()">
+        <tr *ngFor="let member of getEvaluatorRoles()">
+            <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+            <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
+            <td>
+                <!-- <button  class="trashcan"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button> -->
+                <button  class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+            </td>
+        </tr>
+    </table>
+    <a class="anchor-back" routerLink="partial-approval"><button  class="approve"> approve </button></a>
 </div>
 

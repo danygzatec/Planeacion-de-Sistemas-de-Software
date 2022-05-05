@@ -17,7 +17,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 export class AppComponent implements OnInit {
   title = 'IPSCentral';
   employees : Employee[];
-  evaluationPeriod : any[];
+  evaluationPeriod : EvaluationPeriod[];
 
   constructor(private msalService: MsalService, public router: Router){
     this.employees = ExcelData.employee;

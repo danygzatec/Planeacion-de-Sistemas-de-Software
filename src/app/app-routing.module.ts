@@ -36,6 +36,8 @@ const routes: Routes = [
   {path: 'approval-successful', component: ApprovalSuccessfulComponent, canActivate: [MsalguardGuard]},
   {path: 'approval-unsuccessful', component: ApprovalUnsuccessfulComponent, canActivate: [MsalguardGuard]},
   {path: 'partial-approval', component: PartialApprovalComponent, canActivate: [MsalguardGuard]},
+  {path: 'myteam/partial-approval', pathMatch: 'full', redirectTo: 'partial-approval'},
+  {path: 'approval-unsuccessful/myteam', pathMatch: 'full', redirectTo: 'myteam'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
