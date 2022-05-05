@@ -5,8 +5,8 @@
     <a  class="navbar-brand"><img src="../assets/logo.png"  height="50" alt=""></a>
     <div class="navbar-collapse collapse" id="navbarCustom">
         <ul class="navbar-nav">
-            <li class="" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''"  [ngClass]="getHasUploadApp() ?'nav-item':''">
-                <a class="nav-link font" routerLink="crear-equipos" [ngClass]="getHasUploadApp() ?'':'disabled'">Create teams</a>
+            <li class="" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''"  [ngClass]="getHasUploadApp() ?'':'nav-item'">
+                <a class="nav-link font" routerLink="crear-equipos" [ngClass]="getHasUploadApp() ?'disabled':''">Create teams</a>
             </li>
             <!-- <li class="nav-item" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''">
                 <a class="nav-link font" routerLink="crear-equipos">Create teams</a>
@@ -28,22 +28,22 @@
             <h6 class="font">Hello, {{ getName() }}</h6>
         </div> -->
         <div class="inbox">
-            <span class="notify-badge">1</span>
-            <a routerLink="a" (click)="cleanNavbar()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
+            <span class="notify-badge">4</span>
+            <a routerLink="inbox" (click)="cleanNavbar()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
         </div>
         
         <style>
             .mydropdowncss:hover .dropdown-menu {
                 display: block;
-                margin-top: 0px;
+                top: 47px;
                 background-color:lightgray; 
-                margin-left: -95px;
+                left: -110px;
                 position: absolute;
              }
              
             </style>
             <div class="dropdown mydropdowncss font center-buttons">
-                <a href="#" class="boton-perfil" data-toggle="dropdown"><img src="../assets/profile-icon.png"  height="60" width="60"><span class="caret"></span></a> 
+                <a class="boton-perfil" data-toggle="dropdown"><img src="../assets/profile-icon.png"  height="60" width="60"><span class="caret"></span></a> 
                 <ul class="dropdown-menu">
                     <li class="menu">{{ getName() }}</li>
                     <li class="menu"> {{ getEmail() }} </li>

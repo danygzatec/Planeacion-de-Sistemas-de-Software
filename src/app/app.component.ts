@@ -6,6 +6,7 @@ import ExcelData from 'src/excel-dummy.json'
 
 import {Router} from '@angular/router';
 import { Employee } from './models/employee';
+import { EvaluationPeriod } from './models/evaluation-period';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,13 @@ import { Employee } from './models/employee';
 export class AppComponent implements OnInit {
   title = 'IPSCentral';
   employees : Employee[];
+  evaluationPeriod : EvaluationPeriod[];
 
-  hasUpload!: boolean;
   public test = 0;
 
   constructor(private msalService: MsalService, public router: Router){
     this.employees = ExcelData.employee;
+    this.evaluationPeriod = ExcelData.evaluation_period;
 
   }
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit {
       }
     )
     this.employees = ExcelData.employee;
+    this.evaluationPeriod = ExcelData.evaluation_period;
     //this.isLoggedIn();
 
   }
@@ -65,15 +68,15 @@ export class AppComponent implements OnInit {
   }
 
   setHasUpload(){
-    this.hasUpload = true;
-    console.log("excel app", this.hasUpload);
+    this.evaluationPeriod[0].has_uploaded = true;
+    console.log("excel app", this.evaluationPeriod[0].has_uploaded);
   }
 
   getHasUpload() : boolean{
-    console.log("navbar app", this.hasUpload);
+    console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
     this.test++;
     console.log(this.test);
-    return this.hasUpload;
+    return this.evaluationPeriod[0].has_uploaded
   }
   
   isHR() : boolean {
