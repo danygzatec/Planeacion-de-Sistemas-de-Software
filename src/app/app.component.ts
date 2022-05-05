@@ -7,6 +7,7 @@ import ExcelData from 'src/excel-dummy.json'
 import {Router} from '@angular/router';
 import { Employee } from './models/employee';
 import { EvaluationPeriod } from './models/evaluation-period';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,6 @@ export class AppComponent implements OnInit {
   title = 'IPSCentral';
   employees : Employee[];
   evaluationPeriod : any[];
-
-  public test = 0;
 
   constructor(private msalService: MsalService, public router: Router){
     this.employees = ExcelData.employee;
@@ -40,7 +39,8 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedIn() : boolean {
-    // this.router.navigate(['/home']);
+    
+    //console.log("router.nagivate");
     return this.msalService.instance.getActiveAccount() != null
   }
 
@@ -51,8 +51,10 @@ export class AppComponent implements OnInit {
       this.msalService.instance.setActiveAccount(response.account)
       // console.log("hola", response.account?.name)
       // console.log("hola", response.account?.username)
-    }); 
-    this.rerouteHR();
+      this.rerouteHR();
+    });
+    
+    //this.router.navigate(['/crear-equipos']);
   }
 
   logout(){
@@ -69,32 +71,37 @@ export class AppComponent implements OnInit {
 
   setHasUpload(){
     this.evaluationPeriod[0].has_uploaded = true;
-    console.log("excel app", this.evaluationPeriod[0].has_uploaded);
+    //console.log("excel app", this.evaluationPeriod[0].has_uploaded);
   }
 
   getHasUpload() : boolean{
-    console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
-    this.test++;
-    console.log(this.test);
+    //console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
     return this.evaluationPeriod[0].has_uploaded
   }
   
   isHR() : boolean {
-    var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
+    if (this.isLoggedIn()){
+      var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
     if (user!.is_HR) {
       return true;
     } else {
       return false;
     }
+    }
+    else{
+      return false;
+    }
   }
 
   rerouteHR() {
+    if (this.isLoggedIn()){
     var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
     if (user!.is_HR) {
       this.router.navigate(['crear-equipos']);
     } else {
       this.router.navigate(['myprojects']);
     }
+  }
   }
 
 }
