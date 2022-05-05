@@ -16,7 +16,7 @@ import { EvaluationPeriod } from './models/evaluation-period';
 export class AppComponent implements OnInit {
   title = 'IPSCentral';
   employees : Employee[];
-  evaluationPeriod : EvaluationPeriod[];
+  evaluationPeriod : any[];
 
   public test = 0;
 
