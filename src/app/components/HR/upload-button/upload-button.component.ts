@@ -14,7 +14,6 @@ import { AppComponent } from 'src/app/app.component';
 
 
 export class UploadButtonComponent implements OnInit {
-
   public fileUploadForm: HTMLFormElement;
   //public hasUpload: boolean = false;
 

@@ -28,22 +28,22 @@
             <h6 class="font">Hello, {{ getName() }}</h6>
         </div> -->
         <div class="inbox">
-            <span class="notify-badge">1</span>
-            <a routerLink="a" (click)="cleanNavbar()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
+            <span class="notify-badge">4</span>
+            <a routerLink="inbox" (click)="cleanNavbar()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
         </div>
         
         <style>
             .mydropdowncss:hover .dropdown-menu {
                 display: block;
-                margin-top: 0px;
+                top: 47px;
                 background-color:lightgray; 
-                margin-left: -95px;
+                left: -110px;
                 position: absolute;
              }
              
             </style>
             <div class="dropdown mydropdowncss font center-buttons">
-                <a href="#" class="boton-perfil" data-toggle="dropdown"><img src="../assets/profile-icon.png"  height="60" width="60"><span class="caret"></span></a> 
+                <a class="boton-perfil" data-toggle="dropdown"><img src="../assets/profile-icon.png"  height="60" width="60"><span class="caret"></span></a> 
                 <ul class="dropdown-menu">
                     <li class="menu">{{ getName() }}</li>
                     <li class="menu"> {{ getEmail() }} </li>
