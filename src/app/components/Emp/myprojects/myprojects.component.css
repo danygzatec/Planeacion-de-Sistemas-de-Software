@@ -37,6 +37,12 @@ tr {
     justify-content: center;
     display: flex;
     padding-bottom: 10px;
+    width: 100%;
+    height: 70px;
+}
+
+table{
+    width: 98%;
 }
 
 .grey-space {
