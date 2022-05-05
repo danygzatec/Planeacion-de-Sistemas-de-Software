@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
+import { InboxComponent } from '../../HR/inbox/inbox.component';
 
 @Component({
   selector: 'app-navbar',
@@ -11,13 +12,12 @@ export class NavbarComponent implements OnInit {
 
   public createTeams = false;
 
-   public consultTeams = false;
+   public consultTeams = true;
 
    public dashboard  = false;
 
-   //public hasUpload = false;
 
-  constructor(public accountInfo: AppComponent) { }
+  constructor(public accountInfo: AppComponent, private requestInfo: InboxComponent) { }
 
   ngOnInit(): void {
     
@@ -45,37 +45,47 @@ export class NavbarComponent implements OnInit {
 
   navigate(page: any){
 
-    console.log("NavBarComponent", page);
+    //console.log("NavBarComponent", page);
+    if (this.accountInfo.evaluationPeriod[0].has_uploaded){
+      if(page === '/crear-equipos'){
 
-    if(page === '/crear-equipos'){
+        console.log("función navigate /crear-equipos");
+  
+        //this.createTeams = true;
+  
+        //this.consultTeams = false;
+  
+        //this.dashboard  = false;
+  
+     }else if(page === '/consultar-equipos'){
+  
+      console.log("función navigate /consultar-equipos");
+  
+       this.createTeams = false;
+  
+       this.consultTeams = true;
+  
+       this.dashboard  = false;
+  
+     }else if(page === '/dashboard'){
+  
+      console.log("función navigate /dashboard");
+  
+       this.createTeams = false;
+  
+       this.consultTeams = false;
+  
+       this.dashboard  = true;
+  
+     }
+    }
 
-      this.createTeams = true;
-
-      this.consultTeams = false;
-
-      this.dashboard  = false;
-
-   }else if(page === '/consultar-equipos'){
-    console.log("if");
-
-     this.createTeams = false;
-
-     this.consultTeams = true;
-
-     this.dashboard  = false;
-
-   }else if(page === '/dashboard'){
-
-     this.createTeams = false;
-
-     this.consultTeams = false;
-
-     this.dashboard  = true;
-
-   }
+    
   }
 
   cleanNavbar(){
+
+    console.log("cleanNavbar()");
     this.createTeams = false;
 
      this.consultTeams = false;
@@ -83,14 +93,28 @@ export class NavbarComponent implements OnInit {
      this.dashboard  = false;
   }
 
-  // setHasUpload(){
-  //   this.hasUpload = true;
-  //   console.log("excel", this.hasUpload);
-  // }
+  navbarFileUpload(){
+    this.createTeams = false;
+
+     this.consultTeams = true;
+
+     this.dashboard  = false;
+
+     this.navigate('/consultar-equipos');
+  }
 
   getHasUploadApp(): boolean{
-    console.log("navbar", this.accountInfo.evaluationPeriod[0].has_uploaded);
-    return this.accountInfo.getHasUpload();
+    //console.log("getHasUpload()", this.accountInfo.evaluationPeriod[0].has_uploaded, " consultTeams", this.consultTeams);
+    //return this.accountInfo.getHasUpload();
+    return this.accountInfo.evaluationPeriod[0].has_uploaded;
+  }
+
+  getConsultTeams(){
+    return this.consultTeams;
+  }
+
+  getCountRequests(): number {
+    return this.requestInfo.countRequests();
   }
 
 

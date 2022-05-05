@@ -53,4 +53,8 @@ export class InboxComponent implements OnInit {
     return currString;
       
   }
+
+  countRequests(): number{
+    return this.request.length;
+  }
 }

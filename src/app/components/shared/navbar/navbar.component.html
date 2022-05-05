@@ -5,18 +5,24 @@
     <a  class="navbar-brand"><img src="../assets/logo.png"  height="50" alt=""></a>
     <div class="navbar-collapse collapse" id="navbarCustom">
         <ul class="navbar-nav">
-            <li class="" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''"  [ngClass]="getHasUploadApp() ?'':'nav-item'">
-                <a class="nav-link font" routerLink="crear-equipos" [ngClass]="getHasUploadApp() ?'disabled':''">Create teams</a>
+            <li class="" (click)="navigate('/crear-equipos')"  [ngClass]="getHasUploadApp() ?'':'nav-item active'">
+                <a class="nav-link font" routerLink="crear-equipos" [ngClass]="getHasUploadApp() ?'disabled disable':''">Create teams</a>
             </li>
             <!-- <li class="nav-item" (click)="navigate('/crear-equipos')" [ngClass]="createTeams ?'active':''">
                 <a class="nav-link font" routerLink="crear-equipos">Create teams</a>
             </li> -->
-            <li class="nav-item" (click)="navigate('/consultar-equipos')" [ngClass]="consultTeams ?'active':''">
+            <li class="" (click)="navigate('/consultar-equipos')"  [ngClass]="[consultTeams ?'active':'', getHasUploadApp() ?'nav-item':'']">
+                <a class="nav-link font" routerLink="consultar-equipos" [ngClass]="getHasUploadApp() ?'':'disabled disable'">Consult teams</a>
+            </li>
+            <!-- <li class="nav-item" (click)="navigate('/consultar-equipos')" [ngClass]="consultTeams ?'active':''">
                 <a class="nav-link font" routerLink="consultar-equipos">Consult teams</a>
+            </li> -->
+            <li class="" (click)="navigate('/dashboard')" [ngClass]="[dashboard ?'active':'', getHasUploadApp() ?'nav-item':'']">
+                <a class="nav-link font" routerLink="dashboard" [ngClass]="getHasUploadApp() ?'':'disabled disable'">Dashboard</a>
             </li>
-            <li class="nav-item" (click)="navigate('/dashboard')" [ngClass]="dashboard ?'active':''">
+            <!-- <li class="nav-item" (click)="navigate('/dashboard')" [ngClass]="dashboard ?'active':''">
                 <a class="nav-link font" routerLink="dashboard">Dashboard</a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span class="notify-badge">1</span>
@@ -24,12 +30,11 @@
                 </a>
             </li> -->
         </ul>
-        <!-- <div class="username">
-            <h6 class="font">Hello, {{ getName() }}</h6>
-        </div> -->
-        <div class="inbox">
-            <span class="notify-badge">4</span>
-            <a routerLink="inbox" (click)="cleanNavbar()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
+        <!-- <div *ngIf="consultTeams"> Hola Crayola</div>
+        <div *ngIf="!consultTeams"> Falso</div> -->
+        <div class="inbox" >
+            <span class="notify-badge" *ngIf="getHasUploadApp() && getCountRequests()!=0">{{ getCountRequests() }}</span>
+            <a routerLink="inbox" (click)="cleanNavbar()" *ngIf="getHasUploadApp()"><span><img src="../assets/envelope.png"  height="40" alt=""></span> </a>
         </div>
         
         <style>
@@ -51,21 +56,8 @@
                     <li><hr class="dropdown-divider" /></li>
                     <li><a><button (click)="logout()" class="logout"><img src="../assets/log-out.png"  height="20" width="20">   Log Out</button></a></li>
                 </ul>
-            </div>
-        <!--<div>
-            <button (click)="logout()" class="boton-perfil"><img src="../assets/profile-icon.png"  height="40" width="40"></button>
-        </div> -->       
+            </div>     
     </div>
 </nav>
-
-
-<!-- no funciona :( -->
-<!-- <script>
-    $('.navbar-nav .nav-item').click(function(){
-    $('.navbar-nav .nav-item').removeClass('active');
-    $(this).addClass('active');
-    $console.log("hola");
-})
-</script> -->
 
  
