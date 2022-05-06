@@ -32,7 +32,10 @@
 
 <div class="linea-gris"></div> 
 
-<div class="team-approval" *ngIf="searchText === '' || getEmpName().toLowerCase()includes(searchText)">
+<!-- Parte de hacer que el search funcione , que no funciona lol-->
+<!-- *ngIf="searchText === '' || getMembers().toLowerCase().includes(searchText) -->
+
+<div class="team-approval" >
     <table class="table-style" *ngIf="getEvaluatorBool() == false" >
         <tr *ngFor="let member of getMembers()">
             <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
