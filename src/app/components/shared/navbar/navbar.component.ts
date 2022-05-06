@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  
 
   getName() : any {
     let fullName = this.accountInfo.getNameAccount();
