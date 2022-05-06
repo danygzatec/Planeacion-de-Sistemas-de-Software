@@ -34,6 +34,7 @@ import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsucce
 import { AddButtonEmpComponent } from './components/Emp/add-button-emp/add-button-emp.component';
 import { PopupDeleteEmpComponent } from './components/Emp/popup-delete-emp/popup-delete-emp.component';
 import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
+import { Ng2SearchPipeModule} from 'ng2-search-filter';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -73,7 +74,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     MatDialogModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {

@@ -17,6 +17,8 @@ import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.co
 
 export class MyteamComponent implements OnInit {
 
+  searchText:any;
+
   private employees : Employee[];
   private empTeams : EmployeeTeam[];
   private empProjects : EmployeeProject[];

@@ -8,7 +8,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class NavbarEmployeeComponent implements OnInit {
 
-  public myProjects = false;
+  public myProjects = true;
 
    public myTeam = false;
 
