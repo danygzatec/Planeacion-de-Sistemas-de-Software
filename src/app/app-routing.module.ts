@@ -18,6 +18,7 @@ import { MyteamComponent } from './components/Emp/myteam/myteam.component';
 import { ApprovalSuccessfulComponent } from './components/Emp/approval-successful/approval-successful.component';
 import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
 import { PartialApprovalComponent } from './components/Emp/partial-approval/partial-approval.component';
+import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
@@ -37,7 +38,9 @@ const routes: Routes = [
   {path: 'approval-unsuccessful', component: ApprovalUnsuccessfulComponent, canActivate: [MsalguardGuard]},
   {path: 'partial-approval', component: PartialApprovalComponent, canActivate: [MsalguardGuard]},
   {path: 'myteam/partial-approval', pathMatch: 'full', redirectTo: 'partial-approval'},
+  {path: 'unassigned-team/:id_employee', component: UnassignedTeamComponent, canActivate: [MsalguardGuard]},
   {path: 'approval-unsuccessful/myteam', pathMatch: 'full', redirectTo: 'myteam'},
+  {path: 'unassigned-team/:id_employee/consultar-equipos', pathMatch: 'full', redirectTo: 'consultar-equipos'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

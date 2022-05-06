@@ -25,4 +25,10 @@ export class UnassignedComponent implements OnInit {
     return unassignedEmp;
   }
 
+  fireEvent(e : any) {
+    e.preventDefault();
+    //console.log('problema en equipo individual');
+    return false;
+  }
+
 }

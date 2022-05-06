@@ -34,6 +34,7 @@ import { ApprovalSuccessfulComponent } from './components/Emp/approval-successfu
 import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
 import { AddButtonEmpComponent } from './components/Emp/add-button-emp/add-button-emp.component';
 import { PopupDeleteEmpComponent } from './components/Emp/popup-delete-emp/popup-delete-emp.component';
+import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
 import { Ng2SearchPipeModule} from 'ng2-search-filter';
 import { SearchComponent } from './components/shared/search/search.component';
 
@@ -65,7 +66,11 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     UploadButtonComponent,
     AddButtonEmpComponent,
     PopupDeleteEmpComponent,
+
     SearchComponent,
+
+    UnassignedTeamComponent
+
   ],
   imports: [
     BrowserModule,
@@ -76,8 +81,12 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
     Ng2SearchPipeModule,
-    CommonModule
+    CommonModule,
+
+
+    Ng2SearchPipeModule
 
   ],
   providers: [

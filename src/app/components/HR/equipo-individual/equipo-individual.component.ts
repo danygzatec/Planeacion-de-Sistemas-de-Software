@@ -159,9 +159,7 @@ export class EquipoIndividualComponent implements OnInit {
 
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
-      console.log("fuera del if");
       if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
-        console.log("dentro del if");
         members.push(element.employee);
         console.log(element.employee?.employee_name);
       }

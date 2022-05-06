@@ -4,7 +4,7 @@
             "is_assigned" : true,
             "email" : "a00827044@tec.mx",
             "employee_name" : "Jessica Marcela Treviño Caballero",
-            "is_HR" : false,
+            "is_HR" : true,
             "id_employee" : 1
         },
         {
@@ -18,7 +18,7 @@
             "is_assigned" : true,
             "email" : "a008270970@tec.mx",
             "employee_name" : "Emma Fernanda Gómez Guerra",
-            "is_HR" : false,
+            "is_HR" : true,
             "id_employee" : 3
         },
         {
