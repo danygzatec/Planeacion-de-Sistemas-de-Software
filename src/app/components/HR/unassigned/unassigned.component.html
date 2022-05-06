@@ -33,7 +33,7 @@
         <tr class="employee-name-row" *ngFor="let unassigned of getUnassigned()">
             <td class="employee-name">{{ unassigned.employee_name }}</td>
             <td>
-                <a class="nav-link view-team" routerLink="" >Add team</a>
+                <a class="nav-link view-team" [routerLink]="['/unassigned-team',unassigned.id_employee]" (click)="fireEvent($event)" >Add team</a>
             </td>
         </tr>
     </table>

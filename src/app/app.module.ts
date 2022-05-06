@@ -33,6 +33,7 @@ import { ApprovalSuccessfulComponent } from './components/Emp/approval-successfu
 import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
 import { AddButtonEmpComponent } from './components/Emp/add-button-emp/add-button-emp.component';
 import { PopupDeleteEmpComponent } from './components/Emp/popup-delete-emp/popup-delete-emp.component';
+import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -61,7 +62,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     ApprovalUnsuccessfulComponent,
     UploadButtonComponent,
     AddButtonEmpComponent,
-    PopupDeleteEmpComponent
+    PopupDeleteEmpComponent,
+    UnassignedTeamComponent
   ],
   imports: [
     BrowserModule,
