@@ -314,7 +314,7 @@ nav {
 } */
 
 .boton-perfil{
-    left: 20px;
+    left: 1%;
     top:-25px;
     border-color: transparent;
     background: transparent;
@@ -322,13 +322,12 @@ nav {
 }
 .mydropdowncss:hover .dropdown-menu {
     display: block;
-    margin-top: 35px;
+    /* margin-top: 5px; */
     background-color:lightgray; 
-    margin-left: 500px;
-    left: 10px;
+    left: 1%;
 }
  .align-user {
     display: flex;
     position:relative;
-    margin-left: -35em;
+    /* margin-left: -35em; */
 }
