@@ -22,7 +22,7 @@
     <div class="boton">
           <form class="d-flex">
             <div class="input-group">
-                <input type="text" class="form-control" name="search" [(ngModel)]="searchText" placeholder="Search..">
+                <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
                 <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt="search icon"></button>
             </div>
         </form>
@@ -32,8 +32,12 @@
 
 <div class="linea-gris"></div> 
 
-<div class="team-approval">
-    <table class="table-style" *ngIf="getEvaluatorBool() == false">
+<!-- Parte de hacer que el search funcione , que no funciona lol, lo puse en el div que tiene la clase de
+team-approval y sale error en la consola.-->
+<!-- *ngIf="searchText === '' || getMembers().toLowerCase().includes(searchText) -->
+
+<div class="team-approval" >
+    <table class="table-style" *ngIf="getEvaluatorBool() == false" >
         <tr *ngFor="let member of getMembers()">
             <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
             <td class="role-spaced-out">As {{ member.role_member_string}}</td>

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -35,6 +36,7 @@ import { AddButtonEmpComponent } from './components/Emp/add-button-emp/add-butto
 import { PopupDeleteEmpComponent } from './components/Emp/popup-delete-emp/popup-delete-emp.component';
 import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
 import { Ng2SearchPipeModule} from 'ng2-search-filter';
+import { SearchComponent } from './components/shared/search/search.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -64,7 +66,11 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     UploadButtonComponent,
     AddButtonEmpComponent,
     PopupDeleteEmpComponent,
+
+    SearchComponent,
+
     UnassignedTeamComponent
+
   ],
   imports: [
     BrowserModule,
@@ -75,7 +81,13 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
+    Ng2SearchPipeModule,
+    CommonModule,
+
+
     Ng2SearchPipeModule
+
   ],
   providers: [
     {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { Employee } from 'src/app/models/employee';
@@ -17,7 +17,7 @@ import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.co
 
 export class MyteamComponent implements OnInit {
 
-  searchText:any;
+  
 
   private employees : Employee[];
   private empTeams : EmployeeTeam[];
@@ -44,6 +44,15 @@ export class MyteamComponent implements OnInit {
     this.empProjects = ExcelData.employee_project;
     this.createObjects();
   }
+
+  searchText:string = '';
+  
+  onSearchTextEntered(searchValue: string){
+    this.searchText = searchValue;
+    console.log(this.searchText);
+
+  }
+
 
   createObjects() {
 
