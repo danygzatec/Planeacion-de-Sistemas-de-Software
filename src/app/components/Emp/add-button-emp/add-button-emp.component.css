@@ -93,9 +93,10 @@
 }
 
 .prompt {
-    padding-top: 10px;
+    padding-top: 20px;
     font-family: 'Roboto';
     text-align: center;
+    padding-bottom: 10px;
 }
 
 table tr:nth-child(odd){
@@ -127,4 +128,9 @@ table tr {
 
 table {
     width: 520px;
+}
+
+.check-with-label:checked + .label-for-check {
+    font-weight: bold;
+    color:#306822
 }
