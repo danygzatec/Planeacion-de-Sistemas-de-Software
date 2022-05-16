@@ -114,3 +114,17 @@ table tr:nth-child(even){
     display: flex;
     justify-content: center;
 }
+
+table tr {
+    line-height: 35px;
+    
+}
+
+.spacing-checkbox {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+table {
+    width: 520px;
+}
