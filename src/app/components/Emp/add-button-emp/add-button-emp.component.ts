@@ -10,10 +10,16 @@ import { Employee } from 'src/app/models/employee';
 export class AddButtonEmpComponent implements OnInit {
 
   public members : Employee[];
+  public isChecked : Boolean[];
 
   constructor(private dialogRef: MatDialogRef<AddButtonEmpComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) {
       this.members = data.m;
+      this.isChecked = [];
+      this.members.forEach( m => {
+        this.isChecked.push(false)
+      });
+
      }
 
   ngOnInit(): void {
@@ -21,6 +27,29 @@ export class AddButtonEmpComponent implements OnInit {
 
   public closeMe() {
     this.dialogRef.close();
+  }
+
+  checkMembers(memb : Employee) {
+    
+    var index = this.members.findIndex(m => m.id_employee === memb.id_employee);
+
+    this.isChecked[index] = !this.isChecked[index];
+    console.log(memb);
+  }
+
+  getCheckedMembers() {
+    var checkedMembers : Employee[] = [];
+
+    var i = 0;
+    this.members.forEach(element => {
+      if (this.isChecked[i]) {
+        checkedMembers.push(element);
+      }
+      i++;
+    });
+
+    return checkedMembers;
+
   }
 
 }

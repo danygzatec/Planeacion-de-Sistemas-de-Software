@@ -132,5 +132,5 @@ table {
 
 .check-with-label:checked + .label-for-check {
     font-weight: bold;
-    color:#306822
+    color:#306822;
 }

@@ -48,6 +48,27 @@
             "employee_name" : "Romina Vela Martínez",
             "is_HR" : false,
             "id_employee" : 7
+        },
+        {
+            "is_assigned" : false,
+            "email" : "hugo@tec.mx",
+            "employee_name" : "Hugo Camacho",
+            "is_HR" : false,
+            "id_employee" : 8
+        },
+        {
+            "is_assigned" : false,
+            "email" : "hadwin@tec.mx",
+            "employee_name" : "Hadwin Webkinz",
+            "is_HR" : false,
+            "id_employee" : 9
+        },
+        {
+            "is_assigned" : false,
+            "email" : "cami@tec.mx",
+            "employee_name" : "Cami de Robys",
+            "is_HR" : false,
+            "id_employee" : 10
         }
     ],
     "evaluation_period" : [
@@ -243,6 +264,27 @@
             "id_employee" : 1,
             "id_project" : 3,
             "id_employee_project" : 9
+        },
+        {
+            "did_complete" : false,
+            "project_role" : 1,
+            "id_employee" : 8,
+            "id_project" : 1,
+            "id_employee_project" : 10
+        },
+        {
+            "did_complete" : false,
+            "project_role" : 1,
+            "id_employee" : 9,
+            "id_project" : 1,
+            "id_employee_project" : 11
+        },
+        {
+            "did_complete" : false,
+            "project_role" : 1,
+            "id_employee" : 10,
+            "id_project" : 1,
+            "id_employee_project" : 12
         }
     ],
     "employee_team" : [
