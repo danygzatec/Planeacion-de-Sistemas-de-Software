@@ -93,9 +93,10 @@
 }
 
 .prompt {
-    padding-top: 10px;
+    padding-top: 20px;
     font-family: 'Roboto';
     text-align: center;
+    padding-bottom: 10px;
 }
 
 table tr:nth-child(odd){
@@ -113,4 +114,23 @@ table tr:nth-child(even){
 .center-table {
     display: flex;
     justify-content: center;
+}
+
+table tr {
+    line-height: 35px;
+    
+}
+
+.spacing-checkbox {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+table {
+    width: 520px;
+}
+
+.check-with-label:checked + .label-for-check {
+    font-weight: bold;
+    color:#306822
 }

@@ -40,7 +40,7 @@ const routes: Routes = [
   {path: 'myteam/partial-approval', pathMatch: 'full', redirectTo: 'partial-approval'},
   {path: 'unassigned-team/:id_employee', component: UnassignedTeamComponent, canActivate: [MsalguardGuard]},
   {path: 'approval-unsuccessful/myteam', pathMatch: 'full', redirectTo: 'myteam'},
-  {path: 'unassigned-team/:id_employee/consultar-equipos', pathMatch: 'full', redirectTo: 'consultar-equipos'},
+  {path: 'unassigned-team/:id_employee/consultar-equipos', pathMatch: 'full', redirectTo: 'consultar-equipos/unassigned'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

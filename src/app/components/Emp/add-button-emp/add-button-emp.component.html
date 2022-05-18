@@ -2,10 +2,10 @@
     <div class="up">
         <h4 class="prompt">Please select the employees you want to add to the team.</h4>
         <div class="center-table">
-            <table>
+            <table class="table-style">
                 <tr *ngFor="let m of members">
-                    <input type="checkbox">
-                    <label for="">
+                    <input type="checkbox" class="spacing-checkbox check-with-label">
+                    <label for="" class="spacing-name label-for-check">
                         {{m.employee_name}}
                     </label>
                 </tr>
