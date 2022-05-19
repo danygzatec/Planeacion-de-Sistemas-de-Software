@@ -225,7 +225,9 @@
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 2,
-            "id_employee_project" : 2
+            "id_employee_project" : 2,
+            "billableHours" : 40,
+            "nonBillableHours" : 0
         },
         {
             "did_complete" : true,
