@@ -222,15 +222,6 @@
         },
         {
             "did_complete" : true,
-            "project_role" : 1,
-            "id_employee" : 2,
-            "id_project" : 2,
-            "id_employee_project" : 2,
-            "billableHours" : 40,
-            "nonBillableHours" : 0
-        },
-        {
-            "did_complete" : true,
             "project_role" : 0,
             "id_employee" : 3,
             "id_project" : 1,
@@ -318,6 +309,15 @@
             "id_employee_project" : 12,
             "billableHours" : 10,
             "nonBillableHours" : 5
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 2,
+            "id_project" : 2,
+            "id_employee_project" : 13,
+            "billableHours" : 40,
+            "nonBillableHours" : 0
         }
     ],
     "employee_team" : [
