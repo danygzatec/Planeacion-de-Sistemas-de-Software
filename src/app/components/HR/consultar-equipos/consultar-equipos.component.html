@@ -18,7 +18,8 @@
     <div class="boton">
           <form class="d-flex">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder="Search...">
                 <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt=""></button>
             </div>
         </form>
@@ -52,7 +53,7 @@
 <div class="table-container">
     <table class="table-style">
         <!-- <tr class="approved-by-small">approved by: </tr> -->
-        <tr class="employee-name-row" *ngFor="let team of getTeams()">
+        <tr class="employee-name-row" *ngFor="let team of getTeams() | filter:searchText">
             <td class="first-check" *ngIf="team.approved_HR"> 
                 <img src="assets/palomita-consultar-equipos.png" alt="" width="35" height="30"> 
             </td>

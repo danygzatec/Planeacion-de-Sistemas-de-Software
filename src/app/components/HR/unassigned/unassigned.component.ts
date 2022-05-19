@@ -10,6 +10,8 @@ export class UnassignedComponent implements OnInit {
 
   constructor(public unassignedInfo : ConsultarEquiposComponent) { }
 
+  searchText: any;
+
   ngOnInit(): void {
   }
 

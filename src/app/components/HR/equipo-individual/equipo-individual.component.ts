@@ -29,6 +29,8 @@ export class EquipoIndividualComponent implements OnInit {
   id : number;
   evaluators : boolean;
 
+  searchText: any;
+
 
   constructor(
     private route: ActivatedRoute,

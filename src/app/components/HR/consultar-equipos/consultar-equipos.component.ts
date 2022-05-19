@@ -25,6 +25,8 @@ export class ConsultarEquiposComponent implements OnInit {
   public empProjects : EmployeeProject[];
   public empTeams : EmployeeTeam[];
 
+  searchText: any;
+
   constructor(public accountInfo : AppComponent ) {
     this.employees = ExcelData.employee;
     this.evaluationPeriods = ExcelData.evaluation_period;
