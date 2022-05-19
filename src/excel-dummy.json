@@ -207,84 +207,108 @@
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 1,
-            "id_employee_project" : 1
+            "id_employee_project" : 1,
+            "billableHours" : 20,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 1,
-            "id_employee_project" : 2
+            "id_employee_project" : 2,
+            "billableHours" : 40,
+            "nonBillableHours" : 0
         },
         {
             "did_complete" : true,
             "project_role" : 0,
             "id_employee" : 3,
             "id_project" : 1,
-            "id_employee_project" : 3
+            "id_employee_project" : 3,
+            "billableHours" : 0,
+            "nonBillableHours" : 40
         },
         {
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 4,
             "id_project" : 1,
-            "id_employee_project" : 4
+            "id_employee_project" : 4,
+            "billableHours" : 20,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 5,
             "id_project" : 1,
-            "id_employee_project" : 5
+            "id_employee_project" : 5,
+            "billableHours" : 20,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 6,
             "id_project" : 1,
-            "id_employee_project" : 6
+            "id_employee_project" : 6,
+            "billableHours" : 20,
+            "nonBillableHours" : 0
         },
         {
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 7,
             "id_project" : 1,
-            "id_employee_project" : 7
+            "id_employee_project" : 7,
+            "billableHours" : 0,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 2,
-            "id_employee_project" : 8
+            "id_employee_project" : 8,
+            "billableHours" : 20,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 3,
-            "id_employee_project" : 9
+            "id_employee_project" : 9,
+            "billableHours" : 20,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 8,
             "id_project" : 1,
-            "id_employee_project" : 10
+            "id_employee_project" : 10,
+            "billableHours" : 10,
+            "nonBillableHours" : 20
         },
         {
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 9,
             "id_project" : 1,
-            "id_employee_project" : 11
+            "id_employee_project" : 11,
+            "billableHours" : 15,
+            "nonBillableHours" : 10
         },
         {
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 10,
             "id_project" : 1,
-            "id_employee_project" : 12
+            "id_employee_project" : 12,
+            "billableHours" : 10,
+            "nonBillableHours" : 5
         }
     ],
     "employee_team" : [
