@@ -88,7 +88,7 @@
     font-size: 1.063em;
     line-height: 1.75em;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 2.5em;
     color: #282C38;
 }
 
@@ -136,7 +136,7 @@ table {
 
 .span-container {
     align-content: center;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 10px;
+    padding-right: 0.938em;
+    padding-left: 0.938em;
+    padding-bottom: 0.625em;
 }
