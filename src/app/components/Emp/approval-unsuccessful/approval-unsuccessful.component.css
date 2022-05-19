@@ -2,15 +2,15 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 64px;
-    line-height: 75px;
+    font-size: 4em;
+    line-height: 4.688em;
 
     text-align: center;
-    padding-top: 20px;
+    padding-top: 1.25em;
 }
 
 .partial-container {
-    height: 116px;
+    height: 7.25em;
     background-color: #DA6060;
     justify-content: center;
     display: flex;
@@ -18,7 +18,7 @@
 }
 
 .grey-space {
-    height: 20px;
+    height: 1.25em;
     background-color: #F6F6F6;
     display: flex;
 }
@@ -37,47 +37,47 @@
     vertical-align: center;
     display: flex;
     position: absolute;
-    margin-left: 16px;
+    margin-left: 1em;
 }
 
 .text-container {
     width: 80%;
     background: #EEF2FF;
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    border-radius: 0.625em;
+    margin-top: 1.875em;
+    margin-bottom: 1.875em;
     vertical-align: center;
     align-self: center;
     justify-self: center;
-    margin-left: 140px;
+    margin-left: 8.75em;
 }
 
 .font {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.5em;
+    line-height: 1.75em;
     text-align: center;
     vertical-align: center;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 3.75em;
+    margin-bottom: 3.75em;
 }
 
 .review-changes {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25em;
+    line-height: 1.75em;
     text-align: center;
     background-color: #DA6060;
     color: white;
     border: 0;
     border-radius: 3em;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    margin-bottom: 30px;
+    padding-top: 0.188em;
+    padding-bottom: 0.188em;
+    margin-bottom: 1.875em;
 }
 
 .button-container {
