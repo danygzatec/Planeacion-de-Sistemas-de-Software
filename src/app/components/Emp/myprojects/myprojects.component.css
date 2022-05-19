@@ -21,6 +21,7 @@ tr {
 
 .project-container {
     margin-top: 10px;
+    margin-bottom: 10px;
     width: 96%;
     height: max-content;
     background-color: #282C38;
@@ -93,4 +94,16 @@ table{
 .input-container {
     vertical-align: middle;
     top: 0.5px;
+}
+
+.donut-chart {
+    display: block;
+    height: 300px;
+    width: 300px;
+    align-self: center;
+}
+
+.row {
+    margin-left: 10px;
+    margin-right: 10px;
 }

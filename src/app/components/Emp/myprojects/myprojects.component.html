@@ -8,16 +8,17 @@
     </div>
 </div>
 
-    <div class="search-container">
-        <div class="input-container">
-            <form class="d-flex">
-                <div class="input-group boton">
-                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
-                    <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt=""></button>
-                </div>
-            </form>
-        </div>
+<div class="search-container">
+    <div class="input-container">
+        <form class="d-flex">
+            <div class="input-group boton">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder="Search...">
+                <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png" height="20" alt=""></button>
+            </div>
+        </form>
     </div>
+</div>
 
 
 <div class="project-container">
@@ -31,7 +32,29 @@
     </div>
 </div>
 
-<p>
-    Billable hours: {{getBillableHours()}}
-    NonBillable hours: {{getNonBillableHours()}}
-</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Billable hours</h5>
+                <p class="card-text">
+                <div class="donut-chart">
+                    <canvas baseChart [data]="doughnutChartDataB" [type]="doughnutChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">NonBillable Hours</h5>
+                <p class="card-text">
+                <div class="donut-chart">
+                    <canvas baseChart [data]="doughnutChartDataNB" [type]="doughnutChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

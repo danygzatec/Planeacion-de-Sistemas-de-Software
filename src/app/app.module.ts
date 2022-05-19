@@ -37,6 +37,7 @@ import { PopupDeleteEmpComponent } from './components/Emp/popup-delete-emp/popup
 import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
 import { Ng2SearchPipeModule} from 'ng2-search-filter';
 import { SearchComponent } from './components/shared/search/search.component';
+import { NgChartsModule } from 'ng2-charts';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -73,6 +74,7 @@ export function MSALInstanceFactory() : IPublicClientApplication{
 
   ],
   imports: [
+    NgChartsModule,
     BrowserModule,
     AppRoutingModule,
     MsalModule,
@@ -81,13 +83,9 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
     Ng2SearchPipeModule,
     CommonModule,
-
-
     Ng2SearchPipeModule
-
   ],
   providers: [
     {
