@@ -8,23 +8,22 @@
     </div>
 </div>
 
-<div>
     <div class="search-container">
         <div class="input-container">
-            <form class="d-inline">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="">
+            <form class="d-flex">
+                <div class="input-group boton">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
                     <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt=""></button>
                 </div>
             </form>
         </div>
     </div>
-</div>
+
 
 <div class="project-container">
     <div class="table-container">
         <table>
-            <tr class="font" *ngFor=" let project of getProjects()">
+            <tr class="font" *ngFor=" let project of getProjects() | filter:searchText">
                 <td></td>
                 <td> {{ project.project_name }}</td>
             </tr>

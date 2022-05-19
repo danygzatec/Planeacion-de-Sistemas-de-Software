@@ -133,7 +133,7 @@
     ],
     "project" : [
         {
-            "project_name" : "IPSCentral",
+            "project_name" : "IPS Central",
             "id_employee_leader" : 3,
             "id_period" : 1,
             "id_project" : 1
@@ -214,6 +214,13 @@
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 1,
+            "id_employee_project" : 2
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 2,
+            "id_project" : 2,
             "id_employee_project" : 2
         },
         {
