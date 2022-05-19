@@ -68,7 +68,7 @@ table tr:nth-child(even){
     font-family: 'Roboto Condensed', sans-serif;
     border-collapse: separate;
     border-spacing: 0 20px;
-    border-radius: 5%;
+    /* border-radius: 5%; */
     overflow: hidden;
     background-color: #282C38;
 }

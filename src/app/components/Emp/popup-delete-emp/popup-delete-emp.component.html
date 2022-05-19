@@ -1,13 +1,23 @@
 <div class="pop">
     <div class="up">
         <!-- aqui tenemos que poner los nombres de los que se va a borrar -->
-        <h2 class="poptext font"> You are about to remove {{ member }} from {{ employee }}'s evaluation and vice versa. </h2>   
-        <h2 class="poptext2 font">Are you sure you want to do this?</h2>
+        <h2 class="poptext font"> Why do you want to remove {{ employee }} from your team? </h2>   
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1"></label>
+          <textarea class="form-control formmotive" id="exampleFormControlTextarea1" [(ngModel)]="motive" [maxlength]="maxlength"
+          [value]="value"
+          (valueChange)="onValueChange(motive)"rows="3" placeholder="Please type a message for HR including the reason why you want to remove this person from your team."></textarea>
+          <div class="form-row__description count">
+            {{ motive.length }} / 250
+        </div>
+        </div>
+       
+        <h2 class="warning font"> By removing this person they won’t be able to evaluate you. </h2>
         <button  class="btn btn-primary font cancel" (click)="closeMe()">
           cancel
         </button>
         <button  class="btn btn-primary font remove">
-            remove
+            send request
           </button>
         
     </div>

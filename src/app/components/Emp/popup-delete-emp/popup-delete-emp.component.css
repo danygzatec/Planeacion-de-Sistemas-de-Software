@@ -28,7 +28,7 @@
     position: absolute;
     width: 658px;
     height: 168px;
-    top: 50px;
+    top: 30px;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -62,7 +62,7 @@ color: #000000;
     position: absolute;
     width: 200px;
     height: 43px;
-    top: 280px;
+    top: 300px;
     left: 40px;
    
 
@@ -76,7 +76,7 @@ color: #000000;
     position: absolute;
     width: 200px;
     height: 43px;
-    top: 280px;
+    top: 300px;
     right: 40px;
    
 
@@ -84,4 +84,53 @@ color: #000000;
     border: 1px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 8px;
+}
+
+.motive{
+    box-sizing: border-box;
+
+position: absolute;
+width: 640px;
+height: 140px;
+left: 20px;
+top: 120px;
+
+background: #FFFFFF;
+border: 1px solid #FFFFFF;
+border-radius: 15px;
+}
+
+.warning{
+    position: absolute;
+    width: 658px;
+    height: 168px;
+    top: 260px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.formmotive{
+    border: transparent;
+    position: absolute;
+    width: 640px;
+    height: 120px;
+    left: 20px;
+    top: 120px;
+}
+
+.count{
+    position: absolute;
+    width: 640px;
+    height: 140px;
+    left: 20px;
+    top: 245px;
+    left: 600px;
+    font-size: 10px;
 }
