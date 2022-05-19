@@ -1,41 +1,41 @@
 .pop{
     position: absolute;
-    width: 720px;
-    height: 405px;
-    left: 360px;
-    top: 200px;
+    width: 45em;
+    height: 25.313em;
+    left: 22.5em;
+    top: 12.5em;
 
     background: #282C38;
-    border: 1px solid #FFFFFF;
+    border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 0.938em;
 }
 
 .up{
     position: absolute;
-    width: 685px;
-    height: 375px;
-    left: 18px;
-    top: 15px;
+    width: 42.813em;
+    height: 23.438em;
+    left: 1.125em;
+    top: 0.938em;
 
     background: #EEF2FF;
-    border: 1px solid #FFFFFF;
+    border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 0.938em;
     overflow-y: scroll;
 }
 
 .poptext{
     position: absolute;
-    width: 658px;
-    height: 168px;
-    top: 50px;
+    width: 41.125em;
+    height: 10.5em;
+    top: 3.125em;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
-    line-height: 42px;
+    font-size: 1.875em;
+    line-height: 2.625em;
     text-align: center;
 
     color: #000000;
@@ -44,15 +44,15 @@
 
 .poptext2{
     position: absolute;
-    width: 658px;
-    height: 168px;
-    top: 180px;
+    width: 41.125em;
+    height: 10.5em;
+    top: 11.25em;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
-    line-height: 42px;
+    font-size: 1.875em;
+    line-height: 2.625em;
     text-align: center;
 
     color: #000000;
@@ -61,51 +61,51 @@
 
 .cancel{
     position: absolute;
-    width: 200px;
-    height: 43px;
-    top: 280px;
-    left: 40px;
+    width: 12.5em;
+    height: 2.688em;
+    top: 17.5em;
+    left: 2.5em;
     background: #282C38;
-    border: 1px solid #FFFFFF;
+    border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 0.5em;
 }
 
 .add{
     position: relative;
     align-self: center;
-    width: 150px;
-    height: 43px;
-    left: 260px;
-    bottom: 30px;
+    width: 9.375em;
+    height: 2.688em;
+    left: 16.25em;
+    bottom: 1.875em;
     background: #B3EDA5;
-    border: 1px solid #FFFFFF;
+    border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 0.5em;
     border-color: transparent;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    line-height: 28px;
+    font-size: 1.063em;
+    line-height: 1.75em;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 3.125em;
     color: #282C38;
 }
 
 
 .prompt {
-    padding-top: 20px;
+    padding-top: 1.25em;
     font-family: 'Roboto';
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 0.625em;
 }
 
 
 table tr{
     color: rgb(0, 0, 0);
     align-self: center;
-    line-height: 35px;
+    line-height: 2.188em;
 }
 
 .center-table {
@@ -114,18 +114,18 @@ table tr{
 }
 
 .spacing-checkbox {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0.625em;
+    margin-left: 0.625em;
 }
 
 td {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0.938em;
+    padding-left: 0.938em;
 }
 
 table {
-    width: 580px;
-    margin-bottom: 10px;
+    width: 36.25em;
+    margin-bottom: 0.625em;
     background-color: #D6E0FF;
 }
 
