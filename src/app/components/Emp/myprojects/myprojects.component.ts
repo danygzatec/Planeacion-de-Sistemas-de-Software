@@ -11,7 +11,6 @@ import ExcelData from 'src/excel-dummy.json'
   styleUrls: ['./myprojects.component.css']
 })
 export class MyprojectsComponent implements OnInit {
-
   projects : Project[];
   employee : Employee[];
   empProject : EmployeeProject[];
@@ -66,6 +65,20 @@ export class MyprojectsComponent implements OnInit {
         billHours.push(element.billableHours);
       }
     })
+    return billHours;
+
+  }
+
+  getNonBillableHours() {
+    var nonBillHours : any[] = [];
+
+    var e = this.employee.find(emp => emp.employee_name === this.accountInfo.getNameAccount());
+    this.empProject.forEach(element => {
+      if (element.id_employee === e!.id_employee) {
+        nonBillHours.push(element.nonBillableHours);
+      }
+    })
+    return nonBillHours;
 
   }
   
