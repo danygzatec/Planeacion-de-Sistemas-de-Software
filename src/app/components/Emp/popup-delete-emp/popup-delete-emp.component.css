@@ -119,16 +119,18 @@ border-radius: 15px;
 .formmotive{
     border: transparent;
     position: absolute;
-width: 640px;
-height: 140px;
-left: 20px;
-top: 120px;
+    width: 640px;
+    height: 120px;
+    left: 20px;
+    top: 120px;
 }
 
 .count{
     position: absolute;
-width: 640px;
-height: 140px;
-left: 20px;
-top: 120px;
+    width: 640px;
+    height: 140px;
+    left: 20px;
+    top: 245px;
+    left: 600px;
+    font-size: 10px;
 }

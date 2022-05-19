@@ -1,10 +1,12 @@
 <div class="pop">
     <div class="up">
         <!-- aqui tenemos que poner los nombres de los que se va a borrar -->
-        <h2 class="poptext font"> Why do you want to remove {{ employee }} from your team?. </h2>   
+        <h2 class="poptext font"> Why do you want to remove {{ employee }} from your team? </h2>   
         <div class="form-group">
           <label for="exampleFormControlTextarea1"></label>
-          <textarea class="form-control formmotive" id="exampleFormControlTextarea1" [(ngModel)]="motive" rows="3" placeholder="Please type a message for HR including the reason why you want to remove this person from your team."></textarea>
+          <textarea class="form-control formmotive" id="exampleFormControlTextarea1" [(ngModel)]="motive" [maxlength]="maxlength"
+          [value]="value"
+          (valueChange)="onValueChange(motive)"rows="3" placeholder="Please type a message for HR including the reason why you want to remove this person from your team."></textarea>
           <div class="form-row__description count">
             {{ motive.length }} / 250
         </div>
