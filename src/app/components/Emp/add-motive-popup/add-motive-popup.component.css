@@ -72,7 +72,8 @@
 }
 
 .add{
-    position: absolute;
+    position: relative;
+    align-self: center;
     width: 150px;
     height: 43px;
     left: 260px;
@@ -88,21 +89,23 @@
     font-size: 17px;
     line-height: 28px;
     text-align: center;
-
+    margin-top: 50px;
     color: #282C38;
-
 }
+
 
 .prompt {
     padding-top: 20px;
     font-family: 'Roboto';
     text-align: center;
+    padding-bottom: 10px;
 }
 
 
 table tr{
     color: rgb(0, 0, 0);
     align-self: center;
+    line-height: 35px;
 }
 
 .center-table {
@@ -110,22 +113,27 @@ table tr{
     justify-content: center;
 }
 
-table tr {
-    line-height: 35px;
-    
-}
-
 .spacing-checkbox {
     margin-right: 10px;
     margin-left: 10px;
 }
 
+td {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 table {
-    width: 520px;
+    width: 580px;
     margin-bottom: 10px;
+    background-color: #D6E0FF;
 }
 
 .check-with-label:checked + .label-for-check {
     font-weight: bold;
     color:#306822;
+}
+
+.font {
+    font-family: 'Roboto Condensed';
 }
