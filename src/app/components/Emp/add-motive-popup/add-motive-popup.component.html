@@ -1,0 +1,24 @@
+<div class="pop">
+    <div class="up">
+        <h4 class="prompt">Please type the motive.</h4>
+        <div class="center-table">
+            <table class="table-style">
+                <tr *ngFor="let m of members">
+                    <td for="" class="spacing-name label-for-check">
+                        {{m.employee_name}}
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1"></label>
+                            <textarea class="form-control formmotive" id="exampleFormControlTextarea1" [(ngModel)]="motive" [maxlength]="maxlength"
+                            [value]="value"
+                            (valueChange)="onValueChange(motive)"rows="3" placeholder="Please share with HR why you want to add this person to your team."></textarea>
+                            <div class="form-row__description count">
+                              {{ motive.length }} / 250
+                          </div>
+                        </div>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

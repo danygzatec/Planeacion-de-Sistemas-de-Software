@@ -38,6 +38,7 @@ import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassig
 import { Ng2SearchPipeModule} from 'ng2-search-filter';
 import { SearchComponent } from './components/shared/search/search.component';
 import { NgChartsModule } from 'ng2-charts';
+import { AddMotivePopupComponent } from './components/Emp/add-motive-popup/add-motive-popup.component';
 
 export function MSALInstanceFactory() : IPublicClientApplication{
   return new PublicClientApplication({
@@ -70,7 +71,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
 
     SearchComponent,
 
-    UnassignedTeamComponent
+    UnassignedTeamComponent,
+     AddMotivePopupComponent
 
   ],
   imports: [
