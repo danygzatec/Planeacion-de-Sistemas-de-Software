@@ -64,9 +64,8 @@
 }
 
 .add{
-
     position: absolute;
-    margin-bottom: -2.5em;
+    padding-bottom: -2.5em;
     width: 9.375em;
     height: 2.688em;
     left: 16.25em;
@@ -77,7 +76,7 @@
     height: 43px;
     left: 260px;
     bottom: 30px;
-    background: #B3EDA5;
+    background: #8DD2EF;
     border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 0.5em;
