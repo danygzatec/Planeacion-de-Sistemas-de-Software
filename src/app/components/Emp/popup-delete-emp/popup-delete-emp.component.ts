@@ -11,6 +11,7 @@ export class PopupDeleteEmpComponent implements OnInit {
 
   public member;
   public employee;
+  motive="";
 
   constructor(
     private dialogRef: MatDialogRef<PopupDeleteEmpComponent>,
