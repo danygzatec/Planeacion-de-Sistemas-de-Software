@@ -149,6 +149,18 @@
             "id_employee_leader" : 2,
             "id_period" : 3,
             "id_project" : 3
+        },
+        {
+            "project_name" : "Sepultura de Vatos",
+            "id_employee_leader" : 1,
+            "id_period" : 3,
+            "id_project" : 4
+        },
+        {
+            "project_name" : "Encontrar amor",
+            "id_employee_leader" : 1,
+            "id_period" : 3,
+            "id_project" : 5
         }
     ],
     "request" : [
@@ -318,6 +330,24 @@
             "id_employee_project" : 13,
             "billableHours" : 40,
             "nonBillableHours" : 0
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 1,
+            "id_project" : 4,
+            "id_employee_project" : 14,
+            "billableHours" : 40,
+            "nonBillableHours" : 5
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 1,
+            "id_project" : 5,
+            "id_employee_project" : 15,
+            "billableHours" : 10,
+            "nonBillableHours" : 70
         }
     ],
     "employee_team" : [
