@@ -5,8 +5,33 @@
         <div class="font"><h1>Dashboard</h1></div>
     </div>
     <div class="linea-azul"></div>
-    <div style="background-color: #fff;" class="graph">
-        <p class="text">insert graph here</p>
+    <div class="graph">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Billable hours</h5>
+                        <p class="card-text">
+                        <div class="donut-chart">
+                            <canvas baseChart [data]="doughnutChartDataB" [type]="doughnutChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Non Billable Hours</h5>
+                        <p class="card-text">
+                        <div class="donut-chart">
+                            <canvas baseChart [data]="doughnutChartDataNB" [type]="doughnutChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <p class="text">Last time updated: {{curr}}</p>
 </div>
