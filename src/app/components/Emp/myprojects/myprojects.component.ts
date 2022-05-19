@@ -15,6 +15,8 @@ export class MyprojectsComponent implements OnInit {
   employee : Employee[];
   empProject : EmployeeProject[];
 
+  searchText: any;
+
   constructor(public accountInfo: AppComponent) { 
     this.projects = ExcelData.project;
     this.employee = ExcelData.employee;

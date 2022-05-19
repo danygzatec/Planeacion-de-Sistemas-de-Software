@@ -15,6 +15,8 @@ import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.co
   styleUrls: ['./myteam.component.css']
 })
 
+
+
 export class MyteamComponent implements OnInit {
 
   
@@ -25,6 +27,8 @@ export class MyteamComponent implements OnInit {
   private teams : Team[];
   private team : any;
   evaluators : boolean;
+
+  searchText: any;
 
   constructor(private accountInfo : AppComponent, private  dialogRef : MatDialog) { 
     this.employees = ExcelData.employee;
@@ -45,13 +49,13 @@ export class MyteamComponent implements OnInit {
     this.createObjects();
   }
 
-  searchText:string = '';
+  //searchText:string = '';
   
-  onSearchTextEntered(searchValue: string){
-    this.searchText = searchValue;
-    console.log(this.searchText);
+  // onSearchTextEntered(searchValue: string){
+  //   this.searchText = searchValue;
+  //   console.log(this.searchText);
 
-  }
+  // }
 
 
   createObjects() {

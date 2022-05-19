@@ -22,7 +22,8 @@
     <div class="boton">
           <form class="d-flex">
             <div class="input-group">
-                <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
                 <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt="search icon"></button>
             </div>
         </form>
@@ -38,7 +39,7 @@ team-approval y sale error en la consola.-->
 
 <div class="team-approval">
     <table class="table-style" *ngIf="getEvaluatorBool() == false" >
-        <tr *ngFor="let member of getMembers()">
+        <tr *ngFor="let member of getMembers() | filter:searchText">
             <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
             <td class="role-spaced-out">As {{ member.role_member_string}}</td>
             <td>
@@ -47,7 +48,7 @@ team-approval y sale error en la consola.-->
         </tr>
     </table>
     <table class="table-style" *ngIf="getEvaluatorBool()">
-        <tr *ngFor="let member of getEvaluatorRoles()">
+        <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
             <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
             <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
             <td>
