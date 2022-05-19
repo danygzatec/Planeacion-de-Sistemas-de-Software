@@ -20,8 +20,8 @@ tr {
 }
 
 .project-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
     width: 96%;
     height: max-content;
     background-color: #282C38;
@@ -34,11 +34,11 @@ tr {
 }
 
 .table-container {
-    padding-top: 10px;
+    padding-top: 0.625em;
     align-content: center;
     justify-content: center;
     display: flex;
-    padding-bottom: 10px;
+    padding-bottom: 0.625em;
     width: 100%;
     /* height: 70px; */
 }
@@ -48,12 +48,12 @@ table{
 }
 
 .grey-space {
-    height: 20px;
+    height: 1.25em;
     background-color: #F6F6F6;
 }
 
 .myprojects-container {
-    height: 100px;
+    height: 6.25em;
     background-color: #282C38;
     justify-content: center;
     display: flex;
@@ -61,24 +61,24 @@ table{
 }
 
 .search-container{
-    height: 46px;
+    height: 2.875em;
     background: #27A0D4;
     justify-content: right;
     display: flex;
     vertical-align: right;
-    padding-right: 10px;
-    padding-top: 3.25px;
+    padding-right: 0.625em;
+    padding-top: 0.203em;
 }
 
 .project-title {
-    padding-top: 10px;
+    padding-top: 0.625em;
     font-family: 'Roboto';
     color: white;
     font-weight: 700;
     font-style: normal;
     font-weight: 700;
-    font-size: 64px;
-    line-height: 75px;
+    font-size: 4em;
+    line-height: 4.688em;
 }
 
 .boton_lupa { 
@@ -86,27 +86,27 @@ table{
 }
 
 .boton {
-    right: 10px;
+    right: 0.625em;
     align-content: flex-end;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 .input-container {
     vertical-align: middle;
-    top: 0.5px;
+    top: 0.031em;
 }
 
 .donut-chart {
     display: block;
-    height: 300px;
-    width: 300px;
+    height: 18.75em;
+    width: 18.75em;
     align-self: center;
 }
 
 .row {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px !important;
-    padding-bottom: 30px;
-    padding-top: 10px;
+    margin-left: 0.625em;
+    margin-right: 0.625em;
+    margin-bottom: 1.25em !important;
+    padding-bottom: 1.875em;
+    padding-top: 0.625em;
 }
