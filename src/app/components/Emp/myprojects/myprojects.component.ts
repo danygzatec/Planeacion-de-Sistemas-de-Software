@@ -54,10 +54,22 @@ export class MyprojectsComponent implements OnInit {
       }
     })
 
-    console.log(userProjects);
-
     return userProjects;
 
   }
+
+  getBillableHours() {
+
+    var billHours : any[] = [];
+
+    var e = this.employee.find(emp => emp.employee_name === this.accountInfo.getNameAccount());
+    this.empProject.forEach(element => {
+      if (element.id_employee === e!.id_employee) {
+        billHours.push(element.billableHours);
+      }
+    })
+
+  }
+  
 
 }

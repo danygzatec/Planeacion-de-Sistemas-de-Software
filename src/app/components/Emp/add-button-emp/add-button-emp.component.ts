@@ -30,11 +30,9 @@ export class AddButtonEmpComponent implements OnInit {
   }
 
   checkMembers(memb : Employee) {
-    
     var index = this.members.findIndex(m => m.id_employee === memb.id_employee);
-
     this.isChecked[index] = !this.isChecked[index];
-    console.log(memb);
+    
   }
 
   getCheckedMembers() {
