@@ -64,8 +64,8 @@
 }
 
 .add{
-    position: absolute;
-    margin-bottom: -2.5em;
+    position: relative;
+    align-self: center;
     width: 150px;
     height: 43px;
     left: 260px;
@@ -81,6 +81,7 @@
     font-size: 17px;
     line-height: 28px;
     text-align: center;
+    margin-top: 40px;
     color: #282C38;
 }
 
@@ -124,4 +125,11 @@ table {
 .check-with-label:checked + .label-for-check {
     font-weight: bold;
     color:#306822;
+}
+
+.span-container {
+    align-content: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
 }
