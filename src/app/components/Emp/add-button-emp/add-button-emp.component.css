@@ -64,9 +64,8 @@
 }
 
 .add{
-
     position: absolute;
-    margin-bottom: -2.5em;
+    padding-bottom: -2.5em;
     width: 9.375em;
     height: 2.688em;
     left: 16.25em;
