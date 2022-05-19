@@ -348,6 +348,15 @@
             "id_employee_project" : 15,
             "billableHours" : 10,
             "nonBillableHours" : 70
+        },
+        {
+            "did_complete" : true,
+            "project_role" : 1,
+            "id_employee" : 2,
+            "id_project" : 5,
+            "id_employee_project" : 15,
+            "billableHours" : 10,
+            "nonBillableHours" : 70
         }
     ],
     "employee_team" : [
@@ -490,6 +499,13 @@
             "id_employee" : 4,
             "id_team" : 5,
             "id_employee_team" : 20
+        },
+        {
+            "role_member" : 2,
+            "status_member" : 0,
+            "id_employee" : 2,
+            "id_team" : 1,
+            "id_employee_team" : 21
         }
     ]
 }
