@@ -12,6 +12,8 @@ export class InboxComponent implements OnInit {
   public request: Request[];
   public employee: Employee[];
 
+  searchText: any;
+
   constructor() {
     this.request = ExcelData.request;
     this.employee = ExcelData.employee;
@@ -47,8 +49,8 @@ export class InboxComponent implements OnInit {
     e = this.employee.find(emp => emp.id_employee == r!.id_emp_mod);
 
     currString += e!.employee_name;
-    console.log(currString);
-    console.log("hola");
+    //console.log(currString);
+    //console.log("hola");
 
     return currString;
       
