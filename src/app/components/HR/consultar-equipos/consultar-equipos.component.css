@@ -24,7 +24,7 @@
 .navbar-custom .nav-item.active .nav-link {
     color: #ffffff;
     background-color: #8DD2EF; /* add background-color to active links */
-    border-bottom: 3px solid white;
+    border-bottom: 0.188em solid white;
 }
 
 .navbar-custom {
@@ -51,7 +51,7 @@
 }
 
 .navbar-custom .nav-item:hover .nav-link {
-    border-bottom: 3px solid white;
+    border-bottom: 0.188em solid white;
 }
 
 .boton {
@@ -73,32 +73,32 @@
     justify-self: center;
     font-family: 'Roboto Condensed', sans-serif;
     border-collapse: separate;
-    border-spacing: 0 5px;
+    border-spacing: 0 0.313em;
     /* border-radius: 1em; */
     overflow: hidden;
 }
 
 .approved-rectangle {
-    height: 52px;
+    height: 3.25em;
     left: 0px;
-    top: 164px;
+    top: 10.25em;
     background: #27A0D4;
     color:#ffffff;
     display: flex;
 }
 
 .space-hr-emp {
-    padding-left: 10px;
+    padding-left: 0.625em;
 }
 
 .space-emp {
-    padding-left: 45px;
+    padding-left: 2.813em;
 }
 
 .approved-by-small {
-    font-size: 20px;
-    padding-left: 65px;
-    padding-top: 10px;
+    font-size: 1.25em;
+    padding-left: 4.063em;
+    padding-top: 0.625em;
 }
 
 .employee-name-row {
@@ -107,19 +107,19 @@
 }
 
 .employee-name {
-    padding-left: 40px;
-    padding-right: 800px;
+    padding-left: 2.5em;
+    padding-right: 50em;
 }
 
 /* boton de view team*/
 .view-team{
     background-color: #27A0D4;
     color: white;
-    border-radius: 30px;
+    border-radius: 1.875em;
     margin: 0.30em;
     justify-content: center;
     display: flex;
-    margin-right: 10px;
+    margin-right: 0.625em;
 }
 
 .view-team:hover{
@@ -146,7 +146,7 @@
 }
 
 .first-check {
-    padding-left: 20px;
+    padding-left: 1.25em;
 }
 
 .linea-gris-delgadita {
@@ -155,9 +155,9 @@
 }
 
 .HR {
-    margin-left: 18px;
+    margin-left: 1.125em;
 }
 
 .EMP {
-    margin-left: 10px;
+    margin-left: 0.625em;
 }

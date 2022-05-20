@@ -43,15 +43,15 @@
 
 .poptext2{
     position: absolute;
-width: 658px;
-height: 168px;
-top: 180px;
+width: 41.125em;
+height: 10.5em;
+top: 11.25em;
 
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 700;
-font-size: 30px;
-line-height: 42px;
+font-size: 1.875em;
+line-height: 2.625em;
 text-align: center;
 
 color: #000000;
@@ -60,57 +60,57 @@ color: #000000;
 
 .cancel{
     position: absolute;
-    width: 200px;
-    height: 43px;
-    top: 300px;
-    left: 40px;
+    width: 12.5em;
+    height: 2.688em;
+    top: 18.75em;
+    left: 2.5em;
    
 
     background: #282C38;
-    border: 1px solid #FFFFFF;
+    border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 0.5em;
 }
 
 .remove{
     position: absolute;
-    width: 200px;
-    height: 43px;
-    top: 300px;
-    right: 40px;
+    width: 12.5em;
+    height: 2.688em;
+    top: 18.75em;
+    right: 2.5em;
    
 
     background: red;
-    border: 1px solid #FFFFFF;
+    border: 0.063em solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 0.5em;
 }
 
 .motive{
     box-sizing: border-box;
 
 position: absolute;
-width: 640px;
-height: 140px;
-left: 20px;
-top: 120px;
+width: 40em;
+height: 8.75em;
+left: 1.25em;
+top: 7.5em;
 
 background: #FFFFFF;
-border: 1px solid #FFFFFF;
-border-radius: 15px;
+border: 0.063em solid #FFFFFF;
+border-radius: 0.938em;
 }
 
 .warning{
     position: absolute;
-    width: 658px;
-    height: 168px;
-    top: 260px;
+    width: 41.125em;
+    height: 10.5em;
+    top: 16.25em;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
-    line-height: 42px;
+    font-size: 0.938em;
+    line-height: 2.625em;
     text-align: center;
 
     color: #000000;
@@ -119,18 +119,18 @@ border-radius: 15px;
 .formmotive{
     border: transparent;
     position: absolute;
-    width: 640px;
-    height: 120px;
-    left: 20px;
-    top: 120px;
+    width: 40em;
+    height: 7.5em;
+    left: 1.25em;
+    top: 7.5em;
 }
 
 .count{
     position: absolute;
-    width: 640px;
-    height: 140px;
-    left: 20px;
-    top: 245px;
-    left: 600px;
-    font-size: 10px;
+    width: 40em;
+    height: 8.75em;
+    left: 1.25em;
+    top: 15.313em;
+    left: 37.5em;
+    font-size: 0.625em;
 }

@@ -24,11 +24,11 @@
 .navbar-custom .nav-item.active .nav-link {
     color: #ffffff;
     background-color: #8DD2EF; /* add background-color to active links */
-    border-bottom: 3px solid white;
+    border-bottom: 0.188em solid white;
 }
 
 .navbar-custom .nav-item:hover .nav-link {
-    border-bottom: 3px solid white;
+    border-bottom: 0.188em solid white;
 }
 
 .navbar-custom {
@@ -73,7 +73,7 @@
     justify-self: center;
     font-family: 'Roboto Condensed', sans-serif;
     border-collapse: separate;
-    border-spacing: 0 5px;
+    border-spacing: 0 0.313em;
     /* border-radius: 1em; */
     overflow: hidden;
 }
@@ -84,8 +84,8 @@
 }
 
 .employee-name {
-    padding-left: 40px;
-    padding-right: 800px;
+    padding-left: 2.5em;
+    padding-right: 50em;
 }
 
 .table-container {
@@ -98,11 +98,11 @@
 .view-team{
     background-color: #27A0D4;
     color: white;
-    border-radius: 30px;
+    border-radius: 1.875em;
     margin: 0.30em;
     justify-content: center;
     display: flex;
-    margin-right: 10px;
+    margin-right: 0.625em;
 }
 
 .view-team:hover{

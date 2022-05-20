@@ -7,9 +7,9 @@
 }
 
 .approved-rectangle {
-    height: 112px;
-    left: 0px;
-    top: 164px;
+    height: 7em;
+    left: 0em;
+    top: 10.25em;
     background: #282C38;
     color:#ffffff;
     display: flex;
@@ -29,7 +29,7 @@
 }
 
 .first-check {
-    padding-left: 10px;
+    padding-left: 0.625em;
 }
 
 h1{
@@ -48,7 +48,7 @@ h1{
     left:2.5%;
     top: 25%;
     background: #FFFFFF;
-    border-radius: 15px;
+    border-radius: 0.938em;
 }
 
 .text{

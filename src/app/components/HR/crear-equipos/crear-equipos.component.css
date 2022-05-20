@@ -30,7 +30,7 @@ input[type='reset'],
     width: 5rem;
     justify-self: end;
     border: none;
-    border-radius: 30px;
+    border-radius: 1.875em;
 }
 
 input[type='reset'] {
@@ -73,38 +73,38 @@ input[type='reset']:hover {
 
 .crear{
     position: absolute;
-    width: 1365px;
-    height: 564px;
-    top: 50px;
+    width: 85.313em;
+    height: 35.25em;
+    top: 3.125em;
     background: #FFFFFF;
-    border-radius: 15px;
+    border-radius: 0.938em;
     align-self: center;
 }
 
 .to-start{
     position: absolute;
-    width: 604px;
-    height: 185px;
-    left: 400px;
-    top: 60px;
+    width: 37.75em;
+    height: 11.563em;
+    left: 25em;
+    top: 3.75em;
     background: #8DD2EF;
-    border-radius: 15px;
+    border-radius: 0.938em;
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 33px;
+    font-size: 1.75em;
+    line-height: 2.063em;
     text-align: center;
     color: #000000;
 }
 
 .upload{
     position: absolute;
-    width: 604px;
-    height: 125px;
-    left: 400px;
-    top: 272px;
+    width: 37.75em;
+    height: 7.813em;
+    left: 25em;
+    top: 17em;
     background: #E4E3E3;
-    border-radius: 15px;
+    border-radius: 0.938em;
 }
 
 /* botones de reset, upload y elegir archivo estan centrados */
