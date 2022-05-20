@@ -15,7 +15,7 @@
         <table class="mensaje font table-style">
             <tr *ngFor="let r of request">
                 <th class= "pos">
-                    <div class="texto"> {{getTitle(r.id_request)}} </div>
+                    <div class="texto"><img *ngIf= "r.type" src= "../assets/remove.png"><img *ngIf= "!r.type" src= "../assets/add.png"> {{getTitle(r.id_request)}} </div>
                     <button class="botonInboxApprove">Approve</button>
                     <div class="textoMotivo">{{r.motive}}</div>
                     <button class="botonInboxDecline">Decline</button>
