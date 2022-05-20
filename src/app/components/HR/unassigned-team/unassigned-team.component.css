@@ -79,10 +79,11 @@ table tr:nth-child(even){
     font-family: 'Roboto Condensed', sans-serif;
     color: #ffffff;
     text-align: center;
-    width: 57.5em;
-    height: 6.438em;
+    width: 20em;
+    height: 1em;
     font-size: 3.75em;
-    line-height: 7em;
+    /* line-height: 1em; */
+    margin-top: 0.3em;
 }
 
 .font {
