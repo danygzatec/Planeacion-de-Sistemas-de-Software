@@ -12,6 +12,8 @@ export class InboxComponent implements OnInit {
   public request: Request[];
   public employee: Employee[];
 
+  searchText: any;
+
   constructor() {
     this.request = ExcelData.request;
     this.employee = ExcelData.employee;
@@ -20,6 +22,7 @@ export class InboxComponent implements OnInit {
    async initializaObjects() {
      this.request = ExcelData.request;
      this.employee = ExcelData.employee;
+     this.createObjects();
    }
 
   async ngOnInit(): Promise<void> {
@@ -28,6 +31,16 @@ export class InboxComponent implements OnInit {
 
   getRequest() {
     return this.request;
+  }
+
+  createObjects() {
+    this.request.forEach(req => {
+      var requested = this.employee.find(emp => req.id_emp_req === emp.id_employee);
+      var modified = this.employee.find(emp => req.id_emp_mod === emp.id_employee);
+
+      req.requestedBy = requested;
+      req.employeeModified = modified;
+    })
   }
 
   getTitle(requestID : number) : string {
@@ -47,8 +60,8 @@ export class InboxComponent implements OnInit {
     e = this.employee.find(emp => emp.id_employee == r!.id_emp_mod);
 
     currString += e!.employee_name;
-    console.log(currString);
-    console.log("hola");
+    //console.log(currString);
+    //console.log("hola");
 
     return currString;
       

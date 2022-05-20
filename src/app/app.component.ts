@@ -95,12 +95,12 @@ export class AppComponent implements OnInit {
 
   rerouteHR() {
     if (this.isLoggedIn()){
-    var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
-    if (user!.is_HR) {
-      this.router.navigate(['crear-equipos']);
-    } else {
-      this.router.navigate(['myprojects']);
-    }
+      var user = this.employees.find(element => element.employee_name === this.msalService.instance.getActiveAccount()!.name);
+      if (user!.is_HR) {
+        this.router.navigate(['crear-equipos']);
+      } else {
+        this.router.navigate(['myprojects']);
+      }
   }
   }
 

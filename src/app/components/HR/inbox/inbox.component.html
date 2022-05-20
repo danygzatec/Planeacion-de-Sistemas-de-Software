@@ -2,7 +2,8 @@
     <div class="boton">
         <form class="d-flex">
           <div class="input-group">
-              <input type="text" class="form-control" placeholder="">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Search...">
               <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt=""></button>
           </div>
       </form>
@@ -13,9 +14,9 @@
     <div class="inb">
         <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
         <table class="mensaje font table-style">
-            <tr *ngFor="let r of request">
+            <tr *ngFor="let r of request | filter:searchText">
                 <th class= "pos">
-                    <div class="texto"> {{getTitle(r.id_request)}} </div>
+                    <div class="texto"><img *ngIf= "r.type" src= "../assets/remove.png"><img *ngIf= "!r.type" src= "../assets/add.png"> {{getTitle(r.id_request)}} </div>
                     <button class="botonInboxApprove">Approve</button>
                     <div class="textoMotivo">{{r.motive}}</div>
                     <button class="botonInboxDecline">Decline</button>
