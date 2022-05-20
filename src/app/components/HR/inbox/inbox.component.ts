@@ -22,6 +22,7 @@ export class InboxComponent implements OnInit {
    async initializaObjects() {
      this.request = ExcelData.request;
      this.employee = ExcelData.employee;
+     this.createObjects();
    }
 
   async ngOnInit(): Promise<void> {
@@ -30,6 +31,16 @@ export class InboxComponent implements OnInit {
 
   getRequest() {
     return this.request;
+  }
+
+  createObjects() {
+    this.request.forEach(req => {
+      var requested = this.employee.find(emp => req.id_emp_req === emp.id_employee);
+      var modified = this.employee.find(emp => req.id_emp_mod === emp.id_employee);
+
+      req.requestedBy = requested;
+      req.employeeModified = modified;
+    })
   }
 
   getTitle(requestID : number) : string {
