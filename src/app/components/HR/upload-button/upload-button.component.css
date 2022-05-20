@@ -1,42 +1,45 @@
 .pop{
     position: absolute;
-    display: flex;
+    /* display: flex; */
     justify-self: center;
-    width: 45em;
-    height: 25.313em;
-    left: 22.5em;
-    top: 12.5em;
+    width: 698px;
+    height: 405px;
+    left: 360px;
+    top: 200px;
+    align-self: center;
+    align-content: center;
+    vertical-align: center;
 
     background: #282C38;
-    border: 0.063em solid #FFFFFF;
+    border: 1px solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 0.938em;
+    border-radius: 15px;
 }
 
 .up{
     position: absolute;
-    width: 41.125em;
-    height: 23.438em;
-    left: 1.125em;
-    top: 0.938em;
+    width: 658px;
+    height: 375px;
+    left: 18px;
+    top: 15px;
 
     background: #EEF2FF;
-    border: 0.063 solid #FFFFFF;
+    border: 1px solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 0.938;
+    border-radius: 15px;
 }
 
 .poptext{
     position: absolute;
-    width: 41.125em;
-    height: 10.5em;
-    top: 3.125em;
+    width: 658px;
+    height: 168px;
+    top: 50px;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.875em;
-    line-height: 2.625em;
+    font-size: 30px;
+    line-height: 42px;
     text-align: center;
 
     color: #000000;
@@ -45,18 +48,18 @@
 
 .poptext2{
     position: absolute;
-width: 41.125em;
-height: 10.5em;
-top: 13.75em;
+    width: 658px;
+    height: 168px;
+    top: 220px;
 
-font-family: 'Roboto';
-font-style: italic;
-font-weight: 700;
-font-size: 1.5em;
-line-height: 2.625em;
-text-align: center;
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 42px;
+    text-align: center;
 
-color: #000000;
+    color: #000000;
 
 }
 
@@ -75,29 +78,29 @@ color: #000000;
 
 .submit{
     position: absolute;
-    width: 12.5em;
-    height: 2.688em;
-    top: 17.5em;
-    right: 2.5;
+    width: 200px;
+    height: 43px;
+    top: 280px;
+    right: 40px;
    
     background: rgb(0, 195, 3);
-    border:0.063em solid #FFFFFF;
+    border: 1px solid #FFFFFF;
     box-sizing: border-box;
-    border-radius: 0.5em;
+    border-radius: 8px;
 }
 
 .poptext3{
 
     position: absolute;
-    width: 41.125em;
-    height: 10.5em;
-    top: 8.75em;
+    width: 658px;
+    height: 168px;
+    top: 140px;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.875em;
-    line-height: 2.625em;
+    font-size: 30px;
+    line-height: 42px;
     text-align: center;
 
     color: rgb(186, 0, 0);
