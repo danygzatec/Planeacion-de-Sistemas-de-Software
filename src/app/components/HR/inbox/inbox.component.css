@@ -7,6 +7,7 @@
     background: #FFFFFF;
     border-color: gray;
     border-radius: 0.625em;
+    right: 10em;
 }
 
 .inb{
@@ -30,7 +31,7 @@
     position: absolute;
     width: 22.188em;
     height: 2.438em;
-    left: 66.813em;
+    left: 1.213em;
     top: 7.563em;
 
     background: #FFFFFF;
