@@ -14,23 +14,23 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr 2fr;
-    gap: .7rem;
+    gap: 11.2px;
     margin-left: 3%;
     margin-top: 1%;
 }
 
 label {
-    font-size: .8rem;
+    font-size: 12.8px;
     justify-self: auto;
     font-family:monospace;
 }
 
 input[type='reset'],
 .submit {
-    width: 5rem;
+    width: 80px;
     justify-self: end;
     border: none;
-    border-radius: 1.875em;
+    border-radius: 30px;
 }
 
 input[type='reset'] {
@@ -73,44 +73,44 @@ input[type='reset']:hover {
 
 .crear{
     position: absolute;
-    width: 85.313em;
-    height: 35.25em;
-    top: 3.125em;
+    width: 1365px;
+    height: 564px;
+    top: 50px;
     background: #FFFFFF;
-    border-radius: 0.938em;
+    border-radius: 15px;
     align-self: center;
 }
 
 .to-start{
     position: absolute;
-    width: 37.75em;
-    height: 11.563em;
-    left: 25em;
-    top: 3.75em;
+    width: 604px;
+    height: 155px;
+    left: 400px;
+    top: 60px;
     background: #8DD2EF;
-    border-radius: 0.938em;
+    border-radius: 15px;
     font-style: normal;
     font-weight: 700;
-    font-size: 1.75em;
-    line-height: 2.063em;
+    font-size: 28px;
+    line-height: 33px;
     text-align: center;
     color: #000000;
 }
 
 .upload{
     position: absolute;
-    width: 37.75em;
-    height: 7.813em;
-    left: 25em;
-    top: 17em;
+    width: 604px;
+    height: 125px;
+    left: 400px;
+    top: 272px;
     background: #E4E3E3;
-    border-radius: 0.938em;
+    border-radius: 15px;
 }
 
 /* botones de reset, upload y elegir archivo estan centrados */
 .top{
-    margin-top: 2.5em !important;
-    margin-left: 2.5em;
+    margin-top: 40px !important;
+    margin-left: 40px;
 }
 
 /*to-start text en medio del cuadrito :p */
