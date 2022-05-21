@@ -89,7 +89,7 @@ nav {
 
 .notify-badge{
     position: absolute;
-    top:0.625em;
+    top:0.775em;
     background:red;
     text-align: center;
     border-radius: 1.875em 1.875em 1.875em 1.875em;
@@ -117,7 +117,8 @@ nav {
 }
 
 .inbox{
-    margin-left: 31.25em;
+    margin-left: 30em;
+    left: 25em;
 }
 
 .center-buttons {
@@ -314,7 +315,7 @@ nav {
 } */
 
 .boton-perfil{
-    left: 1%;
+    left: 48em;
     top:-1.563em;
     border-color: transparent;
     background: transparent;

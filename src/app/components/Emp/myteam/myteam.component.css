@@ -55,7 +55,7 @@
 }
 
 .boton {
-    margin-right: 5%;
+    margin-right: 2.5%;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -214,28 +214,6 @@
     border-color: transparent;
 }
 
-.add{
-    position: absolute;
-    width: 5.625em;
-    height: 2.375em;
-    right: 19.375em;
-    top: 0.516em;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.063em;
-    line-height: 1.313em;
-    /* identical to box height */
-
-    text-align: center;
-
-    color: #282C38;
-    background: #B3EDA5;
-    border-radius: 0.313em;
-    border-color: transparent;
-}
-
 .boton_lupa { 
     background-color: #fff; 
 }
@@ -280,8 +258,8 @@ table tr:nth-child(even){
     position: absolute;
     width: 5.625em;
     height: 2.375em;
-    right: 19.375em;
-    top: 0.516em;
+    right: 16%;
+    top: 0.396em;
 
     font-family: 'Roboto';
     font-style: normal;
