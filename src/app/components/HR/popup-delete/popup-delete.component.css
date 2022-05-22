@@ -26,33 +26,38 @@
 
 .poptext{
     position: absolute;
-    width: 41.125em;
-    height: 10.5em;
-    top: 3.125em;
+    /* width: 41.125em;
+    height: 10.5em; */
+    /* top: 3.125em; */
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 1.875em;
-    line-height: 2.625em;
+    line-height: 1.5em;
     text-align: center;
+    margin-top: 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+
 
     color: #000000;
 
 }
 
 .poptext2{
-    position: absolute;
-width: 41.125em;
+    position: relative;
+/* width: 41.125em;
 height: 10.5em;
-top: 11.25em;
+top: 11.25em; */
 
 font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 1.875em;
-line-height: 2.625em;
+font-style: italic;
+font-weight: 900;
+font-size: 1.5em;
+line-height: 1.5em;
 text-align: center;
+margin-top: 8em;
 
 color: #000000;
 
