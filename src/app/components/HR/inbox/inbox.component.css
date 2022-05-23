@@ -40,6 +40,14 @@
     border-width: 150%;
 }
 
+.search2{
+    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px;
+    text-indent: 10px;
+}
+
 .mensaje{
     position: relative;
     height: 18.75em;
@@ -113,12 +121,4 @@ table tr:nth-child(even){
     top: -7mm;
     color: #656565;
     font-size: 4.5mm;
-}
-
-.search{
-    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 20px;
-    text-indent: 10px;
 }
