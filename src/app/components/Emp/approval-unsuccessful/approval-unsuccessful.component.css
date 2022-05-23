@@ -3,10 +3,10 @@
     font-style: normal;
     font-weight: 700;
     font-size: 4em;
-    line-height: 4.688em;
+    /* line-height: 4.688em; */
 
     text-align: center;
-    padding-top: 1.25em;
+    padding-top: 1.4%;
 }
 
 .partial-container {
