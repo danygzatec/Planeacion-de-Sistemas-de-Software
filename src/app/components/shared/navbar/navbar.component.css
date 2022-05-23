@@ -111,8 +111,8 @@ nav {
 .boton-perfil{
     padding: 0px;
     margin-top: -10%;
-    left: 48em !important;
-    top:-1.563em;
+    margin-left: 1.5rem;
+    margin-top: 0em;
     border-color: transparent;
     background: transparent;
     /* position: absolute; */
@@ -132,7 +132,7 @@ nav {
 }
 
 .inbox{
-    margin-left: 35em;
+    margin-left: 33.5em;
     left: 25em;
 }
 
@@ -340,7 +340,8 @@ nav {
     display: block;
     /* margin-top: 5px; */
     background-color:lightgray; 
-    left: 1%;
+    margin-left: 10rem;
+    margin-top: 0.952em;
 }
  .align-user {
     display: flex;
