@@ -3,11 +3,11 @@
     <div class="rectangle-top">
         <button class="boton_flecha font" (click)="navigateBack('/consultar-equipos')" routerLink="consultar-equipos">
             <img src="assets/back-arrow.png" height="20"> Teams</button>
-            <!-- <a class="anchor-back" routerLink="consultar-equipos" (click)="navigateBack('/consultar-equipos')">
+        <!-- <a class="anchor-back" routerLink="consultar-equipos" (click)="navigateBack('/consultar-equipos')">
                 <img class="back-arrow" src="assets/back-arrow.png" alt="arrow to return to consult teams">
             </a> -->
-            
-        
+
+
         <h1 class="employee-name">{{ getEmpName() }}</h1>
     </div>
     <nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
@@ -26,45 +26,49 @@
                     </div>
                 </li>
                 <td>
-                    <button  class="add"  (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button>
+                    <button class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button>
                 </td>
-            </ul>     
+            </ul>
         </div>
         <div class="boton">
             <form class="d-flex">
-              <div class="input-group">
-                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
-                placeholder="Search...">
-                  <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png"  height="20" alt=""></button>
-              </div>
-          </form>
-      </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                        placeholder="Search...">
+                    <button type="button" class="btn boton_lupa"><img src="../assets/lupa.png" height="20"
+                            alt=""></button>
+                </div>
+            </form>
+        </div>
     </nav>
 
     <div class="grey-space"></div>
 
     <div class="team-approval">
-        <table class="table-style" *ngIf="getEvaluatorBool() == false">
-            <tr *ngFor="let member of getMembers() | filter:searchText">
-                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                <td class="role-spaced-out">As {{ member.role_member_string}}</td>
-                <td>
-                    <button  class="trashcan"  (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
-                </td>
-            </tr>
-        </table>
-        <table class="table-style" *ngIf="getEvaluatorBool()">
-            <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
-                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
-                <td>
-                    <button  class="trashcan"  (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
-                </td>
-            </tr>
-        </table>
-        <a class="anchor-back" routerLink="consultar-equipos"><button  class="approve"> Approve </button></a>
+        <div class="table-container">
+            <table class="table-style" *ngIf="getEvaluatorBool() == false">
+                <tr *ngFor="let member of getMembers() | filter:searchText">
+                    <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                    <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+                    <td>
+                        <button class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img
+                                class="trashcan" src="assets/trash-image.png"
+                                alt="trash can image to delete person."></button>
+                    </td>
+                </tr>
+            </table>
+            <table class="table-style" *ngIf="getEvaluatorBool()">
+                <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
+                    <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                    <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
+                    <td>
+                        <button class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img
+                                class="trashcan" src="assets/trash-image.png"
+                                alt="trash can image to delete person."></button>
+                    </td>
+                </tr>
+            </table>
+            <button routerLink="consultar-equipos" class="approve"> Approve </button>
+        </div>
     </div>
 </div>
-
-
-
