@@ -1,7 +1,7 @@
-.pop{
+.pop {
     position: absolute;
     width: 45em;
-    height: 25.313em;
+    height: 25.5em;
     left: 22.5em;
     top: 12.5em;
 
@@ -11,11 +11,11 @@
     border-radius: 0.938em;
 }
 
-.up{
+.up {
     position: absolute;
     width: 41.125em;
     height: 23.438em;
-    left: 1.125em;
+    left: 4%;
     top: 0.938em;
 
     background: #EEF2FF;
@@ -24,11 +24,28 @@
     border-radius: 0.938em;
 }
 
-.poptext{
+.poptext {
+    position: absolute;
+    /* width: 41.125em;
+    height: 10.5em; */
+    padding-top: 2.3%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.875em;
+    /* line-height: 2.625em; */
+    text-align: center;
+
+    color: #000000;
+
+}
+
+.poptext2 {
     position: absolute;
     width: 41.125em;
     height: 10.5em;
-    top: 1.875em;
+    top: 11.25em;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -41,30 +58,13 @@
 
 }
 
-.poptext2{
-    position: absolute;
-width: 41.125em;
-height: 10.5em;
-top: 11.25em;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 1.875em;
-line-height: 2.625em;
-text-align: center;
-
-color: #000000;
-
-}
-
-.cancel{
+.cancel {
     position: absolute;
     width: 12.5em;
     height: 2.688em;
     top: 18.75em;
     left: 2.5em;
-   
+
 
     background: #282C38;
     border: 0.063em solid #FFFFFF;
@@ -72,13 +72,13 @@ color: #000000;
     border-radius: 0.5em;
 }
 
-.remove{
+.remove {
     position: absolute;
     width: 12.5em;
     height: 2.688em;
     top: 18.75em;
     right: 2.5em;
-   
+
 
     background: red;
     border: 0.063em solid #FFFFFF;
@@ -86,21 +86,21 @@ color: #000000;
     border-radius: 0.5em;
 }
 
-.motive{
+.motive {
     box-sizing: border-box;
 
-position: absolute;
-width: 40em;
-height: 8.75em;
-left: 1.25em;
-top: 7.5em;
+    position: absolute;
+    width: 40em;
+    height: 8.75em;
+    left: 1.25em;
+    top: 7.5em;
 
-background: #FFFFFF;
-border: 0.063em solid #FFFFFF;
-border-radius: 0.938em;
+    background: #FFFFFF;
+    border: 0.063em solid #FFFFFF;
+    border-radius: 0.938em;
 }
 
-.warning{
+.warning {
     position: absolute;
     width: 41.125em;
     height: 10.5em;
@@ -116,21 +116,21 @@ border-radius: 0.938em;
     color: #000000;
 }
 
-.formmotive{
+.formmotive {
     border: transparent;
     position: absolute;
     width: 40em;
     height: 7.5em;
-    left: 1.25em;
+    left: 1%;
     top: 7.5em;
 }
 
-.count{
+.count {
     position: absolute;
     width: 40em;
     height: 8.75em;
     left: 1.25em;
-    top: 15.313em;
-    left: 37.5em;
+    top: 56%;
+    left: 84%;
     font-size: 0.625em;
 }
