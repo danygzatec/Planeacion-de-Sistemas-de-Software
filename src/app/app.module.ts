@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -101,7 +101,8 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     NavbarComponent,
     CrearEquiposComponent,
     AppComponent,
-    InboxComponent
+    InboxComponent,
+    Title
   ],
   bootstrap: [AppComponent],
 })

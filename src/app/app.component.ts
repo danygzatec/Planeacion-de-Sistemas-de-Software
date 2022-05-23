@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
 import ExcelData from 'src/excel-dummy.json'
+import { Title } from '@angular/platform-browser';
 
 
 import {Router} from '@angular/router';
@@ -11,6 +12,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
+  template:'<h1>IPSCentral</h1>',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
