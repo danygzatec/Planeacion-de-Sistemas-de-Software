@@ -31,32 +31,33 @@
     
 </nav>
 
-<div class="linea-gris"></div> 
 
 <!-- Parte de hacer que el search funcione , que no funciona lol, lo puse en el div que tiene la clase de
 team-approval y sale error en la consola.-->
 <!-- *ngIf="searchText === '' || getMembers().toLowerCase().includes(searchText) -->
 
 <div class="team-approval">
-    <table class="table-style" *ngIf="getEvaluatorBool() == false" >
-        <tr *ngFor="let member of getMembers() | filter:searchText">
-            <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-            <td class="role-spaced-out">As {{ member.role_member_string}}</td>
-            <td>
-                <button  class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
-            </td>
-        </tr>
-    </table>
-    <table class="table-style" *ngIf="getEvaluatorBool()">
-        <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
-            <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-            <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
-            <td>
-                <!-- <button  class="trashcan"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button> -->
-                <button  class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
-            </td>
-        </tr>
-    </table>
-    <a class="anchor-back" routerLink="partial-approval"><button  class="approve"> Approve </button></a>
+    <div class="table-container">
+        <table class="table-style" *ngIf="getEvaluatorBool() == false" >
+            <tr *ngFor="let member of getMembers() | filter:searchText">
+                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+                <td>
+                    <button  class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                </td>
+            </tr>
+        </table>
+        <table class="table-style" *ngIf="getEvaluatorBool()">
+            <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
+                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
+                <td>
+                    <!-- <button  class="trashcan"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button> -->
+                    <button  class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                </td>
+            </tr>
+        </table>
+        <button  class="approve" routerLink="partial-approval"> Approve </button>
+    </div>
 </div>
 
