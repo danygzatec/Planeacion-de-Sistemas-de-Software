@@ -4,7 +4,7 @@
             "is_assigned" : true,
             "email" : "a00827044@tec.mx",
             "employee_name" : "Jessica Marcela Treviño Caballero",
-            "is_HR" : false,
+            "is_HR" : true,
             "id_employee" : 1
         },
         {
@@ -32,7 +32,7 @@
             "is_assigned" : true,
             "email" : "a00829404@tec.mx",
             "employee_name" : "Daniela Garza González",
-            "is_HR" : false,
+            "is_HR" : true,
             "id_employee" : 5
         },
         {
