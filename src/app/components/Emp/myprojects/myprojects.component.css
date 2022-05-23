@@ -67,7 +67,7 @@ table{
     justify-content: right;
     display: flex;
     vertical-align: right;
-    padding-right: 0.625em;
+    /* padding-right: 0.625em; */
     padding-top: 0.203em;
 }
 
@@ -94,7 +94,7 @@ table{
 }
 
 .input-container {
-    vertical-align: middle;
+    /* vertical-align: middle; */
     top: 0.031em;
 }
 
@@ -106,7 +106,7 @@ table{
 }
 
 .row {
-    margin-left: 0.625em;
+    margin-left: 0.625em; 
     margin-right: 0.625em;
     margin-bottom: 1.25em !important;
     padding-bottom: 1.875em;
