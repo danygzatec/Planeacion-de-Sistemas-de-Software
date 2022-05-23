@@ -115,3 +115,11 @@
     padding-top: 0.5%;
     background-color: #F6F6F6;
 }
+
+.search{
+    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px;
+    text-indent: 10px;
+}

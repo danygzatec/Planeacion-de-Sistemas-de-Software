@@ -217,3 +217,11 @@ table tr:nth-child(even){
 
     border-radius: 0.313em;
 }
+
+.search{
+    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px;
+    text-indent: 10px;
+}
