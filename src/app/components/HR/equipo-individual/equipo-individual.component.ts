@@ -192,4 +192,13 @@ export class EquipoIndividualComponent implements OnInit {
     console.log(page);
     this.navbarActive.navigate(page);
   }
+
+  approve(){
+    this.team!.approved_HR = true;
+    console.log(this.team!.approved_HR);
+  }
+
+  getApprovedHR(){
+    return this.team!.approved_HR;
+  }
 }
