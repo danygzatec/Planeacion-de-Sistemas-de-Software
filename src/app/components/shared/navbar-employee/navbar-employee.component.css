@@ -121,6 +121,28 @@ nav {
     position:relative;
     margin-right: 0;
 }
+@media screen and (max-width: 1448px){
+    .boton-perfil{
+        left: 67em !important;
+        top:-1.563em;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 2.188em;
+        background-color:lightgray; 
+        margin-left: 31.25em;
+        position: absolute;
+        left: 30em;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -20em;
+    }
+}
 
 @media screen and (max-width: 1300px){
     .boton-perfil{
@@ -214,6 +236,28 @@ nav {
     }
 }
 
+@media screen and (max-width: 1478px){
+    .boton-perfil{
+        left: 68em;
+        top:-1.563em;
+        border-color: transparent;
+        background: transparent;
+        position: absolute;
+    }
+    .mydropdowncss:hover .dropdown-menu {
+        display: block;
+        margin-top: 2.188em;
+        background-color:lightgray; 
+        margin-left: 31.25em;
+        position: absolute;
+        left: 30em;
+    }
+     .align-user {
+        display: flex;
+        position:relative;
+        margin-left: -20em;
+    }
+}
 @media screen and (max-width: 1141px){
     .boton-perfil{
         left: 37.5em;

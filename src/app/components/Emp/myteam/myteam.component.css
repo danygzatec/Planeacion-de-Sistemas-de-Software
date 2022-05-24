@@ -228,3 +228,15 @@ table tr:nth-child(even){
     text-indent: 10px;
     /*margin-left: -1em;*/
 }
+
+
+@media screen and (max-width: 1478px){
+    .boton{
+        margin-right: 5%;
+    }
+}
+@media screen and (max-width: 1448px){
+    .boton{
+        margin-right: 4.5%;
+    }
+}
