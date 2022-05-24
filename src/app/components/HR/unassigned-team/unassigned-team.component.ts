@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
@@ -16,56 +17,122 @@ export class UnassignedTeamComponent implements OnInit {
 
   team: Team | undefined ;
   teams: Team[];
-  employees: Employee[];
-  empTeams : EmployeeTeam[];
+  public employees: Employee[];
+  public empTeams : EmployeeTeam[];
   empProjects : EmployeeProject[];
   projects : Project[];
   id: number;
   navbarActive: any;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private http : HttpClient) {
 
-    this.teams = ExcelData.team
-    this.employees = ExcelData.employee;
-    this.empTeams = ExcelData.employee_team
-    this.empProjects = ExcelData.employee_project;
-    this.projects = ExcelData.project;
+    this.teams = [];
+    this.employees = [];
+    this.empTeams = [];
+    this.empProjects = [];
+    this.projects = [];
 
     const routeParams = this.route.snapshot.paramMap;
     const empIdFromRoute = Number(routeParams.get('id_employee'));
-
-    this.team = this.teams.find(element => element.id_employee === empIdFromRoute);
     this.id = empIdFromRoute;
    }
 
   ngOnInit(): void {
-    this.teams = ExcelData.team
-    this.employees = ExcelData.employee;
+    this.getEmp();
+    this.getT();
+    this.getEmpT();
+    this.getPrj();
+    this.getEmpP();
     this.createObjects();
+
+    this.team = this.teams.find(element => element.id_employee === this.id);
+
+    setTimeout(() => { this.ngOnInit() }, 1000 * 3);
   }
 
-  async initializeObjects() {
-    this.teams = ExcelData.team;
-    this.employees = ExcelData.employee;
-    this.empTeams = ExcelData.employee_team;
-    this.empProjects = ExcelData.employee_project;
-    this.projects = ExcelData.project;
+  async getEmp() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getEmployees').subscribe(response => {
+        this.employees = response;
+      }, error => {
+        console.log(error);
+      });
+    } catch (error) {
+      console.log("ERROR: GetEmployees: " + error);
+    }
+  }
+
+  async getT() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getTeams').subscribe(response => {
+      this.teams = response;
+    }, error => {
+      console.log(error);
+    });
+    } catch (error) {
+      console.log("ERROR: GetTeams: " + error);
+    }
+  }
+
+  async getEmpT() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getEmpTeams').subscribe(response => {
+      this.empTeams = response;
+    }, error => {
+      console.log(error);
+    });
+    } catch (error) {
+      console.log("ERROR: GetEmployeeTeams: " + error);
+    }
+  }
+
+  async getPrj() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getProjects').subscribe(response => {
+      this.projects = response;
+    }, error => {
+      console.log(error);
+    });
+    } catch (error) {
+      console.log("ERROR: GetProjects: " + error);
+    }
+  }
+
+  async getEmpP() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getEmpProjects').subscribe(response => {
+      this.empProjects = response;
+    }, error => {
+      console.log(error);
+    });
+    } catch (error) {
+      console.log("ERROR: GetEmpProjects: " + error);
+    }
   }
 
   async createObjects() {
-    await this.initializeObjects();
 
     this.empProjects.forEach(ep => {
       ep.project = [];
       var p = this.projects.find(pjct => pjct.id === ep.id_project);
-      ep.project.push(p!);
-      ep.employee = this.employees.find(emp => emp.id === ep.id_employee);
+      if (p != undefined) {
+        ep.project.push(p!);
+      }
+      
+      var e = this.employees.find(emp => emp.id === ep.id_employee);
+      if (e != undefined) {
+        ep.employee = e;
+      }
     });
+
   }
 
-  getName() {
+  getName() : any {
     var e = this.employees.find(element => element.id === this.id);
-    return e!.employee_name;
+    if (e != undefined) {
+      return e.employee_name;
+    }
+    
   }
 
   getMembers() {
@@ -74,13 +141,21 @@ export class UnassignedTeamComponent implements OnInit {
 
     this.empProjects.forEach(empP => {
       if (empP.id_employee === this.id) {
-        pjcts.push(empP.id_project);
+        if (empP.project != undefined) {
+          pjcts.push(empP.project);
+        }
       }
     });
 
     this.empProjects.forEach(element => {
-      if (element.did_complete === true && pjcts.indexOf(element.id_project) > -1) {
-        members.push(element.employee!.employee_name);
+      // encontrar proyecto
+      console.log("fuera de pjcs");
+      if (pjcts.find(p => p.id === element.id_project)) {
+        console.log("dentro de pjcs");
+        if (element.did_complete) {
+          members.push(element.employee!.employee_name)
+          console.log(element.employee!.employee_name);
+        }
       }
     });
 

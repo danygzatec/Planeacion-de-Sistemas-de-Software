@@ -12,6 +12,7 @@ import { AddButtonComponent } from '../add-button/add-button.component';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { Project } from 'src/app/models/project';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-equipo-individual',
@@ -20,11 +21,11 @@ import { Project } from 'src/app/models/project';
 })
 export class EquipoIndividualComponent implements OnInit {
 
-  employees : Employee[];
-  empTeams : EmployeeTeam[];
-  empProjects : EmployeeProject[];
-  teams : Team[];
-  projects : Project[];
+  public employees : Employee[];
+  public empTeams : EmployeeTeam[];
+  public empProjects : EmployeeProject[];
+  public teams : Team[];
+  public projects : Project[];
   team: Team | undefined ;
   id : number;
   evaluators : boolean;
@@ -35,40 +36,73 @@ export class EquipoIndividualComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private  dialogRef : MatDialog,
-    public navbarActive: NavbarComponent
+    public navbarActive: NavbarComponent,
+    private http: HttpClient
     ){
     
 
-    this.teams = ExcelData.team;
-    this.employees = ExcelData.employee;
-    this.empTeams = ExcelData.employee_team
-    this.empProjects = ExcelData.employee_project;
-    this.projects = ExcelData.project;
+    this.teams = [];
+    this.employees = [];
+    this.empTeams = [];
+    this.empProjects = [];
+    this.projects = [];
 
     const routeParams = this.route.snapshot.paramMap;
     const empIdFromRoute = Number(routeParams.get('id_employee'));
 
-    this.team = this.teams.find(element => element.id_employee === empIdFromRoute);
     this.id = empIdFromRoute;
     this.evaluators = false;
 
    }
 
   async ngOnInit(): Promise<void> {
+    await this.getEmployees();
+    await this.getT();
+    await this.getEmpT();
     await this.createObjects();
+
+    setTimeout(() => { this.ngOnInit() }, 1000 * 3);
 
   }
 
-  async initializeObjects() {
-    this.teams = ExcelData.team;
-    this.employees = ExcelData.employee;
-    this.empTeams = ExcelData.employee_team;
-    this.empProjects = ExcelData.employee_project;
-    this.projects = ExcelData.project;
+  async getEmployees() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getEmployees').subscribe(response => {
+        this.employees = response;
+      }, error => {
+        console.log(error);
+      });
+    } catch (error) {
+      console.log("ERROR: GetEmployees: " + error);
+    }
+  }
+  
+
+  async getT() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getTeams').subscribe(response => {
+      this.teams = response;
+    }, error => {
+      console.log(error);
+    });
+    } catch (error) {
+      console.log("ERROR: GetTeams: " + error);
+    }
+  }
+
+  async getEmpT() {
+    try {
+      this.http.get<any>('http://localhost:8080/api/getEmpTeams').subscribe(response => {
+      this.empTeams = response;
+    }, error => {
+      console.log(error);
+    });
+    } catch (error) {
+      console.log("ERROR: GetEmployeeTeams: " + error);
+    }
   }
 
   async createObjects() {
-    await this.initializeObjects();
 
     this.empProjects.forEach(element => {
       element.employee = this.employees.find(emp => emp.id === element.id_employee);
@@ -81,6 +115,12 @@ export class EquipoIndividualComponent implements OnInit {
         element.role_member_string = "peer";
       } else {
         element.role_member_string = "team"
+      }
+    })
+
+    this.teams.forEach(element => {
+      if (element.id_employee === this.id) {
+        this.team = element;
       }
     })
     
