@@ -28,12 +28,12 @@
     position: absolute;
     /* width: 41.125em;
     height: 10.5em; */
-    padding-top: 2.3%;
+    padding-top: 4%;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.875em;
+    font-size: 1.4em;
     /* line-height: 2.625em; */
     text-align: center;
 
@@ -119,9 +119,9 @@
 .formmotive {
     border: transparent;
     position: absolute;
-    width: 40em;
+    width: 38em;
     height: 7.5em;
-    left: 1%;
+    left: 3.5%;
     top: 7.5em;
 }
 

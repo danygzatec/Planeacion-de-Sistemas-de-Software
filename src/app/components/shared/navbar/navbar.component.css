@@ -97,13 +97,28 @@ nav {
     padding:0.313em 0.75em;
     font-size:0.625em;
 }
+/*
+.boton-perfil{
+    padding: 0px;
+    margin-top: -10%;
+    left: 48em;
+    top:-1.563em;
+    border-color: transparent;
+    background: transparent;
+}
+*/
 
 .boton-perfil{
     padding: 0px;
     margin-top: -10%;
+    margin-left: 1.5rem;
+    margin-top: 0em;
     border-color: transparent;
     background: transparent;
+    /* position: absolute; */
 }
+
+
 
 .logout{
     border-color: transparent;
@@ -117,7 +132,7 @@ nav {
 }
 
 .inbox{
-    margin-left: 30em;
+    margin-left: 33.5em;
     left: 25em;
 }
 
@@ -325,10 +340,17 @@ nav {
     display: block;
     /* margin-top: 5px; */
     background-color:lightgray; 
-    left: 1%;
+    margin-left: 1.5rem;
+    margin-top: 0.952em;
 }
  .align-user {
     display: flex;
     position:relative;
-    /* margin-left: -35em; */
+    /*margin-left: -35em;*/
+}
+@media screen and (max-width: 1448px){
+    .inbox{
+        margin-left: 29em;
+        left: 25em;
+    }
 }

@@ -54,7 +54,7 @@
 }
 
 .boton {
-    margin-right: 5%;
+    margin-right: 3.3%;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -148,14 +148,14 @@ table tr:nth-child(even){
 .add{
     position: absolute;
     width: 5.625em;
-    height: 2.375em;
-    right: 19.375em;
-    top: 0.516em;
+    height: 2.7em;
+    right: 17.38em;
+    top: 0.6em;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.063em;
+    font-size: 0.9em;
     line-height: 1.313em;
     /* identical to box height */
 

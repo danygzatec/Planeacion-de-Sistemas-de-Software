@@ -54,7 +54,8 @@
 }
 
 .boton {
-    margin-right: 5%;
+    margin-right: 6%;
+    
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -155,14 +156,15 @@ table tr:nth-child(even){
 .add{
     position: absolute;
     width: 5.625em;
-    height: 2.375em;
+    /* height: 2.375em; */
+    height: 2.6em;
     right: 19.375em;
-    top: 0.516em;
+    top: 0.615em;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.063em;
+    font-size: 0.9em;
     line-height: 1.313em;
     /* identical to box height */
 
@@ -224,4 +226,17 @@ table tr:nth-child(even){
     background-position: left center;
     background-size: 20px;
     text-indent: 10px;
+    /*margin-left: -1em;*/
+}
+
+
+@media screen and (max-width: 1478px){
+    .boton{
+        margin-right: 5%;
+    }
+}
+@media screen and (max-width: 1448px){
+    .boton{
+        margin-right: 4.5%;
+    }
 }

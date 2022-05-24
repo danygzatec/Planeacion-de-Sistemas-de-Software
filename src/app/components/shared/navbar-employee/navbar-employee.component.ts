@@ -40,7 +40,7 @@ export class NavbarEmployeeComponent implements OnInit {
 
   navigate(page: any){
 
-    console.log("NavBarEmpComponent", page);
+    //console.log("NavBarEmpComponent", page);
 
     if(page === '/myprojects'){
 
@@ -49,19 +49,31 @@ export class NavbarEmployeeComponent implements OnInit {
       this.myTeam = false;
 
    }else if(page === '/myteam'){
-    console.log("if");
+    //console.log("if");
 
     this.myProjects = false;
 
     this.myTeam = true;
 
    }
-  }
 
-  cleanNavbar(){
+   else{
+    console.log("else");
+
     this.myProjects = false;
 
     this.myTeam = false;
+
+   }
+  }
+
+  cleanNavbar(){
+    console.log("navbarcomp")
+    this.myProjects = false;
+
+    this.myTeam = false;
+
+    console.log(this.myTeam)
   }
 
 }
