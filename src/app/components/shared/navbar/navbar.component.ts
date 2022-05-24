@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit {
     if (this.accountInfo.evaluationPeriod[0].has_uploaded){
       if(page === '/crear-equipos'){
 
-        console.log("función navigate /crear-equipos");
+        //console.log("función navigate /crear-equipos");
   
         //this.createTeams = true;
   
@@ -60,7 +60,7 @@ export class NavbarComponent implements OnInit {
   
      }else if(page === '/consultar-equipos'){
   
-      console.log("función navigate /consultar-equipos");
+      //console.log("función navigate /consultar-equipos");
   
        this.createTeams = false;
   
@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit {
   
      }else if(page === '/dashboard'){
   
-      console.log("función navigate /dashboard");
+      //console.log("función navigate /dashboard");
   
        this.createTeams = false;
   
@@ -86,7 +86,7 @@ export class NavbarComponent implements OnInit {
 
   cleanNavbar(){
 
-    console.log("cleanNavbar()");
+    //console.log("cleanNavbar()");
     this.createTeams = false;
 
      this.consultTeams = false;

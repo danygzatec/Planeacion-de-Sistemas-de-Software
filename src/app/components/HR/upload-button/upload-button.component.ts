@@ -43,9 +43,9 @@ export class UploadButtonComponent implements OnInit {
 
     this.http
       .post<any>('http://localhost:8080/api/upload', fData).subscribe(response => {
-        console.log(response);
+        //console.log(response);
       }, error => {
-        console.log(error);
+        //console.log(error);
       }
     );
     this.closeMe();
@@ -55,7 +55,7 @@ export class UploadButtonComponent implements OnInit {
     //this.fileRedirect.cleanNavbar();
     //this.fileRedirect.setFirstFile();
     this.fileRedirect.navigate('/consultar-equipos');
-    console.log("onSubmit() consultTeams",this.fileRedirect.getConsultTeams());
+    //console.log("onSubmit() consultTeams",this.fileRedirect.getConsultTeams());
     
     
   }
