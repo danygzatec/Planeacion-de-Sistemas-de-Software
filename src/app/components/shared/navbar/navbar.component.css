@@ -348,3 +348,9 @@ nav {
     position:relative;
     /*margin-left: -35em;*/
 }
+@media screen and (max-width: 1448px){
+    .inbox{
+        margin-left: 29em;
+        left: 25em;
+    }
+}
