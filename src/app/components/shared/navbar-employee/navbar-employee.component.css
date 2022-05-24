@@ -89,7 +89,7 @@ nav {
 }
 
 .boton-perfil{
-    left: 53em;
+    left: 50em;
     top:-1.563em;
     border-color: transparent;
     background: transparent;
@@ -111,7 +111,7 @@ nav {
     display: block;
     margin-top: 1.875em;
     background-color:lightgray; 
-    margin-left: 41.25em;
+    margin-left: 42.25em;
     position: absolute;
     left: 0.625em;
 }

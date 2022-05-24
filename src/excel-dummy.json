@@ -32,7 +32,7 @@
             "is_assigned" : true,
             "email" : "a00829404@tec.mx",
             "employee_name" : "Daniela Garza González",
-            "is_HR" : true,
+            "is_HR" : false,
             "id_employee" : 5
         },
         {
