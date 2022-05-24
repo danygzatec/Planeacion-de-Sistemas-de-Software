@@ -54,7 +54,8 @@
 }
 
 .boton {
-    margin-right: 5%;
+    margin-right: 6%;
+    
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -225,4 +226,5 @@ table tr:nth-child(even){
     background-position: left center;
     background-size: 20px;
     text-indent: 10px;
+    /*margin-left: -1em;*/
 }
