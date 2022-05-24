@@ -4,7 +4,7 @@
             "is_assigned" : true,
             "email" : "a00827044@tec.mx",
             "employee_name" : "Jessica Marcela Treviño Caballero",
-            "is_HR" : false,
+            "is_HR" : true,
             "id_employee" : 1
         },
         {
@@ -220,8 +220,8 @@
             "id_employee" : 1,
             "id_project" : 1,
             "id_employee_project" : 1,
-            "billableHours" : 20,
-            "nonBillableHours" : 20
+            "billHrs" : 20,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : true,
@@ -229,8 +229,8 @@
             "id_employee" : 2,
             "id_project" : 1,
             "id_employee_project" : 2,
-            "billableHours" : 40,
-            "nonBillableHours" : 0
+            "billHrs" : 40,
+            "nonbillHrs" : 0
         },
         {
             "did_complete" : true,
@@ -238,8 +238,8 @@
             "id_employee" : 3,
             "id_project" : 1,
             "id_employee_project" : 3,
-            "billableHours" : 0,
-            "nonBillableHours" : 40
+            "billHrs" : 0,
+            "nonbillHrs" : 40
         },
         {
             "did_complete" : true,
@@ -247,8 +247,8 @@
             "id_employee" : 4,
             "id_project" : 1,
             "id_employee_project" : 4,
-            "billableHours" : 20,
-            "nonBillableHours" : 20
+            "billHrs" : 20,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : true,
@@ -256,8 +256,8 @@
             "id_employee" : 5,
             "id_project" : 1,
             "id_employee_project" : 5,
-            "billableHours" : 20,
-            "nonBillableHours" : 20
+            "billHrs" : 20,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : false,
@@ -265,8 +265,8 @@
             "id_employee" : 6,
             "id_project" : 1,
             "id_employee_project" : 6,
-            "billableHours" : 20,
-            "nonBillableHours" : 0
+            "billHrs" : 20,
+            "nonbillHrs" : 0
         },
         {
             "did_complete" : false,
@@ -274,8 +274,8 @@
             "id_employee" : 7,
             "id_project" : 1,
             "id_employee_project" : 7,
-            "billableHours" : 0,
-            "nonBillableHours" : 20
+            "billHrs" : 0,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : true,
@@ -283,8 +283,8 @@
             "id_employee" : 1,
             "id_project" : 2,
             "id_employee_project" : 8,
-            "billableHours" : 20,
-            "nonBillableHours" : 20
+            "billHrs" : 20,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : true,
@@ -292,8 +292,8 @@
             "id_employee" : 1,
             "id_project" : 3,
             "id_employee_project" : 9,
-            "billableHours" : 20,
-            "nonBillableHours" : 20
+            "billHrs" : 20,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : false,
@@ -301,8 +301,8 @@
             "id_employee" : 8,
             "id_project" : 1,
             "id_employee_project" : 10,
-            "billableHours" : 10,
-            "nonBillableHours" : 20
+            "billHrs" : 10,
+            "nonbillHrs" : 20
         },
         {
             "did_complete" : false,
@@ -310,8 +310,8 @@
             "id_employee" : 9,
             "id_project" : 1,
             "id_employee_project" : 11,
-            "billableHours" : 15,
-            "nonBillableHours" : 10
+            "billHrs" : 15,
+            "nonbillHrs" : 10
         },
         {
             "did_complete" : false,
@@ -319,8 +319,8 @@
             "id_employee" : 10,
             "id_project" : 1,
             "id_employee_project" : 12,
-            "billableHours" : 10,
-            "nonBillableHours" : 5
+            "billHrs" : 10,
+            "nonbillHrs" : 5
         },
         {
             "did_complete" : true,
@@ -328,8 +328,8 @@
             "id_employee" : 2,
             "id_project" : 2,
             "id_employee_project" : 13,
-            "billableHours" : 40,
-            "nonBillableHours" : 0
+            "billHrs" : 40,
+            "nonbillHrs" : 0
         },
         {
             "did_complete" : true,
@@ -337,8 +337,8 @@
             "id_employee" : 1,
             "id_project" : 4,
             "id_employee_project" : 14,
-            "billableHours" : 40,
-            "nonBillableHours" : 5
+            "billHrs" : 40,
+            "nonbillHrs" : 5
         },
         {
             "did_complete" : true,
@@ -346,8 +346,8 @@
             "id_employee" : 1,
             "id_project" : 5,
             "id_employee_project" : 15,
-            "billableHours" : 10,
-            "nonBillableHours" : 70
+            "billHrs" : 10,
+            "nonbillHrs" : 70
         },
         {
             "did_complete" : true,
@@ -355,8 +355,8 @@
             "id_employee" : 2,
             "id_project" : 5,
             "id_employee_project" : 15,
-            "billableHours" : 10,
-            "nonBillableHours" : 70
+            "billHrs" : 10,
+            "nonbillHrs" : 70
         }
     ],
     "employee_team" : [

@@ -52,23 +52,23 @@
 <div class="table-container">
     <table class="table-style">
         <!-- <tr class="approved-by-small">approved by: </tr> -->
-        <tr class="employee-name-row" *ngFor="let team of getTeams() | filter:searchText">
-            <td class="first-check" *ngIf="team.approved_HR"> 
+        <tr class="employee-name-row" *ngFor="let emp of getEmployees() | filter:searchText">
+            <!-- <td class="first-check" *ngIf="emp.approved_HR"> 
                 <img src="assets/palomita-consultar-equipos.png" alt="" width="35" height="30"> 
             </td>
-            <td class="HR" *ngIf="!team.approved_HR">
+            <td class="HR" *ngIf="!emp.approved_HR">
                 <img src="assets/HR.png" class="HR" alt="" width="50" height="50">
             </td>
-            <td class="first-check" *ngIf="team.approved_Emp"> 
+            <td class="first-check" *ngIf="emp.approved_Emp"> 
                 <img src="assets/palomita-consultar-equipos.png" alt="" width= "35" height="30"> 
             </td>
-            <td class="EMP" *ngIf="!team.approved_Emp">
+            <td class="EMP" *ngIf="!emp.approved_Emp">
                 <img src="assets/EMP.png" class="EMP" alt="" width="50" height="50">
-            </td>
-            <td class="employee-name">{{ team.employee?.employee_name }}</td>
+            </td> -->
+            <td class="employee-name">{{ emp.employee_name }}</td>
     
             <td>
-                <a class="nav-link view-team" [routerLink]="['/equipo-individual',team.id_employee]" (click)="fireEvent($event)" >View team</a>
+                <a class="nav-link view-team" [routerLink]="['/equipo-individual',emp.id_employee]" (click)="fireEvent($event)" >View team</a>
             </td>
         </tr>
     </table>

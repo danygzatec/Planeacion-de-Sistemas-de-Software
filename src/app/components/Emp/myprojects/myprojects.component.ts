@@ -97,7 +97,7 @@ export class MyprojectsComponent implements OnInit {
 
   getBillableHours() {
 
-    var billHours: number[] = [];
+    var billHrs: number[] = [];
 
     // encontramos el empleado que está signed in
     var e = this.employee.find(emp => emp.employee_name === this.accountInfo.getNameAccount());
@@ -105,19 +105,19 @@ export class MyprojectsComponent implements OnInit {
     // buscamos los proyectos en los que trabajó
     this.empProject.forEach(element => {
       if (element.id_employee === e!.id_employee) {
-        billHours.push(element.billableHours);
+        billHrs.push(element.billHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
-        this.doughnutChartDataB.datasets[0].data.push(element.billableHours);
+        this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
       }
     })
 
-    return billHours;
+    return billHrs;
 
   }
 
   getNonBillableHours() {
 
-    var nonBillHours: any[] = [];
+    var nonbillHrs: any[] = [];
 
     // encontramos el empleado que está signed in
     var e = this.employee.find(emp => emp.employee_name === this.accountInfo.getNameAccount());
@@ -125,13 +125,13 @@ export class MyprojectsComponent implements OnInit {
     // buscamos los proyectos en los que trabajó
     this.empProject.forEach(element => {
       if (element.id_employee === e!.id_employee) {
-        nonBillHours.push(element.nonBillableHours);
+        nonbillHrs.push(element.nonbillHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
-        this.doughnutChartDataNB.datasets[0].data.push(element.nonBillableHours);
+        this.doughnutChartDataNB.datasets[0].data.push(element.nonbillHrs);
       }
     })
 
-    return nonBillHours;
+    return nonbillHrs;
 
   }
 
