@@ -67,9 +67,9 @@ export class MyprojectsComponent implements OnInit {
 
     this.empProject.forEach(ep => {
       ep.project = [];
-      var p = this.projects.find(pjct => pjct.id_project === ep.id_project);
+      var p = this.projects.find(pjct => pjct.id === ep.id_project);
       ep.project.push(p!);
-      ep.employee = this.employee.find(emp => emp.id_employee === ep.id_employee);
+      ep.employee = this.employee.find(emp => emp.id === ep.id_employee);
     });
   }
 
@@ -81,9 +81,9 @@ export class MyprojectsComponent implements OnInit {
 
     // buscamos los proyectos en los que trabajó y que completó las horas
     this.empProject.forEach(element => {
-      if (element.did_complete && element.id_employee === e!.id_employee) {
+      if (element.did_complete && element.id_employee === e!.id) {
         var id = element.id_project;
-        var proj = this.projects.find(pjct => pjct.id_project === id);
+        var proj = this.projects.find(pjct => pjct.id === id);
         userProjects.push(proj!);
 
         // asignar las labels a los doughnut charts
@@ -104,7 +104,7 @@ export class MyprojectsComponent implements OnInit {
 
     // buscamos los proyectos en los que trabajó
     this.empProject.forEach(element => {
-      if (element.id_employee === e!.id_employee) {
+      if (element.id_employee === e!.id) {
         billHrs.push(element.billHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
         this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
@@ -124,7 +124,7 @@ export class MyprojectsComponent implements OnInit {
 
     // buscamos los proyectos en los que trabajó
     this.empProject.forEach(element => {
-      if (element.id_employee === e!.id_employee) {
+      if (element.id_employee === e!.id) {
         nonbillHrs.push(element.nonbillHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
         this.doughnutChartDataNB.datasets[0].data.push(element.nonbillHrs);

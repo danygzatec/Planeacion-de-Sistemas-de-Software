@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
   evaluationPeriod : EvaluationPeriod[];
 
   constructor(private msalService: MsalService, public router: Router){
-    this.employees = ExcelData.employee;
-    this.evaluationPeriod = ExcelData.evaluation_period;
+    this.employees = [];
+    this.evaluationPeriod = [];
 
   }
   ngOnInit(): void {
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
 
   getHasUpload() : boolean{
     //console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
-    return this.evaluationPeriod[0].has_uploaded
+    return this.evaluationPeriod[0].has_uploaded!
   }
   
   isHR() : boolean {

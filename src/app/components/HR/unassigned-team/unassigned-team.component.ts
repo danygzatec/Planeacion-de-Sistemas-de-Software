@@ -57,14 +57,14 @@ export class UnassignedTeamComponent implements OnInit {
 
     this.empProjects.forEach(ep => {
       ep.project = [];
-      var p = this.projects.find(pjct => pjct.id_project === ep.id_project);
+      var p = this.projects.find(pjct => pjct.id === ep.id_project);
       ep.project.push(p!);
-      ep.employee = this.employees.find(emp => emp.id_employee === ep.id_employee);
+      ep.employee = this.employees.find(emp => emp.id === ep.id_employee);
     });
   }
 
   getName() {
-    var e = this.employees.find(element => element.id_employee === this.id);
+    var e = this.employees.find(element => element.id === this.id);
     return e!.employee_name;
   }
 

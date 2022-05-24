@@ -53,7 +53,7 @@
     <table class="table-style">
         <!-- <tr class="approved-by-small">approved by: </tr> -->
         <tr class="employee-name-row" *ngFor="let emp of getEmployees() | filter:searchText">
-            <!-- <td class="first-check" *ngIf="emp.approved_HR"> 
+            <td class="first-check" *ngIf="emp.approved_HR"> 
                 <img src="assets/palomita-consultar-equipos.png" alt="" width="35" height="30"> 
             </td>
             <td class="HR" *ngIf="!emp.approved_HR">
@@ -64,8 +64,8 @@
             </td>
             <td class="EMP" *ngIf="!emp.approved_Emp">
                 <img src="assets/EMP.png" class="EMP" alt="" width="50" height="50">
-            </td> -->
-            <td class="employee-name">{{ emp.employee_name }}</td>
+            </td>
+            <td class="employee-name">{{ emp.employee!.employee_name }}</td>
     
             <td>
                 <a class="nav-link view-team" [routerLink]="['/equipo-individual',emp.id_employee]" (click)="fireEvent($event)" >View team</a>

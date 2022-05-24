@@ -71,7 +71,7 @@ export class EquipoIndividualComponent implements OnInit {
     await this.initializeObjects();
 
     this.empProjects.forEach(element => {
-      element.employee = this.employees.find(emp => emp.id_employee === element.id_employee);
+      element.employee = this.employees.find(emp => emp.id === element.id_employee);
     })
 
     this.empTeams.forEach(element => {
@@ -87,18 +87,18 @@ export class EquipoIndividualComponent implements OnInit {
   }
 
   getEmp() {
-    return this.employees.find(element => element.id_employee === this.id);
+    return this.employees.find(element => element.id === this.id);
   }
 
   getEmpName() {
-    return this.employees.find(element => element.id_employee === this.id)!.employee_name;
+    return this.employees.find(element => element.id === this.id)!.employee_name;
   }
 
   getMembers() {
     var members : any = [];
     this.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id_team) {
-        element.employee = this.employees.find(emp => emp.id_employee === element.id_employee);
+      if (element.id_team == this.team!.id) {
+        element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
           element.role_member_string = "leader";
@@ -119,8 +119,8 @@ export class EquipoIndividualComponent implements OnInit {
 
     var members : any = [];
     this.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id_team) {
-        element.employee = this.employees.find(emp => emp.id_employee === element.id_employee);
+      if (element.id_team == this.team!.id) {
+        element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
           element.role_member_string = "team";
@@ -154,7 +154,7 @@ export class EquipoIndividualComponent implements OnInit {
     var projectList : any[] = [];
 
     this.empProjects.forEach(element => {
-      if (element.id_employee == this.getEmp()!.id_employee) {
+      if (element.id_employee == this.getEmp()!.id) {
         projectList.push(element.id_project);
       }
     });

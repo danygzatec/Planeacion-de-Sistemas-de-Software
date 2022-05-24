@@ -1,511 +1,511 @@
 {
     "employee" : [
         {
+            "id" : 1,
             "is_assigned" : true,
             "email" : "a00827044@tec.mx",
             "employee_name" : "Jessica Marcela Treviño Caballero",
-            "is_HR" : true,
-            "id_employee" : 1
+            "is_HR" : true
         },
         {
+            "id" : 2,
             "is_assigned" : true,
             "email" : "a00827008@tec.mx",
             "employee_name" : "Melissa Martínez Mendoza",
-            "is_HR" : true,
-            "id_employee" : 2
+            "is_HR" : true
         },
         {
+            "id" : 3,
             "is_assigned" : true,
             "email" : "a008270970@tec.mx",
             "employee_name" : "Emma Fernanda Gómez Guerra",
-            "is_HR" : true,
-            "id_employee" : 3
+            "is_HR" : true
         },
         {
+            "id" : 4,
             "is_assigned" : true,
             "email" : "a00827939@tec.mx",
             "employee_name" : "Roberta Saldaña Farías",
-            "is_HR" : false,
-            "id_employee" : 4
+            "is_HR" : false
         },
         {
+            "id" : 5,
             "is_assigned" : true,
             "email" : "a00829404@tec.mx",
             "employee_name" : "Daniela Garza González",
-            "is_HR" : true,
-            "id_employee" : 5
+            "is_HR" : true
         },
         {
+            "id" : 6,
             "is_assigned" : false,
             "email" : "a00829234@tec.mx",
             "employee_name" : "Gabriela Gonzalez Molina",
-            "is_HR" : false,
-            "id_employee" : 6
+            "is_HR" : false
         },
         {
+            "id" : 7,
             "is_assigned" : false,
             "email" : "a00820000@tec.mx",
             "employee_name" : "Romina Vela Martínez",
-            "is_HR" : false,
-            "id_employee" : 7
+            "is_HR" : false
         },
         {
+            "id" : 8,
             "is_assigned" : false,
             "email" : "hugo@tec.mx",
             "employee_name" : "Hugo Camacho",
-            "is_HR" : false,
-            "id_employee" : 8
+            "is_HR" : false
         },
         {
+            "id" : 9,
             "is_assigned" : false,
             "email" : "hadwin@tec.mx",
             "employee_name" : "Hadwin Zaragoza",
-            "is_HR" : false,
-            "id_employee" : 9
+            "is_HR" : false
         },
         {
+            "id" : 10,
             "is_assigned" : false,
             "email" : "cami@tec.mx",
             "employee_name" : "Camila Lozano",
-            "is_HR" : false,
-            "id_employee" : 10
+            "is_HR" : false
         }
     ],
     "evaluation_period" : [
         {
+            "id" : 1,
             "semester" : "FebJun",
             "evaluation_year" : 2022,
             "hours_to_complete" : 40,
-            "id_period" : 1,
             "has_uploaded": false
         },
         {
+            "id" : 2,
             "semester" : "AgoDic",
             "evaluation_year" : 2021,
             "hours_to_complete" : 30,
-            "id_period" : 2,
-            "has_uploaded": false
+            "id_period" : 2
         },
         {
+            "id" : 3,
             "semester" : "FebJun",
             "evaluation_year" : 2021,
             "hours_to_complete" : 50,
-            "id_period" : 3,
             "has_uploaded": false
         }
     ],
     "team" : [
         {
+            "id" : 1,
             "id_employee" : 1,
             "id_period" : 1,
             "approved_HR" : false,
-            "approved_Emp" : true,
-            "id_team" : 1    
+            "approved_Emp" : true   
         },
         {
+            "id" : 2,
             "id_employee" : 2,
             "id_period" : 1,
             "approved_HR" : true,
-            "approved_Emp" : false,
-            "id_team" : 2    
+            "approved_Emp" : false
         },
         {
+            "id" : 3,
             "id_employee" : 3,
             "id_period" : 1,
             "approved_HR" : false,
-            "approved_Emp" : false,
-            "id_team" : 3   
+            "approved_Emp" : false
         },
         {
+            "id" : 4,
             "id_employee" : 4,
             "id_period" : 1,
             "approved_HR" : false,
-            "approved_Emp" : false,
-            "id_team" : 4    
+            "approved_Emp" : false
         },
         {
+            "id" : 5,
             "id_employee" : 5,
             "id_period" : 1,
             "approved_HR" : true,
-            "approved_Emp" : true,
-            "id_team" : 5    
+            "approved_Emp" : true 
         }
     ],
     "project" : [
         {
+            "id" : 1,
             "project_name" : "IPS Central",
             "id_employee_leader" : 3,
-            "id_period" : 1,
-            "id_project" : 1
+            "id_period" : 1
         },
         {
+            "id" : 2,
             "project_name" : "Hambre Cero",
             "id_employee_leader" : 4,
-            "id_period" : 2,
-            "id_project" : 2
+            "id_period" : 2
         },
         {
+            "id" : 3,
             "project_name" : "Plearnium",
             "id_employee_leader" : 2,
-            "id_period" : 3,
-            "id_project" : 3
+            "id_period" : 3
         },
         {
+            "id" : 4,
             "project_name" : "Estructura de Datos",
             "id_employee_leader" : 1,
-            "id_period" : 3,
-            "id_project" : 4
+            "id_period" : 3
         },
         {
+            "id" : 5,
             "project_name" : "Azure DevOps",
             "id_employee_leader" : 1,
-            "id_period" : 3,
-            "id_project" : 5
+            "id_period" : 3
         }
     ],
     "request" : [
         {
+            "id" : 1,
             "motive" : "me cae mal",
             "id_emp_mod" : 1,
             "type" : 1,
             "id_emp_req" : 5,
-            "status" : 2,
-            "id_request" : 1
+            "status" : 2
         },
         {
+            "id" : 2,
             "motive" : "me cae bien",
             "id_emp_mod" : 3,
             "type" : 0,
             "id_emp_req" : 2,
-            "status" : 1,
-            "id_request" : 2
+            "status" : 1
         },
         {
+            "id" : 3,
             "motive" : "me cae decente",
             "id_emp_mod" : 4,
             "type" : 0,
             "id_emp_req" : 2,
-            "status" : 2,
-            "id_request" : 3
+            "status" : 2
         },
         {
+            "id" : 4,
             "motive" : "no la conozco",
             "id_emp_mod" : 5,
             "type" : 1,
             "id_emp_req" : 3,
-            "status" : 1,
-            "id_request" : 4
+            "status" : 1
         },
         {
+            "id" : 5,
             "motive" : "trabaja decente",
             "id_emp_mod" : 2,
             "type" : 0,
             "id_emp_req" : 4,
-            "status" : 1,
-            "id_request" : 5
+            "status" : 1
         },
         {
+            "id" : 6,
             "motive" : "LA AMO DEMASIADO",
             "id_emp_mod" : 4,
             "type" : 0,
             "id_emp_req" : 1,
-            "status" : 1,
-            "id_request" : 6
+            "status" : 1
         }
     ],
     "employee_project" : [
         {
+            "id" : 1,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 1,
-            "id_employee_project" : 1,
             "billHrs" : 20,
             "nonbillHrs" : 20
         },
         {
+            "id" : 3,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 1,
-            "id_employee_project" : 2,
             "billHrs" : 40,
             "nonbillHrs" : 0
         },
         {
+            "id" : 3,
             "did_complete" : true,
             "project_role" : 0,
             "id_employee" : 3,
             "id_project" : 1,
-            "id_employee_project" : 3,
             "billHrs" : 0,
             "nonbillHrs" : 40
         },
         {
+            "id" : 4,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 4,
             "id_project" : 1,
-            "id_employee_project" : 4,
             "billHrs" : 20,
             "nonbillHrs" : 20
         },
         {
+            "id" : 5,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 5,
             "id_project" : 1,
-            "id_employee_project" : 5,
             "billHrs" : 20,
             "nonbillHrs" : 20
         },
         {
+            "id" : 6,
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 6,
             "id_project" : 1,
-            "id_employee_project" : 6,
             "billHrs" : 20,
             "nonbillHrs" : 0
         },
         {
+            "id" : 7,
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 7,
             "id_project" : 1,
-            "id_employee_project" : 7,
             "billHrs" : 0,
             "nonbillHrs" : 20
         },
         {
+            "id" : 8,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 2,
-            "id_employee_project" : 8,
             "billHrs" : 20,
             "nonbillHrs" : 20
         },
         {
+            "id" : 9,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 3,
-            "id_employee_project" : 9,
             "billHrs" : 20,
             "nonbillHrs" : 20
         },
         {
+            "id" : 10,
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 8,
             "id_project" : 1,
-            "id_employee_project" : 10,
             "billHrs" : 10,
             "nonbillHrs" : 20
         },
         {
+            "id" : 11,
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 9,
             "id_project" : 1,
-            "id_employee_project" : 11,
             "billHrs" : 15,
             "nonbillHrs" : 10
         },
         {
+            "id" : 12,
             "did_complete" : false,
             "project_role" : 1,
             "id_employee" : 10,
             "id_project" : 1,
-            "id_employee_project" : 12,
             "billHrs" : 10,
             "nonbillHrs" : 5
         },
         {
+            "id" : 13,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 2,
-            "id_employee_project" : 13,
             "billHrs" : 40,
             "nonbillHrs" : 0
         },
         {
+            "id" : 14,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 4,
-            "id_employee_project" : 14,
             "billHrs" : 40,
             "nonbillHrs" : 5
         },
         {
+            "id" : 1,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 1,
             "id_project" : 5,
-            "id_employee_project" : 15,
             "billHrs" : 10,
             "nonbillHrs" : 70
         },
         {
+            "id" : 1,
             "did_complete" : true,
             "project_role" : 1,
             "id_employee" : 2,
             "id_project" : 5,
-            "id_employee_project" : 15,
             "billHrs" : 10,
             "nonbillHrs" : 70
         }
     ],
     "employee_team" : [
         {
+            "id" : 1,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 2,
-            "id_team" : 1,
-            "id_employee_team" : 1
+            "id_team" : 1
         },
         {
+            "id" : 2,
             "role_member" : 0,
             "status_member" : 0,
             "id_employee" : 3,
-            "id_team" : 1,
-            "id_employee_team" : 2
+            "id_team" : 1
         },
         {
+            "id" : 3,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 4,
-            "id_team" : 1,
-            "id_employee_team" : 3
+            "id_team" : 1
         },
         {
+            "id" : 4,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 5,
-            "id_team" : 1,
-            "id_employee_team" : 4
+            "id_team" : 1
         },
         {
+            "id" : 5,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 1,
-            "id_team" : 2,
-            "id_employee_team" : 5
+            "id_team" : 2
         },
         {
+            "id" : 6,
             "role_member" : 0,
             "status_member" : 1,
             "id_employee" : 3,
-            "id_team" : 2,
-            "id_employee_team" : 6
+            "id_team" : 2
         },
         {
+            "id" : 7,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 4,
-            "id_team" : 2,
-            "id_employee_team" : 7
+            "id_team" : 2
         },
         {
+            "id" : 8,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 5,
-            "id_team" : 2,
-            "id_employee_team" : 8
+            "id_team" : 2
         },
         {
+            "id" : 9,
             "role_member" : 2,
             "status_member" : 0,
             "id_employee" :1,
-            "id_team" : 3,
-            "id_employee_team" : 9
+            "id_team" : 3
         },
         {
+            "id" : 10,
             "role_member" : 2,
             "status_member" : 0,
             "id_employee" : 2,
-            "id_team" : 3,
-            "id_employee_team" : 10
+            "id_team" : 3
         },
         {
+            "id" : 11,
             "role_member" : 2,
             "status_member" : 0,
             "id_employee" : 4,
-            "id_team" : 3,
-            "id_employee_team" : 11
+            "id_team" : 3
         },
         {
+            "id" : 12,
             "role_member" : 2,
             "status_member" : 0,
             "id_employee" : 5,
-            "id_team" : 3,
-            "id_employee_team" : 12
+            "id_team" : 3
         },
         {
+            "id" : 3,
             "role_member" : 1,
             "status_member" : 0,
             "id_employee" : 1,
-            "id_team" : 4,
-            "id_employee_team" : 13
+            "id_team" : 4
         },
         {
+            "id" : 14,
             "role_member" : 1,
             "status_member" : 0, 
             "id_employee" : 2,
-            "id_team" : 4,
-            "id_employee_team" : 14
+            "id_team" : 4
         },
         {
+            "id" : 15,
             "role_member" : 0,
             "status_member" : 0, 
             "id_employee" : 3,
-            "id_team" : 4,
-            "id_employee_team" : 15
+            "id_team" : 4
         },
         {
+            "id" : 16,
             "role_member" : 1,
             "status_member" : 0, 
             "id_employee" : 5,
-            "id_team" : 4,
-            "id_employee_team" : 16
+            "id_team" : 4
         },
         {
+            "id" : 17,
             "role_member" : 1,
             "status_member" : 2, 
             "id_employee" : 1,
-            "id_team" : 5,
-            "id_employee_team" : 17
+            "id_team" : 5
         },
         {
+            "id" : 18,
             "role_member" : 1,
             "status_member" : 0, 
             "id_employee" : 2,
-            "id_team" : 5,
-            "id_employee_team" : 18
+            "id_team" : 5
         },
         {
+            "id" : 19,
             "role_member" : 0,
             "status_member" : 0, 
             "id_employee" : 3,
-            "id_team" : 5,
-            "id_employee_team" : 19
+            "id_team" : 5
         },
         {
+            "id" : 20,
             "role_member" : 1,
             "status_member" : 0, 
             "id_employee" : 4,
-            "id_team" : 5,
-            "id_employee_team" : 20
+            "id_team" : 5
         },
         {
+            "id" : 21,
             "role_member" : 2,
             "status_member" : 0,
             "id_employee" : 2,
-            "id_team" : 1,
-            "id_employee_team" : 21
+            "id_team" : 1
         }
     ]
 }

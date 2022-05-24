@@ -107,7 +107,7 @@ export class NavbarComponent implements OnInit {
   getHasUploadApp(): boolean{
     //console.log("getHasUpload()", this.accountInfo.evaluationPeriod[0].has_uploaded, " consultTeams", this.consultTeams);
     //return this.accountInfo.getHasUpload();
-    return this.accountInfo.evaluationPeriod[0].has_uploaded;
+    return this.accountInfo.evaluationPeriod[0].has_uploaded!;
   }
 
   getConsultTeams(){

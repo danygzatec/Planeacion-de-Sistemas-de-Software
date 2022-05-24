@@ -35,8 +35,8 @@ export class InboxComponent implements OnInit {
 
   createObjects() {
     this.request.forEach(req => {
-      var requested = this.employee.find(emp => req.id_emp_req === emp.id_employee);
-      var modified = this.employee.find(emp => req.id_emp_mod === emp.id_employee);
+      var requested = this.employee.find(emp => req.id_emp_req === emp.id);
+      var modified = this.employee.find(emp => req.id_emp_mod === emp.id);
 
       req.requestedBy = requested;
       req.employeeModified = modified;
@@ -47,8 +47,8 @@ export class InboxComponent implements OnInit {
 
     var currString : string = "";
 
-    var r = this.request.find(req => req.id_request === requestID);
-    var e = this.employee.find(emp => emp.id_employee === r!.id_emp_req);
+    var r = this.request.find(req => req.id === requestID);
+    var e = this.employee.find(emp => emp.id === r!.id_emp_req);
     currString += e!.employee_name;
     currString += " wants to ";
     if(r!.type == 0){
@@ -57,7 +57,7 @@ export class InboxComponent implements OnInit {
       currString += " remove ";
     }
 
-    e = this.employee.find(emp => emp.id_employee == r!.id_emp_mod);
+    e = this.employee.find(emp => emp.id == r!.id_emp_mod);
 
     currString += e!.employee_name;
     //console.log(currString);
