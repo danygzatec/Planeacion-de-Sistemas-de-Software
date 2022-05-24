@@ -76,7 +76,7 @@ export class UnassignedTeamComponent implements OnInit {
 
   async getEmpT() {
     try {
-      this.http.get<any>('http://localhost:8080/api/getEmpTeams').subscribe(response => {
+      this.http.get<any>('http://localhost:8080/api/getEmployeeTeams').subscribe(response => {
       this.empTeams = response;
     }, error => {
       console.log(error);
@@ -100,7 +100,7 @@ export class UnassignedTeamComponent implements OnInit {
 
   async getEmpP() {
     try {
-      this.http.get<any>('http://localhost:8080/api/getEmpProjects').subscribe(response => {
+      this.http.get<any>('http://localhost:8080/api/getEmployeeProjects').subscribe(response => {
       this.empProjects = response;
     }, error => {
       console.log(error);
