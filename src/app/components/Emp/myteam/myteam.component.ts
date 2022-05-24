@@ -6,6 +6,7 @@ import { EmployeeProject } from 'src/app/models/employee-project';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { Team } from 'src/app/models/team';
 import ExcelData from 'src/excel-dummy.json'
+import { NavbarEmployeeComponent } from '../../shared/navbar-employee/navbar-employee.component';
 import { AddButtonEmpComponent } from '../add-button-emp/add-button-emp.component';
 import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.component';
 
@@ -30,7 +31,7 @@ export class MyteamComponent implements OnInit {
 
   searchText: any;
 
-  constructor(private accountInfo : AppComponent, private  dialogRef : MatDialog) { 
+  constructor(private accountInfo : AppComponent, private  dialogRef : MatDialog, private navbarInfo: NavbarEmployeeComponent) { 
     this.employees = ExcelData.employee;
     this.empTeams = ExcelData.employee_team;
     this.empProjects = ExcelData.employee_project;
@@ -47,6 +48,7 @@ export class MyteamComponent implements OnInit {
     this.evaluators = false;
     this.empProjects = ExcelData.employee_project;
     this.createObjects();
+    this.getMembers();
   }
 
   //searchText:string = '';
@@ -148,15 +150,15 @@ export class MyteamComponent implements OnInit {
 
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
-      console.log("fuera del if");
+      //console.log("fuera del if");
       if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
-        console.log("dentro del if");
+        //console.log("dentro del if");
         members.push(element.employee);
-        console.log(element.employee?.employee_name);
+        //console.log(element.employee?.employee_name);
       }
     })
 
-    console.log(members);
+    //console.log(members);
 
     return members;
 
@@ -169,7 +171,7 @@ export class MyteamComponent implements OnInit {
         e: employee
       }
     });
-    console.log("Hola estoy en open Dialog!");
+    //console.log("Hola estoy en open Dialog!");
   }
 
   openDialogAdd(members: any){
@@ -178,6 +180,19 @@ export class MyteamComponent implements OnInit {
         m : members
       }
     });
+  }
+
+  approve(){
+    console.log("cleanNavbar()")
+    this.navbarInfo.cleanNavbar();
+    this.navbarInfo.navigate('');
+    
+    this.team.approved_Emp = true;
+  }
+
+  getApprovedEmp(){
+    //console.log(this.team.approved_Emp);
+    return this.team.approved_Emp;
   }
 
 }

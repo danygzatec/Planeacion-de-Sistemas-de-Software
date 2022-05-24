@@ -19,6 +19,7 @@ import { ApprovalSuccessfulComponent } from './components/Emp/approval-successfu
 import { ApprovalUnsuccessfulComponent } from './components/Emp/approval-unsuccessful/approval-unsuccessful.component';
 import { PartialApprovalComponent } from './components/Emp/partial-approval/partial-approval.component';
 import { UnassignedTeamComponent } from './components/HR/unassigned-team/unassigned-team.component';
+import { NavbarEmployeeComponent } from './components/shared/navbar-employee/navbar-employee.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [MsalguardGuard]},
