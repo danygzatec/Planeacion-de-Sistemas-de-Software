@@ -65,4 +65,8 @@ export class CrearEquiposComponent implements OnInit {
       }
     });
   }
+
+  getLogger() {
+    console.log("intentando subir archivo");
+  }
 }

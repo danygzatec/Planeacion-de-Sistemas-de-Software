@@ -7,7 +7,7 @@
                 <br>
                 <div class="upload font">
                     <input type="file" multiple="false" accept=".xlsx, .xls, .csv" name="myFile" id="customFile" class="top" 
-                    (change)="onFileChange($event)" #UploadFileInput>
+                    (change)="onFileChange($event)" (click)="getLogger()" #UploadFileInput>
                     <input class="top" type="reset" value="Reset" (click)="resetFile()">
                     <button class="top submit-button submit" (click)="openDialog(fileUploadForm)">Upload
                     </button>

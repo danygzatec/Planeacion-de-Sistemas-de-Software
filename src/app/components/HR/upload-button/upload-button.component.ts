@@ -15,7 +15,7 @@ import { AppComponent } from 'src/app/app.component';
 
 export class UploadButtonComponent implements OnInit {
   public fileUploadForm: HTMLFormElement;
-  //public hasUpload: boolean = false;
+  public hasUpload: boolean = false;
 
   constructor(
     private dialogRef:  MatDialogRef<UploadButtonComponent>, 
@@ -44,15 +44,16 @@ export class UploadButtonComponent implements OnInit {
     this.http
       .post<any>('http://localhost:8080/api/upload', fData).subscribe(response => {
         console.log("post hr file success");
-        this.closeMe();
-        this.uploadFileInfo.setHasUpload();
-        this.fileRedirect.navigate('/consultar-equipos');
       }, error => {
         console.log(error);
       }
     );
+
+    this.closeMe();
+    this.uploadFileInfo.setHasUpload();
+    this.fileRedirect.navigate('/consultar-equipos');
     
-    //this.hasUpload = true;
+    // this.hasUpload = true;
     
     //this.fileRedirect.navbarFileUpload();
     //this.fileRedirect.cleanNavbar();
