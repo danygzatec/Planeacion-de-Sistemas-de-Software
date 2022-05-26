@@ -5,6 +5,7 @@ import { CrearEquiposComponent } from 'src/app/components/HR/crear-equipos/crear
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavbarComponent } from 'src/app/components/shared/navbar/navbar.component';
 import { AppComponent } from 'src/app/app.component';
+import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
   selector: 'app-upload-button',
@@ -20,10 +21,9 @@ export class UploadButtonComponent implements OnInit {
   constructor(
     private dialogRef:  MatDialogRef<UploadButtonComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private http: HttpClient,
     private uploadFileInfo : AppComponent,
-    private fileInfo : CrearEquiposComponent,
-    private fileRedirect: NavbarComponent) 
+    private fileRedirect: NavbarComponent,
+    private sql : SqlService) 
     {
       this.fileUploadForm = data.fileUploadForm;
    }
@@ -41,16 +41,9 @@ export class UploadButtonComponent implements OnInit {
     const fData = new FormData();
     fData.append('excel', this.fileUploadForm['get']('myfile').value);
 
-    this.http
-      .post<any>('http://localhost:8080/api/upload', fData).subscribe(response => {
-        console.log("post hr file success");
-      }, error => {
-        console.log(error);
-      }
-    );
+    this.sql.postExcelFile(fData);
 
     this.closeMe();
-    this.uploadFileInfo.setHasUpload();
     this.fileRedirect.navigate('/consultar-equipos');
     
     // this.hasUpload = true;

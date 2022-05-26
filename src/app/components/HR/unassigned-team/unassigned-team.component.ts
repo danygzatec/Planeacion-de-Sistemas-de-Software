@@ -6,6 +6,7 @@ import { EmployeeProject } from 'src/app/models/employee-project';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { Project } from 'src/app/models/project';
 import { Team } from 'src/app/models/team';
+import { SqlService } from 'src/app/services/sql.service';
 import ExcelData from 'src/excel-dummy.json'
 
 @Component({
@@ -24,7 +25,9 @@ export class UnassignedTeamComponent implements OnInit {
   id: number;
   navbarActive: any;
 
-  constructor(private route: ActivatedRoute, private http : HttpClient) {
+  constructor(
+    private route: ActivatedRoute, 
+    private sql : SqlService) {
 
     this.teams = [];
     this.employees = [];
@@ -38,79 +41,66 @@ export class UnassignedTeamComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getEmp();
-    this.getT();
-    this.getEmpT();
-    this.getPrj();
-    this.getEmpP();
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+      console.log("GetEmployees from API successful!");
+    })
+
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+      console.log("GetTeams from API successful!")
+    })
+
+    this.sql.getEmployeeTeams().subscribe((resp) => {
+      this.empTeams = resp;
+    })
+
+    this.sql.getProjects().subscribe((resp) => {
+      this.projects = resp;
+    })
+
+    this.sql.getEmployeeProjects().subscribe((resp) => {
+      this.empProjects = resp;
+    })
+
     this.createObjects();
 
     this.team = this.teams.find(element => element.id_employee === this.id);
 
-    setTimeout(() => { this.ngOnInit() }, 1000 * 3);
+    //setTimeout(() => { this.ngOnInit() }, 1000 * 3);
   }
 
-  async getEmp() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployees').subscribe(response => {
-        this.employees = response;
-      }, error => {
-        console.log(error);
-      });
-    } catch (error) {
-      console.log("ERROR: GetEmployees: " + error);
-    }
+  getEmp() {
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+    })
   }
 
-  async getT() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getTeams').subscribe(response => {
-      this.teams = response;
-    }, error => {
-      console.log(error);
-    });
-    } catch (error) {
-      console.log("ERROR: GetTeams: " + error);
-    }
+  getT() {
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+    })
   }
 
-  async getEmpT() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployeeTeams').subscribe(response => {
-      this.empTeams = response;
-    }, error => {
-      console.log(error);
-    });
-    } catch (error) {
-      console.log("ERROR: GetEmployeeTeams: " + error);
-    }
+  getEmpT() {
+    this.sql.getEmployeeTeams().subscribe((resp) => {
+      this.empTeams = resp;
+    })
   }
 
-  async getPrj() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getProjects').subscribe(response => {
-      this.projects = response;
-    }, error => {
-      console.log(error);
-    });
-    } catch (error) {
-      console.log("ERROR: GetProjects: " + error);
-    }
+  getProjects() {
+    this.sql.getProjects().subscribe((resp) => {
+      this.projects = resp;
+    })
   }
 
-  async getEmpP() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployeeProjects').subscribe(response => {
-      this.empProjects = response;
-    }, error => {
-      console.log(error);
-    });
-    } catch (error) {
-      console.log("ERROR: GetEmpProjects: " + error);
-    }
+  getEmployeeProjects() {
+    this.sql.getEmployeeProjects().subscribe((resp) => {
+      this.empProjects = resp;
+    })
   }
 
-  async createObjects() {
+  createObjects() {
 
     this.empProjects.forEach(ep => {
       ep.project = [];
@@ -164,6 +154,8 @@ export class UnassignedTeamComponent implements OnInit {
   } 
 
   addTeam() {
+
+    // post al api que haga un insert en Teams
     console.log("Aqui se va a crear el equipo :p");
   }
 

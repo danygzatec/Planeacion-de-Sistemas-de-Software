@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 import { Employee } from './models/employee';
 import { EvaluationPeriod } from './models/evaluation-period';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { SqlService } from './services/sql.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,11 @@ export class AppComponent implements OnInit {
   employees : Employee[];
   evaluationPeriod : EvaluationPeriod[];
 
-  constructor(private msalService: MsalService, public router: Router){
+  constructor(
+    private msalService: MsalService, 
+    public router: Router,
+    public sql : SqlService
+    ){
     this.employees = [];
     this.evaluationPeriod = [];
 
@@ -34,6 +40,7 @@ export class AppComponent implements OnInit {
         }
       }
     )
+    this.getHasUpload();
     this.employees = ExcelData.employee;
     this.evaluationPeriod = ExcelData.evaluation_period;
     //this.isLoggedIn();
@@ -71,14 +78,11 @@ export class AppComponent implements OnInit {
     return this.msalService.instance.getActiveAccount()?.username;
   }
 
-  setHasUpload(){
-    this.evaluationPeriod[0].has_uploaded = true;
-    //console.log("excel app", this.evaluationPeriod[0].has_uploaded);
-  }
-
-  getHasUpload() : boolean{
+  getHasUpload() : any {
     //console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
-    return this.evaluationPeriod[0].has_uploaded!
+    this.sql.getHasUploaded().subscribe((resp) => {
+      return resp;
+    });
   }
   
   isHR() : boolean {

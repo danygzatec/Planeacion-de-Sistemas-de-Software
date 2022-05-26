@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
+import { SqlService } from 'src/app/services/sql.service';
 import { InboxComponent } from '../../HR/inbox/inbox.component';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -16,11 +18,21 @@ export class NavbarComponent implements OnInit {
 
    public dashboard  = false;
 
+   public hasUploaded : any;
 
-  constructor(public accountInfo: AppComponent, private requestInfo: InboxComponent) { }
+
+  constructor(
+    public accountInfo: AppComponent, 
+    private requestInfo: InboxComponent,
+    private sql : SqlService
+    ) { }
 
   ngOnInit(): void {
     
+    this.sql.getHasUploaded().pipe(map((resp) => {
+      this.hasUploaded = resp;
+    }));
+
   }
   
 
@@ -47,7 +59,11 @@ export class NavbarComponent implements OnInit {
   navigate(page: any){
 
     //console.log("NavBarComponent", page);
-    if (this.accountInfo.evaluationPeriod[0].has_uploaded){
+    this.sql.getHasUploaded().subscribe((resp) => {
+      this.hasUploaded = resp;
+    });
+    
+    if (this.hasUploaded){
       if(page === '/crear-equipos'){
 
         //console.log("función navigate /crear-equipos");
@@ -104,10 +120,15 @@ export class NavbarComponent implements OnInit {
      this.navigate('/consultar-equipos');
   }
 
-  getHasUploadApp(): boolean{
+  getHasUploadApp() : any {
     //console.log("getHasUpload()", this.accountInfo.evaluationPeriod[0].has_uploaded, " consultTeams", this.consultTeams);
     //return this.accountInfo.getHasUpload();
-    return this.accountInfo.evaluationPeriod[0].has_uploaded!;
+    
+    this.sql.getHasUploaded().pipe(map((resp) => {
+      this.hasUploaded = resp;
+      console.log("has uploaded navbar", this.hasUploaded);
+      return resp;
+      }));
   }
 
   getConsultTeams(){

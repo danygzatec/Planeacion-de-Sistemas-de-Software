@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
-import { EmployeeProject } from 'src/app/models/employee-project';
-import { EmployeeTeam } from 'src/app/models/employee-team';
 import { Team } from 'src/app/models/team';
-import { EvaluationPeriod } from 'src/app/models/evaluation-period';
-import { Request } from 'src/app/models/request';
-import { Project } from 'src/app/models/project';
-import ExcelData from 'src/excel-dummy.json';
 import { AppComponent } from 'src/app/app.component';
-import { elementAt, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { has } from 'lodash';
+import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
   selector: 'app-consultar-equipos',
@@ -24,44 +16,42 @@ export class ConsultarEquiposComponent implements OnInit {
 
   searchText: any;
 
-  constructor(public accountInfo: AppComponent, public http: HttpClient) {
+  constructor(
+    public accountInfo: AppComponent, 
+    public sql : SqlService) {
     this.employees = [];
     this.teams = [];
   }
 
   ngOnInit(): void {
-    this.getEmp();
-    this.getT();
-    setTimeout(() => { this.ngOnInit() }, 1000 * 3);
-  }
 
-  ngAfterInit() {
-    this.getEmp();
-    this.getT();
-  }
-
-  async getEmp() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployees').subscribe(response => {
-        this.employees = response;
-      }, error => {
-        console.log(error);
-      });
-    } catch (error) {
-      console.log("ERROR: GetEmployees: " + error);
-    }
-  }
-
-  async getT() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getTeams').subscribe(response => {
-      this.teams = response;
-    }, error => {
-      console.log(error);
+    this.sql.getHasUploaded().subscribe((resp) => {
+      console.log(resp);
     });
-    } catch (error) {
-      console.log("ERROR: GetTeams: " + error);
-    }
+
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+      console.log("GetEmployees from API successful!");
+    })
+
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+      console.log("GetTeams from API successful!")
+    })
+
+    setTimeout(() => { this.ngOnInit() }, 1000 * 1);
+  }
+
+  getEmp() {
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+    })
+  }
+
+  getT() {
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+    })
   }
 
   getName(): string {

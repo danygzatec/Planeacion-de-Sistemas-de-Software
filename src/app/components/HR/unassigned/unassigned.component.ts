@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
+import { SqlService } from 'src/app/services/sql.service';
 import { ConsultarEquiposComponent } from '../consultar-equipos/consultar-equipos.component';
 
 @Component({
@@ -12,27 +13,28 @@ export class UnassignedComponent implements OnInit {
 
   public employees : Employee[];
 
-  constructor(public unassignedInfo : ConsultarEquiposComponent, private http: HttpClient) { 
+  constructor(
+    public unassignedInfo : ConsultarEquiposComponent, 
+    private sql : SqlService) { 
     this.employees = [];
   }
 
   searchText: any;
 
   ngOnInit(): void {
-    this.getEmp();
-    setTimeout(() => { this.ngOnInit() }, 1000 * 3);
+    
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+      console.log("GetEmployees from API successful!");
+    })
+
+    //setTimeout(() => { this.ngOnInit() }, 1000 * 3);
   }
 
-  async getEmp() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployees').subscribe(response => {
-        this.employees = response;
-      }, error => {
-        console.log(error);
-      });
-    } catch (error) {
-      console.log("ERROR: GetEmployees: " + error);
-    }
+  getEmp() {
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+    })
   }
 
   getUnassigned() {

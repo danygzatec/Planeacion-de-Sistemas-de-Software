@@ -13,6 +13,7 @@ import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { Project } from 'src/app/models/project';
 import { HttpClient } from '@angular/common/http';
+import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
   selector: 'app-equipo-individual',
@@ -37,7 +38,7 @@ export class EquipoIndividualComponent implements OnInit {
     private route: ActivatedRoute,
     private  dialogRef : MatDialog,
     public navbarActive: NavbarComponent,
-    private http: HttpClient
+    private sql : SqlService
     ){
     
 
@@ -55,54 +56,67 @@ export class EquipoIndividualComponent implements OnInit {
 
    }
 
-  async ngOnInit(): Promise<void> {
-    await this.getEmployees();
-    await this.getT();
-    await this.getEmpT();
-    await this.createObjects();
+  ngOnInit(): void {
 
-    setTimeout(() => { this.ngOnInit() }, 1000 * 3);
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+      console.log("GetEmployees from API successful!");
+    })
+
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+      console.log("GetTeams from API successful!")
+    })
+    
+    this.sql.getEmployeeTeams().subscribe((resp) => {
+      this.empTeams = resp;
+    })
+
+    this.sql.getProjects().subscribe((resp) => {
+      this.projects = resp;
+    })
+
+    this.sql.getEmployeeProjects().subscribe((resp) => {
+      this.empProjects = resp;
+    })
+
+    this.createObjects();
+
+    setTimeout(() => { this.ngOnInit() }, 1000 * 1);
 
   }
 
-  async getEmployees() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployees').subscribe(response => {
-        this.employees = response;
-      }, error => {
-        console.log(error);
-      });
-    } catch (error) {
-      console.log("ERROR: GetEmployees: " + error);
-    }
-  }
-  
-
-  async getT() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getTeams').subscribe(response => {
-      this.teams = response;
-    }, error => {
-      console.log(error);
-    });
-    } catch (error) {
-      console.log("ERROR: GetTeams: " + error);
-    }
+  getEmp() {
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+    })
   }
 
-  async getEmpT() {
-    try {
-      this.http.get<any>('http://localhost:8080/api/getEmployeeTeams').subscribe(response => {
-      this.empTeams = response;
-    }, error => {
-      console.log(error);
-    });
-    } catch (error) {
-      console.log("ERROR: GetEmployeeTeams: " + error);
-    }
+  getT() {
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+    })
   }
 
-  async createObjects() {
+  getEmpT() {
+    this.sql.getEmployeeTeams().subscribe((resp) => {
+      this.empTeams = resp;
+    })
+  }
+
+  getProjects() {
+    this.sql.getProjects().subscribe((resp) => {
+      this.projects = resp;
+    })
+  }
+
+  getEmployeeProjects() {
+    this.sql.getEmployeeProjects().subscribe((resp) => {
+      this.empProjects = resp;
+    })
+  }
+
+  createObjects() {
 
     this.empProjects.forEach(element => {
       element.employee = this.employees.find(emp => emp.id === element.id_employee);
@@ -126,7 +140,7 @@ export class EquipoIndividualComponent implements OnInit {
     
   }
 
-  getEmp() {
+  getEmployee() {
     return this.employees.find(element => element.id === this.id);
   }
 
@@ -194,7 +208,7 @@ export class EquipoIndividualComponent implements OnInit {
     var projectList : any[] = [];
 
     this.empProjects.forEach(element => {
-      if (element.id_employee == this.getEmp()!.id) {
+      if (element.id_employee == this.getEmployee()!.id) {
         projectList.push(element.id_project);
       }
     });

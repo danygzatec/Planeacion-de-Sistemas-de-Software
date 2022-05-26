@@ -183,7 +183,7 @@ export class MyteamComponent implements OnInit {
   }
 
   approve(){
-    console.log("cleanNavbar()")
+    //console.log("cleanNavbar()")
     this.navbarInfo.cleanNavbar();
     this.navbarInfo.navigate('');
     
