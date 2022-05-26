@@ -12,7 +12,7 @@
             "is_assigned" : true,
             "email" : "a00827008@tec.mx",
             "employee_name" : "Melissa Martínez Mendoza",
-            "is_HR" : true
+            "is_HR" : false
         },
         {
             "id" : 3,
@@ -33,7 +33,7 @@
             "is_assigned" : true,
             "email" : "a00829404@tec.mx",
             "employee_name" : "Daniela Garza González",
-            "is_HR" : true
+            "is_HR" : false
         },
         {
             "id" : 6,
