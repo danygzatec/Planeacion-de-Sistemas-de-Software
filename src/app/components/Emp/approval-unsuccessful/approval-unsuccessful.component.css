@@ -75,8 +75,10 @@
     color: white;
     border: 0;
     border-radius: 3em;
-    padding-top: 0.188em;
-    padding-bottom: 0.188em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     margin-bottom: 1.875em;
 }
 

@@ -61,3 +61,28 @@
     margin-top: 3.75em;
     margin-bottom: 3.75em;
 }
+
+.view-team {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 1.75em;
+    text-align: center;
+    background-color: #B3EDA5;
+    color: black;
+    border: 0;
+    border-radius: 3em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    margin-bottom: 1.875em;
+}
+
+.button-container {
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
