@@ -25,7 +25,6 @@ export class UnassignedComponent implements OnInit {
     
     this.sql.getEmployees().subscribe((resp) => {
       this.employees = resp;
-      console.log("GetEmployees from API successful!");
     })
 
     //setTimeout(() => { this.ngOnInit() }, 1000 * 3);

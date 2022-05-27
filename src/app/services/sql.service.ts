@@ -107,7 +107,10 @@ export class SqlService {
     .get<any>(`${this._fullPath}/getHasUploaded`)
     .pipe(
       map((resp) => {
-        console.log(resp[0].has_uploaded , "SQL");
+        //console.log(resp[0].has_uploaded , "SQL");
+        if (resp[0] === undefined) {
+          return false;
+        }
         return resp[0].has_uploaded;
       })
     );

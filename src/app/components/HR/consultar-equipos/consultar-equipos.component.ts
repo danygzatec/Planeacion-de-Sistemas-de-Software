@@ -25,18 +25,12 @@ export class ConsultarEquiposComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sql.getHasUploaded().subscribe((resp) => {
-      console.log(resp);
-    });
-
     this.sql.getEmployees().subscribe((resp) => {
       this.employees = resp;
-      console.log("GetEmployees from API successful!");
     })
 
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
-      console.log("GetTeams from API successful!")
     })
 
     setTimeout(() => { this.ngOnInit() }, 1000 * 1);

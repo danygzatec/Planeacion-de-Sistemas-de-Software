@@ -3,13 +3,14 @@ import { AppComponent } from 'src/app/app.component';
 import { UploadButtonComponent } from 'src/app/components/HR/upload-button/upload-button.component';
 import { SqlService } from 'src/app/services/sql.service';
 import { InboxComponent } from '../../HR/inbox/inbox.component';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
 
   public createTeams = false;
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
    public dashboard  = false;
 
-   public hasUploaded : any;
+   public hasUploaded : any = false;
 
 
   constructor(
@@ -28,11 +29,12 @@ export class NavbarComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    
-    this.sql.getHasUploaded().pipe(map((resp) => {
-      this.hasUploaded = resp;
-    }));
 
+    this.sql.getHasUploaded().subscribe((res) => {
+      this.hasUploaded = res;
+    });
+    console.log(this.hasUploaded);
+    
   }
   
 
@@ -59,10 +61,8 @@ export class NavbarComponent implements OnInit {
   navigate(page: any){
 
     //console.log("NavBarComponent", page);
-    this.sql.getHasUploaded().subscribe((resp) => {
-      this.hasUploaded = resp;
-    });
-    
+    this.hasUploaded = this.sql.getHasUploaded();
+
     if (this.hasUploaded){
       if(page === '/crear-equipos'){
 
@@ -124,11 +124,13 @@ export class NavbarComponent implements OnInit {
     //console.log("getHasUpload()", this.accountInfo.evaluationPeriod[0].has_uploaded, " consultTeams", this.consultTeams);
     //return this.accountInfo.getHasUpload();
     
-    this.sql.getHasUploaded().pipe(map((resp) => {
-      this.hasUploaded = resp;
-      console.log("has uploaded navbar", this.hasUploaded);
-      return resp;
-      }));
+    // this.hasUploaded = this.sql.getHasUploaded()
+
+    if (this.hasUploaded === undefined || this.hasUploaded === null ) {
+      return false;
+    }
+
+    return this.hasUploaded;
   }
 
   getConsultTeams(){

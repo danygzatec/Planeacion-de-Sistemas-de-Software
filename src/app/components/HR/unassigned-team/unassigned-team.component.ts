@@ -43,12 +43,10 @@ export class UnassignedTeamComponent implements OnInit {
   ngOnInit(): void {
     this.sql.getEmployees().subscribe((resp) => {
       this.employees = resp;
-      console.log("GetEmployees from API successful!");
     })
 
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
-      console.log("GetTeams from API successful!")
     })
 
     this.sql.getEmployeeTeams().subscribe((resp) => {
