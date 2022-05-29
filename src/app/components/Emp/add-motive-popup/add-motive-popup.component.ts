@@ -19,7 +19,7 @@ export class AddMotivePopupComponent implements OnInit {
   */
   
 
-  motive="";
+  motive: string[] = [""];
 
   public value = "Dear friend,";
   public maxlength = 250;
