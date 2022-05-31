@@ -44,7 +44,7 @@ export class AddMotivePopupComponent implements OnInit {
 
   post(){
     for (let i = 0; i < this.members.length; i++) {
-      this.http.post('http://localhost:8090/api/requestAdd',
+      this.http.post('http://localhost:8080/api/requestAdd',
     {
       motive: this.motive[i],
       id_emp_mod: this.members[i].id,

@@ -5,7 +5,9 @@ import { environment } from 'src/environments/environment';
 import { Employee } from '../models/employee';
 import { EmployeeProject } from '../models/employee-project';
 import { EmployeeTeam } from '../models/employee-team';
+import { EvaluationPeriod } from '../models/evaluation-period';
 import { Project } from '../models/project';
+import { Request } from '../models/request';
 import { Team } from '../models/team';
 
 @Injectable({
@@ -83,7 +85,7 @@ export class SqlService {
 
   getEvaluationPeriods() {
     return this.http
-      .get<Request[]>(`${this._fullPath}/getEvaluationPeriods`)
+      .get<EvaluationPeriod[]>(`${this._fullPath}/getEvaluationPeriods`)
       .pipe(
         map((resp) => {
           return resp;
