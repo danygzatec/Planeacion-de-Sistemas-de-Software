@@ -51,7 +51,7 @@ export class AddMotivePopupComponent implements OnInit {
       .set('motive', this.motive[i])
       .set('id_emp_mod', this.members[i].id)
       .set('type',0)
-      .set('id_emp_req', 272)
+      .set('id_emp_req', 272) // FALTA PONER EL ID DEL QUE ESTA LOGGED IN
       .set('status', 1);
       //body.set('motive', this.motive[i]);
       //body.set('id_emp_mod', 271);
@@ -60,7 +60,7 @@ export class AddMotivePopupComponent implements OnInit {
         //id_emp_mod: this.members[i].id,
         id_emp_mod: 271,
         type: 0,
-        id_emp_req:272, // FALTA PONER EL ID DEL QUE ESTA LOGGED IN
+        id_emp_req:272, 
         status:1
       }*/
       console.log(req);
