@@ -30,7 +30,7 @@ export class PopupDeleteComponent implements OnInit {
   }
 
   removeHR() {
-    console.log(this.idEmpTeam.id);
+    //console.log(this.idEmpTeam.id);
       const req = new HttpParams()
         .set('id', this.idEmpTeam.id)
       //console.log(req);

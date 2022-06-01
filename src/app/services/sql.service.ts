@@ -140,5 +140,16 @@ export class SqlService {
     })
   }
 
+  postApproveHR(params : HttpParams) {
+    console.log("sending approve to backend server");
+
+    this.http.post<any>(`${this._fullPath}/approveHR`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("approve sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
 
 }
