@@ -45,7 +45,6 @@ export class AddMotivePopupComponent implements OnInit {
   }
 
   post(){
-    //let body = new URLSearchParams();
     for (let i = 0; i < this.members.length; i++) {
       const req = new HttpParams()
       .set('motive', this.motive[i])
@@ -53,19 +52,8 @@ export class AddMotivePopupComponent implements OnInit {
       .set('type',0)
       .set('id_emp_req', 272) // FALTA PONER EL ID DEL QUE ESTA LOGGED IN
       .set('status', 1);
-      //body.set('motive', this.motive[i]);
-      //body.set('id_emp_mod', 271);
-      /*var req = {
-        //motive: this.motive[i],
-        //id_emp_mod: this.members[i].id,
-        id_emp_mod: 271,
-        type: 0,
-        id_emp_req:272, 
-        status:1
-      }*/
       console.log(req);
       this.http.post(`http://localhost:8080/api/requestAdd`,req)
-    //.subscribe(data => {this.resultadoPeticion = data;});
     .subscribe();
     }
     this.dialogRef.close();
