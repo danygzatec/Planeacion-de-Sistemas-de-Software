@@ -9,4 +9,5 @@ export interface Request {
     status : number,
     requestedBy? : Employee,
     employeeModified? : Employee,
+    title? : string
 }

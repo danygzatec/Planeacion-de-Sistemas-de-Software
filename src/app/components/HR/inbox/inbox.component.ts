@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { findIndex } from 'lodash';
 import { Employee } from 'src/app/models/employee';
-import { Request } from 'src/app/models/request'
-import ExcelData from 'src/excel-dummy.json';
+import { Request } from 'src/app/models/request';
+import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
   selector: 'app-inbox',
@@ -11,63 +12,70 @@ import ExcelData from 'src/excel-dummy.json';
 export class InboxComponent implements OnInit {
   public request: Request[];
   public employee: Employee[];
+  lastRequestLength: number = 0;
 
   searchText: any;
 
-  constructor() {
-    this.request = ExcelData.request;
-    this.employee = ExcelData.employee;
-   }
-
-   async initializaObjects() {
-     this.request = ExcelData.request;
-     this.employee = ExcelData.employee;
-     this.createObjects();
-   }
-
-  async ngOnInit(): Promise<void> {
-    await this.initializaObjects();
+  constructor(public sql: SqlService) {
+    this.employee = [];
+    this.request = [];
   }
 
-  getRequest() {
-    return this.request;
+  ngOnInit(): void {
+
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employee = resp;
+    })
+
+    this.sql.getRequests().subscribe((resp) => {
+      this.request = resp;
+      this.lastRequestLength = resp.length;
+    })
+
+    this.createObjects();
+
+    setTimeout(() => { this.ngOnInit() }, 1000 * 5);
+
   }
 
   createObjects() {
     this.request.forEach(req => {
+
+      var currString: string = "";
+
       var requested = this.employee.find(emp => req.id_emp_req === emp.id);
       var modified = this.employee.find(emp => req.id_emp_mod === emp.id);
 
       req.requestedBy = requested;
-      req.employeeModified = modified;
-    })
+      req.employeeModified = modified
+
+      if (req.title! === undefined) {
+        currString += requested!.employee_name;
+        currString += " wants to ";
+        if (req.type == 0) {
+          currString += "add ";
+        } else if (req.type == 1) {
+          currString += "remove ";
+        }
+
+        currString += modified!.employee_name;
+
+        req.title = currString;
+        console.log("dentro ", req.title);
+      }
+
+      console.log("fuera ", req.title);
+
+    });
+
   }
 
-  getTitle(requestID : number) : string {
-
-    var currString : string = "";
-
-    var r = this.request.find(req => req.id === requestID);
-    var e = this.employee.find(emp => emp.id === r!.id_emp_req);
-    currString += e!.employee_name;
-    currString += " wants to ";
-    if(r!.type == 0){
-      currString += " add ";
-    } else if(r!.type == 1){
-      currString += " remove ";
-    }
-
-    e = this.employee.find(emp => emp.id == r!.id_emp_mod);
-
-    currString += e!.employee_name;
-    //console.log(currString);
-    //console.log("hola");
-
-    return currString;
-      
+  getTitle(reqID: number) {
+    var r = this.request.find(req => req.id === reqID);
+    return r!.title;
   }
 
-  countRequests(): number{
+  countRequests(): number {
     return this.request.length;
   }
 }
