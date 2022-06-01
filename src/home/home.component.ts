@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit{
 
   async ngOnInit(): Promise<void> {
       this.employees = ExcelData.employee;
-      await this.rerouteHR();
+      this.rerouteHR();
   }
 
   isLoggedIn() : boolean{
