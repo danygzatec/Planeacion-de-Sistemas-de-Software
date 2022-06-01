@@ -12,7 +12,7 @@
             "is_assigned" : true,
             "email" : "a00827008@tec.mx",
             "employee_name" : "Melissa Martínez Mendoza",
-            "is_HR" : false
+            "is_HR" : true
         },
         {
             "id" : 3,

@@ -48,12 +48,14 @@ export class AddMotivePopupComponent implements OnInit {
   post() {
     //let body = new URLSearchParams();
     for (let i = 0; i < this.members.length; i++) {
+      var createTitle = "";
       const req = new HttpParams()
         .set('motive', this.motive[i])
         .set('id_emp_mod', this.members[i].id)
         .set('type', 0)
         .set('id_emp_req', 272) // FALTA PONER EL ID DEL QUE ESTA LOGGED IN
-        .set('status', 1);
+        .set('status', 1)
+        .set('title', "EMPLEADO QUE HIZO REQUEST wants to add " + this.members[i].employee_name);
       //body.set('motive', this.motive[i]);
       //body.set('id_emp_mod', 271);
       /*var req = {

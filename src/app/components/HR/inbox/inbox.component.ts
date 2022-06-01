@@ -32,7 +32,7 @@ export class InboxComponent implements OnInit {
       this.lastRequestLength = resp.length;
     })
 
-    this.createObjects();
+    //this.createObjects();
 
     setTimeout(() => { this.ngOnInit() }, 1000 * 5);
 
