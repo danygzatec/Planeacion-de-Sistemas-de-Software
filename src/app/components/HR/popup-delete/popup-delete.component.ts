@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from  '@angular/material/dialog';
-
+import { HttpClient, HttpParams } from '@angular/common/http'
+import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
   selector: 'app-popup-delete',
@@ -12,10 +13,12 @@ export class PopupDeleteComponent implements OnInit {
 
   public member;
   public employee;
+  public idEmpTeam;
 
-  constructor(private dialogRef:  MatDialogRef<PopupDeleteComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private sql: SqlService, private dialogRef:  MatDialogRef<PopupDeleteComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.member = data.m;
     this.employee = data.e;
+    this.idEmpTeam = data.idET;
   }
 
    
@@ -24,6 +27,16 @@ export class PopupDeleteComponent implements OnInit {
 
   closeMe() {
     this.dialogRef.close();
-}
+  }
+
+  removeHR() {
+    console.log(this.idEmpTeam.id);
+      const req = new HttpParams()
+        .set('id', this.idEmpTeam.id)
+      //console.log(req);
+      this.sql.postRemoveHR(req);
+      this.dialogRef.close();
+    
+  }
 
 }

@@ -149,7 +149,7 @@ export class EquipoIndividualComponent implements OnInit {
   getMembers() {
     var members : any = [];
     this.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id) {
+      if (element.id_team == this.team!.id && element.status_member != 4) {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
@@ -171,7 +171,7 @@ export class EquipoIndividualComponent implements OnInit {
 
     var members : any = [];
     this.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id) {
+      if (element.id_team == this.team!.id && element.status_member != 4) {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
@@ -223,11 +223,12 @@ export class EquipoIndividualComponent implements OnInit {
 
   }
 
-  openDialog(member: any, employee: any){
+  openDialog(member: any, employee: any, idEmployeeTeam: any){
     this.dialogRef.open(PopupDeleteComponent,{
       data : {
         m : member,
-        e: employee
+        e: employee,
+        idET: idEmployeeTeam
       }
     });
   }

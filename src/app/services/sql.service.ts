@@ -129,5 +129,16 @@ export class SqlService {
     })
   }
 
+  postRemoveHR(params : HttpParams) {
+    console.log("sending remove to backend server");
+
+    this.http.post<any>(`${this._fullPath}/removeHR`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("remove sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
 
 }
