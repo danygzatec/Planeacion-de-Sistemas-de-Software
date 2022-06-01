@@ -121,7 +121,7 @@ export class SqlService {
   postReq(params : HttpParams) {
     console.log("sending requests to backend server");
 
-    this.http.post<any>(`{this._fullPath}/requestAdd`, params).subscribe((resp) => {
+    this.http.post<any>(`${this._fullPath}/requestAdd`, params).subscribe((resp) => {
       console.log(resp);
       console.log("requests sent to backend successfully!");
     }, (error) => {
