@@ -3,8 +3,7 @@ import { AppComponent } from 'src/app/app.component';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { Project } from 'src/app/models/project';
-import ExcelData from 'src/excel-dummy.json'
-import { ChartData, ChartType } from 'chart.js';
+import { Chart, ChartData, ChartType } from 'chart.js';
 import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
@@ -18,6 +17,8 @@ export class MyprojectsComponent implements OnInit {
   empProject: EmployeeProject[];
   billableHours: number[];
   nonBillableHours: number[];
+  userProjects : Project[];
+  hasData : boolean;
 
   searchText: any;
 
@@ -46,10 +47,11 @@ export class MyprojectsComponent implements OnInit {
     this.projects = [];
     this.employee = [];
     this.empProject = [];
+    this.userProjects = [];
 
-    // tenemos que hacer esto para que los doughnut charts muestren datos
-    this.billableHours = this.getBillableHours();
-    this.nonBillableHours = this.getNonBillableHours();
+    this.billableHours = [];
+    this.nonBillableHours = [];
+    this.hasData = false;
 
   }
 
@@ -58,6 +60,9 @@ export class MyprojectsComponent implements OnInit {
     this.getEmpProjAPI();
     this.getProjectsAPI();
     this.createObjects();
+
+    this.billableHours = this.getBillableHours();
+    this.nonBillableHours = this.getNonBillableHours();
   }
 
   getEmployeeAPI() {
@@ -96,27 +101,57 @@ export class MyprojectsComponent implements OnInit {
   }
 
   getProjects() {
-    var userProjects: Project[] = [];
+
+    this.userProjects = [];
 
     // buscamos al empleado que está signed in
     var e = this.employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
-    console.log("projects ", e);
 
     // buscamos los proyectos en los que trabajó y que completó las horas
     this.empProject.forEach(element => {
       if (element.did_complete && element.id_employee === e!.id) {
         var id = element.id_project;
         var proj = this.projects.find(pjct => pjct.id === id);
-        userProjects.push(proj!);
-        console.log(proj);
+        this.userProjects.push(proj!);
 
         // asignar las labels a los doughnut charts
-        this.doughnutChartDataB.labels!.push(proj!.project_name);
-        this.doughnutChartDataNB.labels!.push(proj!.project_name);
+        //this.doughnutChartDataB.labels!.push(proj!.project_name);
+        //this.doughnutChartDataNB.labels!.push(proj!.project_name);
       }
     })
 
-    return userProjects;
+    return this.userProjects;
+  }
+
+  refreshHours() {
+    this.billableHours = this.getBillableHours();
+    this.nonBillableHours = this.getNonBillableHours();
+
+    this.doughnutChartDataB.datasets[0].data = [];
+    this.doughnutChartDataNB.datasets[0].data = [];
+    this.doughnutChartDataB.labels = [];
+    this.doughnutChartDataNB.labels = [];
+
+    this.billableHours.forEach(h => {
+      this.doughnutChartDataB.datasets[0].data.push(h);
+    });
+
+    this.nonBillableHours.forEach(h => {
+      this.doughnutChartDataNB.datasets[0].data.push(h);
+    })
+
+    this.userProjects.forEach(p => {
+      this.doughnutChartDataB.labels!.push(p.project_name);
+      this.doughnutChartDataNB.labels!.push(p.project_name);
+    }) 
+
+    console.log(this.doughnutChartDataB.datasets[0].data);
+    console.log(this.doughnutChartDataB.labels)
+    console.log(this.doughnutChartDataNB.datasets[0].data);
+    console.log(this.doughnutChartDataNB.labels)
+
+    this.hasData = true;
+
   }
 
   getBillableHours() {
@@ -125,15 +160,13 @@ export class MyprojectsComponent implements OnInit {
 
     // encontramos el empleado que está signed in
     var e = this.employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
-    console.log(e);
 
     // buscamos los proyectos en los que trabajó
     this.empProject.forEach(element => {
       if (element.id_employee === e!.id) {
         billHrs.push(element.billHrs);
-        console.log(element.billHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
-        this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
+        //this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
       }
     })
 
@@ -147,14 +180,13 @@ export class MyprojectsComponent implements OnInit {
 
     // encontramos el empleado que está signed in
     var e = this.employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
-    console.log(this.accountInfo.getEmailAccount());
 
     // buscamos los proyectos en los que trabajó
     this.empProject.forEach(element => {
       if (element.id_employee === e!.id) {
-        nonbillHrs.push(element.nonbillHrs);
+        nonbillHrs.push(element.nonBillHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
-        this.doughnutChartDataNB.datasets[0].data.push(element.nonbillHrs);
+        //this.doughnutChartDataNB.datasets[0].data.push(element.nonBillHrs);
       }
     })
 

@@ -8,7 +8,7 @@ export interface EmployeeProject {
     id_employee : number,
     id_project : number,
     billHrs : number,
-    nonbillHrs : number,
+    nonBillHrs : number,
     employee? : Employee,
     project?  : Project[],
 }
