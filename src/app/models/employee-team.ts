@@ -10,4 +10,5 @@ export interface EmployeeTeam {
     employee? : Employee,
     team? : Team,
     role_member_string? : string;
+    status_member_string? : string;
 }

@@ -115,6 +115,22 @@ export class MyteamComponent implements OnInit {
           element.role_member_string = "team"
         }
 
+        if (element.status_member == 0){
+          element.status_member_string = "";
+        } else if (element.status_member == 1){
+          element.status_member_string = "waiting approval to add...";
+        } else if (element.status_member == 2){
+          element.status_member_string = "waiting approval to remove...";
+        } else if (element.status_member == 3){
+          element.status_member_string = "added by HR";
+        } else if (element.status_member == 4){
+          element.status_member_string = "removed by HR";
+        } else if (element.status_member == 5){
+          element.status_member_string = "addition declined by HR";
+        } else if (element.status_member == 6){
+          element.status_member_string = "removal declined by HR";
+        }
+
         members.push(element);
       }
     });

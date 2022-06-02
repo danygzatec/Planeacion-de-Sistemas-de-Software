@@ -130,7 +130,12 @@ table tr:nth-child(even){
 }
 
 .role-spaced-out {
-    padding-right: 48em;
+    padding-right: 40em;
+    color: #282C3899;
+}
+
+.status-spaced-out {
+    padding-right: 4em;
     color: #282C3899;
 }
 
