@@ -115,6 +115,8 @@ export class MyteamComponent implements OnInit {
           element.role_member_string = "team"
         }
 
+        console.log(element.status_member);
+
         if (element.status_member == 0){
           element.status_member_string = "";
         } else if (element.status_member == 1){

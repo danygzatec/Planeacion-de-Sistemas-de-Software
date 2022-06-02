@@ -62,12 +62,26 @@ table tr:nth-child(even){
     border-radius: 0.313em;
 }
 
-.approve {
+.table-container {
+    margin-bottom: 1%;
+}
+
+.approve-container {
     position: absolute;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.approve {
     width: 22.188em;
     height: 2.438em;
-    left: 33.875em;
-    bottom: 2.5em;
+    /* left: 33.875em;
+    bottom: 2.5em; */
+
+    position: relative;
+    margin-left: 36%;
+    margin-top: 1%;
 
     background: #8DD2EF;
     border-radius: 0.625em;

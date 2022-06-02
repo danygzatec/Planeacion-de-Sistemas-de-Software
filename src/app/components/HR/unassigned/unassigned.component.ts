@@ -23,29 +23,12 @@ export class UnassignedComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.sql.getEmployees().subscribe((resp) => {
+    this.sql.getUnassigned().subscribe((resp) => {
       this.employees = resp;
+
     })
 
     //setTimeout(() => { this.ngOnInit() }, 1000 * 3);
-  }
-
-  getEmp() {
-    this.sql.getEmployees().subscribe((resp) => {
-      this.employees = resp;
-    })
-  }
-
-  getUnassigned() {
-    var unassignedEmp : any[] = [];
-
-    this.employees.forEach(emp => {
-      if (!emp.is_assigned) {
-        unassignedEmp.push(emp);
-      }
-    })
-
-    return unassignedEmp;
   }
 
   fireEvent(e : any) {
