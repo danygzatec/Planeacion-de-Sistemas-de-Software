@@ -20,23 +20,23 @@ import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.co
 
 export class MyteamComponent implements OnInit {
 
-  private employees : Employee[];
-  private empTeams : EmployeeTeam[];
-  private empProjects : EmployeeProject[];
-  private teams : Team[];
-  private team : any;
-  members : EmployeeTeam[];
-  membersEvaluators : EmployeeTeam[];
-  evaluators : boolean;
+  private employees: Employee[];
+  private empTeams: EmployeeTeam[];
+  private empProjects: EmployeeProject[];
+  private teams: Team[];
+  private team: any;
+  members: EmployeeTeam[];
+  membersEvaluators: EmployeeTeam[];
+  evaluators: boolean;
 
   searchText: any;
 
   constructor(
-    private accountInfo : AppComponent, 
-    private  dialogRef : MatDialog, 
+    private accountInfo: AppComponent,
+    private dialogRef: MatDialog,
     private navbarInfo: NavbarEmployeeComponent,
-    private sql : SqlService
-    ) { 
+    private sql: SqlService
+  ) {
     this.employees = [];
     this.empTeams = [];
     this.empProjects = [];
@@ -50,22 +50,11 @@ export class MyteamComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmps();
-    //this.getEmpTeams();
-    //this.getTeam();
-    //this.getEmpPro();
 
     this.evaluators = false;
 
     this.createObjects();
   }
-
-  //searchText:string = '';
-  
-  // onSearchTextEntered(searchValue: string){
-  //   this.searchText = searchValue;
-  //   console.log(this.searchText);
-
-  // }
 
   getEmps() {
     this.sql.getEmployees().subscribe((resp) => {
@@ -74,18 +63,16 @@ export class MyteamComponent implements OnInit {
     });
   }
 
-  getEmpTeams(t : Team) {
+  getEmpTeams(t: Team) {
     this.sql.getEmployeeTeams().subscribe((resp) => {
       this.empTeams = resp;
-      
+
       this.getMembers(t, this.empTeams);
     })
   }
 
-  getTeam(employees : Employee[]) {
+  getTeam(employees: Employee[]) {
     var t;
-
-    // this.getEmps();
 
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
@@ -95,18 +82,10 @@ export class MyteamComponent implements OnInit {
       if (t !== undefined) {
         this.team = t;
         this.getEmpTeams(this.team);
-        //this.getMembers(t);
       }
     })
 
   }
-
-  // getEmpPro() {
-  //   this.sql.getEmployeeProjects().subscribe((resp) => {
-  //     this.empProjects = resp;
-  //   })
-  // }
-
 
   createObjects() {
 
@@ -120,16 +99,14 @@ export class MyteamComponent implements OnInit {
     });
   }
 
-  getMembers(team : Team, empTeams : EmployeeTeam[]) {
-    var members : any = [];
-
-    //this.getTeam();
+  getMembers(team: Team, empTeams: EmployeeTeam[]) {
+    var members: any = [];
 
     empTeams.forEach(empT => {
       var element = empT;
       if (element.id_team === team.id) {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
-        
+
         if (element.role_member === 0) {
           element.role_member_string = "leader";
         } else if (element.role_member === 1) {
@@ -141,7 +118,7 @@ export class MyteamComponent implements OnInit {
         members.push(element);
       }
     });
-    
+
     this.members = members;
     console.log(this.members);
   }
@@ -162,13 +139,13 @@ export class MyteamComponent implements OnInit {
     return this.accountInfo.getNameAccount();
   }
 
-  getUnassignedEmployeesInProjects() : any {
+  getUnassignedEmployeesInProjects(): any {
     //en esta funcion quiero obtener todos los miembros que no cumplieron las horas
     //en los proyectos del empleado en cuestion.
-    var members : any[] = [];
+    var members: any[] = [];
 
     // lista de id_project en los que trabajó el usuaro en cuestion
-    var projectList : any[] = [];
+    var projectList: any[] = [];
 
     this.empProjects.forEach(element => {
       if (element.id_employee == this.getEmp()!.id) {
@@ -178,48 +155,43 @@ export class MyteamComponent implements OnInit {
 
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
-      //console.log("fuera del if");
+
       if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
-        //console.log("dentro del if");
         members.push(element.employee);
-        //console.log(element.employee?.employee_name);
+
       }
     })
-
-    //console.log(members);
 
     return members;
 
   }
 
-  openDialog(member: any, employee: any){
-    this.dialogRef.open(PopupDeleteEmpComponent,{
-      data : {
-        m : member,
+  openDialog(member: any, employee: any) {
+    this.dialogRef.open(PopupDeleteEmpComponent, {
+      data: {
+        m: member,
         e: employee
       }
     });
-    //console.log("Hola estoy en open Dialog!");
   }
 
-  openDialogAdd(members: any){
+  openDialogAdd(members: any) {
     this.dialogRef.open(AddButtonEmpComponent, {
-      data : {
-        m : members
+      data: {
+        m: members
       }
     });
   }
 
-  approve(){
-    //console.log("cleanNavbar()")
+  approve() {
     this.navbarInfo.cleanNavbar();
     this.navbarInfo.navigate('');
-    
+
     this.team.approved_Emp = true;
   }
 
-  getApprovedEmp(){
-    //console.log(this.team.approved_Emp);
+  getApprovedEmp() {
+
     if (this.team === undefined) {
       return false;
     }
