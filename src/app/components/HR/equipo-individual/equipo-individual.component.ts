@@ -12,7 +12,7 @@ import { AddButtonComponent } from '../add-button/add-button.component';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { Project } from 'src/app/models/project';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { SqlService } from 'src/app/services/sql.service';
 
 @Component({
@@ -247,8 +247,12 @@ export class EquipoIndividualComponent implements OnInit {
   }
 
   approve(){
-    this.team!.approved_HR = true;
-    console.log(this.team!.approved_HR);
+    //this.team!.approved_HR = true;
+    //console.log(this.team!.approved_HR);
+    //console.log(this.team!.id);
+    const req = new HttpParams()
+        .set('id', this.team!.id)
+    this.sql.postApproveHR(req);
   }
 
   getApprovedHR(){
