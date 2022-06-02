@@ -79,9 +79,6 @@ export class MyteamComponent implements OnInit {
       this.empTeams = resp;
       
       this.getMembers(t, this.empTeams);
-      console.log("despues de get members");
-      this.getEvaluatorRoles(t, resp);
-      console.log("despues de evaluator roles");
     })
   }
 
@@ -147,32 +144,6 @@ export class MyteamComponent implements OnInit {
     
     this.members = members;
     console.log(this.members);
-  }
-
-  getEvaluatorRoles(team : Team, empTeams : EmployeeTeam[]) {
-
-    var members : any = [];
-
-    empTeams.forEach(empT => {
-      var element = empT;
-      if (element.id_team === team.id) {
-
-        element.employee = this.employees.find(emp => emp.id === element.id_employee);
-
-        if (element.role_member === 0) {
-          element.role_member_string = "team";
-        } else if (element.role_member === 1) {
-          element.role_member_string = "peer";
-        } else {
-          element.role_member_string = "leader";
-        }
-        
-        members.push(element);
-      }
-    });
-
-    this.membersEvaluators = members;
-    console.log(this.membersEvaluators);
   }
 
   setEvaluatorBool() {
