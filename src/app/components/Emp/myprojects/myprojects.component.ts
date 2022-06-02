@@ -68,6 +68,7 @@ export class MyprojectsComponent implements OnInit {
   getEmployeeAPI() {
     this.sql.getEmployees().subscribe((resp) => {
       this.employee = resp;
+      console.log(this.employee);
     })
   }
 

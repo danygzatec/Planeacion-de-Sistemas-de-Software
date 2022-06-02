@@ -34,7 +34,7 @@
 <div class="team-approval">
     <div class="table-container">
         <table class="table-style" *ngIf="getEvaluatorBool() == false" >
-            <tr *ngFor="let member of getMembers() | filter:searchText">
+            <tr *ngFor="let member of members | filter:searchText">
                 <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                 <td class="role-spaced-out">As {{ member.role_member_string}}</td>
                 <td>
@@ -43,9 +43,17 @@
             </tr>
         </table>
         <table class="table-style" *ngIf="getEvaluatorBool()">
-            <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
+            <tr *ngFor="let member of members | filter:searchText">
                 <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
+                <div *ngIf="member.role_member_string == 'team'">
+                    <td class="role-spaced-out"> As leader</td>
+                </div>
+                <div *ngIf="member.role_member_string == 'leader'">
+                    <td class="role-spaced-out"> As team</td>
+                </div>
+                <div *ngIf="member.role_member_string == 'peer'">
+                    <td class="role-spaced-out"> As peer</td>
+                </div>
                 <td>
                     <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>

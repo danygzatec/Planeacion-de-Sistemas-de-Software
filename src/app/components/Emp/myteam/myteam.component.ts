@@ -5,7 +5,7 @@ import { Employee } from 'src/app/models/employee';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { EmployeeTeam } from 'src/app/models/employee-team';
 import { Team } from 'src/app/models/team';
-import ExcelData from 'src/excel-dummy.json'
+import { SqlService } from 'src/app/services/sql.service';
 import { NavbarEmployeeComponent } from '../../shared/navbar-employee/navbar-employee.component';
 import { AddButtonEmpComponent } from '../add-button-emp/add-button-emp.component';
 import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.component';
@@ -20,35 +20,43 @@ import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.co
 
 export class MyteamComponent implements OnInit {
 
-  
-
   private employees : Employee[];
   private empTeams : EmployeeTeam[];
   private empProjects : EmployeeProject[];
   private teams : Team[];
   private team : any;
+  members : EmployeeTeam[];
+  membersEvaluators : EmployeeTeam[];
   evaluators : boolean;
 
   searchText: any;
 
-  constructor(private accountInfo : AppComponent, private  dialogRef : MatDialog, private navbarInfo: NavbarEmployeeComponent) { 
-    this.employees = ExcelData.employee;
-    this.empTeams = ExcelData.employee_team;
-    this.empProjects = ExcelData.employee_project;
+  constructor(
+    private accountInfo : AppComponent, 
+    private  dialogRef : MatDialog, 
+    private navbarInfo: NavbarEmployeeComponent,
+    private sql : SqlService
+    ) { 
+    this.employees = [];
+    this.empTeams = [];
+    this.empProjects = [];
+    this.teams = [];
+    this.members = [];
+    this.membersEvaluators = [];
 
-    this.teams = ExcelData.team;
     this.createObjects();
     this.evaluators = false;
   }
 
   ngOnInit(): void {
-    this.employees = ExcelData.employee;
-    this.empTeams = ExcelData.employee_team;
-    this.teams = ExcelData.team;
+    this.getEmps();
+    //this.getEmpTeams();
+    //this.getTeam();
+    //this.getEmpPro();
+
     this.evaluators = false;
-    this.empProjects = ExcelData.employee_project;
+
     this.createObjects();
-    this.getMembers();
   }
 
   //searchText:string = '';
@@ -57,6 +65,49 @@ export class MyteamComponent implements OnInit {
   //   this.searchText = searchValue;
   //   console.log(this.searchText);
 
+  // }
+
+  getEmps() {
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employees = resp;
+      this.getTeam(this.employees);
+    });
+  }
+
+  getEmpTeams(t : Team) {
+    this.sql.getEmployeeTeams().subscribe((resp) => {
+      this.empTeams = resp;
+      
+      this.getMembers(t, this.empTeams);
+      console.log("despues de get members");
+      this.getEvaluatorRoles(t, resp);
+      console.log("despues de evaluator roles");
+    })
+  }
+
+  getTeam(employees : Employee[]) {
+    var t;
+
+    // this.getEmps();
+
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+
+      var e = employees.find(emp => emp.email === this.accountInfo.getEmailAccount());
+      t = this.teams.find(te => te.id_employee === e!.id);
+      if (t !== undefined) {
+        this.team = t;
+        this.getEmpTeams(this.team);
+        //this.getMembers(t);
+      }
+    })
+
+  }
+
+  // getEmpPro() {
+  //   this.sql.getEmployeeProjects().subscribe((resp) => {
+  //     this.empProjects = resp;
+  //   })
   // }
 
 
@@ -72,13 +123,14 @@ export class MyteamComponent implements OnInit {
     });
   }
 
-  getMembers() {
+  getMembers(team : Team, empTeams : EmployeeTeam[]) {
     var members : any = [];
 
-    this.team = this.teams.find(element => element.employee!.employee_name === this.accountInfo.getNameAccount());
+    //this.getTeam();
 
-    this.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id_team) {
+    empTeams.forEach(empT => {
+      var element = empT;
+      if (element.id_team === team.id) {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
@@ -93,29 +145,34 @@ export class MyteamComponent implements OnInit {
       }
     });
     
-    return members;
+    this.members = members;
+    console.log(this.members);
   }
 
-  getEvaluatorRoles() {
+  getEvaluatorRoles(team : Team, empTeams : EmployeeTeam[]) {
 
     var members : any = [];
-    this.empTeams.forEach(element => {
-      if (element.id_team == this.team!.id_team) {
+
+    empTeams.forEach(empT => {
+      var element = empT;
+      if (element.id_team === team.id) {
+
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
-        
+
         if (element.role_member === 0) {
           element.role_member_string = "team";
         } else if (element.role_member === 1) {
           element.role_member_string = "peer";
         } else {
-          element.role_member_string = "leader"
+          element.role_member_string = "leader";
         }
-
+        
         members.push(element);
       }
     });
-    
-    return members;
+
+    this.membersEvaluators = members;
+    console.log(this.membersEvaluators);
   }
 
   setEvaluatorBool() {
@@ -127,7 +184,7 @@ export class MyteamComponent implements OnInit {
   }
 
   getEmp() {
-    return this.employees.find(element => element.employee_name === this.accountInfo.getNameAccount());
+    return this.employees.find(element => element.email === this.accountInfo.getEmailAccount());
   }
 
   getEmpName() {
@@ -192,6 +249,9 @@ export class MyteamComponent implements OnInit {
 
   getApprovedEmp(){
     //console.log(this.team.approved_Emp);
+    if (this.team === undefined) {
+      return false;
+    }
     return this.team.approved_Emp;
   }
 
