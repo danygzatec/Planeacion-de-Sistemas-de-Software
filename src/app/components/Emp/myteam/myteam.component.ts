@@ -182,11 +182,12 @@ export class MyteamComponent implements OnInit {
 
   }
 
-  openDialog(member: any, employee: any) {
+  openDialog(member: any, employee: any, id_employee_teams: any) {
     this.dialogRef.open(PopupDeleteEmpComponent, {
       data: {
         m: member,
-        e: employee
+        e: employee,
+        idET: id_employee_teams
       }
     });
   }
