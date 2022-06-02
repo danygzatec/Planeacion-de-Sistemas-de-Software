@@ -30,7 +30,7 @@
 <div class="table-container">
     <table class="table-style">
         <!-- <tr class="approved-by-small">approved by: </tr> -->
-        <tr class="employee-name-row" *ngFor="let unassigned of getUnassigned() | filter:searchText">
+        <tr class="employee-name-row" *ngFor="let unassigned of employees | filter:searchText">
             <td class="employee-name">{{ unassigned.employee_name }}</td>
             <td>
                 <a class="nav-link view-team" [routerLink]="['/unassigned-team',unassigned.id]" (click)="fireEvent($event)" >Add team</a>

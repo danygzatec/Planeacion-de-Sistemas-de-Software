@@ -151,5 +151,25 @@ export class SqlService {
     })
   }
 
+  getUnassigned() {
+    return this.http
+    .get<Employee[]>(`${this._fullPath}/getOrphanEmployees`)
+    .pipe(
+      map((resp) => {
+        return resp;
+      })
+    );
+  }
+
+  getUnassignedTeams() {
+    return this.http
+    .get<EmployeeTeam[]>(`${this._fullPath}/getOrphanTeams`)
+    .pipe(
+      map((resp) => {
+        return resp;
+      })
+    );
+  }
+
 
 }
