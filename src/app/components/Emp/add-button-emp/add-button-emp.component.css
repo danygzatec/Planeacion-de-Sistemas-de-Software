@@ -139,3 +139,11 @@ table {
     padding-left: 0.938em;
     padding-bottom: 0.625em;
 }
+
+.prompt2 {
+    padding-top: 5em;
+    vertical-align: center;
+    font-family: 'Roboto';
+    text-align: center;
+    padding-bottom: 1em;
+}

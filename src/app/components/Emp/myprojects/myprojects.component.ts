@@ -57,76 +57,73 @@ export class MyprojectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployeeAPI();
-    this.getEmpProjAPI();
-    this.getProjectsAPI();
-    this.createObjects();
-
-    this.billableHours = this.getBillableHours();
-    this.nonBillableHours = this.getNonBillableHours();
   }
 
   getEmployeeAPI() {
     this.sql.getEmployees().subscribe((resp) => {
       this.employee = resp;
       console.log(this.employee);
+      this.getProjectsAPI(this.employee)
     })
   }
 
-  getProjectsAPI() {
+  getProjectsAPI(employee : Employee[]) {
     this.sql.getProjects().subscribe((resp) => {
       this.projects = resp;
+      this.getEmpProjAPI(employee, this.projects);
     })
   }
 
-  getEmpProjAPI() {
+  getEmpProjAPI(employee : Employee[], projects : Project[]) {
     this.sql.getEmployeeProjects().subscribe((resp) => {
       this.empProject = resp;
+
+      this.createObjects(employee, projects, this.empProject);
     })
   }
 
   /* 
   En esta función creamos los objetos que están dentro de cada arreglo de Interfaces
   */
-  createObjects() {
+  createObjects(employee : Employee[], projects : Project[], empProject : EmployeeProject[]) {
 
-    this.getEmployeeAPI();
-    this.getEmpProjAPI();
-    this.getProjectsAPI();
-
-    this.empProject.forEach(ep => {
+    empProject.forEach(ep => {
       ep.project = [];
-      var p = this.projects.find(pjct => pjct.id === ep.id_project);
+      var p = projects.find(pjct => pjct.id === ep.id_project);
       ep.project.push(p!);
-      ep.employee = this.employee.find(emp => emp.id === ep.id_employee);
+      ep.employee = employee.find(emp => emp.id === ep.id_employee);
     });
+
+    this.getProjects(employee, projects, empProject);
   }
 
-  getProjects() {
+  getProjects(employee : Employee[], projects : Project[], empProject : EmployeeProject[]) {
 
     this.userProjects = [];
 
     // buscamos al empleado que está signed in
-    var e = this.employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
+    var e = employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
+    console.log("EMPLOYEE " , e);
 
     // buscamos los proyectos en los que trabajó y que completó las horas
-    this.empProject.forEach(element => {
+    empProject.forEach(element => {
       if (element.did_complete && element.id_employee === e!.id) {
         var id = element.id_project;
-        var proj = this.projects.find(pjct => pjct.id === id);
+        var proj = projects.find(pjct => pjct.id === id);
         this.userProjects.push(proj!);
 
         // asignar las labels a los doughnut charts
-        //this.doughnutChartDataB.labels!.push(proj!.project_name);
-        //this.doughnutChartDataNB.labels!.push(proj!.project_name);
+        this.doughnutChartDataB.labels!.push(proj!.project_name);
+        this.doughnutChartDataNB.labels!.push(proj!.project_name);
       }
     })
 
-    return this.userProjects;
+    this.getBillableHours(employee, empProject);
+    this.getNonBillableHours(employee, empProject);
+
   }
 
   refreshHours() {
-    this.billableHours = this.getBillableHours();
-    this.nonBillableHours = this.getNonBillableHours();
 
     this.doughnutChartDataB.datasets[0].data = [];
     this.doughnutChartDataNB.datasets[0].data = [];
@@ -155,43 +152,43 @@ export class MyprojectsComponent implements OnInit {
 
   }
 
-  getBillableHours() {
+  getBillableHours(employee : Employee[], empProject : EmployeeProject[]) {
 
     var billHrs: number[] = [];
 
     // encontramos el empleado que está signed in
-    var e = this.employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
+    var e = employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
 
     // buscamos los proyectos en los que trabajó
-    this.empProject.forEach(element => {
+    empProject.forEach(element => {
       if (element.id_employee === e!.id) {
         billHrs.push(element.billHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
-        //this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
+        this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
       }
     })
 
-    return billHrs;
+    this.billableHours = billHrs;
 
   }
 
-  getNonBillableHours() {
+  getNonBillableHours(employee : Employee[], empProject : EmployeeProject[]) {
 
     var nonbillHrs: any[] = [];
 
     // encontramos el empleado que está signed in
-    var e = this.employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
+    var e = employee.find(emp => emp.email === this.accountInfo.msalService.instance.getActiveAccount()!.username);
 
     // buscamos los proyectos en los que trabajó
-    this.empProject.forEach(element => {
+    empProject.forEach(element => {
       if (element.id_employee === e!.id) {
         nonbillHrs.push(element.nonBillHrs);
         // asignamos valores en el dataset correspondiente de nuestro chart
-        //this.doughnutChartDataNB.datasets[0].data.push(element.nonBillHrs);
+        this.doughnutChartDataNB.datasets[0].data.push(element.nonBillHrs);
       }
     })
 
-    return nonbillHrs;
+    this.nonBillableHours = nonbillHrs;
 
   }
 

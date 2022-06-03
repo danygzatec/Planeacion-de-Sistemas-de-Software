@@ -36,6 +36,10 @@ export class AddButtonEmpComponent implements OnInit {
 
   }
 
+  hasMembers() {
+    return this.members.length > 0;
+  }
+
   getCheckedMembers() {
     var checkedMembers: Employee[] = [];
 
