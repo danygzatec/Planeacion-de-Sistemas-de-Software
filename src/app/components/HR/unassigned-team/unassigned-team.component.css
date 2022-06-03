@@ -40,7 +40,7 @@ table tr:nth-child(even){
 
 .name-spaced-out {
     padding-left: 0.938em;
-    padding-right: 75.625em;
+    padding-right: 74em;
     line-height: 1.875em;
 }
 
@@ -71,6 +71,14 @@ table tr:nth-child(even){
     align-content: center;
     display: flex;
     justify-content: center;
+}
+
+.trashcan {
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 0.938em;
+    background: transparent;
+    border-color: transparent;
 }
 
 .approve {
