@@ -118,14 +118,14 @@ table tr:nth-child(even){
     padding-top: 1%;
     padding-bottom: max-content;
     background-color: #282C38;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
     margin-top: 1%;
 }
 
 .name-spaced-out {
     padding-left: 0.938em;
-    padding-right: 18.75em;
+    padding-right: 8.75em;
     line-height: 1.875em;
 }
 
@@ -137,6 +137,7 @@ table tr:nth-child(even){
 .status-spaced-out {
     padding-right: 4em;
     color: #282C3899;
+    align-self: right;
 }
 
 .grey-page {
@@ -207,6 +208,8 @@ table tr:nth-child(even){
 
 .table-container {
     margin-bottom: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .approve-container {
