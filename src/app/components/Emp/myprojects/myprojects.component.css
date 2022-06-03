@@ -67,7 +67,7 @@ table{
     justify-content: right;
     display: flex;
     vertical-align: right;
-    /* padding-right: 0.625em; */
+    padding-right: 0.625em;
     padding-top: 0.203em;
 }
 
