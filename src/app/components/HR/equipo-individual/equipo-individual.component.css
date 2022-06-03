@@ -112,7 +112,7 @@ table tr:nth-child(even){
 
 .name-spaced-out {
     padding-left: 0.938em;
-    padding-right: 18.75em;
+    padding-right: 12.75em;
     line-height: 1.875em;
 }
 
@@ -188,6 +188,8 @@ table tr:nth-child(even){
 
 .table-container {
     margin-bottom: 1%;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
 .approve-container {
