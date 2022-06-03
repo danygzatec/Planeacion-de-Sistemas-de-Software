@@ -14,11 +14,11 @@
         <!-- <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()"> -->
         <table class="mensaje font table-style">
             <tr *ngFor="let r of request | filter:searchText">
-                <th class= "pos">
+                <th class= "pos" *ngIf="r.status==1 || r.status==2 ">
                     <div class="texto"><img *ngIf= "r.type" src= "../assets/remove.png"><img *ngIf= "!r.type" src= "../assets/add.png"> {{r.title}} </div>
-                    <button class="botonInboxApprove">Approve</button>
+                    <button class="botonInboxApprove" >Approve</button>
                     <div class="textoMotivo">{{r.motive}}</div>
-                    <button class="botonInboxDecline">Decline</button>
+                    <button class="botonInboxDecline" (click)="declineRequest(r)">Decline</button>
                 </th>
             </tr>
         </table>
