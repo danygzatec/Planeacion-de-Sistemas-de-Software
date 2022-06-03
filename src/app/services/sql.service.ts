@@ -161,7 +161,7 @@ export class SqlService {
       console.log(error);
     })
   }
-  
+
   getUnassigned() {
     return this.http
     .get<Employee[]>(`${this._fullPath}/getOrphanEmployees`)
@@ -180,6 +180,17 @@ export class SqlService {
         return resp;
       })
     );
+  }
+
+  postDeclineRequest(params : HttpParams) {
+    //console.log("sending request to decline request to backend server");
+
+    this.http.post<any>(`${this._fullPath}/declineRequest`, params).subscribe((resp) => {
+      console.log(resp);
+      //console.log("requests sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
   }
 
 

@@ -1,25 +1,34 @@
 <div class="pop">
     <div class="up">
-        <h4 class="prompt">Please select the employees you want to add to the team.</h4>
-        <div class="center-table">
-            <table class="table-style">
-                <tr *ngFor="let m of members">
-                    <input type="checkbox" class="spacing-checkbox check-with-label" (change)="checkMembers(m)">
-                    <label for="" class="spacing-name label-for-check">
-                        {{m.employee_name}}
-                    </label>
-                </tr>
-            </table>
+        <div *ngIf="hasMembers()">
+            <h4 class="prompt">Please select the employees you want to add to the team.</h4>
+            <div class="center-table">
+                <table class="table-style">
+                    <tr *ngFor="let m of members">
+                        <input type="checkbox" class="spacing-checkbox check-with-label" (change)="checkMembers(m)">
+                        <label for="" class="spacing-name label-for-check">
+                            {{m.employee_name}}
+                        </label>
+                    </tr>
+                </table>
+            </div>
+            <h5 class="prompt">You are about to add:</h5>
+            <div class="span-container">
+                <span *ngFor="let c of getCheckedMembers()">
+                    {{c.employee_name}},
+                </span>
+            </div>
+
+            <button class="btn btn-primary add font" (click)="goToMotivePopUp(getCheckedMembers())">
+                Next
+            </button>
         </div>
-        <h5 class="prompt">You are about to add:</h5>
-        <div class="span-container">
-        <span *ngFor="let c of getCheckedMembers()">
-            {{c.employee_name}},
-        </span>
+        <div *ngIf="!hasMembers()">
+            <h4 class="prompt2">There are no members you can add to the team.</h4>
+            <button class="btn btn-primary add font" (click)="closeMe()">
+                Back
+            </button>
         </div>
-        
-        <button class="btn btn-primary add font" (click)="goToMotivePopUp(getCheckedMembers())">
-            Next
-        </button>
+
     </div>
 </div>

@@ -28,6 +28,7 @@ export class MyteamComponent implements OnInit {
   members: EmployeeTeam[];
   membersEvaluators: EmployeeTeam[];
   evaluators: boolean;
+  unassigned: Employee[];
 
   //employee: any;
 
@@ -45,8 +46,8 @@ export class MyteamComponent implements OnInit {
     this.teams = [];
     this.members = [];
     this.membersEvaluators = [];
+    this.unassigned = [];
 
-    this.createObjects();
     this.evaluators = false;
   }
 
@@ -56,6 +57,10 @@ export class MyteamComponent implements OnInit {
     this.evaluators = false;
 
     this.createObjects();
+
+    this.getUnassigned();
+
+    this.getEmpProjects();
 
   }
 
@@ -90,6 +95,12 @@ export class MyteamComponent implements OnInit {
 
   }
 
+  getUnassigned() {
+    this.sql.getUnassigned().subscribe((resp) => {
+      this.unassigned = resp;
+    })
+  }
+
   createObjects() {
 
     this.empProjects.forEach(element => {
@@ -120,21 +131,19 @@ export class MyteamComponent implements OnInit {
           element.role_member_string = "team"
         }
 
-        console.log(element.status_member);
-
-        if (element.status_member == 0){
+        if (element.status_member == 0) {
           element.status_member_string = "";
-        } else if (element.status_member == 1){
+        } else if (element.status_member == 1) {
           element.status_member_string = "waiting approval to add...";
-        } else if (element.status_member == 2){
+        } else if (element.status_member == 2) {
           element.status_member_string = "waiting approval to remove...";
-        } else if (element.status_member == 3){
+        } else if (element.status_member == 3) {
           element.status_member_string = "added by HR";
-        } else if (element.status_member == 4){
+        } else if (element.status_member == 4) {
           element.status_member_string = "removed by HR";
-        } else if (element.status_member == 5){
+        } else if (element.status_member == 5) {
           element.status_member_string = "addition declined by HR";
-        } else if (element.status_member == 6){
+        } else if (element.status_member == 6) {
           element.status_member_string = "removal declined by HR";
         }
 
@@ -143,7 +152,12 @@ export class MyteamComponent implements OnInit {
     });
 
     this.members = members;
-    console.log(this.members);
+  }
+
+  getEmpProjects() {
+    this.sql.getEmployeeProjects().subscribe((resp) => {
+      this.empProjects = resp;
+    })
   }
 
   setEvaluatorBool() {
@@ -165,11 +179,13 @@ export class MyteamComponent implements OnInit {
   getUnassignedEmployeesInProjects(): any {
     //en esta funcion quiero obtener todos los miembros que no cumplieron las horas
     //en los proyectos del empleado en cuestion.
+
     var members: any[] = [];
 
     // lista de id_project en los que trabajó el usuaro en cuestion
     var projectList: any[] = [];
 
+    // buscamos los proyectos en los que trabajo el usuario y los agregamos a la lista
     this.empProjects.forEach(element => {
       if (element.id_employee == this.getEmp()!.id) {
         projectList.push(element.id_project);
@@ -178,12 +194,29 @@ export class MyteamComponent implements OnInit {
 
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
+      console.log("did complete: ", element.did_complete);
 
-      if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
-        members.push(element.employee);
+      // si el emp no completó horas y trabajó en al menos 1 mismo proyecto que current user
+      if (element.did_complete === false && projectList.indexOf(element.id_project) > -1) {
+        // console.log("dentro del if");
 
+        // buscamos el objeto employee para agregarseo a members
+        var e = this.employees.find(emp => emp.id === element.id_employee);
+
+        // si en la busqueda de empleados normales sale undefined, buscamos en los huerfanos
+        if (e === undefined) {
+          e = this.unassigned.find(emp => emp.id === element.id);
+        }
+
+        // el e no esta definido y si no es el empleado logged in
+        if (e !== undefined && e.id !== this.team.id_employee) {
+          members.push(e);
+          console.log(e);
+        }
       }
     })
+
+    console.log("members para agregar: ", members);
 
     return members;
 

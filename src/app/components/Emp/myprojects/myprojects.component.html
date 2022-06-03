@@ -22,7 +22,7 @@
 <div class="project-container">
     <div class="table-container">
         <table>
-            <tr class="font" *ngFor=" let project of getProjects() | filter:searchText">
+            <tr class="font" *ngFor=" let project of userProjects | filter:searchText">
                 <td></td>
                 <td> {{ project.project_name }}</td>
             </tr>
