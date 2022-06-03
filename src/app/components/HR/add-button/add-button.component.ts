@@ -29,6 +29,10 @@ export class AddButtonComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  hasMembers() {
+    return this.members.length > 0;
+  }
+
   checkMembers(memb: Employee) {
     var index = this.members.findIndex(m => m.id === memb.id);
     this.isChecked[index] = !this.isChecked[index];
