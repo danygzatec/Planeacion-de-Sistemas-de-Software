@@ -17,7 +17,7 @@
     </div>
     <!--  ESTO VA ABAJO (click)="openDialogAdd(getUnassignedEmployeesInProjects())" -->
     <td>
-        <button *ngIf="!getApprovedEmp()" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button>
+        <button *ngIf="!getApprovedEmp()" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects(),getEmp(),myTeam.id)">Add +</button>
     </td>
     <div class="boton">
           <form class="d-flex">
@@ -36,7 +36,7 @@
         <!-- {{getEmp()!.employee_name}} -->
         <table class="table-style" *ngIf="getEvaluatorBool() == false" >
             <tr *ngFor="let member of members | filter:searchText">
-                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
+                <td class="name-spaced-out"> {{ member.employee.employee_name }} </td>
                 <td class="role-spaced-out">As {{ member.role_member_string}}</td>
                 <td *ngIf="member.status_member != 0" class="status-spaced-out align='right'">{{ member.status_member_string}}</td>
                 <td *ngIf="member.status_member == 0">

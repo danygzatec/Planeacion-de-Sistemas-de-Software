@@ -33,6 +33,7 @@ export class MyteamComponent implements OnInit {
   //employee: any;
 
   searchText: any;
+  myTeam: any;
 
   constructor(
     private accountInfo: AppComponent,
@@ -89,6 +90,7 @@ export class MyteamComponent implements OnInit {
       t = this.teams.find(te => te.id_employee === e!.id);
       if (t !== undefined) {
         this.team = t;
+        this.myTeam = this.team;
         this.getEmpTeams(this.team);
       }
     })
@@ -233,10 +235,12 @@ export class MyteamComponent implements OnInit {
     });
   }
 
-  openDialogAdd(members: any) {
+  openDialogAdd(members: any, employee: any, team: any) {
     this.dialogRef.open(AddButtonEmpComponent, {
       data: {
-        m: members
+        m: members,
+        e: employee,
+        t: team
       }
     });
   }

@@ -12,6 +12,8 @@ import { SqlService } from 'src/app/services/sql.service';
 export class AddMotivePopupComponent implements OnInit {
 
   public members: Employee[];
+  public employee: any;
+  public team: any;
 
   /*
   lo que queda por hacer es tener un array de motives, values, etc o refactor para que encaje mejor 
@@ -35,6 +37,8 @@ export class AddMotivePopupComponent implements OnInit {
   constructor(private sql: SqlService, private dialogRef: MatDialogRef<AddMotivePopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) {
     this.members = data.m;
+    this.employee = data.e;
+    this.team = data.t;
   }
 
   ngOnInit(): void {
@@ -46,31 +50,20 @@ export class AddMotivePopupComponent implements OnInit {
   }
 
   post() {
-    //let body = new URLSearchParams();
+    //console.log("id_team",this.team);
     for (let i = 0; i < this.members.length; i++) {
-      var createTitle = "";
       const req = new HttpParams()
         .set('motive', this.motive[i])
         .set('id_emp_mod', this.members[i].id)
         .set('type', 0)
-        .set('id_emp_req', 681) // FALTA PONER EL ID DEL QUE ESTA LOGGED IN
+        .set('id_emp_req', this.employee.id)
         .set('status', 1)
-        .set('title', "EMPLEADO QUE HIZO REQUEST wants to add " + this.members[i].employee_name);
-      //body.set('motive', this.motive[i]);
-      //body.set('id_emp_mod', 271);
-      /*var req = {
-        //motive: this.motive[i],
-        //id_emp_mod: this.members[i].id,
-        id_emp_mod: 271,
-        type: 0,
-        id_emp_req:272, 
-        status:1
-      }*/
+        .set('title', this.employee.employee_name + " wants to add " + this.members[i].employee_name)
+        .set('id_team',this.team);
       console.log(req);
       this.sql.postReq(req);
-      //.subscribe(data => {this.resultadoPeticion = data;});
     }
     this.dialogRef.close();
-    // falta tambien quitar a las personas del request (las de members) de la lista que sale en el popup de agregar (para que ya no le puedan hacer request)
+    // !!!!! falta tambien quitar a las personas del request (las de members) de la lista que sale en el popup de agregar (para que ya no le puedan hacer request)
   }
 }
