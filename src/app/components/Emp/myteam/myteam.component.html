@@ -56,7 +56,7 @@
                 <div *ngIf="member.role_member_string == 'peer'">
                     <td class="role-spaced-out"> As peer</td>
                 </div>
-                <td *ngIf="member.status_member == 0" class="">{{ member.status_member_string}}</td>
+                <td *ngIf="member.status_member != 0" class="status-spaced-out">{{ member.status_member_string}}</td>
                 <td *ngIf="member.status_member == 0">
                     <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>
