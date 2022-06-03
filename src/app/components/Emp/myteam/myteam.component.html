@@ -33,13 +33,14 @@
 
 <div class="team-approval">
     <div class="table-container">
+        <!-- {{getEmp()!.employee_name}} -->
         <table class="table-style" *ngIf="getEvaluatorBool() == false" >
             <tr *ngFor="let member of members | filter:searchText">
                 <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                 <td class="role-spaced-out">As {{ member.role_member_string}}</td>
-                <td *ngIf="member.status_member != 0" style="font-weight: lighter;" class="status-spaced-out">{{ member.status_member_string}}</td>
+                <td *ngIf="member.status_member != 0" class="status-spaced-out">{{ member.status_member_string}}</td>
                 <td *ngIf="member.status_member == 0">
-                    <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                    <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member, getEmp())"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>
                 
             </tr>
@@ -58,7 +59,7 @@
                 </div>
                 <td *ngIf="member.status_member != 0" class="status-spaced-out">{{ member.status_member_string}}</td>
                 <td *ngIf="member.status_member == 0">
-                    <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                    <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member, getEmp())"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>
             </tr>
         </table>

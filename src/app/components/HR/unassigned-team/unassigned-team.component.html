@@ -15,10 +15,10 @@
 <div class="team-approval">
     <div class="table-container">
         <table class="table-style">
-            <tr *ngFor="let member of empTeams">
+            <tr *ngFor="let member of members">
                 <td class="name-spaced-out"> {{ member.employee!.employee_name }}</td>
                 <td>
-                    <!-- <button  class="trashcan"  (click)="openDialog(getEmpName(), member.employee.employee_name)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button> -->
+                    <button  class="trashcan"  (click)="openDialog(currEmployee.employee_name, member.employee!.employee_name, member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
                 </td>
             </tr>
         </table>

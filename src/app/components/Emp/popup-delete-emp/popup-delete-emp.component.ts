@@ -14,6 +14,7 @@ export class PopupDeleteEmpComponent implements OnInit {
   public member;
   public employee;
   public employee_teams;
+  public employee_req;
   motive="";
 
   public value = "Dear friend,";
@@ -28,6 +29,7 @@ export class PopupDeleteEmpComponent implements OnInit {
       this.member = data.m;
       this.employee = data.e;
       this.employee_teams = data.idET;
+      this.employee_req = data.eR;
      }
 
   ngOnInit(): void {
@@ -49,14 +51,15 @@ export class PopupDeleteEmpComponent implements OnInit {
       var createTitle = "";
       //console.log("member id", this.employee_teams.id_employee);
       //console.log("id employee_teams", this.employee_teams.id);
-      console.log("employee", this.employee);
+      //console.log("employee", this.employee);
+      console.log("employee", this.employee_req.id);
       const req = new HttpParams()
         .set('motive', this.motive)
         .set('id_emp_mod', this.employee_teams.id_employee)
         .set('type', 1)
-        .set('id_emp_req', 681) // FALTA PONER EL ID DEL QUE ESTA LOGGED IN
+        .set('id_emp_req', this.employee_req.id)
         .set('status', 2)
-        .set('title', "EMPLEADO QUE HIZO REQUEST wants to remove " + this.employee)
+        .set('title', this.employee_req.employee_name + " wants to remove " + this.employee)
         .set('id_employee_teams',this.employee_teams.id);
       console.log(req);
       this.sql.postReqRemove(req);
