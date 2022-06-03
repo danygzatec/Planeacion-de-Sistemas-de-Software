@@ -29,6 +29,8 @@ export class MyteamComponent implements OnInit {
   membersEvaluators: EmployeeTeam[];
   evaluators: boolean;
 
+  //employee: any;
+
   searchText: any;
 
   constructor(
@@ -54,6 +56,7 @@ export class MyteamComponent implements OnInit {
     this.evaluators = false;
 
     this.createObjects();
+
   }
 
   getEmps() {
@@ -97,6 +100,8 @@ export class MyteamComponent implements OnInit {
       var e = this.employees.find(emp => emp.id === team.id_employee);
       team.employee = e;
     });
+
+    //this.getEmp();
   }
 
   getMembers(team: Team, empTeams: EmployeeTeam[]) {
@@ -184,11 +189,13 @@ export class MyteamComponent implements OnInit {
 
   }
 
-  openDialog(member: any, employee: any) {
+  openDialog(member: any, employee: any, id_employee_teams: any, employee_req: any) {
     this.dialogRef.open(PopupDeleteEmpComponent, {
       data: {
         m: member,
-        e: employee
+        e: employee,
+        idET: id_employee_teams,
+        eR: employee_req
       }
     });
   }
