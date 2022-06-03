@@ -112,12 +112,15 @@ table tr:nth-child(even){
 
 .name-spaced-out {
     padding-left: 0.938em;
-    padding-right: 12.75em;
+    /* padding-right: 12.75em; */
+    width: 22em;
     line-height: 1.875em;
 }
 
 .role-spaced-out {
-    padding-right: 50em;
+    padding-right: 45em;
+    text-align: center;
+    width: 80em;
     color: #282C3899;
 }
 
@@ -140,6 +143,7 @@ table tr:nth-child(even){
 .trashcan {
     width: 1.25em;
     height: 1.25em;
+    padding-right: 2em;
     margin-right: 0.938em;
     background: transparent;
     border-color: transparent;

@@ -118,24 +118,27 @@ table tr:nth-child(even){
     padding-top: 1%;
     padding-bottom: max-content;
     background-color: #282C38;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 1%;
+    margin-right: 1%;
     margin-top: 1%;
 }
 
 .name-spaced-out {
     padding-left: 0.938em;
-    padding-right: 8.75em;
+    /* padding-right: 8.75em; */
+    width: 22em;
     line-height: 1.875em;
 }
 
 .role-spaced-out {
-    padding-right: 40em;
+    padding-right: 20em;
+    text-align: center;
     color: #282C3899;
 }
 
 .status-spaced-out {
     padding-right: 2em;
+    width: 20em;
     color: #282C3899;
     align-self: right;
 }
