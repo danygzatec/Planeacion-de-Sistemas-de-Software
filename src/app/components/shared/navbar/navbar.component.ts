@@ -43,9 +43,14 @@ export class NavbarComponent implements OnInit {
     let name : string;
     
     if (fullName !== null) {
-      var firstSpace = fullName.indexOf(" ");
-      name = fullName.substring(0, firstSpace);
-      //console.log(name);
+      
+      var comma = fullName.indexOf(",");
+      if (comma != -1){
+        name = fullName.substring(comma+2, fullName.length);
+      }else {
+        var firstSpace = fullName.indexOf(" ");
+        name = fullName.substring(0, firstSpace);
+      }
       return name;
     }
   }

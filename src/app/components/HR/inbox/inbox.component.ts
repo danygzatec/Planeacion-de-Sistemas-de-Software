@@ -77,6 +77,11 @@ export class InboxComponent implements OnInit {
   }
 
   countRequests(): number {
+    this.sql.getRequests().subscribe((resp) => {
+      this.request = resp;
+      this.lastRequestLength = resp.length;
+    })
+    console.log("count req",this.request);
     return this.request.length;
   }
 
