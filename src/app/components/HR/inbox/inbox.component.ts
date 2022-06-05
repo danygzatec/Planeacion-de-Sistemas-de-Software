@@ -91,4 +91,16 @@ export class InboxComponent implements OnInit {
     console.log(req);
     this.sql.postDeclineRequest(req);
   }
+
+  acceptRequest(request: any){
+    // console.log("request id", request.id);
+    // console.log("id employee_teams", request.id_employee_teams);
+    // console.log("type", request.type);
+    const req = new HttpParams()
+      .set('id_request', request.id)
+      .set('id_employee_teams', request.id_employee_teams)
+      .set('type', request.type);
+    console.log(req);
+    this.sql.postAcceptRequest(req);
+  }
 }

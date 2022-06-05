@@ -193,5 +193,16 @@ export class SqlService {
     })
   }
 
+  postAcceptRequest(params : HttpParams) {
+    console.log("sending accept request to backend server");
+
+    this.http.post<any>(`${this._fullPath}/acceptRequest`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("accept request sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
 
 }
