@@ -17,7 +17,7 @@
     </div>
     <!--  ESTO VA ABAJO (click)="openDialogAdd(getUnassignedEmployeesInProjects())" -->
     <td>
-        <button *ngIf="!getApprovedEmp()" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button>
+        <button *ngIf="!getApprovedEmp()" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects(),getEmp(),myTeam.id)">Add +</button>
     </td>
     <div class="boton">
           <form class="d-flex">
@@ -36,8 +36,8 @@
         <!-- {{getEmp()!.employee_name}} -->
         <table class="table-style" *ngIf="getEvaluatorBool() == false" >
             <tr *ngFor="let member of members | filter:searchText">
-                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+                <td [ngClass]="getMemberStatus(member) ?'name-spaced-out':'name-spaced-out-additonDeclined'"> {{ member.employee.employee_name }} </td>
+                <td class="role-spaced-out"> {{ member.role_member_string}}</td>
                 <td *ngIf="member.status_member != 0" class="status-spaced-out align='right'">{{ member.status_member_string}}</td>
                 <td *ngIf="member.status_member == 0">
                     <button  *ngIf="!getApprovedEmp()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member, getEmp())"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
@@ -47,15 +47,21 @@
         </table>
         <table class="table-style" *ngIf="getEvaluatorBool()">
             <tr *ngFor="let member of members | filter:searchText">
-                <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                <div *ngIf="member.role_member_string == 'team'">
+                <td [ngClass]="getMemberStatus(member) ?'name-spaced-out':'name-spaced-out-additonDeclined'"> {{ member.employee.employee_name }}</td>
+                <div *ngIf="member.role_member_string == 'As team'">
                     <td class="role-spaced-out"> As leader</td>
                 </div>
-                <div *ngIf="member.role_member_string == 'leader'">
+                <div *ngIf="member.role_member_string == 'As leader'">
                     <td class="role-spaced-out"> As team</td>
                 </div>
-                <div *ngIf="member.role_member_string == 'peer'">
+                <div *ngIf="member.role_member_string == 'As peer'">
                     <td class="role-spaced-out"> As peer</td>
+                </div>
+                <div *ngIf="member.role_member_string == 'Added by request'">
+                    <td class="role-spaced-out"> Added by request</td>
+                </div>
+                <div *ngIf="member.role_member_string == undefined">
+                    <td class="role-spaced-out"> </td>
                 </div>
                 <td *ngIf="member.status_member != 0" class="status-spaced-out align='right'">{{ member.status_member_string}}</td>
                 <td *ngIf="member.status_member == 0">

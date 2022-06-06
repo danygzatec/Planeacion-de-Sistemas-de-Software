@@ -33,6 +33,7 @@ export class MyteamComponent implements OnInit {
   //employee: any;
 
   searchText: any;
+  myTeam: any;
 
   constructor(
     private accountInfo: AppComponent,
@@ -64,6 +65,7 @@ export class MyteamComponent implements OnInit {
 
   }
 
+
   getEmps() {
     this.sql.getEmployees().subscribe((resp) => {
       this.employees = resp;
@@ -89,6 +91,7 @@ export class MyteamComponent implements OnInit {
       t = this.teams.find(te => te.id_employee === e!.id);
       if (t !== undefined) {
         this.team = t;
+        this.myTeam = this.team;
         this.getEmpTeams(this.team);
       }
     })
@@ -124,27 +127,29 @@ export class MyteamComponent implements OnInit {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
 
         if (element.role_member === 0) {
-          element.role_member_string = "leader";
+          element.role_member_string = "As leader";
         } else if (element.role_member === 1) {
-          element.role_member_string = "peer";
-        } else {
-          element.role_member_string = "team"
+          element.role_member_string = "As peer";
+        } else if (element.role_member === 3 && element.status_member != 5) {
+          element.role_member_string = "Added by request";
+        }else if (element.role_member == 2){
+          element.role_member_string = "As team"
         }
 
         if (element.status_member == 0) {
           element.status_member_string = "";
         } else if (element.status_member == 1) {
-          element.status_member_string = "waiting approval to add...";
+          element.status_member_string = "Waiting approval to add...";
         } else if (element.status_member == 2) {
-          element.status_member_string = "waiting approval to remove...";
+          element.status_member_string = "Waiting approval to remove...";
         } else if (element.status_member == 3) {
-          element.status_member_string = "added by HR";
+          element.status_member_string = "Added by HR";
         } else if (element.status_member == 4) {
-          element.status_member_string = "removed by HR";
+          element.status_member_string = "Removed by HR";
         } else if (element.status_member == 5) {
-          element.status_member_string = "addition declined by HR";
+          element.status_member_string = "Addition declined by HR";
         } else if (element.status_member == 6) {
-          element.status_member_string = "removal declined by HR";
+          element.status_member_string = "Removal declined by HR";
         }
 
         members.push(element);
@@ -233,10 +238,12 @@ export class MyteamComponent implements OnInit {
     });
   }
 
-  openDialogAdd(members: any) {
+  openDialogAdd(members: any, employee: any, team: any) {
     this.dialogRef.open(AddButtonEmpComponent, {
       data: {
-        m: members
+        m: members,
+        e: employee,
+        t: team
       }
     });
   }
@@ -254,6 +261,14 @@ export class MyteamComponent implements OnInit {
       return false;
     }
     return this.team.approved_Emp;
+  }
+
+  getMemberStatus(member: any) {
+
+    if (member.status_member == 5 || member.status_member == 4) {
+      return false;
+    }
+    return true;
   }
 
 }

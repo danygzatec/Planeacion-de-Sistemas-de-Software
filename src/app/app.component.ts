@@ -73,7 +73,9 @@ export class AppComponent implements OnInit {
   }
 
   getNameAccount(): any {
-    return this.msalService.instance.getActiveAccount()?.name;
+    //return this.msalService.instance.getActiveAccount()?.name;
+   var user = this.employees.find(element => element.email === this.msalService.instance.getActiveAccount()!.username);
+   return user?.employee_name;
   }
 
   getEmailAccount(): any {

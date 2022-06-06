@@ -130,6 +130,14 @@ table tr:nth-child(even){
     line-height: 1.875em;
 }
 
+.name-spaced-out-additonDeclined {
+    padding-left: 0.938em;
+    /* padding-right: 8.75em; */
+    width: 22em;
+    line-height: 1.875em;
+    color: #282C3899;
+}
+
 .role-spaced-out {
     padding-right: 20em;
     text-align: center;

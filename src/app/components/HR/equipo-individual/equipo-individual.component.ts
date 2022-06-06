@@ -122,11 +122,13 @@ export class EquipoIndividualComponent implements OnInit {
 
     this.empTeams.forEach(element => {
       if (element.role_member === 0) {
-        element.role_member_string = "leader";
+        element.role_member_string = "As leader";
       } else if (element.role_member === 1) {
-        element.role_member_string = "peer";
+        element.role_member_string = "As peer";
+      } else if (element.role_member === 3) {
+        element.role_member_string = "Added by request";
       } else {
-        element.role_member_string = "team"
+        element.role_member_string = "As team"
       }
     })
 
@@ -153,14 +155,19 @@ export class EquipoIndividualComponent implements OnInit {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
-          element.role_member_string = "leader";
+          element.role_member_string = "As leader";
         } else if (element.role_member === 1) {
-          element.role_member_string = "peer";
-        } else {
-          element.role_member_string = "team"
+          element.role_member_string = "As peer";
+        } 
+        else if (element.role_member === 3) {
+          element.role_member_string = "Added by request";
+        }else {
+          element.role_member_string = "As team"
         }
 
-        members.push(element);
+        if (element.status_member == 0 || element.status_member == 2|| element.status_member == 3 || element.status_member == 6){
+          members.push(element);
+        } 
       }
     });
     
@@ -175,14 +182,18 @@ export class EquipoIndividualComponent implements OnInit {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
         
         if (element.role_member === 0) {
-          element.role_member_string = "team";
+          element.role_member_string = "As team";
         } else if (element.role_member === 1) {
-          element.role_member_string = "peer";
+          element.role_member_string = "As peer";
+        } else if (element.role_member === 3) {
+          element.role_member_string = "Added by request";
         } else {
-          element.role_member_string = "leader"
+          element.role_member_string = "As leader"
         }
-
-        members.push(element);
+        if (element.status_member == 0 || element.status_member == 2 || element.status_member == 3 || element.status_member == 6){
+          members.push(element);
+        }
+        
       }
     });
     

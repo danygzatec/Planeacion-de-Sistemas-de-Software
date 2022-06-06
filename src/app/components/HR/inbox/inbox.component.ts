@@ -77,6 +77,11 @@ export class InboxComponent implements OnInit {
   }
 
   countRequests(): number {
+    this.sql.getRequests().subscribe((resp) => {
+      this.request = resp;
+      this.lastRequestLength = resp.length;
+    })
+    console.log("count req",this.request);
     return this.request.length;
   }
 
@@ -90,5 +95,17 @@ export class InboxComponent implements OnInit {
       .set('type', request.type);
     console.log(req);
     this.sql.postDeclineRequest(req);
+  }
+
+  acceptRequest(request: any){
+    // console.log("request id", request.id);
+    // console.log("id employee_teams", request.id_employee_teams);
+    // console.log("type", request.type);
+    const req = new HttpParams()
+      .set('id_request', request.id)
+      .set('id_employee_teams', request.id_employee_teams)
+      .set('type', request.type);
+    console.log(req);
+    this.sql.postAcceptRequest(req);
   }
 }

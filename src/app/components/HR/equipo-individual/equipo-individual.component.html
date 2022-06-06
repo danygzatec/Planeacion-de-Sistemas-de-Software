@@ -49,7 +49,7 @@
             <table class="table-style" *ngIf="getEvaluatorBool() == false">
                 <tr *ngFor="let member of getMembers() | filter:searchText">
                     <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                    <td class="role-spaced-out">As {{ member.role_member_string}}</td>
+                    <td class="role-spaced-out"> {{ member.role_member_string}}</td>
                     <td>
                         <button *ngIf="!team?.approved_HR" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img
                             class="trashcan" src="assets/trash-image.png"
@@ -63,7 +63,7 @@
             <table class="table-style" *ngIf="getEvaluatorBool()">
                 <tr *ngFor="let member of getEvaluatorRoles() | filter:searchText">
                     <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
-                    <td class="role-spaced-out"> As {{ member.role_member_string}}</td>
+                    <td class="role-spaced-out">  {{ member.role_member_string}}</td>
                     <td>
                         <button *ngIf="!team?.approved_HR" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img
                             class="trashcan" src="assets/trash-image.png"
