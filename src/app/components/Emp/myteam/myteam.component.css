@@ -125,23 +125,20 @@ table tr:nth-child(even){
 
 .name-spaced-out {
     padding-left: 0.938em;
-    /* padding-right: 8.75em; */
-    width: 26em;
+    width: 30em;
     line-height: 1.875em;
 }
 
 .name-spaced-out-additonDeclined {
     padding-left: 0.938em;
-    /* padding-right: 8.75em; */
-    width: 26em;
+    width: 30em;
     line-height: 1.875em;
     color: #282C3899;
 }
 
 .role-spaced-out {
-    width: 80em;
-    padding-right: 45em;
-    text-align: center;
+    width: 40em;
+    text-align: left;
     color: #282C3899;
 }
 
@@ -150,6 +147,7 @@ table tr:nth-child(even){
     width: 20em;
     color: #282C3899;
     align-self: right;
+    text-align: right !important;
 }
 
 .grey-page {
@@ -171,7 +169,9 @@ table tr:nth-child(even){
 .trashcan {
     width: 1.25em;
     height: 1.25em;
-    margin-right: 0.938em;
+    margin-right: 2em;
+    display: block;
+    margin-left: auto;
     background: transparent;
     border-color: transparent;
 }
