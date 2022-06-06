@@ -4,7 +4,7 @@ import { Team } from 'src/app/models/team';
 import { ConsultarEquiposComponent } from 'src/app/components/HR/consultar-equipos/consultar-equipos.component'
 import { Employee } from 'src/app/models/employee';
 
-import { MatDialog } from  '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
 import ExcelData from 'src/excel-dummy.json';
 import { EmployeeTeam } from 'src/app/models/employee-team';
@@ -22,31 +22,33 @@ import { SqlService } from 'src/app/services/sql.service';
 })
 export class EquipoIndividualComponent implements OnInit {
 
-  public employees : Employee[];
-  public empTeams : EmployeeTeam[];
-  public empProjects : EmployeeProject[];
-  public teams : Team[];
-  public projects : Project[];
-  team: Team | undefined ;
-  id : number;
-  evaluators : boolean;
+  public employees: Employee[];
+  public empTeams: EmployeeTeam[];
+  public empProjects: EmployeeProject[];
+  public teams: Team[];
+  public projects: Project[];
+  public unassigned: Employee[];
+  team: Team | undefined;
+  id: number;
+  evaluators: boolean;
 
   searchText: any;
 
 
   constructor(
     private route: ActivatedRoute,
-    private  dialogRef : MatDialog,
+    private dialogRef: MatDialog,
     public navbarActive: NavbarComponent,
-    private sql : SqlService
-    ){
-    
+    private sql: SqlService
+  ) {
+
 
     this.teams = [];
     this.employees = [];
     this.empTeams = [];
     this.empProjects = [];
     this.projects = [];
+    this.unassigned = [];
 
     const routeParams = this.route.snapshot.paramMap;
     const empIdFromRoute = Number(routeParams.get('id_employee'));
@@ -54,73 +56,71 @@ export class EquipoIndividualComponent implements OnInit {
     this.id = empIdFromRoute;
     this.evaluators = false;
 
-   }
+  }
 
   ngOnInit(): void {
 
-    this.sql.getEmployees().subscribe((resp) => {
-      this.employees = resp;
-    })
-
-    this.sql.getTeams().subscribe((resp) => {
-      this.teams = resp;
-    })
-    
-    this.sql.getEmployeeTeams().subscribe((resp) => {
-      this.empTeams = resp;
-    })
-
-    this.sql.getProjects().subscribe((resp) => {
-      this.projects = resp;
-    })
-
-    this.sql.getEmployeeProjects().subscribe((resp) => {
-      this.empProjects = resp;
-    })
-
-    this.createObjects();
-
-    setTimeout(() => { this.ngOnInit() }, 1000 * 1);
+    this.getEmp();
 
   }
 
   getEmp() {
     this.sql.getEmployees().subscribe((resp) => {
       this.employees = resp;
+      this.getT(this.employees);
     })
   }
 
-  getT() {
+  getT(employees: Employee[]) {
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
+      this.getEmpT(employees, this.teams);
     })
   }
 
-  getEmpT() {
+  getEmpT(employees: Employee[], teams: Team[]) {
     this.sql.getEmployeeTeams().subscribe((resp) => {
       this.empTeams = resp;
+      this.getProjects(employees, teams, this.empTeams);
     })
   }
 
-  getProjects() {
+  getProjects(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[]) {
     this.sql.getProjects().subscribe((resp) => {
       this.projects = resp;
+      this.getEmployeeProjects(employees, teams, empTeams, this.projects);
     })
   }
 
-  getEmployeeProjects() {
+  getEmployeeProjects(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[]) {
     this.sql.getEmployeeProjects().subscribe((resp) => {
       this.empProjects = resp;
+      this.createObjects(employees, teams, empTeams, projects, this.empProjects);
     })
   }
 
-  createObjects() {
-
-    this.empProjects.forEach(element => {
-      element.employee = this.employees.find(emp => emp.id === element.id_employee);
+  getUnassigned(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[], empProjects: EmployeeProject) {
+    this.sql.getUnassigned().subscribe((resp) => {
+      this.unassigned = resp;
     })
+  }
 
-    this.empTeams.forEach(element => {
+  createObjects(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[], empProjects: EmployeeProject[]) {
+
+    empProjects.forEach(element => {
+      var e = employees.find(emp => emp.id === element.id_employee);
+      if (e === undefined) {
+        e = this.unassigned.find(emp => emp.id === element.id_employee);
+      }
+
+      if (e !== undefined) {
+        element.employee = e;
+      }
+
+    })
+    this.empProjects = empProjects;
+
+    empTeams.forEach(element => {
       if (element.role_member === 0) {
         element.role_member_string = "As leader";
       } else if (element.role_member === 1) {
@@ -131,56 +131,75 @@ export class EquipoIndividualComponent implements OnInit {
         element.role_member_string = "As team"
       }
     })
+    this.empTeams = empTeams;
 
-    this.teams.forEach(element => {
+    teams.forEach(element => {
       if (element.id_employee === this.id) {
         this.team = element;
       }
     })
-    
+
   }
 
   getEmployee() {
     return this.employees.find(element => element.id === this.id);
   }
 
-  getEmpName() {
+  getEmpName() {
     return this.employees.find(element => element.id === this.id)!.employee_name;
   }
 
   getMembers() {
-    var members : any = [];
+    var members: any = [];
     this.empTeams.forEach(element => {
       if (element.id_team == this.team!.id && element.status_member != 4) {
-        element.employee = this.employees.find(emp => emp.id === element.id_employee);
-        
+        var e = this.employees.find(emp => emp.id === element.id_employee);
+
+        if (e === undefined) {
+          e = this.unassigned.find(emp => emp.id === element.id_employee);
+        }
+
+        if (e !== undefined) {
+          element.employee = e;
+        }
+
         if (element.role_member === 0) {
           element.role_member_string = "As leader";
         } else if (element.role_member === 1) {
           element.role_member_string = "As peer";
-        } 
+        }
         else if (element.role_member === 3) {
           element.role_member_string = "Added by request";
-        }else {
+        } else {
           element.role_member_string = "As team"
         }
 
-        if (element.status_member == 0 || element.status_member == 2|| element.status_member == 3 || element.status_member == 6){
+        if (element.status_member == 0 || element.status_member == 2 || element.status_member == 3 || element.status_member == 6) {
           members.push(element);
-        } 
+        }
       }
     });
-    
+
     return members;
   }
 
   getEvaluatorRoles() {
 
-    var members : any = [];
+    var members: any = [];
     this.empTeams.forEach(element => {
       if (element.id_team == this.team!.id && element.status_member != 4) {
         element.employee = this.employees.find(emp => emp.id === element.id_employee);
-        
+
+        var e = this.employees.find(emp => emp.id === element.id_employee);
+
+        if (e === undefined) {
+          e = this.unassigned.find(emp => emp.id === element.id_employee);
+        }
+
+        if (e !== undefined) {
+          element.employee = e;
+        }
+
         if (element.role_member === 0) {
           element.role_member_string = "As team";
         } else if (element.role_member === 1) {
@@ -190,16 +209,16 @@ export class EquipoIndividualComponent implements OnInit {
         } else {
           element.role_member_string = "As leader"
         }
-        if (element.status_member == 0 || element.status_member == 2 || element.status_member == 3 || element.status_member == 6){
+        if (element.status_member == 0 || element.status_member == 2 || element.status_member == 3 || element.status_member == 6) {
           members.push(element);
         }
-        
+
       }
     });
-    
+
     return members;
   }
-  
+
   setEvaluatorBool() {
     this.evaluators = !this.evaluators
   }
@@ -208,13 +227,13 @@ export class EquipoIndividualComponent implements OnInit {
     return this.evaluators;
   }
 
-  getUnassignedEmployeesInProjects() : any {
+  getUnassignedEmployeesInProjects(): any {
     //en esta funcion quiero obtener todos los miembros que no cumplieron las horas
     //en los proyectos del empleado en cuestion.
-    var members : any[] = [];
+    var members: any[] = [];
 
     // lista de id_project en los que trabajó el usuaro en cuestion
-    var projectList : any[] = [];
+    var projectList: any[] = [];
 
     this.empProjects.forEach(element => {
       if (element.id_employee == this.getEmployee()!.id) {
@@ -225,8 +244,10 @@ export class EquipoIndividualComponent implements OnInit {
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
       if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
-        members.push(element.employee);
-        console.log(element.employee?.employee_name);
+        if (element.employee !== undefined) {
+          members.push(element.employee);
+          console.log(element.employee?.employee_name);
+        }
       }
     })
 
@@ -246,29 +267,29 @@ export class EquipoIndividualComponent implements OnInit {
     });
   }
 
-  openDialogAdd(members: any){
+  openDialogAdd(members: any) {
     this.dialogRef.open(AddButtonComponent, {
-      data : {
-        m : members
+      data: {
+        m: members
       }
     });
   }
 
-  navigateBack(page: any){
+  navigateBack(page: any) {
     console.log(page);
     this.navbarActive.navigate(page);
   }
 
-  approve(){
+  approve() {
     //this.team!.approved_HR = true;
     //console.log(this.team!.approved_HR);
     //console.log(this.team!.id);
     const req = new HttpParams()
-        .set('id', this.team!.id)
+      .set('id', this.team!.id)
     this.sql.postApproveHR(req);
   }
 
-  getApprovedHR(){
+  getApprovedHR() {
     return this.team!.approved_HR;
   }
 }

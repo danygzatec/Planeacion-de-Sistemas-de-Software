@@ -23,6 +23,7 @@ export class AddButtonComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    console.log(this.members);
   }
 
   public  closeMe() {
