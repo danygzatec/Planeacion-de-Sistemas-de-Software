@@ -14,15 +14,21 @@ export class PopupDeleteComponent implements OnInit {
   public member;
   public employee;
   public idEmpTeam;
+  public idReqBy;
+  public idRemove;
 
   constructor(private sql: SqlService, private dialogRef:  MatDialogRef<PopupDeleteComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.member = data.m;
     this.employee = data.e;
     this.idEmpTeam = data.idET;
+    this.idReqBy = data.idRB;
+    this.idRemove = data.idR;
   }
 
    
   ngOnInit(): void {
+    console.log("idReqBy",this.idReqBy);
+    console.log("idRemove",this.idRemove);
   }
 
   closeMe() {
@@ -31,8 +37,12 @@ export class PopupDeleteComponent implements OnInit {
 
   removeHR() {
     //console.log(this.idEmpTeam.id);
+    console.log(this.idReqBy);
+    console.log(this.idRemove);
       const req = new HttpParams()
         .set('id', this.idEmpTeam.id)
+        .set('idReqBy', this.idReqBy)
+        .set('idRemove',this.idRemove)
       //console.log(req);
       this.sql.postRemoveHR(req);
       this.dialogRef.close();

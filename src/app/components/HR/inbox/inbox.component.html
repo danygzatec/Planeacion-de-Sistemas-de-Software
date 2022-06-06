@@ -17,7 +17,7 @@
                 <!-- *ngIf="r.status==1 || r.status==2" -->
                 <th class= "pos" >
                     <div class="texto"><img *ngIf= "r.type" src= "../assets/remove.png"><img *ngIf= "!r.type" src= "../assets/add.png"> {{r.title}} </div>
-                    <button class="botonInboxApprove" (click)="acceptRequest(r)">Approve</button>
+                    <button class="botonInboxApprove" (click)="acceptRequest(r)">Accept</button>
                     <div class="textoMotivo">{{r.motive}}</div>
                     <button class="botonInboxDecline" (click)="declineRequest(r)">Decline</button>
                 </th>
