@@ -199,7 +199,7 @@ export class MyteamComponent implements OnInit {
 
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
-      console.log("did complete: ", element.did_complete);
+      //console.log("did complete: ", element.did_complete);
 
       // si el emp no completó horas y trabajó en al menos 1 mismo proyecto que current user
       if (element.did_complete === false && projectList.indexOf(element.id_project) > -1) {
@@ -207,7 +207,7 @@ export class MyteamComponent implements OnInit {
 
         // buscamos el objeto employee para agregarseo a members
         var e = this.employees.find(emp => emp.id === element.id_employee);
-
+        var findMember = this.members.find(emp => emp.id_employee === e?.id);
         // si en la busqueda de empleados normales sale undefined, buscamos en los huerfanos
         if (e === undefined) {
           e = this.unassigned.find(emp => emp.id === element.id);
@@ -215,15 +215,11 @@ export class MyteamComponent implements OnInit {
 
         // el e no esta definido y si no es el empleado logged in
 
-        if (e !== undefined && e.id !== this.team.id_employee) {
+        if (e !== undefined && e.id !== this.team.id_employee && findMember == undefined) {
           if (members.indexOf(e) == -1){
             members.push(e);
             console.log(e);
           }
-          
-          // members.push(e);
-          // console.log(e);
-          // projectList.indexOf(element.id_project) > -1
         }
       }
     })

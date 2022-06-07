@@ -235,33 +235,34 @@ export class EquipoIndividualComponent implements OnInit {
     // lista de id_project en los que trabajó el usuaro en cuestion
     var projectList: any[] = [];
 
+    var employeesTeam: EmployeeTeam[] = this.getMembers();
+
     this.empProjects.forEach(element => {
       if (element.id_employee == this.getEmployee()!.id) {
         projectList.push(element.id_project);
       }
     });
-
+    
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
       if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
         var e = this.employees.find(emp => emp.id === element.id_employee);
+
+        // para que si se agregan por request o por HR ya no salgan
+        var findMember = employeesTeam.find(emp => emp.id_employee === e?.id);
+  
 
         // si en la busqueda de empleados normales sale undefined, buscamos en los huerfanos
         if (e === undefined) {
           e = this.unassigned.find(emp => emp.id === element.id);
         }
 
-        if (e !== undefined && e.id !== this.team!.id_employee) {
+        if (e !== undefined && e.id !== this.team!.id_employee && findMember == undefined) {
           if (members.indexOf(e) == -1){
             members.push(e);
-            console.log(e);
+            //console.log(e);
           }
         }
-        
-        // if (element.employee !== undefined) {
-        //   members.push(element.employee);
-        //   console.log(element.employee?.employee_name);
-        // }
       }
     })
 
