@@ -215,16 +215,16 @@ export class SqlService {
     })
   }
 
-  // postRemoveUnassigned(params : HttpParams) {
-  //   console.log("sending remove unassigned to backend server");
+  postRemoveUnassigned(params : HttpParams) {
+    console.log("sending remove unassigned to backend server");
 
-  //   this.http.post<any>(`${this._fullPath}/removeUnassigned`, params).subscribe((resp) => {
-  //     console.log(resp);
-  //     console.log("remove unassigned sent to backend successfully!");
-  //   }, (error) => {
-  //     console.log(error);
-  //   })
-  // }
+    this.http.post<any>(`${this._fullPath}/removeUnassigned`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("remove unassigned sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
 
 
 }

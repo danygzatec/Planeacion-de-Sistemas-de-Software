@@ -12,6 +12,7 @@ import ExcelData from 'src/excel-dummy.json'
 import { createAbstractBuilder } from 'typescript';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-unassigned-team',
@@ -141,9 +142,10 @@ export class UnassignedTeamComponent implements OnInit {
         } else {
           et.role_member_string = "team"
         }
-        if (!this.findLocalStorage(et)){
-          this.members.push(et);
-        }
+        // if (!this.findLocalStorage(et)){
+        //   this.members.push(et);
+        // }
+        this.members.push(et);
       }
     });
 
@@ -216,9 +218,13 @@ export class UnassignedTeamComponent implements OnInit {
   // }
 
   remove(employee: any){
-  localStorage.setItem(employee.id_employee, employee.employee.employee_name);
+  //localStorage.setItem(employee.id_employee, employee.employee.employee_name);
   this.members = this.members.filter(function(ele){
     return ele != employee;
   });
+  const req = new HttpParams()
+        .set('id', employee.id)
+      //console.log(req);
+      this.sql.postRemoveUnassigned(req);
 }
 }
