@@ -10,6 +10,7 @@ import { Team } from 'src/app/models/team';
 import { SqlService } from 'src/app/services/sql.service';
 import ExcelData from 'src/excel-dummy.json'
 import { createAbstractBuilder } from 'typescript';
+import { AddButtonComponent } from '../add-button/add-button.component';
 import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
 
 @Component({
@@ -29,6 +30,7 @@ export class UnassignedTeamComponent implements OnInit {
   teamOfUnassigned: any;
   team: any;
   members : EmployeeTeam[];
+  searchText: any;
 
 
   constructor(
@@ -168,6 +170,35 @@ export class UnassignedTeamComponent implements OnInit {
         idET: idEmployeeTeam
       }
     });
+  }
+
+  openDialogAdd(members: any, id_team: any) {
+    this.dialogRef.open(AddButtonComponent, {
+      data: {
+        m: members,
+        idT: id_team
+      }
+    });
+  }
+
+  getEmployeesToAdd(): any {
+    var employeesToAdd: any[] = [];
+
+    this.employees.forEach(element => {
+      var e = this.members.find(emp => emp.id_employee === element.id);
+      if (e == undefined){
+        employeesToAdd.push(element);
+      }
+    })
+    this.unassinged.forEach(element => {
+      var e = this.members.find(emp => emp.id_employee === element.id);
+      if (e == undefined && element != this.currEmployee){
+        employeesToAdd.push(element);
+      }
+    })
+    console.log(employeesToAdd);
+    return employeesToAdd;
+
   }
 
 }

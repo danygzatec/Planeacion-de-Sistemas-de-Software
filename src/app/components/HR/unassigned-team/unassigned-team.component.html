@@ -12,10 +12,33 @@
 
 <div class="grey-space"></div>
 
+<nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarCustom">
+        <ul class="navbar-nav">
+            <td>
+                <!-- <button class="add">Add +</button> -->
+                <button class="add" (click)="openDialogAdd(getEmployeesToAdd(),team.id)">Add +</button>
+            </td>
+        </ul>
+    </div>
+    <div class="boton">
+        <form class="d-flex">
+            <div class="input-group">
+                <input class="form-control search" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder="">
+               
+            </div>
+        </form>
+    </div>
+</nav>
+
 <div class="team-approval">
     <div class="table-container">
         <table class="table-style">
-            <tr *ngFor="let member of members">
+            <tr *ngFor="let member of members | filter:searchText">
                 <td class="name-spaced-out"> {{ member.employee!.employee_name }}</td>
                 <td>
                     <button  class="trashcan"  (click)="openDialog(currEmployee.employee_name, member.employee!.employee_name, member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
