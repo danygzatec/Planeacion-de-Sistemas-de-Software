@@ -33,6 +33,7 @@ export class UnassignedTeamComponent implements OnInit {
   searchText: any;
 
 
+
   constructor(
     private route: ActivatedRoute,
     private sql: SqlService,
@@ -43,6 +44,7 @@ export class UnassignedTeamComponent implements OnInit {
     this.unassinged = [];
     this.teams = [];
     this.members = [];
+  
 
 
     const routeParams = this.route.snapshot.paramMap;
@@ -122,11 +124,11 @@ export class UnassignedTeamComponent implements OnInit {
   */
 
   createObjects(employees: Employee[], empTeams: EmployeeTeam[], team: Team) {
-
+    //localStorage.clear();
     empTeams.forEach(et => {
-      console.log(et)
+      //console.log(et);
+       
       if (et.id_team === team.id && et.status_member != 4) {
-        console.log("dentro del if");
         et.employee = employees.find(emp => emp.id === et.id_employee);
         if (et.employee === undefined) {
           et.employee = this.unassinged.find(u => u.id === et.id_employee);
@@ -139,16 +141,27 @@ export class UnassignedTeamComponent implements OnInit {
         } else {
           et.role_member_string = "team"
         }
-        
-        console.log("agregando a members ", et);
-        this.members.push(et);
+        if (!this.findLocalStorage(et)){
+          this.members.push(et);
+        }
       }
     });
 
-    this.members.forEach(memb => {
-      console.log(memb.employee?.employee_name);
-    });
+    // this.members.forEach(memb => {
+    //   console.log(memb.employee?.employee_name);
+    // });
 
+  }
+
+
+  findLocalStorage(employee: any){
+    if(localStorage.getItem(employee.id_employee)){
+        console.log(employee,'Name exists');
+        return true;
+    }else{
+      console.log('Name is not found');
+      return false; 
+    }
   }
 
   addTeam() {
@@ -160,16 +173,6 @@ export class UnassignedTeamComponent implements OnInit {
   navigateBack(page: any) {
     console.log(page);
     this.navbarActive.navigate(page);
-  }
-
-  openDialog(member: any, employee: any, idEmployeeTeam: any){
-    this.dialogRef.open(PopupDeleteComponent,{
-      data : {
-        m : member,
-        e: employee,
-        idET: idEmployeeTeam
-      }
-    });
   }
 
   openDialogAdd(members: any, id_team: any) {
@@ -201,4 +204,21 @@ export class UnassignedTeamComponent implements OnInit {
 
   }
 
+  // openDialogRemove(member: any, employee: any, idEmployeeTeam: any, isUnassigned: boolean){
+  //   this.dialogRef.open(PopupDeleteComponent,{
+  //     data : {
+  //       m : member,
+  //       e: employee,
+  //       idET: idEmployeeTeam,
+  //       iU: isUnassigned
+  //     }
+  //   });
+  // }
+
+  remove(employee: any){
+  localStorage.setItem(employee.id_employee, employee.employee.employee_name);
+  this.members = this.members.filter(function(ele){
+    return ele != employee;
+  });
+}
 }

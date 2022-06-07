@@ -16,6 +16,7 @@ export class PopupDeleteComponent implements OnInit {
   public idEmpTeam;
   public idReqBy;
   public idRemove;
+  //public isUnassigned;
 
   constructor(private sql: SqlService, private dialogRef:  MatDialogRef<PopupDeleteComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.member = data.m;
@@ -23,12 +24,13 @@ export class PopupDeleteComponent implements OnInit {
     this.idEmpTeam = data.idET;
     this.idReqBy = data.idRB;
     this.idRemove = data.idR;
+    //this.isUnassigned = data.iU;
   }
 
    
   ngOnInit(): void {
-    console.log("idReqBy",this.idReqBy);
-    console.log("idRemove",this.idRemove);
+    // console.log("idReqBy",this.idReqBy);
+    // console.log("idRemove",this.idRemove);
   }
 
   closeMe() {
@@ -37,14 +39,23 @@ export class PopupDeleteComponent implements OnInit {
 
   removeHR() {
     //console.log(this.idEmpTeam.id);
-    console.log(this.idReqBy);
-    console.log(this.idRemove);
+    // console.log(this.idReqBy);
+    // console.log(this.idRemove);
+    //console.log(this.idEmpTeam);
+    //if (!this.isUnassigned){
       const req = new HttpParams()
         .set('id', this.idEmpTeam.id)
         .set('idReqBy', this.idReqBy)
         .set('idRemove',this.idRemove)
       //console.log(req);
       this.sql.postRemoveHR(req);
+    // } else{
+    //   const req = new HttpParams()
+    //     .set('id', this.idEmpTeam.id)
+    //   //console.log(req);
+    //   this.sql.postRemoveUnassigned(req);
+    // }
+      
       this.dialogRef.close();
     
   }

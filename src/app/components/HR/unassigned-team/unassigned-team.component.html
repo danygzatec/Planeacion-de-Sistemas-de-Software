@@ -39,9 +39,10 @@
     <div class="table-container">
         <table class="table-style">
             <tr *ngFor="let member of members | filter:searchText">
-                <td class="name-spaced-out"> {{ member.employee!.employee_name }}</td>
+                <td *ngIf="member.member_status != 4" class="name-spaced-out"> {{ member.employee!.employee_name }}</td>
                 <td>
-                    <button  class="trashcan"  (click)="openDialog(currEmployee.employee_name, member.employee!.employee_name, member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                    <button  class="trashcan"  (click)="remove(member)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button>
+                    <!-- <button  class="trashcan"  (click)="openDialogRemove(currEmployee.employee_name, member.employee!.employee_name, member, true)"><img class="trashcan" src="assets/trash-image.png" alt="trash can image to delete person."></button> -->
                 </td>
             </tr>
         </table>
