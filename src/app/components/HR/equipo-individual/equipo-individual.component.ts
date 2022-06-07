@@ -169,7 +169,7 @@ export class EquipoIndividualComponent implements OnInit {
           element.role_member_string = "As peer";
         }
         else if (element.role_member === 3) {
-          element.role_member_string = "Added by request";
+          element.role_member_string = "Added by HR";
         } else {
           element.role_member_string = "As team"
         }
@@ -205,7 +205,7 @@ export class EquipoIndividualComponent implements OnInit {
         } else if (element.role_member === 1) {
           element.role_member_string = "As peer";
         } else if (element.role_member === 3) {
-          element.role_member_string = "Added by request";
+          element.role_member_string = "Added by HR";
         } else {
           element.role_member_string = "As leader"
         }
@@ -235,18 +235,33 @@ export class EquipoIndividualComponent implements OnInit {
     // lista de id_project en los que trabajó el usuaro en cuestion
     var projectList: any[] = [];
 
+    var employeesTeam: EmployeeTeam[] = this.getMembers();
+
     this.empProjects.forEach(element => {
       if (element.id_employee == this.getEmployee()!.id) {
         projectList.push(element.id_project);
       }
     });
-
+    
     // did_complete sea falso y id_project esté en projectList
     this.empProjects.forEach(element => {
       if (element.did_complete == false && projectList.indexOf(element.id_project) > -1) {
-        if (element.employee !== undefined) {
-          members.push(element.employee);
-          console.log(element.employee?.employee_name);
+        var e = this.employees.find(emp => emp.id === element.id_employee);
+
+        // para que si se agregan por request o por HR ya no salgan
+        var findMember = employeesTeam.find(emp => emp.id_employee === e?.id);
+  
+
+        // si en la busqueda de empleados normales sale undefined, buscamos en los huerfanos
+        if (e === undefined) {
+          e = this.unassigned.find(emp => emp.id === element.id);
+        }
+
+        if (e !== undefined && e.id !== this.team!.id_employee && findMember == undefined) {
+          if (members.indexOf(e) == -1){
+            members.push(e);
+            //console.log(e);
+          }
         }
       }
     })
@@ -255,20 +270,23 @@ export class EquipoIndividualComponent implements OnInit {
 
   }
 
-  openDialog(member: any, employee: any, idEmployeeTeam: any) {
-    this.dialogRef.open(PopupDeleteComponent, {
-      data: {
-        m: member,
+  openDialog(member: any, employee: any, idEmployeeTeam: any, idReqBy: any, idRemove: any){
+    this.dialogRef.open(PopupDeleteComponent,{
+      data : {
+        m : member,
         e: employee,
-        idET: idEmployeeTeam
+        idET: idEmployeeTeam,
+        idRB: idReqBy,
+        idR: idRemove
       }
     });
   }
 
-  openDialogAdd(members: any) {
+  openDialogAdd(members: any, id_team: any) {
     this.dialogRef.open(AddButtonComponent, {
       data: {
-        m: members
+        m: members,
+        idT: id_team
       }
     });
   }

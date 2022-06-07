@@ -26,7 +26,7 @@
                     </div>
                 </li>
                 <td>
-                    <button *ngIf="!team?.approved_HR" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button>
+                    <button *ngIf="!team?.approved_HR" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects(),team?.id)">Add +</button>
                     <!-- <button *ngIf="!getApprovedHR()" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button> -->
                 </td>
             </ul>
@@ -51,7 +51,7 @@
                     <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                     <td class="role-spaced-out"> {{ member.role_member_string}}</td>
                     <td>
-                        <button *ngIf="!team?.approved_HR" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img
+                        <button *ngIf="!team?.approved_HR" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member, id, member.employee.id)"><img
                             class="trashcan" src="assets/trash-image.png"
                             alt="trash can image to delete person."></button>
                         <!-- <button *ngIf="!getApprovedHR()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img
@@ -65,7 +65,7 @@
                     <td class="name-spaced-out"> {{ member.employee.employee_name }}</td>
                     <td class="role-spaced-out">  {{ member.role_member_string}}</td>
                     <td>
-                        <button *ngIf="!team?.approved_HR" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member)"><img
+                        <button *ngIf="!team?.approved_HR" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name, member, id, member.employee.id)"><img
                             class="trashcan" src="assets/trash-image.png"
                             alt="trash can image to delete person."></button>
                         <!-- <button *ngIf="!getApprovedHR()" class="trashcan" (click)="openDialog(getEmpName(), member.employee.employee_name)"><img
