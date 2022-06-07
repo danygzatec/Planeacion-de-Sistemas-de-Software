@@ -13,6 +13,7 @@ import { SqlService } from 'src/app/services/sql.service';
 export class ConsultarEquiposComponent implements OnInit {
   public employees: Employee[];
   public teams: Team[];
+  public assignedTeams : Team[];
 
   searchText: any;
 
@@ -21,30 +22,25 @@ export class ConsultarEquiposComponent implements OnInit {
     public sql : SqlService) {
     this.employees = [];
     this.teams = [];
+    this.assignedTeams = [];
   }
 
   ngOnInit(): void {
 
-    this.sql.getEmployees().subscribe((resp) => {
-      this.employees = resp;
-    })
-
-    this.sql.getTeams().subscribe((resp) => {
-      this.teams = resp;
-    })
-
-    setTimeout(() => { this.ngOnInit() }, 1000 * 1);
+    this.getEmp();
   }
 
   getEmp() {
     this.sql.getEmployees().subscribe((resp) => {
       this.employees = resp;
+      this.getT(this.employees);
     })
   }
 
-  getT() {
+  getT(employees : Employee[]) {
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
+      this.createObjects(employees, this.teams);
     })
   }
 
@@ -52,20 +48,21 @@ export class ConsultarEquiposComponent implements OnInit {
     return this.accountInfo.getNameAccount();
   }
 
-  getEmployees() {
-    var emp : any = [];
+  createObjects(employees : Employee[], teams : Team[]) {
 
     // EL OBJETO ES TEAM
-    this.employees.forEach(employee => {
-      var team = this.teams.find(element => element.id_employee === employee.id);
-      if (team !== undefined && employee.is_assigned) {
-        team.employee = employee;
-        emp.push(team);
+    teams.forEach(t => {
+      var e = employees.find(emp => emp.id === t.id_employee);
+
+      if (e !== undefined) {
+        t.employee = e;
       }
 
+      if (e?.is_assigned) {
+        this.assignedTeams.push(t);
+      }
     })
-
-    return emp;
+    
   }
 
   fireEvent(e: any) {

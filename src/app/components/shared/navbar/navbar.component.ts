@@ -34,6 +34,8 @@ export class NavbarComponent implements OnInit {
       this.hasUploaded = res;
     });
     console.log(this.hasUploaded);
+
+    setTimeout(() => { this.getCountRequests() }, 1000 * 1);
     
   }
   
@@ -143,7 +145,8 @@ export class NavbarComponent implements OnInit {
   }
 
   getCountRequests(): number {
-    return this.requestInfo.countRequests();
+    //this.requestInfo.ngOnInit();
+    return this.accountInfo.getRequests();
   }
 
 

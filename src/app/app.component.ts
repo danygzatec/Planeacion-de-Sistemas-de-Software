@@ -8,6 +8,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Employee } from './models/employee';
 import { EvaluationPeriod } from './models/evaluation-period';
+import { Request } from './models/request';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SqlService } from './services/sql.service';
 import { map } from 'rxjs';
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
   title = 'IPSCentral';
   employees: Employee[];
   evaluationPeriod: EvaluationPeriod[];
+  requests : Request[];
   private has_u = false;
 
   constructor(
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit {
 
     this.employees = [];
     this.evaluationPeriod = [];
+    this.requests = [];
 
   }
   ngOnInit(): void {
@@ -45,6 +48,7 @@ export class AppComponent implements OnInit {
     this.getHasUpload();
     this.getUsers();
     this.getEvaluationPeriod();
+    this.getRequests();
     //this.isLoggedIn();
 
   }
@@ -101,6 +105,15 @@ export class AppComponent implements OnInit {
     this.sql.getHasUploaded().subscribe((resp) => {
       return resp;
     });
+  }
+
+  getRequests() : number {
+    this.sql.getRequests().subscribe((resp) => {
+      this.requests = resp;
+      
+    })
+
+    return this.requests.length;
   }
 
   isHR(): boolean {

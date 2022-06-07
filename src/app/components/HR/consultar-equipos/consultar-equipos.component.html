@@ -52,7 +52,7 @@
 <div class="table-container">
     <table class="table-style">
         <!-- <tr class="approved-by-small">approved by: </tr> -->
-        <tr class="employee-name-row" *ngFor="let emp of getEmployees() | filter:searchText">
+        <tr class="employee-name-row" *ngFor="let emp of assignedTeams | filter:searchText">
             <td class="first-check" *ngIf="emp.approved_HR"> 
                 <img src="assets/palomita-consultar-equipos.png" alt="" width="35" height="30"> 
             </td>
