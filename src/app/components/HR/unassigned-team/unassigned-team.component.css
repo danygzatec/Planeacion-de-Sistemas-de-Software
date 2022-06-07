@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+/* change the background color */
+.navbar-custom {
+    background-color: #ffffff;
+}
+/* change font*/
+.font{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #F827F6;
+    padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+    padding: 0.5rem 0.5rem;
+}
+/* change the color of active*/
+.navbar-custom .nav-item.active .nav-link {
+    color: #ffffff;
+    background-color: #8DD2EF; /* add background-color to active links */
+    border-bottom: 0.188em solid white;
+}
+
+.navbar-custom {
+    background-color: #8DD2EF;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+    padding: 0.1rem 2rem;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link {
+    color: #ffffff;
+}
+
+.navbar-custom .nav-item:hover .nav-link {
+    border-bottom: 0.188em solid white;
+}
+
 table tr:nth-child(odd){
     background-color: #EEF2FF;
     color: rgb(0, 0, 0);
@@ -6,6 +61,11 @@ table tr:nth-child(odd){
 table tr:nth-child(even){
     background-color: #D6E0FF;
     color: rgb(0, 0, 0);
+}
+
+.boton {
+    margin-right: 3.3%;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .rectangle-top {
@@ -27,7 +87,7 @@ table tr:nth-child(even){
 }
 
 .team-approval {
-    font-family: 'Roboto Condensed', sans-serif;
+    /* font-family: 'Roboto Condensed', sans-serif;
     align-content: center;
     justify-content: center;
     display: flex;
@@ -35,17 +95,49 @@ table tr:nth-child(even){
     padding-bottom: 0.625em;
     background-color: #282C38;
     margin-left: 1%;
+    margin-right: 1%; */
+    font-family: 'Roboto Condensed', sans-serif;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: max-content;
+    background-color: #282C38;
+    margin-left: 1%;
     margin-right: 1%;
 }
 
 .name-spaced-out {
     padding-left: 0.938em;
-    padding-right: 74em;
+    /* padding-right: 12.75em; */
+    width: 83em;
     line-height: 1.875em;
 }
 
 .anchor-back {
     margin-top: 2%;
+}
+
+.add{
+    position: absolute;
+    width: 5.625em;
+    height: 2.7em;
+    right: 17.38em;
+    top: 0.6em;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.9em;
+    line-height: 1.313em;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #282C38;
+    background: #B3EDA5;
+    border-radius: 0.313em;
+    border-color: transparent;
 }
 
 .boton_flecha{
@@ -64,6 +156,8 @@ table tr:nth-child(even){
 
 .table-container {
     margin-bottom: 1%;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
 .approve-container {
@@ -110,4 +204,12 @@ table tr:nth-child(even){
 
 .font {
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+.search{
+    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px;
+    text-indent: 10px;
 }
