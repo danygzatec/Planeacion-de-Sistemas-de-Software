@@ -31,6 +31,16 @@ export class SqlService {
 
   }
 
+  getAllEmployees() {
+    return this.http
+      .get<Employee[]>(`${this._fullPath}/getAllEmployees`)
+      .pipe(
+        map((resp) => {
+          return resp;
+        })
+      );
+  }
+
   getTeams() {
 
     return this.http

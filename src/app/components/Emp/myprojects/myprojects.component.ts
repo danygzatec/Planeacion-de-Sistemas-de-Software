@@ -60,9 +60,9 @@ export class MyprojectsComponent implements OnInit {
   }
 
   getEmployeeAPI() {
-    this.sql.getEmployees().subscribe((resp) => {
+    this.sql.getAllEmployees().subscribe((resp) => {
       this.employee = resp;
-      console.log(this.employee);
+      //console.log(this.employee);
       this.getProjectsAPI(this.employee)
     })
   }
@@ -70,6 +70,7 @@ export class MyprojectsComponent implements OnInit {
   getProjectsAPI(employee : Employee[]) {
     this.sql.getProjects().subscribe((resp) => {
       this.projects = resp;
+      //console.log(this.projects);
       this.getEmpProjAPI(employee, this.projects);
     })
   }
@@ -77,7 +78,7 @@ export class MyprojectsComponent implements OnInit {
   getEmpProjAPI(employee : Employee[], projects : Project[]) {
     this.sql.getEmployeeProjects().subscribe((resp) => {
       this.empProject = resp;
-
+      console.log(this.empProject);
       this.createObjects(employee, projects, this.empProject);
     })
   }
@@ -107,7 +108,8 @@ export class MyprojectsComponent implements OnInit {
 
     // buscamos los proyectos en los que trabajó y que completó las horas
     empProject.forEach(element => {
-      if (element.did_complete && element.id_employee === e!.id) {
+      //if (element.did_complete && element.id_employee === e!.id) {
+      if (element.id_employee === e!.id) {
         var id = element.id_project;
         var proj = projects.find(pjct => pjct.id === id);
         this.userProjects.push(proj!);
