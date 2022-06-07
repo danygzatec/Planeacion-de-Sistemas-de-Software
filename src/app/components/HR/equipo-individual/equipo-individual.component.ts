@@ -95,22 +95,23 @@ export class EquipoIndividualComponent implements OnInit {
   getEmployeeProjects(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[]) {
     this.sql.getEmployeeProjects().subscribe((resp) => {
       this.empProjects = resp;
-      this.createObjects(employees, teams, empTeams, projects, this.empProjects);
+      this.getUnassigned(employees, teams, empTeams, projects, this.empProjects);
     })
   }
 
-  getUnassigned(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[], empProjects: EmployeeProject) {
+  getUnassigned(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[], empProjects: EmployeeProject[]) {
     this.sql.getUnassigned().subscribe((resp) => {
       this.unassigned = resp;
+      this.createObjects(employees, teams, empTeams, projects, this.empProjects, this.unassigned);
     })
   }
 
-  createObjects(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[], empProjects: EmployeeProject[]) {
+  createObjects(employees: Employee[], teams: Team[], empTeams: EmployeeTeam[], projects: Project[], empProjects: EmployeeProject[], unassigned: Employee[]) {
 
     empProjects.forEach(element => {
       var e = employees.find(emp => emp.id === element.id_employee);
       if (e === undefined) {
-        e = this.unassigned.find(emp => emp.id === element.id_employee);
+        e = unassigned.find(emp => emp.id === element.id_employee);
       }
 
       if (e !== undefined) {
@@ -153,10 +154,12 @@ export class EquipoIndividualComponent implements OnInit {
     var members: any = [];
     this.empTeams.forEach(element => {
       if (element.id_team == this.team!.id && element.status_member != 4) {
+        //console.log(element.id_employee);
         var e = this.employees.find(emp => emp.id === element.id_employee);
 
         if (e === undefined) {
           e = this.unassigned.find(emp => emp.id === element.id_employee);
+          console.log(this.unassigned);
         }
 
         if (e !== undefined) {
@@ -282,11 +285,12 @@ export class EquipoIndividualComponent implements OnInit {
     });
   }
 
-  openDialogAdd(members: any, id_team: any) {
+  openDialogAdd(members: any, id_team: any, isUnassigned: boolean) {
     this.dialogRef.open(AddButtonComponent, {
       data: {
         m: members,
-        idT: id_team
+        idT: id_team,
+        iU: isUnassigned
       }
     });
   }

@@ -226,5 +226,16 @@ export class SqlService {
     })
   }
 
+  postAddUnassigned(params : HttpParams) {
+    console.log("sending add unassigned to backend server");
+
+    this.http.post<any>(`${this._fullPath}/addUnassigned`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("add unassigned sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
 
 }

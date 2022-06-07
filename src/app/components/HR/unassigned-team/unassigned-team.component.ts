@@ -89,14 +89,14 @@ export class UnassignedTeamComponent implements OnInit {
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
 
-      console.log("Equipos ", this.teams);
+      //console.log("Equipos ", this.teams);
 
       this.teams.forEach( t => {
         if (t.id_employee === currEmployee.id) {
           this.team = t;
         }
       })
-      console.log(this.team);
+      //console.log(this.team);
 
       this.createObjects(employees, empTeams, this.team);
 
@@ -177,11 +177,12 @@ export class UnassignedTeamComponent implements OnInit {
     this.navbarActive.navigate(page);
   }
 
-  openDialogAdd(members: any, id_team: any) {
+  openDialogAdd(members: any, id_team: any, isUnassigned: boolean) {
     this.dialogRef.open(AddButtonComponent, {
       data: {
         m: members,
-        idT: id_team
+        idT: id_team,
+        iU: isUnassigned
       }
     });
   }
@@ -201,7 +202,7 @@ export class UnassignedTeamComponent implements OnInit {
         employeesToAdd.push(element);
       }
     })
-    console.log(employeesToAdd);
+    //console.log(employeesToAdd);
     return employeesToAdd;
 
   }

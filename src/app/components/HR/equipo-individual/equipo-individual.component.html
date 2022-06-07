@@ -26,7 +26,7 @@
                     </div>
                 </li>
                 <td>
-                    <button *ngIf="!team?.approved_HR" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects(),team?.id)">Add +</button>
+                    <button *ngIf="!team?.approved_HR" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects(),team?.id, false)">Add +</button>
                     <!-- <button *ngIf="!getApprovedHR()" class="add" (click)="openDialogAdd(getUnassignedEmployeesInProjects())">Add +</button> -->
                 </td>
             </ul>
