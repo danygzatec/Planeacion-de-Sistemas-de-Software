@@ -131,7 +131,7 @@ export class MyteamComponent implements OnInit {
         } else if (element.role_member === 1) {
           element.role_member_string = "As peer";
         } else if (element.role_member === 3 && element.status_member != 5) {
-          element.role_member_string = "Added by request";
+          element.role_member_string = "";
         }else if (element.role_member == 2){
           element.role_member_string = "As team"
         }

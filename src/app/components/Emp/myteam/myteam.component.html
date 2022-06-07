@@ -57,8 +57,8 @@
                 <div *ngIf="member.role_member_string == 'As peer'">
                     <td class="role-spaced-out"> As peer</td>
                 </div>
-                <div *ngIf="member.role_member_string == 'Added by request'">
-                    <td class="role-spaced-out"> Added by request</td>
+                <div *ngIf="member.role_member === 3 && member.status_member != 5">
+                    <td class="role-spaced-out"> </td>
                 </div>
                 <div *ngIf="member.role_member_string == undefined">
                     <td class="role-spaced-out"> </td>
