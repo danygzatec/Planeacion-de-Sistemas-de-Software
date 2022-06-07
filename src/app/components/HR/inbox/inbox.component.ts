@@ -24,28 +24,39 @@ export class InboxComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sql.getEmployees().subscribe((resp) => {
-      this.employee = resp;
-    })
-
-    this.sql.getRequests().subscribe((resp) => {
-      this.request = resp;
-      this.lastRequestLength = resp.length;
-    })
-
     //this.createObjects();
+    this.getEmp();
 
     setTimeout(() => { this.ngOnInit() }, 1000 * 5);
 
   }
 
-  createObjects() {
-    this.request.forEach(req => {
+  getEmp() {
+    this.sql.getEmployees().subscribe((resp) => {
+      this.employee = resp;
+      this.getRequests(this.employee);
+    })
+    
+  }
+
+  getRequests(employee : Employee[]) {
+    this.sql.getRequests().subscribe((resp) => {
+      this.request = resp;
+      this.lastRequestLength = resp.length;
+    })
+
+    this.createObjects(employee, this.request)
+
+  }
+
+  createObjects(employee : Employee[], request : Request[]) {
+
+    request.forEach(req => {
 
       var currString: string = "";
 
-      var requested = this.employee.find(emp => req.id_emp_req === emp.id);
-      var modified = this.employee.find(emp => req.id_emp_mod === emp.id);
+      var requested = employee.find(emp => req.id_emp_req === emp.id);
+      var modified = employee.find(emp => req.id_emp_mod === emp.id);
 
       req.requestedBy = requested;
       req.employeeModified = modified
@@ -68,6 +79,8 @@ export class InboxComponent implements OnInit {
       console.log("fuera ", req.title);
 
     });
+
+    console.log(request);
 
   }
 
