@@ -214,9 +214,16 @@ export class MyteamComponent implements OnInit {
         }
 
         // el e no esta definido y si no es el empleado logged in
+
         if (e !== undefined && e.id !== this.team.id_employee) {
-          members.push(e);
-          console.log(e);
+          if (members.indexOf(e) == -1){
+            members.push(e);
+            console.log(e);
+          }
+          
+          // members.push(e);
+          // console.log(e);
+          // projectList.indexOf(element.id_project) > -1
         }
       }
     })
