@@ -169,7 +169,7 @@ export class EquipoIndividualComponent implements OnInit {
           element.role_member_string = "As peer";
         }
         else if (element.role_member === 3) {
-          element.role_member_string = "Added by request";
+          element.role_member_string = "Added by HR";
         } else {
           element.role_member_string = "As team"
         }
@@ -205,7 +205,7 @@ export class EquipoIndividualComponent implements OnInit {
         } else if (element.role_member === 1) {
           element.role_member_string = "As peer";
         } else if (element.role_member === 3) {
-          element.role_member_string = "Added by request";
+          element.role_member_string = "Added by HR";
         } else {
           element.role_member_string = "As leader"
         }
@@ -269,20 +269,23 @@ export class EquipoIndividualComponent implements OnInit {
 
   }
 
-  openDialog(member: any, employee: any, idEmployeeTeam: any) {
-    this.dialogRef.open(PopupDeleteComponent, {
-      data: {
-        m: member,
+  openDialog(member: any, employee: any, idEmployeeTeam: any, idReqBy: any, idRemove: any){
+    this.dialogRef.open(PopupDeleteComponent,{
+      data : {
+        m : member,
         e: employee,
-        idET: idEmployeeTeam
+        idET: idEmployeeTeam,
+        idRB: idReqBy,
+        idR: idRemove
       }
     });
   }
 
-  openDialogAdd(members: any) {
+  openDialogAdd(members: any, id_team: any) {
     this.dialogRef.open(AddButtonComponent, {
       data: {
-        m: members
+        m: members,
+        idT: id_team
       }
     });
   }
