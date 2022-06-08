@@ -38,7 +38,7 @@
 <div class="team-approval">
     <div class="table-container">
         <table class="table-style"> 
-            <tr *ngIf="members.length == 0"> Sorry! There are no suggestions for this employee.</tr>
+            <div *ngIf="members.length == 0" class="no-suggestions"> Sorry! There are no suggestions for this employee.</div>
             <tr *ngFor="let member of members | filter:searchText">
                 <td *ngIf="member.member_status != 4" class="name-spaced-out"> {{ member.employee!.employee_name }}</td>
                 <td>

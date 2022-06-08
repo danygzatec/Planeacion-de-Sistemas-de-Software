@@ -4,12 +4,12 @@
         <div class="font"><h1>Dashboard</h1></div>
     </div> -->
     <!-- <div class="linea-azul"></div> -->
-    <div>
-        <button class= "show"(click)="refreshHours()">Show/Update Hour Graphs</button>
-    </div>
-    <div>
-        <button class= "show"(click)="refreshRatios()">Show/Update Employee Graphs</button>
-    </div>
+    <span>
+        <button class="show" (click)="refreshHours()">Show/Update Hour Graphs</button>
+    </span>
+    <span>
+        <button class="show" (click)="refreshRatios()">Show/Update Employee Graphs</button>
+    </span>
     <div class="graph">
         <div class="row">
             <div class="col-sm-6" *ngIf="hasDataTeams">

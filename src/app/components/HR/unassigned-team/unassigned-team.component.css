@@ -84,6 +84,7 @@ table tr:nth-child(even){
 
 .table-style {
     font-family: 'Roboto Condensed', sans-serif;
+    
 }
 
 .team-approval {
@@ -212,4 +213,9 @@ table tr:nth-child(even){
     background-position: left center;
     background-size: 20px;
     text-indent: 10px;
+}
+
+.no-suggestions{
+    color:#EEF2FF;
+    font-size: 1.25em;
 }
