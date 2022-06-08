@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
 import ExcelData from 'src/excel-dummy.json'
-import { Title } from '@angular/platform-browser';
+import { HAMMER_GESTURE_CONFIG, Title } from '@angular/platform-browser';
 
 
 import { Router } from '@angular/router';
@@ -45,7 +45,6 @@ export class AppComponent implements OnInit {
         }
       }
     )
-    this.getHasUpload();
     this.getUsers();
     this.getEvaluationPeriod();
     this.getRequests();
@@ -66,7 +65,7 @@ export class AppComponent implements OnInit {
       this.msalService.instance.setActiveAccount(response.account)
       // console.log("hola", response.account?.name)
       // console.log("hola", response.account?.username)
-      this.rerouteHR();
+      this.getUsers();
     });
 
     //this.router.navigate(['/crear-equipos']);
@@ -90,7 +89,7 @@ export class AppComponent implements OnInit {
     //this.sql.getEmployees().subscribe((resp) => {
     this.sql.getAllEmployees().subscribe((resp) => {
       this.employees = resp;
-      return resp;
+      this.getHasUpload(resp);
     })
   }
 
@@ -101,10 +100,11 @@ export class AppComponent implements OnInit {
     })
   }
 
-  getHasUpload(): any {
+  getHasUpload(employees : Employee[]) {
     //console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
     this.sql.getHasUploaded().subscribe((resp) => {
-      return resp;
+      this.has_u = resp;
+      this.rerouteHR(employees, resp);
     });
   }
 
@@ -131,17 +131,16 @@ export class AppComponent implements OnInit {
     }
   }
 
-  rerouteHR() {
+  rerouteHR(employees : Employee[], hasUploaded : boolean) {
     if (this.isLoggedIn()) {
-      this.getUsers();
-      var user = this.employees.find(element => element.email === this.msalService.instance.getActiveAccount()!.username);
+      var user = employees.find(element => element.email === this.msalService.instance.getActiveAccount()!.username);
       console.log(this.msalService.instance.getActiveAccount()!.username);
       console.log(user);
       if (user === undefined) {
         this.logout();
       } else {
         if (user.is_HR) {
-          if (this.getHasUpload()) {
+          if (hasUploaded) {
             this.router.navigate(['consultar-equipos']);
             //window.location.reload();
           } else {
