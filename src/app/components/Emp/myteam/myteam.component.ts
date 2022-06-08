@@ -266,6 +266,7 @@ export class MyteamComponent implements OnInit {
 
       //console.log(req);
       this.sql.postApproveEmp(req);
+      window.location.reload();
 
     //this.team.approved_Emp = true;
   }
