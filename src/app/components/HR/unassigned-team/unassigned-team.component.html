@@ -37,7 +37,8 @@
 
 <div class="team-approval">
     <div class="table-container">
-        <table class="table-style">
+        <table class="table-style"> 
+            <tr *ngIf="members.length == 0"> Sorry! There are no suggestions for this employee.</tr>
             <tr *ngFor="let member of members | filter:searchText">
                 <td *ngIf="member.member_status != 4" class="name-spaced-out"> {{ member.employee!.employee_name }}</td>
                 <td>
@@ -46,6 +47,6 @@
                 </td>
             </tr>
         </table>
-        <button class="anchor-back" routerLink="consultar-equipos" (click)="createTeam()" class="approve"> Create team</button>
+        <button *ngIf="members.length != 0" class="anchor-back" routerLink="consultar-equipos" (click)="createTeam()" class="approve"> Create team</button>
     </div>
 </div>
