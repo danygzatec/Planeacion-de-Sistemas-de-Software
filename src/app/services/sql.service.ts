@@ -247,5 +247,27 @@ export class SqlService {
     })
   }
 
+  postCreateTeamUnassigned(params : HttpParams) {
+    console.log("sending create team unassigned to backend server");
+
+    this.http.post<any>(`${this._fullPath}/createTeamUnassigned`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("create team unassigned sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
+  postAddUnassignedToTeam(params : HttpParams) {
+    console.log("sending add unassigned to team to backend server");
+
+    this.http.post<any>(`${this._fullPath}/addUnassignedToTeam`, params).subscribe((resp) => {
+      console.log(resp);
+      console.log("add unassigned to team sent to backend successfully!");
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
 
 }
