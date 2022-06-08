@@ -5,9 +5,26 @@
     </div> -->
     <!-- <div class="linea-azul"></div> -->
     <div>
-        <button class= "show"(click)="refreshHours()">Show/Update graphs</button>
+        <button class= "show"(click)="refreshHours()">Show/Update Hour Graphs</button>
+    </div>
+    <div>
+        <button class= "show"(click)="refreshRatios()">Show/Update Employee Graphs</button>
     </div>
     <div class="graph">
+        <div class="row">
+            <div class="col-sm-6" *ngIf="hasDataTeams">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Employees with teams and Unassigned</h5>
+                        <p class="card-text">
+                        <div class="donut-chart">
+                            <canvas baseChart [data]="barChartData" [type]="barChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-6" *ngIf="hasData">
                 <div class="card">
