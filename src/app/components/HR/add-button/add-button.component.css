@@ -142,8 +142,9 @@ table {
 }
 
 .bubble{
-    background-color: #EEF2FF;
-    width: auto;
-    height: auto;
-    border-radius: 100px/50px;
+    background-color: #d5dfff;
+    width: auto + 0.25em;
+    height: 0em;
+    border-radius: 10px;
+    margin: 0.25em;
 }

@@ -253,6 +253,14 @@ table tr:nth-child(even){
     text-indent: 10px;
 }
 
+.wait{
+    background-color: #e2f7ff;
+    height: 79.990vh;
+    text-align: center;
+    padding: 200px 0;
+    font-size: 25px;
+}
+
 
 @media screen and (max-width: 1478px){
     .boton{

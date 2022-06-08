@@ -16,7 +16,7 @@
 </div>
 <div *ngIf="!myTeam.approved_HR && myTeam.approved_Emp" class="linea-gris"></div> 
 
-<div *ngIf="members.length == 0">Wait for your team to be created by HR.</div> 
+<div *ngIf="members.length == 0" class="wait font">Wait for your team to be created by HR.</div> 
 
 <nav *ngIf="members.length != 0" class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
