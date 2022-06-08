@@ -108,6 +108,7 @@ export class InboxComponent implements OnInit {
       .set('type', request.type);
     console.log(req);
     this.sql.postDeclineRequest(req);
+    window.location.reload();
   }
 
   acceptRequest(request: any){
@@ -120,5 +121,6 @@ export class InboxComponent implements OnInit {
       .set('type', request.type);
     console.log(req);
     this.sql.postAcceptRequest(req);
+    window.location.reload();
   }
 }

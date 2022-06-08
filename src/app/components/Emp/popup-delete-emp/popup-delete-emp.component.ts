@@ -63,7 +63,8 @@ export class PopupDeleteEmpComponent implements OnInit {
         .set('id_employee_teams',this.employee_teams.id);
       console.log(req);
       this.sql.postReqRemove(req);
-    this.dialogRef.close();
+      this.dialogRef.close();
+      window.location.reload();
     
 
 }

@@ -50,6 +50,7 @@ export class AddButtonComponent implements OnInit {
       }
       // console.log(employeesToAdd[i].id);
       // console.log(this.id_team);
+      window.location.reload();
       
     }
     this.dialogRef.close();

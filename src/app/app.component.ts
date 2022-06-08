@@ -143,6 +143,7 @@ export class AppComponent implements OnInit {
         if (user.is_HR) {
           if (this.getHasUpload()) {
             this.router.navigate(['consultar-equipos']);
+            //window.location.reload();
           } else {
             this.router.navigate(['crear-equipos']);
           }

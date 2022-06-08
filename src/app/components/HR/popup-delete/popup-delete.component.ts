@@ -57,6 +57,7 @@ export class PopupDeleteComponent implements OnInit {
     // }
       
       this.dialogRef.close();
+      window.location.reload();
     
   }
 

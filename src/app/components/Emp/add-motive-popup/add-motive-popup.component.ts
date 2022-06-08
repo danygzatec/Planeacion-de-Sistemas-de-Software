@@ -64,6 +64,6 @@ export class AddMotivePopupComponent implements OnInit {
       this.sql.postReq(req);
     }
     this.dialogRef.close();
-    // !!!!! falta tambien quitar a las personas del request (las de members) de la lista que sale en el popup de agregar (para que ya no le puedan hacer request)
+    window.location.reload();
   }
 }
