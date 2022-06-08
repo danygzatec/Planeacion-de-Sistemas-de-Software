@@ -264,3 +264,22 @@ table tr:nth-child(even){
         margin-right: 4.5%;
     }
 }
+
+.partial-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2em;
+    /* line-height: 4.688em; */
+
+    text-align: center;
+    padding-top: 1.4%;
+}
+
+.partial-container {
+    height: 5em;
+    background-color: #B3EDA5;
+    justify-content: center;
+    display: flex;
+    vertical-align: center;
+}

@@ -9,6 +9,7 @@ import { SqlService } from 'src/app/services/sql.service';
 import { NavbarEmployeeComponent } from '../../shared/navbar-employee/navbar-employee.component';
 import { AddButtonEmpComponent } from '../add-button-emp/add-button-emp.component';
 import { PopupDeleteEmpComponent } from '../popup-delete-emp/popup-delete-emp.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-myteam',
@@ -152,7 +153,13 @@ export class MyteamComponent implements OnInit {
           element.status_member_string = "Removal declined by HR";
         }
 
-        members.push(element);
+        if(this.getApprovedEmp() && (element.status_member == 0 || element.status_member == 3 || element.status_member == 6)){
+          members.push(element);
+        }
+        else if(!this.getApprovedEmp()){
+          members.push(element);
+        }
+       
       }
     });
 
@@ -254,8 +261,13 @@ export class MyteamComponent implements OnInit {
   approve() {
     this.navbarInfo.cleanNavbar();
     this.navbarInfo.navigate('');
+    const req = new HttpParams()
+        .set('id',this.myTeam.id)
 
-    this.team.approved_Emp = true;
+      //console.log(req);
+      this.sql.postApproveEmp(req);
+
+    //this.team.approved_Emp = true;
   }
 
   getApprovedEmp() {
