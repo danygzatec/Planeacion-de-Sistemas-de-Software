@@ -1,4 +1,21 @@
-<div class="linea-gris"></div> 
+<!-- <div *ngIf="!myTeam.approved_HR && !myTeam.approved_Emp" class="linea-gris"></div>  -->
+
+<div class="linea-gris"></div>
+
+<div *ngIf="myTeam.approved_HR && myTeam.approved_Emp"class="partial-container">
+    <h2 class="partial-title">
+        Approval Successful
+    </h2>
+</div>
+<div *ngIf="myTeam.approved_HR && myTeam.approved_Emp" class="linea-gris"></div> 
+
+<div *ngIf="!myTeam.approved_HR && myTeam.approved_Emp"class="partial-container">
+    <h2 class="partial-title">
+        Partial Approval Successful: waiting for HR to approve team...
+    </h2>
+</div>
+<div *ngIf="!myTeam.approved_HR && myTeam.approved_Emp" class="linea-gris"></div> 
+
 <div *ngIf="members.length == 0">Wait for your team to be created by HR.</div> 
 
 <nav *ngIf="members.length != 0" class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
@@ -72,7 +89,7 @@
         </table>
         
         <div *ngIf="!getApprovedEmp() && members.length != 0">
-            <button class="approve" routerLink="partial-approval" (click)="approve()"> Approve </button>
+            <button class="approve" routerLink="myteam" (click)="approve()"> Approve </button>
         </div>
         
     </div>
