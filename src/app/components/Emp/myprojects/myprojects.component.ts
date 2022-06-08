@@ -192,6 +192,8 @@ export class MyprojectsComponent implements OnInit {
 
     this.nonBillableHours = nonbillHrs;
 
+    this.refreshHours();
+
   }
 
 
