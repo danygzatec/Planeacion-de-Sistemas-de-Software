@@ -1,6 +1,7 @@
 <div class="linea-gris"></div> 
+<div *ngIf="members.length == 0">Wait for your team to be created by HR.</div> 
 
-<nav class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
+<nav *ngIf="members.length != 0" class="navbar navbar-expand-sm navbar-custom" style="background-color: #27A0D4;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,7 +32,7 @@
     
 </nav>
 
-<div class="team-approval">
+<div *ngIf="members.length != 0" class="team-approval">
     <div class="table-container">
         <!-- {{getEmp()!.employee_name}} -->
         <table class="table-style" *ngIf="getEvaluatorBool() == false" >
@@ -70,7 +71,7 @@
             </tr>
         </table>
         
-        <div *ngIf="!getApprovedEmp()">
+        <div *ngIf="!getApprovedEmp() && members.length != 0">
             <button class="approve" routerLink="partial-approval" (click)="approve()"> Approve </button>
         </div>
         

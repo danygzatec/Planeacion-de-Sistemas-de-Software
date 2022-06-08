@@ -15,11 +15,13 @@ export class AddButtonComponent implements OnInit {
   public members : Employee[];
   public isChecked : Boolean[];
   public id_team: any;
+  public isUnassigned: boolean;
 
   constructor(private sql: SqlService, private  dialogRef:  MatDialogRef<AddButtonComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { 
       this.members = data.m;
       this.id_team = data.idT;
+      this.isUnassigned = data.iU;
       this.isChecked = [];
       this.members.forEach(m => {
       this.isChecked.push(false)
@@ -27,19 +29,28 @@ export class AddButtonComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    console.log(this.members);
+    //console.log(this.members);
   }
 
   public addHR() {
     var employeesToAdd = this.getCheckedMembers();
     for (let i = 0; i < employeesToAdd.length; i++){
-      // console.log(employeesToAdd[i].id);
-      // console.log(this.id_team);
-      const req = new HttpParams()
+      if (!this.isUnassigned){
+        const req = new HttpParams()
         .set('id_emp_mod', employeesToAdd[i].id)
         .set('id_team', this.id_team)
       //console.log(req);
-      this.sql.postAddHR(req);
+        this.sql.postAddHR(req);
+      } else{
+        const req = new HttpParams()
+        .set('id_emp_mod', employeesToAdd[i].id)
+        .set('id_team', this.id_team)
+      //console.log(req);
+        this.sql.postAddUnassigned(req);
+      }
+      // console.log(employeesToAdd[i].id);
+      // console.log(this.id_team);
+      
     }
     this.dialogRef.close();
   }

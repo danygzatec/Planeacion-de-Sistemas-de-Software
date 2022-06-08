@@ -12,6 +12,7 @@ import ExcelData from 'src/excel-dummy.json'
 import { createAbstractBuilder } from 'typescript';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import { PopupDeleteComponent } from '../popup-delete/popup-delete.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-unassigned-team',
@@ -88,14 +89,14 @@ export class UnassignedTeamComponent implements OnInit {
     this.sql.getTeams().subscribe((resp) => {
       this.teams = resp;
 
-      console.log("Equipos ", this.teams);
+      //console.log("Equipos ", this.teams);
 
       this.teams.forEach( t => {
         if (t.id_employee === currEmployee.id) {
           this.team = t;
         }
       })
-      console.log(this.team);
+      //console.log(this.team);
 
       this.createObjects(employees, empTeams, this.team);
 
@@ -141,9 +142,10 @@ export class UnassignedTeamComponent implements OnInit {
         } else {
           et.role_member_string = "team"
         }
-        if (!this.findLocalStorage(et)){
-          this.members.push(et);
-        }
+        // if (!this.findLocalStorage(et)){
+        //   this.members.push(et);
+        // }
+        this.members.push(et);
       }
     });
 
@@ -164,22 +166,17 @@ export class UnassignedTeamComponent implements OnInit {
     }
   }
 
-  addTeam() {
-
-    // post al api que haga un insert en Teams
-    console.log("Aqui se va a crear el equipo :p");
-  }
-
   navigateBack(page: any) {
     console.log(page);
     this.navbarActive.navigate(page);
   }
 
-  openDialogAdd(members: any, id_team: any) {
+  openDialogAdd(members: any, id_team: any, isUnassigned: boolean) {
     this.dialogRef.open(AddButtonComponent, {
       data: {
         m: members,
-        idT: id_team
+        idT: id_team,
+        iU: isUnassigned
       }
     });
   }
@@ -199,7 +196,7 @@ export class UnassignedTeamComponent implements OnInit {
         employeesToAdd.push(element);
       }
     })
-    console.log(employeesToAdd);
+    //console.log(employeesToAdd);
     return employeesToAdd;
 
   }
@@ -216,9 +213,33 @@ export class UnassignedTeamComponent implements OnInit {
   // }
 
   remove(employee: any){
-  localStorage.setItem(employee.id_employee, employee.employee.employee_name);
-  this.members = this.members.filter(function(ele){
-    return ele != employee;
-  });
-}
+  //localStorage.setItem(employee.id_employee, employee.employee.employee_name);
+    this.members = this.members.filter(function(ele){
+      return ele != employee;
+    });
+    const req = new HttpParams()
+        .set('id', employee.id)
+      //console.log(req);
+      this.sql.postRemoveUnassigned(req);
+  }
+
+  createTeam() {
+    // post al api que haga un insert en Teams
+    //console.log("Aqui se va a crear el equipo :p");
+    //console.log("id", this.id);
+    const req = new HttpParams()
+        .set('id_team', this.team.id)
+        .set('id_employee', this.id)
+      //console.log(req);
+      this.sql.postCreateTeamUnassigned(req);
+    for (let i = 0; i < this.members.length; i++){
+      const reqM = new HttpParams()
+        .set('role_member',this.members[i].role_member)
+        .set('id_employeeU', this.id)
+        .set('id_employee', this.members[i].id_employee)
+      //console.log(req);
+      this.sql.postAddUnassignedToTeam(reqM);
+
+    }
+  }
 }

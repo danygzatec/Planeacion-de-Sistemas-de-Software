@@ -87,7 +87,8 @@ export class AppComponent implements OnInit {
   }
 
   getUsers(): any {
-    this.sql.getEmployees().subscribe((resp) => {
+    //this.sql.getEmployees().subscribe((resp) => {
+    this.sql.getAllEmployees().subscribe((resp) => {
       this.employees = resp;
       return resp;
     })
