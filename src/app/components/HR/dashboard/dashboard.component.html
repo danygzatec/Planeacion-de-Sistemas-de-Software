@@ -1,13 +1,15 @@
-
 <div style="background-color: #E4E3E3;" class="row-full">
     <!-- <div class="linea"></div>  -->
     <!-- <div class="approved-rectangle"> 
         <div class="font"><h1>Dashboard</h1></div>
     </div> -->
     <!-- <div class="linea-azul"></div> -->
+    <div>
+        <button class= "show"(click)="refreshHours()">Show/Update graphs</button>
+    </div>
     <div class="graph">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6" *ngIf="hasData">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Billable hours</h5>
@@ -19,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" *ngIf="hasData">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Non Billable Hours</h5>
