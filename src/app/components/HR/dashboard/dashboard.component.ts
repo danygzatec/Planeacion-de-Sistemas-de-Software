@@ -30,6 +30,10 @@ export class DashboardComponent implements OnInit {
   nonBillableHours: number[];
   userProjects: Project[];
   hasData: boolean;
+  hasDataTeams: boolean;
+  allEmployees: Employee[];
+  employeesWithTeam: number;
+  employeesWithoutTeam: number;
 
   // doughnut chart
   // billable
@@ -49,6 +53,15 @@ export class DashboardComponent implements OnInit {
   // decimos que el chart type es tipo doughnut
   public doughnutChartType: ChartType = 'doughnut';
 
+  public barChartData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [
+      { data: [] }
+    ]
+  };
+
+  public barChartType: ChartType = 'bar';
+
   //curr = formatDate(new Date(), 'dd/MM/yyyy' ,this.locale);
   curr = formatDate(new Date(), "MMM d, yyyy 'at' H:mm aa", this.locale);
 
@@ -60,15 +73,20 @@ export class DashboardComponent implements OnInit {
     this.employee = [];
     this.empProject = [];
     this.userProjects = [];
+    this.allEmployees = [];
+    this.employeesWithTeam = 0;
+    this.employeesWithoutTeam = 0;
 
     this.billableHours = [];
     this.nonBillableHours = [];
     this.hasData = false;
+    this.hasDataTeams = false;
 
   }
 
   ngOnInit(): void {
     this.getEmployeeAPI();
+    this.getAllEmployees();
   }
 
   getEmployeeAPI() {
@@ -151,11 +169,6 @@ export class DashboardComponent implements OnInit {
       this.doughnutChartDataNB.labels!.push(p.project_name);
     })
 
-    console.log(this.doughnutChartDataB.datasets[0].data);
-    console.log(this.doughnutChartDataB.labels)
-    console.log(this.doughnutChartDataNB.datasets[0].data);
-    console.log(this.doughnutChartDataNB.labels)
-
     this.hasData = true;
 
   }
@@ -177,7 +190,8 @@ export class DashboardComponent implements OnInit {
           // asignamos valores en el dataset correspondiente de nuestro chart
           this.doughnutChartDataB.datasets[0].data.push(element.billHrs);
 
-        }}
+        }
+      }
     })
 
     this.billableHours = billHrs;
@@ -202,11 +216,56 @@ export class DashboardComponent implements OnInit {
           // asignamos valores en el dataset correspondiente de nuestro chart
           this.doughnutChartDataNB.datasets[0].data.push(element.nonBillHrs);
 
-        }}
+        }
+      }
     })
 
     this.nonBillableHours = nonbillHrs;
   }
 
+  getAllEmployees() {
+
+    this.sql.getAllEmployees().subscribe((resp) => {
+      this.allEmployees = resp;
+
+      this.getTeamRatios(this.allEmployees);
+
+    })
+
+  }
+
+  getTeamRatios(allEmployees: Employee[]) {
+    allEmployees.forEach(emp => {
+      if (emp.is_assigned) {
+        this.employeesWithTeam++;
+      } else {
+        this.employeesWithoutTeam++;
+      }
+    });
+
+    this.barChartData.datasets[0].data.push(this.employeesWithTeam);
+    this.barChartData.datasets[0].data.push(this.employeesWithoutTeam);
+
+    this.barChartData.labels?.push("Employees with Team");
+    this.barChartData.labels?.push("Unassigned Employees");
+
+    this.refreshRatios();
+
+  }
+
+  refreshRatios() {
+
+    this.barChartData.datasets[0].data = [];
+    this.barChartData.labels = [];
+
+    this.barChartData.datasets[0].data.push(this.employeesWithTeam);
+    this.barChartData.datasets[0].data.push(this.employeesWithoutTeam);
+
+    this.barChartData.labels?.push("Employees with Team");
+    this.barChartData.labels?.push("Unassigned Employees");
+
+    this.hasDataTeams = true;
+
+  }
 
 }
