@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   evaluationPeriod: EvaluationPeriod[];
   requests : Request[];
   private has_u = false;
+  public nRequests: number = 0;
 
   constructor(
     public msalService: MsalService,
@@ -104,8 +105,17 @@ export class AppComponent implements OnInit {
     //console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
     this.sql.getHasUploaded().subscribe((resp) => {
       this.has_u = resp;
-      this.rerouteHR(employees, resp);
+      this.getCountRequests(employees, resp);
+      //this.rerouteHR(employees, resp);
     });
+  }
+
+  getCountRequests(employees : Employee[], hasUploaded : boolean){
+    this.sql.getRequests().subscribe((resp) => {
+      this.requests = resp;
+      this.nRequests = this.requests.length;
+      this.rerouteHR(employees, hasUploaded);
+    })
   }
 
   getRequests() : number {

@@ -146,7 +146,8 @@ export class NavbarComponent implements OnInit {
 
   getCountRequests(): number {
     //this.requestInfo.ngOnInit();
-    return this.accountInfo.getRequests();
+    //return this.accountInfo.getRequests();
+    return this.accountInfo.nRequests;
   }
 
 
