@@ -44,9 +44,10 @@ h1{
 .graph{
     justify-content: center;
     width: 90%;
-    height: 90%;
+    height: max-content;
     padding-top: 2%;
     padding-left: 10%;
+    padding-bottom: 4%;
     border-radius: 0.938em;
 }
 
@@ -58,8 +59,8 @@ h1{
 
 .show{
     border-radius: 10px;
-    margin-left: 25%;
-    margin-top: 1em;
+    margin-left: 45%;
+    margin-top: 1.5%;
     background-color:#27A0D4;
     border-color: #27A0D4;
     color: #F6F6F6;

@@ -5,17 +5,14 @@
     </div> -->
     <!-- <div class="linea-azul"></div> -->
     <span>
-        <button class="show" (click)="refreshHours()">Show/Update Hour Graphs</button>
-    </span>
-    <span>
-        <button class="show" (click)="refreshRatios()">Show/Update Employee Graphs</button>
+        <button class="show" (click)="refreshApprovedTeams()">Update Employee Graphs</button>
     </span>
     <div class="graph">
         <div class="row">
             <div class="col-sm-6" *ngIf="hasDataTeams">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Employees with teams and Unassigned</h5>
+                        <h5 class="card-title">Employees with Teams and Unassigned Employees</h5>
                         <p class="card-text">
                         <div class="donut-chart">
                             <canvas baseChart [data]="barChartData" [type]="barChartType">
@@ -24,7 +21,24 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6" *ngIf="hasDataApprovedTeams">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Approved Teams vs Yet To Be Approved Teams</h5>
+                        <p class="card-text">
+                        <div class="donut-chart">
+                            <canvas baseChart [data]="barChartDataTeam" [type]="barChartTypeTeam">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <span>
+        <button class="show" (click)="refreshHours()">Update Hour Graphs</button>
+    </span>
+    <div class="graph">
         <div class="row">
             <div class="col-sm-6" *ngIf="hasData">
                 <div class="card">
