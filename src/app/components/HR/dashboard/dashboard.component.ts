@@ -13,6 +13,7 @@ import {
 import { ChartData, ChartType } from 'chart.js';
 import { Employee } from 'src/app/models/employee';
 import { Project } from 'src/app/models/project';
+import { Team } from 'src/app/models/team';
 import { EmployeeProject } from 'src/app/models/employee-project';
 import { SqlService } from 'src/app/services/sql.service';
 
@@ -26,6 +27,7 @@ export class DashboardComponent implements OnInit {
   projects: Project[];
   employee: Employee[];
   empProject: EmployeeProject[];
+  teams : Team[];
   billableHours: number[];
   nonBillableHours: number[];
   userProjects: Project[];
@@ -34,6 +36,9 @@ export class DashboardComponent implements OnInit {
   allEmployees: Employee[];
   employeesWithTeam: number;
   employeesWithoutTeam: number;
+  approvedTeams : number;
+  yetToApproveTeams : number;
+  hasDataApprovedTeams : boolean;
 
   // doughnut chart
   // billable
@@ -62,6 +67,15 @@ export class DashboardComponent implements OnInit {
 
   public barChartType: ChartType = 'bar';
 
+  public barChartDataTeam: ChartData<'bar'> = {
+    labels: [],
+    datasets: [
+      { data: [] }
+    ]
+  };
+
+  public barChartTypeTeam: ChartType = 'bar';
+
   //curr = formatDate(new Date(), 'dd/MM/yyyy' ,this.locale);
   curr = formatDate(new Date(), "MMM d, yyyy 'at' H:mm aa", this.locale);
 
@@ -71,6 +85,7 @@ export class DashboardComponent implements OnInit {
 
     this.projects = [];
     this.employee = [];
+    this.teams = [];
     this.empProject = [];
     this.userProjects = [];
     this.allEmployees = [];
@@ -81,6 +96,9 @@ export class DashboardComponent implements OnInit {
     this.nonBillableHours = [];
     this.hasData = false;
     this.hasDataTeams = false;
+    this.hasDataApprovedTeams = false;
+    this.approvedTeams = 0;
+    this.yetToApproveTeams = 0;
 
   }
 
@@ -108,6 +126,7 @@ export class DashboardComponent implements OnInit {
     this.sql.getEmployeeProjects().subscribe((resp) => {
       this.empProject = resp;
 
+      this.getTeams();
       this.createObjects(employee, projects, this.empProject);
     })
   }
@@ -147,6 +166,14 @@ export class DashboardComponent implements OnInit {
 
     this.refreshHours();
 
+  }
+
+  getTeams() {
+    this.sql.getTeams().subscribe((resp) => {
+      this.teams = resp;
+
+      this.getApprovedTeams(resp);
+    })
   }
 
   refreshHours() {
@@ -229,7 +256,6 @@ export class DashboardComponent implements OnInit {
       this.allEmployees = resp;
 
       this.getTeamRatios(this.allEmployees);
-
     })
 
   }
@@ -249,23 +275,62 @@ export class DashboardComponent implements OnInit {
     this.barChartData.labels?.push("Employees with Team");
     this.barChartData.labels?.push("Unassigned Employees");
 
-    this.refreshRatios();
+    this.hasDataTeams = true;
+
+    // this.refreshRatios();
 
   }
 
-  refreshRatios() {
+  // refreshRatios() {
+
+  //   this.barChartData.datasets[0].data = [];
+  //   this.barChartData.labels = [];
+
+  //   this.barChartData.datasets[0].data.push(this.employeesWithTeam);
+  //   this.barChartData.datasets[0].data.push(this.employeesWithoutTeam);
+
+  //   this.barChartData.labels?.push("Employees with Team");
+  //   this.barChartData.labels?.push("Unassigned Employees");
+
+  // }
+
+  getApprovedTeams(teams : Team[]) {
+
+    teams.forEach( team => {
+      if (team.approved_Emp && team.approved_HR) {
+        this.approvedTeams++;
+      } else {
+        this.yetToApproveTeams++;
+      }
+    })
+
+    this.barChartDataTeam.datasets[0].data.push(this.approvedTeams);
+    this.barChartDataTeam.datasets[0].data.push(this.yetToApproveTeams);
+
+    this.barChartDataTeam.labels?.push("Approved Teams");
+    this.barChartDataTeam.labels?.push("Yet to be approved Teams");
+
+    console.log(this.approvedTeams);
+    console.log(this.yetToApproveTeams);
+
+    this.hasDataApprovedTeams = true;
+
+    this.refreshApprovedTeams();
+
+  }
+
+  refreshApprovedTeams() {
 
     this.barChartData.datasets[0].data = [];
     this.barChartData.labels = [];
 
-    this.barChartData.datasets[0].data.push(this.employeesWithTeam);
-    this.barChartData.datasets[0].data.push(this.employeesWithoutTeam);
+    this.barChartData.datasets[0].data.push(this.approvedTeams);
+    this.barChartData.datasets[0].data.push(this.yetToApproveTeams);
 
     this.barChartData.labels?.push("Employees with Team");
     this.barChartData.labels?.push("Unassigned Employees");
 
     this.hasDataTeams = true;
-
   }
 
 }
