@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
-import ExcelData from 'src/excel-dummy.json'
-import { HAMMER_GESTURE_CONFIG, Title } from '@angular/platform-browser';
-
 
 import { Router } from '@angular/router';
 import { Employee } from './models/employee';
@@ -46,6 +43,7 @@ export class AppComponent implements OnInit {
         }
       }
     )
+    this.getHasUpload();
     this.getUsers();
     this.getEvaluationPeriod();
     this.getRequests();
@@ -66,7 +64,7 @@ export class AppComponent implements OnInit {
       this.msalService.instance.setActiveAccount(response.account)
       // console.log("hola", response.account?.name)
       // console.log("hola", response.account?.username)
-      this.getUsers();
+      this.rerouteHR();
     });
 
     //this.router.navigate(['/crear-equipos']);
@@ -90,7 +88,7 @@ export class AppComponent implements OnInit {
     //this.sql.getEmployees().subscribe((resp) => {
     this.sql.getAllEmployees().subscribe((resp) => {
       this.employees = resp;
-      this.getHasUpload(resp);
+      return resp;
     })
   }
 
@@ -101,11 +99,11 @@ export class AppComponent implements OnInit {
     })
   }
 
-  getHasUpload(employees : Employee[]) {
+  getHasUpload() : any {
     //console.log("navbar app", this.evaluationPeriod[0].has_uploaded);
     this.sql.getHasUploaded().subscribe((resp) => {
       this.has_u = resp;
-      this.getCountRequests(employees, resp);
+      return resp;
       //this.rerouteHR(employees, resp);
     });
   }
@@ -114,7 +112,7 @@ export class AppComponent implements OnInit {
     this.sql.getRequests().subscribe((resp) => {
       this.requests = resp;
       this.nRequests = this.requests.length;
-      this.rerouteHR(employees, hasUploaded);
+      //this.rerouteHR(employees, hasUploaded);
     })
   }
 
@@ -130,6 +128,8 @@ export class AppComponent implements OnInit {
   isHR(): boolean {
     if (this.isLoggedIn()) {
       var user = this.employees.find(element => element.email === this.msalService.instance.getActiveAccount()!.username);
+      console.log(this.employees);
+      console.log(user);
       if (user!.is_HR) {
         return true;
       } else {
@@ -141,16 +141,16 @@ export class AppComponent implements OnInit {
     }
   }
 
-  rerouteHR(employees : Employee[], hasUploaded : boolean) {
+  rerouteHR() {
     if (this.isLoggedIn()) {
-      var user = employees.find(element => element.email === this.msalService.instance.getActiveAccount()!.username);
+      var user = this.employees.find(element => element.email === this.msalService.instance.getActiveAccount()!.username);
       console.log(this.msalService.instance.getActiveAccount()!.username);
       console.log(user);
       if (user === undefined) {
         this.logout();
       } else {
         if (user.is_HR) {
-          if (hasUploaded) {
+          if (this.getHasUpload()) {
             this.router.navigate(['consultar-equipos']);
             //window.location.reload();
           } else {
