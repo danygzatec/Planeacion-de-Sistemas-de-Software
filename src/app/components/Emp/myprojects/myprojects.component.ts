@@ -108,8 +108,9 @@ export class MyprojectsComponent implements OnInit {
 
     // buscamos los proyectos en los que trabajó y que completó las horas
     empProject.forEach(element => {
+      var p = this.userProjects.find(pjct => pjct.id === element.id);
       //if (element.did_complete && element.id_employee === e!.id) {
-      if (element.id_employee === e!.id) {
+      if (element.id_employee === e!.id && p == undefined) {
         var id = element.id_project;
         var proj = projects.find(pjct => pjct.id === id);
         this.userProjects.push(proj!);
