@@ -25,7 +25,7 @@
 }
 
 .poptext {
-    position: absolute;
+    /* position: absolute; */
     /* width: 41.125em;
     height: 10.5em; */
     padding-top: 4%;
@@ -35,7 +35,7 @@
     font-weight: 700;
     font-size: 1.4em;
     /* line-height: 2.625em; */
-    text-align: center;
+    text-align: center !important;
 
     color: #000000;
 
